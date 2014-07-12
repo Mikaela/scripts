@@ -3,6 +3,9 @@ if [[ $USER != "root" ]]; then
     NOROOT="--user"
 fi
 
+pip3 --version
+sleep 10
+
 pip3 install -vr https://raw.githubusercontent.com/ProgVal/Limnoria/testing/requirements.txt --upgrade $NOROOT $1
 ## VERY EXPERIMENTAL, BROKEN AND DOES NOT EXIST!
 #pip3 install -vr https://raw.githubusercontent.com/ProgVal/Limnoria/master/requirements.vcs.txt --upgrade $NOROOT $1
