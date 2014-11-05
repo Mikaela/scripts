@@ -1,43 +1,11 @@
 #!/usr/bin/env bash
-set -x
-cd /home/mikaela/SparkleShare/privatesync
-
-mkdir -p pisg;cd pisg
-rsync -Paz lakka:~/.pisg/pisg.cfg .
-rsync -Paz lakka:~/.pisg/kapsiga.txt
-#scp lakka:~/.pisg/pisg.cfg .
-#scp lakka:~/.pisg/kapsiga.txt .
+mkdir -p ~/.backups
+cd ~/.backups
+mkdir -p lakka
+cd lakka
+rsync -Paz --exclude='~/.local/*' --exclude='~/.pyenv/*' --exclude='*git*' lakka:~/ .
 cd ..
-
-mkdir -p jsis;cd jsis
-rsync -Paz lakka:~/src/git/lietu/jsis/config.js .
-#scp lakka:~/src/git/lietu/jsis/config.js .
+mkdir -p hilla
+cd hilla
+rsync -Paz --exclude='~/.local/*' --exclude='~/.pyenv/*' --exclude='*git*' hilla:~/ .
 cd ..
-
-rsync -Paz --exclude *log* lakka:~/.znc .
-
-mkdir -p weechat;cd weechat
-rsync -Paz lakka:"~/.weechat/*.conf" .
-#scp lakka:"~/.weechat/*.conf" .
-cd ..
-
-mkdir -p Yvzabevn3;cd Yvzabevn3
-#scp lakka:"~/Yvzabevn3/*.conf" .
-rsync -Paz lakka:"~/Yvzabevn3/*.conf" .
-mkdir -p conf;cd conf
-#scp lakka:"~/Yvzabevn3/conf/*.conf" .
-rsync -Paz lakka:"~/Yvzabevn3/conf/*.conf" .
-cd ../..
-
-mkdir -p Tessu;cd Tessu
-#scp hilla:"~/Tessu/*.conf" .
-rsync -Paz hilla:"~/Tessu/*.conf" .
-mkdir -p conf;cd conf
-#scp hilla:"~/Tessu/conf/*.conf" .
-rsync -Paz hilla:"~/Tessu/conf/*.conf" .
-cd ../..
-
-cp $(which backupconfs) .
-git add -A
-git commit -m "backupconfs-rsync automatic commit"
-git push
