@@ -6,6 +6,7 @@ set -x
 #unset CXX
 
 cd znc
+git submodule update --init
 ./autogen.sh
 mkdir -p build
 cd build
