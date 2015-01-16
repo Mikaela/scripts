@@ -7,16 +7,23 @@ set -x
 #unset CC
 #unset CXX
 
-cd znc
-git pull
-git submodule update --init --recursive
-./autogen.sh
-mkdir -p build
-cd build
 
 ## for use with pyenv
 #export LD_LIBRARY_PATH=$HOME/.pyenv/versions/3.4.2/lib
 #export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/bin/pkg-config:$HOME/.local/bin/pkg-config:$HOME/.pyenv/versions/3.4.2/lib/pkgconfig/
 
+# znc directory is the cloned git repository (https://github.com/znc/znc.git)
+cd znc
+# to make sure that we have all changes
+git pull
+# to get submodules and their submodules, currently csocket
+# that doesn't have submodules.
+git submodule update --init --recursive
+
+# build znc normally out-of-source (build/ directory)
+./autogen.sh
+mkdir -p build
+cd build
 ../configure --enable-debug --enable-perl --enable-python --enable-swig --enable-tcl --enable-cyrus
 #--prefix=$HOME/.local
+# and here you run "make -j$(nproc)" while you are in the build/ directory.
