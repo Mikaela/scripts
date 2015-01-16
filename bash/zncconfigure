@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 set -x
 
+# If you are using my zncmodules script, you might want to run it before running this...
+
 ## Debian 7 has too old clang so use this with it
 #unset CC
 #unset CXX
 
 cd znc
+git pull
 git submodule update --init --recursive
 ./autogen.sh
 mkdir -p build
 cd build
 
 ## for use with pyenv
-#export LD_LIBRARY_PATH=/home/users/mkaysi/.pyenv/versions/3.4.2/lib
-#export PKG_CONFIG_PATH=/usr/bin/pkg-config:/home/users/mkaysi/.pyenv/versions/3.4.2/lib/pkgconfig/
+#export LD_LIBRARY_PATH=$HOME/.pyenv/versions/3.4.2/lib
+#export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/bin/pkg-config:$HOME/.local/bin/pkg-config:$HOME/.pyenv/versions/3.4.2/lib/pkgconfig/
 
 ../configure --enable-debug --enable-perl --enable-python --enable-swig --enable-tcl --enable-cyrus
 #--prefix=$HOME/.local
-#make -j$(nproc)
