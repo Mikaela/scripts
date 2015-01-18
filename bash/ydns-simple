@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# This script is based on cf-ddns.sh found at
+# <https://gist.github.com/larrybolt/6295160> and it's comments.
+# Inspiration also took from
+# <https://github.com/commx/ydns/blob/master/updater.sh> which is a lot
+# more complex than this.
+
+# Get IPv4 address
+WAN_IP4=$(dig +short myip.opendns.com @resolver1.opendns.com)
+if [ -f $HOME/.wan_ip4-cf.txt ]; then
+    OLD_WAN_IP4=$(cat $HOME/.wan_ip4-cf.txt)
+else
+    echo "No file, need IP4"
+    OLD_WAN_IP4=""
+fi
+
+# Get IPv6 address
+WAN_IP6=$(dig +short myip.opendns.com AAAA @2620:0:ccc::2)
+if [ -f $HOME/.wan_ip6-cf.txt ]; then
+    OLD_WAN_IP6=$(cat $HOME/.wan_ip6-cf.txt)
+else
+    echo "No file, need IP6"
+    OLD_WAN_IP6=""
+fi
+
+#if [ "$WAN_IP" = "$OLD_WAN_IP" ]; then
+#    echo "IP Unchanged"
+#else
+#    echo $WAN_IP > $HOME/.wan_ip-cf.txt
+#    echo "Updating DNS to $WAN_IP"
+#  curl -s https://www.cloudflare.com/api.html?a=DIUP\&hosts="$cfhost"\&u="$cfuser"\&tkn="$cfkey"\&ip="$WAN_IP" > /dev/null
+#fi
