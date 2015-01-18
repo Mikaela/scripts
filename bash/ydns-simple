@@ -12,7 +12,7 @@ HOSTNAME=""
 
 # Get IPv4 address
 WAN_IP4=$(dig +short myip.opendns.com @resolver1.opendns.com)
-if [ -f $HOME/.wan_ip4-cf.txt ]; then
+if [ -f $HOME/.wan_ip4-ydns.txt ]; then
     OLD_WAN_IP4=$(cat $HOME/.wan_ip4-ydns.txt)
 else
     echo "No file, need IP4"
