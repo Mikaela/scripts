@@ -5,6 +5,13 @@
 # <https://github.com/commx/ydns/blob/master/updater.sh> which is a lot
 # more complex than this.
 
+# Basic usage (as root):
+# curl -L https://github.com/Mikaela/scripts/raw/gh-pages/bash/ydns-simple > /usr/local/bin/ydns-simple
+# chmod 700 /usr/local/bin/ydns-simple
+## Copy-paste the following to your crontab without the #
+# */5 * * * * /usr/local/bin/ydns-simple >/dev/null 2>&1
+
+
 # yDNS details
 USEREMAIL=""
 PASSWORD=""
