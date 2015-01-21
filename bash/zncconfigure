@@ -10,7 +10,7 @@ set -x
 
 ## for use with pyenv
 #export LD_LIBRARY_PATH=$HOME/.pyenv/versions/3.4.2/lib
-#export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/bin/pkg-config:$HOME/.local/bin/pkg-config:$HOME/.pyenv/versions/3.4.2/lib/pkgconfig/
+#export PKG_CONFIG_PATH=$HOME/.pyenv/versions/3.4.2/lib/pkgconfig/:$HOME/.local/bin/pkg-config:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/bin/pkg-config
 
 # znc directory is the cloned git repository (https://github.com/znc/znc.git)
 cd znc
