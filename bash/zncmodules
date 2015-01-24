@@ -9,8 +9,10 @@ curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/privmsg.cpp
 curl -LO https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_notify.cpp
 curl -LO https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_notify_unsolicited.cpp
 curl -LO https://raw.githubusercontent.com/Zarthus/Code-Snippets/master/c++/znc-modules/ctcp_notifier.cpp
+curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 
-# now you should compile znc normally or use zncconfigure in this repository.
+# now you should compile znc normally or use zncconfigure in this
+# repository.
 
 # ~/.znc/modules for mod* modules that aren't compiled with ZNC
 mkdir -p ~/.znc/modules
