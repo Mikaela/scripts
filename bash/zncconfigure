@@ -19,6 +19,5 @@ git submodule update --init --recursive
 ./autogen.sh
 mkdir -p build
 cd build
-../configure --enable-debug --enable-perl --enable-python --enable-swig --enable-tcl --enable-cyrus
-#--prefix=$HOME/.local
+../configure --enable-debug --enable-perl --enable-python --enable-swig --enable-tcl --enable-cyrus --prefix=$HOME/.local
 # and here you run "make -j$(nproc)" while you are in the build/ directory.
