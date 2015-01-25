@@ -10,7 +10,7 @@ curl -LO https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_not
 curl -LO https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_notify_unsolicited.cpp
 curl -LO https://raw.githubusercontent.com/Zarthus/Code-Snippets/master/c++/znc-modules/ctcp_notifier.cpp
 curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
-curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cp
+curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 
 # now you should compile znc normally or use zncconfigure in this
 # repository.
