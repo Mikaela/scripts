@@ -13,7 +13,9 @@ curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 curl -LO https://github.com/KindOne-/znc-modules/raw/master/modules/freenodeinfo.cpp
 curl -LO https://raw.githubusercontent.com/NuclearW/znc-modules/master/privmsg_auto/privmsg_auto.cpp
-curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/clientaway.cpp
+## Incompatibe with ZNC 1.7 on 2015-02-22.
+#curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/clientaway.cpp
+
 # now you should compile znc normally or use zncconfigure in this
 # repository.
 
