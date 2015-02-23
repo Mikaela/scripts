@@ -14,6 +14,7 @@ curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 curl -LO https://github.com/KindOne-/znc-modules/raw/master/modules/freenodeinfo.cpp
 curl -LO https://raw.githubusercontent.com/NuclearW/znc-modules/master/privmsg_auto/privmsg_auto.cpp
 curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/clientaway.cpp
+
 # now you should compile znc normally or use zncconfigure in this
 # repository.
 
@@ -21,3 +22,5 @@ curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/clientaway.c
 mkdir -p ~/.znc/modules
 cd ~/.znc/modules
 curl -LO https://raw.githubusercontent.com/jreese/znc-push/python/push.py
+curl -LO https://gist.github.com/kylef/840763/raw/0caaa3e745b7759dcf6f0309184d267180f09cbc/pyeval.py
+curl -LO https://github.com/Nothing4You/znc-modules/raw/master/kill_notice.py
