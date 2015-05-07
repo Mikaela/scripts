@@ -4,20 +4,12 @@ set -x
 
 # znc/ is the cloned git repostiory (https://github.com/znc/znc.git)
 cd znc/modules
-wget -Ncnv https://raw.githubusercontent.com/DarthGandalf/znc/dgmods/modules/kvirc.cpp
 wget -Ncnv https://raw.githubusercontent.com/kylef/znc-contrib/master/privmsg.cpp
-wget -Ncnv https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_notify.cpp
-wget -Ncnv https://github.com/NuclearW/znc-modules/raw/master/away_notify/away_notify_unsolicited.cpp
 wget -Ncnv https://raw.githubusercontent.com/Zarthus/Code-Snippets/master/c++/znc-modules/ctcp_notifier.cpp
 wget -Ncnv https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 wget -Ncnv https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 wget -Ncnv https://github.com/KindOne-/znc-modules/raw/master/modules/freenodeinfo.cpp
-wget -Ncnv https://raw.githubusercontent.com/NuclearW/znc-modules/master/privmsg_auto/privmsg_auto.cpp
 wget -Ncnv https://github.com/jpnurmi/znc-clientbuffer/raw/master/clientbuffer.cpp
-# UNSTABLE!
-#wget -Ncnv https://raw.githubusercontent.com/kylef/znc-contrib/master/clientaway.cpp
-rm clientaway.cpp
-rm ~/.local/lib/znc/clientaway.so
 
 # modpython
 wget -Ncnv https://raw.githubusercontent.com/jreese/znc-push/python/push.py
