@@ -18,7 +18,7 @@ PASSWORD=""
 HOSTNAME=""
 
 # Get IPv4 address
-WAN_IP4=$(dig +short myip.opendns.com. @208.67.220.220)
+WAN_IP4=$(dig +short myip.opendns.com. A @208.67.220.220)
 if [ -f $HOME/.wan_ip4-ydns.txt ]; then
     OLD_WAN_IP4=$(cat $HOME/.wan_ip4-ydns.txt)
 else
