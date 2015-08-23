@@ -13,7 +13,6 @@ wget -Ncnv https://github.com/jpnurmi/znc-clientbuffer/raw/master/clientbuffer.c
 
 # modpython
 wget -Ncnv https://raw.githubusercontent.com/jreese/znc-push/python/push.py
-wget -Ncnv https://gist.github.com/kylef/840763/raw/pyeval.py
 wget -Ncnv https://github.com/Nothing4You/znc-modules/raw/master/kill_notice.py
 
 # now you should compile znc normally or use zncconfigure in this
