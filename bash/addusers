@@ -4,7 +4,7 @@
 # installations. I am too lazy to always do this by hand!
 
 # Loop with the users
-for user in matti tommi tiina nenne lena
+for user in mikaela matti tommi tiina nenne lena
 do
     # To see that it works
     echo "Current user: $user"
@@ -19,9 +19,9 @@ do
 done
 
 # And next sudoers
-for sudoer in matti tommi tiina
+for sudoer in mikaela matti tommi tiina
 do
     # Add the user to sudo group (as they are administrator)
     echo "Current sudoer: $sudoer"
-    usermod -a -G sudo $sudoer
+    usermod -a -G wheel $sudoer
 done
