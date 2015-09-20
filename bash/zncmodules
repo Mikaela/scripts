@@ -16,5 +16,9 @@ wget -Ncnv https://raw.githubusercontent.com/jreese/znc-push/python/push.py
 wget -Ncnv https://github.com/Nothing4You/znc-modules/raw/master/kill_notice.py
 wget -Ncnv https://github.com/jdarmst/znc-modules/raw/master/python/myinsanity.py
 
+# This might not make much sense...
+ln -sf $HOME/.local/lib/znc/ $HOME/.znc/modules
+
 # now you should compile znc normally or use zncconfigure in this
 # repository.
+set +x
