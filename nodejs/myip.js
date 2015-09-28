@@ -29,11 +29,11 @@ dns.resolve4('myip.opendns.com', function (err, addresses) {
 /*
 
 // Set DNS servers to OpenDNS IPv6
-var servers4 = dns.setServers(["2620:0:ccc::2", "2620:0:ccd::2"])
+var servers6 = dns.setServers(["2620:0:ccc::2", "2620:0:ccd::2"])
 
 // Check where myip.opendns.com resolves to and I think this is a function
 // that takes arguments err and addresses.
-dns.resolve4('myip.opendns.com', function (err, addresses) {
+dns.resolve6('myip.opendns.com', function (err, addresses) {
     
     // In case of error throw the error message?
     if (err) throw err;
