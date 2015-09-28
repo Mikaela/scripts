@@ -10,7 +10,7 @@ var servers4 = dns.setServers(["208.67.222.222", "208.67.220.220"])
 // that takes arguments err and addresses.
 dns.resolve4('myip.opendns.com', function (err, addresses) {
     
-    // In case of error throw the error message?
+    // if err contains a truthy value, an error has occurred
     if (err) throw err;
 
     // Print the first thing in array addresses as it has our IPv4
@@ -35,7 +35,7 @@ var servers6 = dns.setServers(["2620:0:ccc::2", "2620:0:ccd::2"])
 // that takes arguments err and addresses.
 dns.resolve6('myip.opendns.com', function (err, addresses) {
     
-    // In case of error throw the error message?
+    // if err contains a truthy value, an error has occurred
     if (err) throw err;
 
     // Print the first thing in array addresses as it has our IPv4
