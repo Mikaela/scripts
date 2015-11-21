@@ -25,7 +25,7 @@ curl -LO https://github.com/Nothing4You/znc-modules/raw/master/kill_notice.py
 sleep 2
 curl -LO https://github.com/jdarmst/znc-modules/raw/master/python/myinsanity.py
 sleep 2
-curl -LO https://github.com/AwwCookies/ZNC-Modules/raw/master/Aka/aka.py
+curl -LO https://github.com/emagaliff/znc-nicktrace/raw/master/aka.py
 
 # now you should compile znc normally or use zncconfigure in this
 # repository.
