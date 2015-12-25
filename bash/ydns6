@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# This script deprecates ydns6 which does dualstack and which I won't
+# be updating anymore as IPv4 is always behind NAT and thus useless to me.
+
+# This script is based on cf-ddns.sh found at
+# <https://gist.github.com/larrybolt/6295160> and it's comments.
+# Inspiration also took from
+# <https://github.com/commx/ydns/blob/master/updater.sh> which is a lot
+# more complex than this.
+
+# Basic usage:
+# mkdir -p ~/.local/bin
+# curl -L https://github.com/Mikaela/scripts/raw/gh-pages/bash/ydns6 > ~/.local/bin/ydns6
+# chmod 700 ~/.local/bin/ydns6
+## Copy-paste the following to your crontab without the #
+# */5 * * * * PATH_TO_HOME_DIRECTORY_HERE/.local/bin/ydns6 >/dev/null 2>&1
+
+
+# yDNS details
+USEREMAIL=""
+PASSWORD=""
+HOSTNAME=""
+
+# Get IPv6 address
+if hash dig 2>/dev/null; then
+    WAN_IP6=$(dig +short myip.opendns.com. AAAA @2620:0:ccd::2)
+else
+    WAN_IP6=$(curl -sL6 https://icanhazip.com/)
+fi
+if [ -f $HOME/.wan_ip6-ydns.txt ]; then
+    OLD_WAN_IP6=$(cat $HOME/.wan_ip6-ydns.txt)
+else
+    echo "No file, need IP6"
+    OLD_WAN_IP6=""
+fi
+
+# Update IPv6
+if [ "$WAN_IP6" = "$OLD_WAN_IP6" ]; then
+    echo "IP6 Unchanged"
+else
+    echo $WAN_IP6 > $HOME/.wan_ip6-ydns.txt
+    echo "Updating DNS to $WAN_IP6"
+    curl -6 --basic -u "$USEREMAIL:$PASSWORD" --silent \
+        https://ydns.eu/api/v1/update/?host=$HOSTNAME
+fi
