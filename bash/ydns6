@@ -28,7 +28,7 @@ if hash dig 2>/dev/null; then
 else
     WAN_IP6=$(curl -sL6 https://icanhazip.com/)
 fi
-if [ -f $HOME/.wan_ip6-ydns.txt ]; then
+if [ -f $HOME/.ydns6.txt ]; then
     OLD_WAN_IP6=$(cat $HOME/.ydns6.txt)
 else
     echo "No file, need IP6"
