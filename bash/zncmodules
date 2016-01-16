@@ -13,8 +13,6 @@ curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 sleep 2
 curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 sleep 2
-curl -LO https://github.com/KindOne-/znc-modules/raw/master/modules/freenodeinfo.cpp
-sleep 2
 curl -LO https://github.com/jpnurmi/znc-clientbuffer/raw/master/clientbuffer.cpp
 
 # modpython
@@ -22,8 +20,6 @@ sleep 2
 curl -LO https://raw.githubusercontent.com/jreese/znc-push/python/push.py
 sleep 2
 curl -LO https://github.com/Nothing4You/znc-modules/raw/master/kill_notice.py
-sleep 2
-curl -LO https://github.com/jdarmst/znc-modules/raw/master/python/myinsanity.py
 sleep 2
 curl -LO https://github.com/emagaliff/znc-nicktrace/raw/master/aka.py
 
