@@ -7,7 +7,7 @@ cd znc/modules
 sleep 2
 curl -LO https://raw.githubusercontent.com/kylef/znc-contrib/master/privmsg.cpp
 sleep 2
-curl -LO https://raw.githubusercontent.com/Zarthus/Code-Snippets/master/c++/znc-modules/ctcp_notifier.cpp
+curl -LO https://raw.githubusercontent.com/Zarthus/znc-modules/master/ctcp_notifier.cpp
 sleep 2
 curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 sleep 2
