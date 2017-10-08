@@ -13,7 +13,7 @@ curl -LO https://github.com/jpnurmi/znc-playback/raw/master/playback.cpp
 sleep 2
 curl -LO https://github.com/jpnurmi/znc-chanfilter/raw/master/chanfilter.cpp
 sleep 2
-curl -LO https://github.com/jpnurmi/znc-clientbuffer/raw/master/clientbuffer.cpp
+curl -LO https://github.com/CyberShadow/znc-clientbuffer/raw/master/clientbuffer.cpp
 
 # modpython
 sleep 2
