@@ -2,6 +2,6 @@
 set -x
 apt-get -y update
 apt-get "$@" upgrade
-flatpak update
+flatpak update --assumeyes
 snap refresh
 set +x
