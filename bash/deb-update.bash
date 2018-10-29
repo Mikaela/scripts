@@ -4,4 +4,5 @@ apt-get -y update
 apt-get "$@" upgrade
 flatpak update --assumeyes
 snap refresh
+snap changes
 set +x
