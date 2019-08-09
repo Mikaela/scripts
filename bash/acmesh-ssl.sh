@@ -36,7 +36,7 @@ chown -R syncplay:root $SYNCPLAYDIR
 # Mumble
 $ACMESH --fullchain-file $MUMBLEDIR/fullchain.cer --key-file $MUMBLEDIR/$DOMAINNAME.key --reloadcmd "$SYSTEMCTLRESTART mumble-server"
 # future on 1.3.0 +
-# --reloadcmd "pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1"
+# --reloadcmd "/usr/bin/pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1"
 chmod -R 700 $MUMBLEDIR/
 chown -R mumble-server:mumble-server $MUMBLEDIR/
 
