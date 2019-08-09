@@ -7,6 +7,7 @@
 # certificate copies.
 # Used with crontab as root, remember `@daily bash /root/acmesh-ssl.sh >/dev/null 2>&1`
 
+# Echo a warning and exit if NOT running as root
 if [ "$(id -u)" != "0" ]; then
    echo "acme.sh prefers root, this script demands it." 1>&2
    exit 1
