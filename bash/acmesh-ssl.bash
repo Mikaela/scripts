@@ -29,7 +29,7 @@ SYSTEMCTLRESTART="systemctl restart --quiet"
 # Start by creating the directories if they don't exist
 /bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR
 
-# Syncplay
+# Syncplay - note: reloads certs on every connect like ZNC
 $ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
 chmod -R 700 $SYNCPLAYDIR
 chown -R syncplay:root $SYNCPLAYDIR
