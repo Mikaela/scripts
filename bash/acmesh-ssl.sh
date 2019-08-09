@@ -22,16 +22,19 @@ ZNCDIR=/home/znc/.znc/ssl
 # Where is acme.sh + flags applying to them all
 ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
 
+# restarting with systemctl
+SYSTEMCTLRESTART="systemctl restart --quiet"
+
 # Start by creating the directories if they don't exist
 /bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR
 
 # Syncplay - TODO https://github.com/Syncplay/syncplay/issues/250
-$ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --fullchain-file $SYNCPLAYDIR/chain.pem --reloadcmd "systemctl restart syncplay-server --quiet"
+$ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --fullchain-file $SYNCPLAYDIR/chain.pem --reloadcmd "$SYSTEMCTLRESTART syncplay-server"
 chmod -R 700 $SYNCPLAYDIR
 chown -R syncplay:root $SYNCPLAYDIR
 
 # Mumble
-$ACMESH --fullchain-file $MUMBLEDIR/fullchain.cer --key-file $MUMBLEDIR/$DOMAINNAME.key --reloadcmd "systemctl restart mumble-server --quiet"
+$ACMESH --fullchain-file $MUMBLEDIR/fullchain.cer --key-file $MUMBLEDIR/$DOMAINNAME.key --reloadcmd "$SYSTEMCTLRESTART mumble-server"
 # future on 1.3.0 +
 # --reloadcmd "pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1"
 chmod -R 700 $MUMBLEDIR/
