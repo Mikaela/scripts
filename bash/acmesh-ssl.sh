@@ -28,6 +28,12 @@ pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1
 
 # ZNC originally via https://wiki.znc.in/Signed_SSL_certificate#Certbot
 # then adjusted to certbot as Mumble above
-cat $CERTDIR/{$DOMAINNAME.key,fullchain.cer} > /home/znc/.znc/znc.pem
-chmod 700 /home/znc/.znc/znc.pem
-chown znc:znc /home/znc/.znc/znc.pem
+# Old method before ZNC 1.7.0
+#cat $CERTDIR/{$DOMAINNAME.key,fullchain.cer} > /home/znc/.znc/znc.pem
+#chmod 700 /home/znc/.znc/znc.pem
+#chown znc:znc /home/znc/.znc/znc.pem
+# New method since ZNC 1.7.0 (SSLCertFile & SSLKeyFile in znc.conf)
+# znc.conf's SSLDHParamFile is created by `openssl dhparam 2048 > /home/znc/.znc/ssl/dh.pem`
+cp $CERTDIR/{fullchain.cer,$DOMAINNAME.key} /home/znc/.znc/ssl/
+chmod -R 700 /home/znc/.znc/ssl/
+chown -R znc:znc /home/znc/.znc/ssl/
