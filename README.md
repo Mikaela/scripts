@@ -2,8 +2,12 @@
 
 Miscellaneous scripts sorted by language.
 
-This doesn't contain the scripts that are in my gists,
-https://gist.github.com/Mikaela
+I have moved the repository from GitHub due to concerns related to
+their relationship with the
+[ICE](https://github.com/selfagency/microsoft-drop-ice) and
+[Iran](https://github.com/1995parham/github-do-not-ban-us). The main branch
+used to be called as `gh-pages` so that the scripts were downloadable
+through curl/wget.
 
 ### Directories
 
