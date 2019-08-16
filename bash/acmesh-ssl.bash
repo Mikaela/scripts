@@ -19,6 +19,7 @@ DOMAINNAME=relpda.mikaela.info
 SYNCPLAYDIR=/opt/syncplay/ssl
 MUMBLEDIR=/var/lib/mumble-server/ssl
 ZNCDIR=/home/znc/.znc/ssl
+BITBOTDIR=/home/bitbot/ssl
 
 # Where is acme.sh + flags applying to them all
 ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
@@ -46,3 +47,8 @@ chown -R mumble-server:mumble-server $MUMBLEDIR/
 $ACMESH --fullchain-file $ZNCDIR/fullchain.cer --key-file $ZNCDIR/$DOMAINNAME.key
 chmod -R 700 $ZNCDIR
 chown -R znc:znc $ZNCDIR
+
+# Bitbot - would accept SIGUSR1 for reloading things including cert, but too painful
+$ACMESH --key-file $BITBOTDIR/key.pem --fullchain-file $BITBOTDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART bitbot"
+chmod -R 700 $BITBOTDIR
+chown -R bitbot:bitbot $BITBOTDIR
