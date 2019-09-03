@@ -4,12 +4,14 @@
 # installations. I am too lazy to always do this by hand!
 
 # Loop with the users
-for user in mikaela matti tommi tiina nenne lena
+for user in mikaela matti tommi tiina nenne anneli
 do
     # To see that it works
     echo "Current user: $user"
     # Create the user & homedir if it doesn't exist
     useradd -m $user
+    # Add the user to normal Debian groups
+    usermod -a -G lp,cdrom,floppy,audio,dip,plugdev,netdev,bluetooth,lpadmin "$user"
     # Set user & group as the owner (in case fresh install with old /home)
     chown -R $user:$user /home/$user
     # Remove password & force new to be given during first login
