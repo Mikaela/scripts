@@ -15,6 +15,9 @@ apt-get "$@" upgrade --with-new-pkgs
 
 # Flatpak apps are sandboxed and should be safe to update automatically
 flatpak update --assumeyes
+# Flatpak's version of `apt autoremove`, I cannot remember it ever removing
+# anything necessary
+flatpak uninstall --unused --assumeyes
 
 # Snap packages auto-update anyway though, but I like checking them while
 # doing everything else too
