@@ -26,6 +26,7 @@ ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
 
 # restarting with systemctl
 SYSTEMCTLRESTART="systemctl restart --quiet"
+SYSTEMCTLRELOAD="systemctl reload --quiet"
 
 # Start by creating the directories if they don't exist
 /bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $BITBOTDIR
@@ -49,6 +50,6 @@ chmod -R 700 $ZNCDIR
 chown -R znc:znc $ZNCDIR
 
 # Bitbot - would accept SIGUSR1 for reloading things including cert, but too painful
-$ACMESH --key-file $BITBOTDIR/key.pem --fullchain-file $BITBOTDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART bitbot"
+$ACMESH --key-file $BITBOTDIR/key.pem --fullchain-file $BITBOTDIR/cert.pem --reloadcmd "$SYSTEMCTLRELOAD bitbot"
 chmod -R 700 $BITBOTDIR
 chown -R bitbot:bitbot $BITBOTDIR
