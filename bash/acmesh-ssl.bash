@@ -20,6 +20,7 @@ SYNCPLAYDIR=/opt/syncplay/ssl
 MUMBLEDIR=/var/lib/mumble-server/ssl
 ZNCDIR=/home/znc/.znc/ssl
 BITBOTDIR=/home/bitbot/ssl
+NGINXDIR=/etc/nginx/ssl
 
 # Where is acme.sh + flags applying to them all
 ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
@@ -29,7 +30,7 @@ SYSTEMCTLRESTART="systemctl restart --quiet"
 SYSTEMCTLRELOAD="systemctl reload --quiet"
 
 # Start by creating the directories if they don't exist
-/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $BITBOTDIR
+/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $BITBOTDIR $NGINXDIR
 
 # Syncplay - note: reloads certs on every connect like ZNC
 $ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
@@ -53,3 +54,8 @@ chown -R znc:znc $ZNCDIR
 $ACMESH --key-file $BITBOTDIR/key.pem --fullchain-file $BITBOTDIR/cert.pem --reloadcmd "$SYSTEMCTLRELOAD bitbot"
 chmod -R 700 $BITBOTDIR
 chown -R bitbot:bitbot $BITBOTDIR
+
+# nginx
+$ACMESH --key-file $NGINXDIR/key.pem --fullchain-file $NGINXDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
+chmod -R 700 $NGINXDIR
+chown -R root:root $NGINXDIR
