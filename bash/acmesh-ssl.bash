@@ -19,7 +19,6 @@ DOMAINNAME=relpda.mikaela.info
 SYNCPLAYDIR=/opt/syncplay/ssl
 MUMBLEDIR=/var/lib/mumble-server/ssl
 ZNCDIR=/home/znc/.znc/ssl
-BITBOTDIR=/home/bitbot/ssl
 NGINXDIR=/etc/nginx/ssl
 
 # Where is acme.sh + flags applying to them all
@@ -30,7 +29,7 @@ SYSTEMCTLRESTART="systemctl restart --quiet"
 SYSTEMCTLRELOAD="systemctl reload --quiet"
 
 # Start by creating the directories if they don't exist
-/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $BITBOTDIR $NGINXDIR
+/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $NGINXDIR
 
 # Syncplay - note: reloads certs on every connect like ZNC
 $ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
@@ -49,11 +48,6 @@ chown -R mumble-server:mumble-server $MUMBLEDIR/
 $ACMESH --fullchain-file $ZNCDIR/fullchain.cer --key-file $ZNCDIR/$DOMAINNAME.key
 chmod -R 700 $ZNCDIR
 chown -R znc:znc $ZNCDIR
-
-# Bitbot - would accept SIGUSR1 for reloading things including cert, but too painful
-$ACMESH --key-file $BITBOTDIR/key.pem --fullchain-file $BITBOTDIR/cert.pem --reloadcmd "$SYSTEMCTLRELOAD bitbot"
-chmod -R 700 $BITBOTDIR
-chown -R bitbot:bitbot $BITBOTDIR
 
 # nginx
 $ACMESH --key-file $NGINXDIR/key.pem --fullchain-file $NGINXDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
