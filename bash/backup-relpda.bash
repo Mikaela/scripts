@@ -8,7 +8,7 @@ cp -rv /home/znc/.znc/ $TARGETDIR/znc
 
 mkdir -p $TARGETDIR/bitbot/
 cp -v /home/bitbot/bitbot/bot.conf /home/bitbot/bitbot/databases/bot.db $TARGETDIR/bitbot/
-cp -rv /home/botbot/.bitbot/ $TARGETDIR/bitbot/dotbitbot/
+cp -rv /home/bitbot/.bitbot/ $TARGETDIR/bitbot/dotbitbot/
 
 # Think about ssh keys? But I don't rotate hostnames with VPSes...
 cp -v /etc/yggdrasil.conf $TARGETDIR
