@@ -19,5 +19,10 @@ mkdir -p $TARGETDIR/mumble/ssl/
 cp -v /etc/mumble-server.ini /var/lib/mumble-server/mumble-server.sqlite $TARGETDIR/mumble/
 cp -vr /var/lib/mumble-server/ssl/ $TARGETDIR/mumble/ssl
 
+cp -v /etc/oidentd.conf $TARGETDIR
+
+mkdir -p $TARGETDIR/thelounge/
+cp -rv /etc/thelounge/ $TARGETDIR/thelounge/
+
 chown -R mikaela:mikaela $TARGETDIR
 chmod -R g-rxw,o-rxw $TARGETDIR
