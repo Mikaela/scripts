@@ -24,5 +24,9 @@ cp -v /etc/oidentd.conf $TARGETDIR
 mkdir -p $TARGETDIR/thelounge/
 cp -rv /etc/thelounge/ $TARGETDIR/thelounge/
 
+mkdir -p $TARGETDIR/matterbridge/
+cp -v /home/matterbridge/config/matterbridge.toml $TARGETDIR/matterbridge
+cp -v /etc/systemd/system/matterbridge.service $TARGETDIR/matterbridge/matterbridge.service
+
 chown -R mikaela:mikaela $TARGETDIR
 chmod -R g-rxw,o-rxw $TARGETDIR
