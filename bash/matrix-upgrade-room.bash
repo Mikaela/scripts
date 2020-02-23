@@ -2,7 +2,8 @@
 
 # Based on https://gist.github.com/turt2live/a99c8e794d6115d4ddfaadb72aabf063
 
-# TODO: Find out where the latest version can be found out from
+# Check https://matrix.org/docs/spec/#complete-list-of-room-versions before
+# upgrading a room and change as necessary
 ROOMVERSION=5
 ACCESSTOKEN=
 NEWROOMNAME=""
