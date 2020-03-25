@@ -4,29 +4,29 @@ TARGETDIR=/home/mikaela/backups/
 
 mkdir -p $TARGETDIR
 
-cp -rv /home/znc/.znc/ $TARGETDIR/znc
+rsync -av /home/znc/.znc/ $TARGETDIR/znc
 
 mkdir -p $TARGETDIR/bitbot/
-cp -v /home/bitbot/bitbot/bot.conf /home/bitbot/bitbot/databases/bot.db $TARGETDIR/bitbot/
-cp -rv /home/bitbot/.bitbot/ $TARGETDIR/bitbot/dotbitbot/
+rsync -av /home/bitbot/bitbot/bot.conf /home/bitbot/bitbot/databases/bot.db $TARGETDIR/bitbot/
+rsync -av /home/bitbot/.bitbot/ $TARGETDIR/bitbot/dotbitbot/
 
 # Think about ssh keys? But I don't rotate hostnames with VPSes...
-cp -v /etc/yggdrasil.conf $TARGETDIR
+rsync -av /etc/yggdrasil.conf $TARGETDIR
 
-cp -v /etc/systemd/system/syncplay-server.service $TARGETDIR
+rsync -av /etc/systemd/system/syncplay-server.service $TARGETDIR
 
 mkdir -p $TARGETDIR/mumble/ssl/
-cp -v /etc/mumble-server.ini /var/lib/mumble-server/mumble-server.sqlite $TARGETDIR/mumble/
-cp -vr /var/lib/mumble-server/ssl/ $TARGETDIR/mumble/ssl
+rsync -av /etc/mumble-server.ini /var/lib/mumble-server/mumble-server.sqlite $TARGETDIR/mumble/
+rsync /var/lib/mumble-server/ssl/ $TARGETDIR/mumble/ssl
 
-cp -v /etc/oidentd.conf $TARGETDIR
+rsync -av /etc/oidentd.conf $TARGETDIR
 
 mkdir -p $TARGETDIR/thelounge/
-cp -rv /etc/thelounge/ $TARGETDIR/thelounge/
+rsync -av /etc/thelounge/ $TARGETDIR/thelounge/
 
 mkdir -p $TARGETDIR/matterbridge/
-cp -v /home/matterbridge/config/matterbridge.toml $TARGETDIR/matterbridge
-cp -v /etc/systemd/system/matterbridge.service $TARGETDIR/matterbridge/matterbridge.service
+rsync -av /home/matterbridge/config/matterbridge.toml $TARGETDIR/matterbridge
+rsync -av /etc/systemd/system/matterbridge.service $TARGETDIR/matterbridge/matterbridge.service
 
 chown -R mikaela:mikaela $TARGETDIR
 chmod -R g-rxw,o-rxw $TARGETDIR
