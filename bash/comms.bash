@@ -24,7 +24,7 @@ mkdir -p ~/.config/T2L-telegram
 #(flatpak run im.riot.Riot --profile T2L --hidden --proxy --proxy-server=127.0.0.1:9119&)
 
 # Keybase
-(KEYBASE_AUTOSTART=1 run_keybase -a&)
+(run_keybase&)
 
 # Steam
 (STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
@@ -32,6 +32,7 @@ mkdir -p ~/.config/T2L-telegram
 (flatpak run com.wire.WireDesktop&)
 
 # Signal
-(flatpak run org.signal.Signal --start-in-tray&)
+(flatpak run org.signal.Signal&)
+# --start-in-tray seems broken
 
 set +x
