@@ -19,7 +19,7 @@ fi
 if hash flatpak 2>/dev/null; then
     flatpak update --assumeyes --noninteractive
     # Flatpak's version of `apt autoremove`
-    #flatpak uninstall --unused
+    flatpak uninstall --unused --assumeyes
 fi
 
 # Snap packages auto-update anyway though, but I like checking them while
