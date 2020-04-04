@@ -35,4 +35,7 @@ mkdir -p ~/.config/T2L-telegram
 (flatpak run org.signal.Signal&)
 # --start-in-tray seems broken
 
+# Mattermost
+(flatpak run com.mattermost.Desktop&)
+
 set +x
