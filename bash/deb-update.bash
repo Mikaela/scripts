@@ -13,6 +13,9 @@ if hash apt-get 2>/dev/null; then
 
 # If arguments like -y are passed to the script, they become "$@"
     apt-get "$@" upgrade --with-new-pkgs
+
+# potentially unsafe
+    apt-get "$@" autoremove
 fi
 
 # Flatpak apps are sandboxed and should be safe to update automatically
