@@ -28,14 +28,21 @@ mkdir -p ~/.config/T2L-telegram
 
 # Steam
 (STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
+
 # WireDesktop - doesn't have --startup due to a bug that it may hide notifications launched that way
-(flatpak run com.wire.WireDesktop&)
+# Most of contacts have migrated away and it keeps logging me out so I don't
+# care anymore.
+#(flatpak run com.wire.WireDesktop&)
 
 # Signal
 (flatpak run org.signal.Signal&)
 # --start-in-tray seems broken
 
 # Mattermost
-(flatpak run com.mattermost.Desktop&)
+# The app is Electron and I would get a better experience if I logged into
+# all Mattermost instances in web browser and as their mobile app supports
+# only one server at a time (+ another server with beta app), I suggest
+# avoiding it
+#(flatpak run com.mattermost.Desktop&)
 
 set +x
