@@ -4,7 +4,7 @@
 
 # Check https://matrix.org/docs/spec/#complete-list-of-room-versions before
 # upgrading a room and change as necessary
-ROOMVERSION=5
+ROOMVERSION=6
 ACCESSTOKEN=
 NEWROOMNAME=""
 OLDROOMID=
