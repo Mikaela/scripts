@@ -15,8 +15,9 @@ set -x
 
 # Telegram.org
 (telegram-desktop -many -startintray&)
-mkdir -p ~/.config/T2L-telegram
-(telegram-desktop -many -workdir ~/.config/T2L-telegram -startintray&)
+# 2.2.0+ds-1 has proper multi-account support without extra profiles
+#mkdir -p ~/.config/T2L-telegram
+#(telegram-desktop -many -workdir ~/.config/T2L-telegram -startintray&)
 
 # Matrix - not in use in favour of Radical
 #(flatpak run io.github.NhekoReborn.Nheko&)
