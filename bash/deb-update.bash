@@ -21,7 +21,7 @@ fi
 
 if hash flatpak 2>/dev/null; then
     # Flatpak apps are sandboxed and should be safe to update automatically
-    flatpak update --assumeyes --noninteractive
+    flatpak update --assumeyes
     # Flatpak's version of `apt autoremove`
     flatpak uninstall --unused --assumeyes
 fi
