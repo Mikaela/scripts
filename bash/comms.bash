@@ -46,4 +46,7 @@ set -x
 # avoiding it
 #(flatpak run com.mattermost.Desktop&)
 
+# Microsoft Teams
+(flatpak run com.microsoft.Teams&)
+
 set +x
