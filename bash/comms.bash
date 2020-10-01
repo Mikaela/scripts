@@ -14,7 +14,13 @@ set -x
 (jami-gnome -r&)
 
 # Telegram.org
-(telegram-desktop -many -startintray&)
+if [ -f ~/.local/Telegram/Updater ]
+then
+  (~/.local/Telegram/Updater -many -startintray&)
+else
+  (telegram-desktop -many -startintray&)
+fi
+
 # 2.2.0+ds-1 has proper multi-account support without extra profiles
 #mkdir -p ~/.config/T2L-telegram
 #(telegram-desktop -many -workdir ~/.config/T2L-telegram -startintray&)
