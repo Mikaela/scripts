@@ -42,8 +42,7 @@ fi
 #(flatpak run com.wire.WireDesktop&)
 
 # Signal
-(flatpak run org.signal.Signal&)
-# --start-in-tray seems broken
+(flatpak run org.signal.Signal --start-in-tray&)
 
 # Mattermost
 # The app is Electron and I would get a better experience if I logged into
