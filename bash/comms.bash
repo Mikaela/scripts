@@ -10,7 +10,11 @@ set -x
 if hash dino 2>/dev/null; then
   (dino&)
 fi
-(flatpak run org.gajim.Gajim --quiet&)
+if hash gajim 2>/dev/null; then
+  (gajim&)
+else
+  (flatpak run org.gajim.Gajim --quiet&)
+fi
 
 # Jami, mostly P2P app
 if hash jami-gnome 2>/dev/null; then
