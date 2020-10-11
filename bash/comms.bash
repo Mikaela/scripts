@@ -7,49 +7,38 @@
 set -x
 
 # XMPP
-(dino&)
+if hash dino 2>/dev/null; then
+  (dino&)
+fi
 (flatpak run org.gajim.Gajim --quiet&)
 
 # Jami, mostly P2P app
-(jami-gnome -r&)
+if hash jami-gnome 2>/dev/null; then
+  (jami-gnome -r&)
+fi
 
 # Telegram.org
 if [ -f ~/.local/Telegram/Updater ]
 then
   (~/.local/Telegram/Updater -many -startintray&)
 else
-  (telegram-desktop -many -startintray&)
+  if hash telegram-desktop 2>/dev/null; then
+    (telegram-desktop -many -startintray&)
+  fi
 fi
 
-# 2.2.0+ds-1 has proper multi-account support without extra profiles
-#mkdir -p ~/.config/T2L-telegram
-#(telegram-desktop -many -workdir ~/.config/T2L-telegram -startintray&)
-
-# Matrix - not in use in favour of Radical
-#(flatpak run io.github.NhekoReborn.Nheko&)
-#(flatpak run im.riot.Riot --hidden)
-#(flatpak run im.riot.Riot --profile T2L --hidden --proxy --proxy-server=127.0.0.1:9119&)
-
 # Keybase
-(run_keybase&)
+if hash run_keybase 2>/dev/null; then
+  (run_keybase&)
+fi
 
 # Steam
-(STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
-
-# WireDesktop - doesn't have --startup due to a bug that it may hide notifications launched that way
-# Most of contacts have migrated away and it keeps logging me out so I don't
-# care anymore.
-#(flatpak run com.wire.WireDesktop&)
+if hash steam 2>/dev/null; then
+  (STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
+fi
 
 # Signal
 (flatpak run org.signal.Signal --start-in-tray&)
-
-# Mattermost
-# The app is Electron and I would get a better experience if I logged into
-# all Mattermost instances in web browser and as their mobile app supports
-# only one server at a time (+ another server with beta app), I suggest
-# avoiding it
-#(flatpak run com.mattermost.Desktop&)
 
 # Microsoft Teams
 (flatpak run com.microsoft.Teams&)
