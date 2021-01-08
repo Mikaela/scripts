@@ -47,4 +47,7 @@ fi
 # Microsoft Teams
 (flatpak run com.microsoft.Teams&)
 
+# IRC/HexChat
+(flatpak run io.github.Hexchat&)
+
 set +x
