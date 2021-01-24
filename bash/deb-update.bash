@@ -21,7 +21,7 @@ fi
 
 if hash dnf 2>/dev/null; then
     # If arguments like -y are passed to the script, they become "$@"
-    dnf "$@" update
+    dnf "$@" upgrade
 fi
 
 if hash flatpak 2>/dev/null; then
