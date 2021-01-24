@@ -19,6 +19,11 @@ if hash apt-get 2>/dev/null; then
     apt-get "$@" autoremove
 fi
 
+if hash dnf 2>/dev/null; then
+    # If arguments like -y are passed to the script, they become "$@"
+    dnf "$@" update
+fi
+
 if hash flatpak 2>/dev/null; then
     # Flatpak apps are sandboxed and should be safe to update automatically
     flatpak update --assumeyes
