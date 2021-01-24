@@ -50,4 +50,9 @@ fi
 # IRC/HexChat
 (flatpak run io.github.Hexchat&)
 
+# Matrix
+(flatpak run im.riot.Riot&)
+(flatpak run im.riot.Riot --profile T2L&)
+(flatpak run im.riot.Riot --profile pirateriot&)
+
 set +x
