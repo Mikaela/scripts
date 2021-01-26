@@ -51,7 +51,7 @@ fi
 (flatpak run io.github.Hexchat&)
 
 # Matrix
-(flatpak run im.riot.Riot&)
+(flatpak run im.riot.Riot --profile feneas&)
 (flatpak run im.riot.Riot --profile T2L&)
 (flatpak run im.riot.Riot --profile pirateriot&)
 
