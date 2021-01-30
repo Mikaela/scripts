@@ -51,8 +51,10 @@ fi
 (flatpak run io.github.Hexchat&)
 
 # Matrix
-(flatpak run im.riot.Riot --profile feneas&)
-(flatpak run im.riot.Riot --profile T2L&)
-(flatpak run im.riot.Riot --profile pirateriot&)
+# Elements (previously Riot) perform poorly with this script, use container
+# tabs instead or start on-demand.
+#(flatpak run im.riot.Riot --profile feneas&)
+#(flatpak run im.riot.Riot --profile T2L&)
+#(flatpak run im.riot.Riot --profile pirateriot&)
 
 set +x
