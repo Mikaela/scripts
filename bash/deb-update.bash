@@ -20,6 +20,11 @@ if hash apt-get 2>/dev/null; then
 fi
 
 if hash dnf 2>/dev/null; then
+    # I don't know if -y does anything here either and I think this may be
+    # useless, but I am used to it coming from apt and I think it will just
+    # say nothing to do or do nothing if mirrors haven't updated.
+    dnf check-update -y
+
     # If arguments like -y are passed to the script, they become "$@"
     dnf "$@" upgrade
 fi
