@@ -5,7 +5,7 @@
 # WARNING!
 # Check file permissions very carefully so other users cannot access the
 # certificate copies.
-# Used with crontab as root, remember `@daily bash /root/acmesh-ssl.sh >/dev/null 2>&1`
+# Used with crontab as root, remember `@daily bash /root/acmesh-ssl.bash >/dev/null 2>&1`
 
 # Echo a warning and exit if NOT running as root
 if [ "$(id -u)" != "0" ]; then
