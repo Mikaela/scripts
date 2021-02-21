@@ -29,6 +29,11 @@ if hash dnf 2>/dev/null; then
     dnf "$@" upgrade
 fi
 
+if hash rpmconf 2>/dev/null; then
+    # Tests if there are rpmsave/rpmnew files, hopefully is non-interactive
+    rpmconf -a -t
+fi
+
 if hash flatpak 2>/dev/null; then
     # Flatpak apps are sandboxed and should be safe to update automatically
     flatpak update --assumeyes
@@ -45,6 +50,13 @@ if hash snap 2>/dev/null; then
     snap changes
 fi
 
+if hash pkcon 2>/dev/null; then
+    # So PackageKit using KDE Plasma and possibly GNOME stop alerting about
+    # already installed updates. It has backends for all other package managers,
+    # so it needs to be after them.
+    pkcon refresh force
+fi
+
 if hash apt-file 2>/dev/null; then
     # So the local apt-file database is up-to-date.
     apt-file update
@@ -52,6 +64,12 @@ fi
 
 # I don't have flatpak or snap going to background, because I often do
 # ./deb-update.bash && poweroff
+
+if hash needrestart 2>/dev/null; then
+    # needrestart batch mode, should be visible on bottom of scrollback
+    # see https://github.com/liske/needrestart/blob/master/README.batch.md
+    needrestart -b
+fi
 
 # Hide commands being executed again
 set +x
