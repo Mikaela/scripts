@@ -27,6 +27,9 @@ if hash dnf 2>/dev/null; then
 
     # If arguments like -y are passed to the script, they become "$@"
     dnf "$@" upgrade
+
+    # potentially unsafe
+    dnf "$@" autoremove
 fi
 
 if hash rpmconf 2>/dev/null; then
