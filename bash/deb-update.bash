@@ -40,6 +40,8 @@ fi
 if hash flatpak 2>/dev/null; then
     # Flatpak apps are sandboxed and should be safe to update automatically
     flatpak update --assumeyes
+    # Note to self
+    echo '!!! In case of weird errors e.g. while trying to checkout, try running: flatpak repair'
     # Flatpak's version of `apt autoremove`
     flatpak uninstall --unused --assumeyes
 fi
