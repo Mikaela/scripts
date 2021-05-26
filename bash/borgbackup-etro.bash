@@ -6,3 +6,5 @@ borg create ::$(date -Is) /home/bitbot/.bitbot /home/matterbridge/ /home/oragono
 rm -rf /home/mikaela/backups/
 cp -r $BORG_REPO /home/mikaela/backups/
 chown -R mikaela:mikaela /home/mikaela/
+
+borg prune -v --keep-daily=7 --keep-weekly=4
