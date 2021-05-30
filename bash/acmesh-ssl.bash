@@ -20,6 +20,7 @@ SYNCPLAYDIR=/opt/syncplay/ssl
 MUMBLEDIR=/var/lib/mumble-server/ssl
 ZNCDIR=/home/znc/.znc/ssl
 NGINXDIR=/etc/nginx/ssl
+ORAGONODIR=/home/oragono/oragono-conf
 
 # Where is acme.sh + flags applying to them all
 ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
@@ -53,3 +54,8 @@ chown -R znc:znc $ZNCDIR
 $ACMESH --key-file $NGINXDIR/key.pem --fullchain-file $NGINXDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
 chmod -R 700 $NGINXDIR
 chown -R root:root $NGINXDIR
+
+# Egro IRCd, previously known as Oragono
+$ACMESH --key-file $ORAGONODIR/privkey.pem --fullchain-file $ORAGONODIR/fullchain.pem --reloadcmd "$SYSTEMCTLRELOAD oragono"
+chmod -R 700 $ORAGONODIR
+chown -R oragono:oragono $ORAGONODIR
