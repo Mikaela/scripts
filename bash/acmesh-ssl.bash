@@ -14,7 +14,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # The domain the certs are mainly issued for
-DOMAINNAME=relpda.mikaela.info
+DOMAINNAME=etro.mikaela.info
 # Directories
 SYNCPLAYDIR=/opt/syncplay/ssl
 MUMBLEDIR=/var/lib/mumble-server/ssl
@@ -24,7 +24,7 @@ ORAGONODIR=/home/oragono/oragono-conf
 WEECHATDIR=/home/mikaela/.weechat/ssl
 
 # Where is acme.sh + flags applying to them all
-ACMESH="/root/.acme.sh/acme.sh --install-cert -d $DOMAINNAME"
+ACMESH="/root/.acme.sh/acme.sh --install-cert"
 
 # restarting with systemctl
 SYSTEMCTLRESTART="systemctl restart --quiet"
@@ -34,12 +34,12 @@ SYSTEMCTLRELOAD="systemctl reload --quiet"
 /bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $NGINXDIR $WEECHATDIR
 
 # Syncplay - note: reloads certs on every connect like ZNC
-$ACMESH --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
+$ACMESH -d $DOMAINNAME --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
 chmod -R 700 $SYNCPLAYDIR
 chown -R syncplay:root $SYNCPLAYDIR
 
 # Mumble
-$ACMESH --fullchain-file $MUMBLEDIR/fullchain.cer --key-file $MUMBLEDIR/$DOMAINNAME.key --reloadcmd "$SYSTEMCTLRESTART mumble-server"
+$ACMESH -d $DOMAINNAME --fullchain-file $MUMBLEDIR/fullchain.cer --key-file $MUMBLEDIR/$DOMAINNAME.key --reloadcmd "$SYSTEMCTLRESTART mumble-server"
 # future on 1.3.0 +
 # --reloadcmd "/usr/bin/pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1"
 chmod -R 700 $MUMBLEDIR/
@@ -47,21 +47,27 @@ chown -R mumble-server:mumble-server $MUMBLEDIR/
 
 # ZNC 1.7.0 (SSLCertFile & SSLKeyFile in znc.conf)
 # znc.conf's SSLDHParamFile is created by `openssl dhparam 2048 > $ZNCDIRdh.pem`
-$ACMESH --fullchain-file $ZNCDIR/fullchain.cer --key-file $ZNCDIR/$DOMAINNAME.key
+$ACMESH -d $DOMAINNAME --fullchain-file $ZNCDIR/fullchain.cer --key-file $ZNCDIR/$DOMAINNAME.key
 chmod -R 700 $ZNCDIR
 chown -R znc:znc $ZNCDIR
 
 # nginx
-$ACMESH --key-file $NGINXDIR/key.pem --fullchain-file $NGINXDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
+$ACMESH -d $DOMAINNAME --key-file $NGINXDIR/key.pem --fullchain-file $NGINXDIR/cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
 chmod -R 700 $NGINXDIR
 chown -R root:root $NGINXDIR
 
 # Egro IRCd, previously known as Oragono
-$ACMESH --key-file $ORAGONODIR/privkey.pem --fullchain-file $ORAGONODIR/fullchain.pem --reloadcmd "$SYSTEMCTLRELOAD oragono"
+$ACMESH -d $DOMAINNAME --key-file $ORAGONODIR/privkey.pem --fullchain-file $ORAGONODIR/fullchain.pem --reloadcmd "$SYSTEMCTLRELOAD oragono"
 chmod -R 700 $ORAGONODIR
 chown -R oragono:oragono $ORAGONODIR
 
-$ACMESH --fullchain-file $WEECHATDIR/fullchain.pem --key-file $WEECHATDIR/privkey.pem
+$ACMESH -d $DOMAINNAME --fullchain-file $WEECHATDIR/fullchain.pem --key-file $WEECHATDIR/privkey.pem
 cat $WEECHATDIR/{fullchain,privkey}.pem > $WEECHATDIR/relay.pem
 chmod -R 700 $WEECHATDIR
 chown -R mikaela:mikaela $WEECHATDIR
+
+# Another domain
+DOMAINNAME=T4.114077943.xyz
+$ACMESH -d $DOMAINNAME --key-file $NGINXDIR/$DOMAINNAME.key.pem --fullchain-file $NGINXDIR/$DOMAINNAME.cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
+chmod -R 700 $NGINXDIR
+chown -R root:root $NGINXDIR
