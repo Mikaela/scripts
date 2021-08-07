@@ -22,6 +22,7 @@ ZNCDIR=/home/znc/.znc/ssl
 NGINXDIR=/etc/nginx/ssl
 ORAGONODIR=/home/oragono/oragono-conf
 WEECHATDIR=/home/mikaela/.weechat/ssl
+CHRONYDIR=/etc/chrony/tls
 
 # Where is acme.sh + flags applying to them all
 ACMESH="/root/.acme.sh/acme.sh --install-cert"
@@ -31,7 +32,7 @@ SYSTEMCTLRESTART="systemctl restart --quiet"
 SYSTEMCTLRELOAD="systemctl reload --quiet"
 
 # Start by creating the directories if they don't exist
-/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $NGINXDIR $WEECHATDIR
+/bin/mkdir -p $SYNCPLAYDIR $MUMBLEDIR $ZNCDIR $NGINXDIR $ORAGONODIR $WEECHATDIR $CHRONYDIR
 
 # Syncplay - note: reloads certs on every connect like ZNC
 $ACMESH -d $DOMAINNAME --cert-file $SYNCPLAYDIR/cert.pem --key-file $SYNCPLAYDIR/privkey.pem --ca-file $SYNCPLAYDIR/chain.pem
@@ -61,13 +62,22 @@ $ACMESH -d $DOMAINNAME --key-file $ORAGONODIR/privkey.pem --fullchain-file $ORAG
 chmod -R 700 $ORAGONODIR
 chown -R oragono:oragono $ORAGONODIR
 
+# WeeChat relay, remember to /relay sslcertkey
 $ACMESH -d $DOMAINNAME --fullchain-file $WEECHATDIR/fullchain.pem --key-file $WEECHATDIR/privkey.pem
 cat $WEECHATDIR/{fullchain,privkey}.pem > $WEECHATDIR/relay.pem
 chmod -R 700 $WEECHATDIR
 chown -R mikaela:mikaela $WEECHATDIR
 
+# Chrony (for running as an NTS server)
+$ACMESH -d $DOMAINNAME -key-file $CHRONYDIR/$DOMAINNAME.key --fullchain-file $CHRONYDIR/$DOMAINNAME.crt --reloadcmd "$SYSTEMCTLRESTART chronyd"
+chown -R 700 $CHRONYDIR
+# NOTE THE NAMES!
+chown -R _chrony:_chrony $CHRONYDIR
+
 # Another domain
 DOMAINNAME=T4.114077943.xyz
+
+# Nginx for another domain
 $ACMESH -d $DOMAINNAME --key-file $NGINXDIR/$DOMAINNAME.key.pem --fullchain-file $NGINXDIR/$DOMAINNAME.cert.pem --reloadcmd "$SYSTEMCTLRESTART nginx"
 chmod -R 700 $NGINXDIR
 chown -R root:root $NGINXDIR
