@@ -3,8 +3,9 @@
 # Based on https://gist.github.com/turt2live/a99c8e794d6115d4ddfaadb72aabf063
 
 # Check https://matrix.org/docs/spec/#complete-list-of-room-versions before
-# upgrading a room and change as necessary
-ROOMVERSION=6
+# upgrading a room and change as necessary (WARNING: deprecated, no replacement
+# that includes versions after 7 at the time of writing)
+ROOMVERSION=9
 ACCESSTOKEN=
 NEWROOMNAME=""
 OLDROOMID=
