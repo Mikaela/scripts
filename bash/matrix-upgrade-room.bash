@@ -12,7 +12,7 @@ OLDROOMID=
 # Note: $ is not a character that worlks without quotes due to signifying a
 # variable
 LASTEVENTINOLDROOM=''
-HOMESERVER=chat.privacytools.io
+HOMESERVER=matrix-client.matrix.org
 
 set -x
 
