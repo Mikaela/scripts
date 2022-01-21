@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x
+/usr/bin/mullvad-exclude /usr/bin/steam $@
+set +x
