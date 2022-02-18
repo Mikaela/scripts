@@ -10,5 +10,5 @@ NEWROOMID=
 HOMESERVER=matrix-client.matrix.org
 
 set -x
-curl -s -X PUT -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" --data-binary "{\"replacement_room\":\"$NEWROOMID\"}" "https://$HOMESERVER/_matrix/client/r0/rooms/$OLDROOMID/state/m.room.tombstone"
+curl -s -X PUT -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" --data-binary "{\"replacement_room\":\"$NEWROOMID\"}" "https://$HOMESERVER/_matrix/client/v3/rooms/$OLDROOMID/state/m.room.tombstone"
 set +x
