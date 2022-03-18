@@ -8,5 +8,8 @@ set -x
 flatpak override --user org.briarproject.Briar --filesystem=~/.briar:create
 flatpak override --user org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create
 
+# Just for verbosity
+flatpak override --show
+
 # Hide commands being executed again
 set +x
