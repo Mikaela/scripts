@@ -18,8 +18,9 @@ flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.
 flatpak override org.briarproject.Briar --filesystem=~/.briar:create
 flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create
 
-# Just for verbosity
+# Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
+# …and /var/lib/flatpak/overrides/org.briarproject.Briar
 flatpak override --show org.briarproject.Briar
 
 # Hide commands being executed again
