@@ -6,9 +6,9 @@ set -x
 # Workarounds for common flatpak app issues
 
 # Allowing system themes in flatpaks
-flatpak override --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro
-flatpak override --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro
-flatpak override --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro
+flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro
+flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro
+flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro
 
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
