@@ -10,6 +10,7 @@ flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/bria
 
 # Just for verbosity
 flatpak override --show
+flatpak override --show org.briarproject.Briar
 
 # Hide commands being executed again
 set +x
