@@ -5,6 +5,9 @@
 # Show commands being executed
 set -x
 
+# Ensure standard/English
+export LANG=C
+
 # if hash checks that the command exists
 if hash apt-get 2>/dev/null; then
     # I am not sure if -y here even does anything, at least it won't work for
