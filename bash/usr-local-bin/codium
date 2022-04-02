@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-flatpak run com.vscodium.codium $@
+flatpak run com.vscodium.codium --no-sandbox --new-window $@
 set +x
