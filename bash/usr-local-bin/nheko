@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+# Nheko flatpak with Tor
+
 set -x
-#flatpak run io.github.NhekoReborn.Nheko $@
-flatpak run io.github.NhekoReborn.Nheko//master $@
+#flatpak run --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko $@
+flatpak run --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko//master $@
 set +x
