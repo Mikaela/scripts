@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -x
+flatpak run com.github.tchx84.Flatseal $@
+set +x
