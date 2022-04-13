@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -x
+flatpak run org.claws_mail.Claws-Mail $@
+set +x
