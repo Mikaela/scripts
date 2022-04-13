@@ -22,12 +22,16 @@ flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/bria
 # in every profile and can just symlink it
 flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro
 
+# email signature
+flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
+
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
 # …and /var/lib/flatpak/overrides/org.briarproject.Briar
 flatpak override --show org.briarproject.Briar
 # do I need to list those?
 flatpak override --show im.riot.Riot
+flatpak override --show org.claws_mail.Claws-Mail
 
 # Hide commands being executed again
 set +x
