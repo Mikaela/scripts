@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-# Run under flatpak, and Wayland
-
 set -x
 # https://github.com/flathub/com.vscodium.codium/issues/55
-flatpak run com.vscodium.codium --no-sandbox --enable-features=UseOzonePlatform --ozone-platform=wayland $@
+flatpak run com.vscodium.codium --no-sandbox $@
 set +x
