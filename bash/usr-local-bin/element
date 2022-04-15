@@ -8,5 +8,6 @@ set -x
 #/usr/bin/element --proxy-server=socks5://127.0.0.1:9050 $@
 # Flatpak is preferred for Element not having official Fedora repositories
 # and at the time of writing being unmaintained in upstream suggested repo.
-flatpak run im.riot.Riot --proxy-server=socks5://127.0.0.1:9050 $@
+# Also workaround my electron curse
+flatpak run im.riot.Riot --disable-gpu --proxy-server=socks5://127.0.0.1:9050 $@
 set +x
