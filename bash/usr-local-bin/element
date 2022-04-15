@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Torifying Element
+# Torifying Element. And running it under Wayland
 
 set -x
 # proxy authentication is not supported
@@ -8,5 +8,5 @@ set -x
 #/usr/bin/element --proxy-server=socks5://127.0.0.1:9050 $@
 # Flatpak is preferred for Element not having official Fedora repositories
 # and at the time of writing being unmaintained in upstream suggested repo.
-flatpak run im.riot.Riot --proxy-server=socks5://127.0.0.1:9050 $@
+flatpak run im.riot.Riot --enable-features=UseOzonePlatform --ozone-platform=wayland --proxy-server=socks5://127.0.0.1:9050 $@
 set +x
