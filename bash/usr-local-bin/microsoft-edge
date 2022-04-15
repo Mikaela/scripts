@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# To run Microsoft Edge under Wayland
+
+set -x
+/usr/bin/microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland $@
+set +x
