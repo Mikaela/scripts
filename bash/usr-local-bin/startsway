@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Starting sway with proper environment too. My {bash,zsh}rc handles
+# exec
+
+set -x
+
+# Using fcitx
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+
+# qt5ct allows theme choosing
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Ensuring Wayland gets used as per Arch Wiki
+# 2021-02-28 https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
+export QT_QPA_PLATFORM=wayland
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+
+# Breeze Dark everywhere
+export GTK_THEME=Breeze-Dark
+
+dbus-launch --exit-with-session sway --unsupported-gpu $@
+set +x
