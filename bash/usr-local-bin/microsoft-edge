@@ -3,5 +3,5 @@
 # To run Microsoft Edge under Wayland
 
 set -x
-/usr/bin/microsoft-edge --enable-features=UseOzonePlatform --ozone-platform=wayland $@
+/usr/bin/microsoft-edge --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland $@
 set +x
