@@ -18,9 +18,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORM=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
-
-# Breeze Dark everywhere
-export GTK_THEME=Breeze-Dark
+# Mozilla Products
+export MOZ_ENABLE_WAYLAND=1
 
 dbus-launch --exit-with-session sway --unsupported-gpu $@
 set +x

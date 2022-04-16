@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Starting Plasma in Wayland with proper environment too.
+# Starting Plasma in Wayland with proper environment too. My {bash,zsh}rc handles
+# exec
 
 set -x
 
@@ -17,9 +18,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORM=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
-
-# Breeze Dark everywhere
-export GTK_THEME=Breeze-Dark
+# Mozilla Products
+export MOZ_ENABLE_WAYLAND=1
 
 dbus-launch --exit-with-session startplasma-wayland $@
 set +x
