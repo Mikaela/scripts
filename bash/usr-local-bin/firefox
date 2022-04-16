@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
 set -x
+export MOZ_ENABLE_WAYLAND=1
 flatpak run org.mozilla.firefox --ProfileManager $@
 set +x
