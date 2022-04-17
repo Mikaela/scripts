@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-# Nheko flatpak with Tor
+# Nheko flatpak with Tor and xwayland as Nheko's wayland support is currently poor
+# icons not working, context menus being inaccessible, some
+# profiles not spawning windows
 
 set -x
-#flatpak run --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko $@
-flatpak run --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko//master $@
+#flatpak run --env=QT_QPA_PLATFORM=xcb --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko $@
+flatpak run --env=QT_QPA_PLATFORM=xcb --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko//master $@
 set +x
