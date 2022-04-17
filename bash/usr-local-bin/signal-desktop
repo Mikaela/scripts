@@ -5,5 +5,5 @@
 set -x
 # --disable-gpu - https://github.com/signalapp/Signal-Desktop/issues/2567#issuecomment-457282578
 # --start-in-tray - would be nice, but then I cannot open it from there, trus --use-tray-icon
-flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu --use-tray-icon $@
+flatpak run org.signal.Signal --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland --disable-gpu --use-tray-icon $@
 set +x
