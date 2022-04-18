@@ -11,8 +11,9 @@ flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/
 flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro
 
 # In case debugging flatpaks is subject to the other restrictions and running
-# gdb there is made easier by access to the file
-flatpak override --filesystem=~/.gdbinit:ro
+# gdb there is made easier by access to the file. By same logic, they need
+# to be able to write to the log.
+flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt
 
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
