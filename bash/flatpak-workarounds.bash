@@ -10,6 +10,10 @@ flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share
 flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro
 flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro
 
+# In case debugging flatpaks is subject to the other restrictions and running
+# gdb there is made easier by access to the file
+flatpak override --filesystem=~/.gdbinit:ro
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx
