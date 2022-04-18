@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# Torifying Element
 # Wayland flags:  --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland
 # Wayland crash: https://github.com/vector-im/element-web/issues/19964
 # Crash workaround for Signal-desktop, but not Element? --disable-gpu
-
 set -x
+# proxy authentication is not supported
+# https://github.com/vector-im/element-web/issues/3320
+#/usr/bin/element --proxy-server=socks5://127.0.0.1:9050 $@
 # Flatpak is preferred for Element not having official Fedora repositories
 # and at the time of writing being unmaintained in upstream suggested repo.
-flatpak run im.riot.Riot $@
+flatpak run im.riot.Riot --proxy-server=socks5://127.0.0.1:9050 $@
 set +x
