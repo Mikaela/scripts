@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# To run Microsoft Edge under Wayland
+# To run Microsoft Edge under Wayland with Mullvad proxy
+# Wireguard:  --proxy-server=socks5://10.64.0.1
+# OpenVPN: --proxy-server=socks5://10.8.0.1
 
 set -x
-/usr/bin/microsoft-edge --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode --ozone-platform=wayland --force-dark-mode
+/usr/bin/microsoft-edge --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer,WebUIDarkMode --ozone-platform=wayland --force-dark-mode  --proxy-server=socks5://10.64.0.1
 set +x
