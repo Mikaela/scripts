@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
+# I always want to see the profile manager, whether it's my first run or
+# not and I probably have to micromanage wayland enabling everywhere.
+
+# I cannot use the Flatpak as it doesn't support smartcards.
+
 set -x
 export MOZ_ENABLE_WAYLAND=1
-flatpak run org.mozilla.firefox --ProfileManager $@
+#flatpak run org.mozilla.firefox --ProfileManager $@
+/usr/bin/firefox --ProfileManager
 set +x
