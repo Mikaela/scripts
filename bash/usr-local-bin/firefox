@@ -7,6 +7,20 @@
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
-#flatpak run org.mozilla.firefox --ProfileManager $@
-/usr/bin/firefox --ProfileManager
+FlagsForFirefox="--ProfileManager $@"
+
+# Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
+# Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
+if [ -f ~/.local/firefox/firefox ]
+then
+    ~/.local/firefox/firefox $FlagsForFirefox
+# Fallback to global installation
+elif [ -f /usr/bin/firefox ]
+then
+    /usr/bin/firefox $FlagsForFirefox
+# Fallback to flatpak, don't care if it doesn't exist
+else
+    flatpak run org.mozilla.firefox $FlagsForFirefox
+fi
+
 set +x
