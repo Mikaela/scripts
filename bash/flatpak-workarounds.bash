@@ -30,6 +30,9 @@ flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/
 # email signature
 flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
 
+# Directory I have normal Nextcloud in
+flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create
+
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
 # …and /var/lib/flatpak/overrides/org.briarproject.Briar
@@ -37,6 +40,7 @@ flatpak override --show org.briarproject.Briar
 # do I need to list those?
 flatpak override --show im.riot.Riot
 flatpak override --show org.claws_mail.Claws-Mail
+flatpak override --show com.nextcloud.desktopclient.nextcloud
 
 # Hide commands being executed again
 set +x
