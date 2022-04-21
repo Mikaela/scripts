@@ -5,6 +5,10 @@ set -x
 
 # Workarounds for common flatpak app issues
 
+# Let's begin by checking remotes and installing what this touches…
+#flatpak update --appstream
+#flatpak install --assumeyes flathub org.briarproject.Briar im.riot.Riot com.nextcloud.desktopclient.nextcloud
+
 # Allowing system themes in flatpaks
 flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro
 flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro
@@ -28,7 +32,7 @@ flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/bria
 flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro
 
 # email signature
-flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
+#flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
 
 # Directory I have normal Nextcloud in
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create
@@ -39,7 +43,7 @@ flatpak override --show
 flatpak override --show org.briarproject.Briar
 # do I need to list those?
 flatpak override --show im.riot.Riot
-flatpak override --show org.claws_mail.Claws-Mail
+#flatpak override --show org.claws_mail.Claws-Mail
 flatpak override --show com.nextcloud.desktopclient.nextcloud
 
 # Hide commands being executed again
