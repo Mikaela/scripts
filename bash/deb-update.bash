@@ -26,6 +26,14 @@ if hash apt-get 2>/dev/null; then
     apt-get "$@" autoremove
 fi
 
+# Enables Fedora third party repositories if not enabled, otherwise quiet.
+# My systems most likely have them already
+if hash fedora-third-party 2>/dev/null; then
+    fedora-third-party enable
+    # Are they enabled?
+    fedora-third-party query
+fi
+
 if hash dnf 2>/dev/null; then
     # I don't know if -y does anything here either and I think this may be
     # useless, but I am used to it coming from apt and I think it will just
