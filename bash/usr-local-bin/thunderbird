@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# I always want to see the profile manager, whether it's my first run or
+# not and I probably have to micromanage wayland enabling everywhere.
+
+# I cannot use the Flatpak as it doesn't support smartcards.
+
+set -x
+export MOZ_ENABLE_WAYLAND=1
+FlagsForThunderbird="--ProfileManager $@"
+
+# Thunderbird (stable, beta) and signatures: https://releases.mozilla.org/pub/thunderbird/releases/
+if [ -f ~/.local/thunderbird/thunderbird ]
+then
+    ~/.local/thunderbird/thunderbird $FlagsForThunderbird
+# Fallback to global installation
+elif [ -f /usr/bin/thunderbird ]
+then
+    /usr/bin/thunderbird $FlagsForThunderbird
+# Fallback to flatpak, don't care if it doesn't exist
+else
+    flatpak run org.mozilla.Thunderbird $FlagsForThunderbird
+fi
+
+set +x
