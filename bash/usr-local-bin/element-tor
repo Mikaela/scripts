@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Torifying Element
-# Wayland flags:  --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland
+# Wayland flags:  --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland
 # Wayland crash: https://github.com/vector-im/element-web/issues/19964
 # Crash workaround for Signal-desktop, but not Element? --disable-gpu
 set -x

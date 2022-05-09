@@ -2,5 +2,5 @@
 
 set -x
 flatpak run com.visualstudio.code --no-sandbox $@
-#  --enable-features=UseOzonePlatforme --ozone-platform=wayland
+#  --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
 set +x

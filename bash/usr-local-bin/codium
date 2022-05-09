@@ -3,5 +3,5 @@
 set -x
 # https://github.com/flathub/com.vscodium.codium/issues/55
 flatpak run com.vscodium.codium --no-sandbox $@
-#  --enable-features=UseOzonePlatforme --ozone-platform=wayland
+#  --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
 set +x
