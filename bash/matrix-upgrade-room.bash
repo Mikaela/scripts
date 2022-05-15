@@ -2,12 +2,13 @@
 
 # Based on https://gist.github.com/turt2live/a99c8e794d6115d4ddfaadb72aabf063
 
-# Check https://matrix.org/docs/spec/#complete-list-of-room-versions before
-# upgrading a room and change as necessary (WARNING: deprecated, no replacement
-# that includes versions after 7 at the time of writing)
-ROOMVERSION=9
+# Refer to https://spec.matrix.org/unstable/rooms/#complete-list-of-room-versions
+# and room versions supported by your homeserver BEFORE adjusting/running this.
+# Otherwise the target room version may be outdated or the last one I have
+# ran this script for.
+ROOMVERSION=10
 ACCESSTOKEN=
-NEWROOMNAME=""
+NEWROOMNAME="CHANGEME (v$ROOMVERSION)"
 OLDROOMID=
 # Note: $ is not a character that worlks without quotes due to signifying a
 # variable
