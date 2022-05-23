@@ -37,6 +37,9 @@ flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/
 # Directory I have normal Nextcloud in
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create
 
+# PCSX2 files
+flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2/
+
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
 # …and /var/lib/flatpak/overrides/org.briarproject.Briar
@@ -45,6 +48,7 @@ flatpak override --show org.briarproject.Briar
 flatpak override --show im.riot.Riot
 #flatpak override --show org.claws_mail.Claws-Mail
 flatpak override --show com.nextcloud.desktopclient.nextcloud
+flatpak override --show net.pcsx2.PCSX2
 
 # Hide commands being executed again
 set +x
