@@ -57,6 +57,7 @@ if hash flatpak 2>/dev/null; then
     flatpak update --assumeyes
     # Note to self
     echo '!!! In case of weird errors e.g. while trying to checkout, try running: flatpak repair'
+    echo '    404 is not a weird error, try flatpak \<subcommand\> --no-static-deltas'
     # Flatpak's version of `apt autoremove`
     flatpak uninstall --unused --assumeyes
 fi
