@@ -38,7 +38,7 @@ flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create
 
 # PCSX2 files
-flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2/
+flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create
 
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
