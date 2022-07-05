@@ -14,6 +14,10 @@ FlagsForFirefox="--ProfileManager $@"
 if [ -f ~/.local/firefox/firefox ]
 then
     ~/.local/firefox/firefox $FlagsForFirefox
+# Fallback to global wayland installation
+elif [ -f /usr/bin/firefox-wayland ]
+then
+    /usr/bin/firefox-wayland $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox ]
 then
