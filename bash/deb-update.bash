@@ -19,10 +19,13 @@ if hash apt-get 2>/dev/null; then
     # Checking for updates or new packages.
     apt-get -y update
 
+    # potentially unsafe first time, so there hopefully is space for new kernels
+    apt-get "$@" autoremove
+
     # If arguments like -y are passed to the script, they become "$@"
     apt-get "$@" upgrade --with-new-pkgs
 
-    # potentially unsafe
+    # potentially unsafe, second time after new kernel is installed
     apt-get "$@" autoremove
 fi
 
