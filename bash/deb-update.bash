@@ -29,6 +29,11 @@ if hash apt-get 2>/dev/null; then
     apt-get "$@" autoremove
 fi
 
+if hash dpkg 2>/dev/null; then
+    # In case dpkg was interrupted previously, configure packages.
+    dpkg --configure -a
+fi
+
 # Enables Fedora third party repositories if not enabled, otherwise quiet.
 # My systems most likely have them already
 if hash fedora-third-party 2>/dev/null; then
