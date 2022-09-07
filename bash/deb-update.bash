@@ -48,10 +48,13 @@ if hash dnf 2>/dev/null; then
     # say nothing to do or do nothing if mirrors haven't updated.
     dnf check-update -y
 
+    # potentially unsafe first time, I am not sure if this is concern outside of Debian/Ubuntu though
+    dnf "$@" autoremove
+
     # If arguments like -y are passed to the script, they become "$@"
     dnf "$@" upgrade
 
-    # potentially unsafe
+    # potentially unsafe, see a few lines above and the apt-get section
     dnf "$@" autoremove
 fi
 
