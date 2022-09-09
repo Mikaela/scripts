@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Quick syncplay wrapper
+
+set -x
+# Install python3-venv
+# mkdir -p ~/src/github.com/syncplay
+# cd ~/src/github.com/syncplay
+# git clone https://github.com/syncplay/syncplay.git
+# mkdir venv venv
+# source bin/activate
+# pip3 install -r requirements.txt --user --upgrade
+# ^ for requirements_gui.txt if desired
+# this script should now work
+. ~/src/github.com/syncplay/syncplay/venv/bin/activate
+/home/aminda/src/github.com/syncplay/syncplay/syncplayClient.py $@
+set +x
