@@ -103,5 +103,11 @@ if hash needrestart 2>/dev/null; then
     needrestart -b
 fi
 
+# Sedric workaround, located in this repo. I trust /root/
+if [ -f /root/fixgrub.bash ]
+then
+    /root/fixgrub.bash
+fi
+
 # Hide commands being executed again
 set +x
