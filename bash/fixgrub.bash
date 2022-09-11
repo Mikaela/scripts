@@ -5,8 +5,12 @@
 # me what is going on. This is an ugly workaround.
 
 set -x
-# TODO: If this is to become more sophisciated and check for Fedora
-# detect based on /boot/efi/EFI/fedora/grub.cfg, not rpmsave?
-rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
-grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+
+# This script is Fedora specific.
+if [ -f /boot/efi/EFI/fedora/grub.cfg ]
+then
+    rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
+    grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+fi
+
 set +x
