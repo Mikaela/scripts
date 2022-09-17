@@ -6,8 +6,10 @@
 
 set -x
 
-# This script is Fedora specific.
-if [ -f /boot/efi/EFI/fedora/grub.cfg ]
+# This script is Fedora specific for now.
+
+# There is no reason to run if dnf hasn't moved the proper config aside.
+if [ -f /boot/efi/EFI/fedora/grub.cfg.rpmsave ]
 then
     rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
     grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
