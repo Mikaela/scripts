@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-# To run Brave under Wayland with Mullvad proxy
+# To run Brave under Wayland
+# with Mullvad proxy
 # Wireguard:  --proxy-server=socks5://10.64.0.1
 # OpenVPN: --proxy-server=socks5://10.8.0.1
 
 set -x
-/usr/bin/brave-browser-stable --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer,WebUIDarkMode --ozone-platform=wayland --force-dark-mode --proxy-server=socks5://10.64.0.1 $@
+/usr/bin/brave-browser-stable --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer,WebUIDarkMode --ozone-platform=wayland --force-dark-mode $@
 set +x

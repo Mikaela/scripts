@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# DeltaChat flatpak with easier command and outside of Mullvad VPN.
+# DeltaChat flatpak with easier command (and outside of Mullvad VPN if configured as).
 # Gandi.net mail servers don't like Mullvad IPs resulting inability to send
 # anything.
 
@@ -11,5 +11,6 @@
 
 set -x
 # Having "flatpak run" will make mullvad-exclude lose effect!
-/usr/bin/mullvad-exclude /var/lib/flatpak/exports/bin/chat.delta.desktop --disable-gpu $@
+#/usr/bin/mullvad-exclude
+/var/lib/flatpak/exports/bin/chat.delta.desktop --disable-gpu $@
 set +x
