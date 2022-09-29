@@ -3,8 +3,10 @@
 # Nheko flatpak with xwayland as Nheko's wayland support is currently poor
 # icons not working, context menus being inaccessible, some
 # profiles not spawning windows
+# USAGE: "nheko default" for the default profile or whatever profile is
+# desired as I never run it without the profile flag
 
 set -x
-#flatpak run --env=QT_QPA_PLATFORM=xcb --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko $@
-flatpak run --env=QT_QPA_PLATFORM=xcb io.github.NhekoReborn.Nheko//master $@
+#flatpak run --env=QT_QPA_PLATFORM=xcb --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko --profile $@
+flatpak run --env=QT_QPA_PLATFORM=xcb io.github.NhekoReborn.Nheko//master --profile $@
 set +x
