@@ -7,6 +7,6 @@
 # desired as I never run it without the profile flag
 
 set -x
-#flatpak run --env=QT_QPA_PLATFORM=xcb --env=all_proxy=socks5://127.0.0.1:9050/ io.github.NhekoReborn.Nheko --profile $@
-flatpak run --env=QT_QPA_PLATFORM=xcb io.github.NhekoReborn.Nheko//master --profile $@
+#flatpak run --env=QT_QPA_PLATFORM=xcb io.github.NhekoReborn.Nheko//master --profile $@
+flatpak run io.github.NhekoReborn.Nheko//master --profile $@
 set +x
