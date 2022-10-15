@@ -8,7 +8,7 @@ set -x
 # As this script is kind of login manager and upstream wants to externalize
 # the task of telling Sway is used to it,  https://github.com/swaywm/sway/pull/4876#issuecomment-570790128
 # This seems to be required by Firefox and many others.
-# Don't listen to Wayber claiming this should be "Unity"
+# Don't listen to Waybar claiming this should be "Unity"
 export XDG_CURRENT_DESKTOP=sway
 # https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
 # mentions this
