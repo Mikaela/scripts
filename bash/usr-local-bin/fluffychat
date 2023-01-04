@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+# Flutter doesn't support flatpak, so Snap is the least bad Fluffy experience.
+# I presume repo version is always outdated, so fallback to flathub s less
+# bad.
+
 set -x
-flatpak run im.fluffychat.Fluffychat $@
+if [ -f /snap/bin/fluffychat ]
+then
+    snap run fluffychat $@
+elif [ -f /var/lib/flatpak/exports/bin/im.fluffychat.Fluffychat ]
+then
+    flatpak run im.fluffychat.Fluffychat $@
+else
+    /usr/bin/fluffychat
+fi
 set +x
