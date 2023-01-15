@@ -40,6 +40,10 @@ flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:
 # PCSX2 files
 flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create
 
+# A directory I can share between native and flatpak Steam so both have the
+# same games without having to navigate weird paths.
+flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create
+
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
 flatpak override --show
 # …and /var/lib/flatpak/overrides/org.briarproject.Briar
@@ -49,6 +53,7 @@ flatpak override --show im.riot.Riot
 #flatpak override --show org.claws_mail.Claws-Mail
 flatpak override --show com.nextcloud.desktopclient.nextcloud
 flatpak override --show net.pcsx2.PCSX2
+flatpak override --show com.valvesoftware.Steam
 
 # Hide commands being executed again
 set +x
