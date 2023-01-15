@@ -81,6 +81,8 @@ if hash snap 2>/dev/null; then
     # if they have auto-refreshed
     snap changes
 fi
+# I don't have flatpak or snap going to background, because I often do
+# ./deb-update.bash && poweroff
 
 if hash pkcon 2>/dev/null; then
     # So PackageKit using KDE Plasma and possibly GNOME stop alerting about
@@ -93,9 +95,6 @@ if hash apt-file 2>/dev/null; then
     # So the local apt-file database is up-to-date.
     apt-file update
 fi
-
-# I don't have flatpak or snap going to background, because I often do
-# ./deb-update.bash && poweroff
 
 if hash needrestart 2>/dev/null; then
     # needrestart batch mode, should be visible on bottom of scrollback
