@@ -65,12 +65,14 @@ fi
 
 if hash flatpak 2>/dev/null; then
     # Flatpak apps are sandboxed and should be safe to update automatically
-    flatpak update --assumeyes
+    # KEEP --noninteractive IN PLACE! While it removes progress bar, it also
+    # doesn't blink making it worth it in case of migraine attack.
+    flatpak update --noninteractive --assumeyes
     # Note to self
     echo '!!! In case of weird errors e.g. while trying to checkout, try running: flatpak repair'
     echo '    404 is not a weird error, try flatpak <subcommand> --no-static-deltas'
     # Flatpak's version of `apt autoremove`
-    flatpak uninstall --unused --assumeyes
+    flatpak uninstall --unused --assumeyes --noninteractive
 fi
 
 if hash snap 2>/dev/null; then
