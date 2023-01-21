@@ -14,6 +14,9 @@ iwctl station $WIFIDEVICE scan
 iwctl station $WIFIDEVICE get-networks
 
 # Print the command to connect. Replace $KEY and $SSID with the actual ones
-echo "% sudo iwctl --passphrase=\$KEY station $WIFIDEVICE connect \$SSID"
+# The manpage says: iwctl --passphrase=PASSPHRASE station DEVICE connect SSID
+# but considering it says -P is shorthand for passphrase, I think this should
+# work too while being more logical in my opinion.
+echo "% sudo iwctl station $WIFIDEVICE connect \$SSID -P \$KEY"
 
 # For permanent connections https://gitea.blesmrt.net/mikaela/shell-things/src/branch/master/var/lib/iwd
