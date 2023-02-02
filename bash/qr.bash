@@ -8,7 +8,7 @@ PIXELSIZE=6
 
 # Outputs QR code to terminal
 
-# ${@:2} takes all arguments except not the first one
+# ${@:2} takes all arguments except the first one
 qrencode -l H -t utf8 "${@:2}"
 # Stores QR code as $1.png (first argument)
 qrencode -s $PIXELSIZE -l H -o "$1".png "${@:2}"
