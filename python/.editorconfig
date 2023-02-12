@@ -1,0 +1,6 @@
+root = false
+
+[*]
+# https://peps.python.org/pep-0008/#indentation
+indent_style = space
+indent_size = 4

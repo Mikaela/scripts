@@ -1,0 +1,9 @@
+root = false
+
+[*]
+# Unofficial Ruby Style guide says two spaces, but Wikipedia says it doesn't
+# matter so I am going accessibility first and having this commented
+# which will lead editors looking at ../.editorconfig
+# https://rubystyle.guide/#spaces-indentation
+#indent_style = space
+#indent_size = 2
