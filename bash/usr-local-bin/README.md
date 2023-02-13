@@ -6,3 +6,8 @@ but why reinvent the wheel.
 ```bash
 tail -n +1 /var/lib/flatpak/exports/bin/*
 ```
+
+## Snap?
+
+`/usr/local/bin` is more likely to be in `$PATH` than the usual Snap
+vriants. If they are in $PATH, note `sudo snap alias ORIGINAL NEW`
