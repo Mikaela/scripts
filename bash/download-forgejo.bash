@@ -24,7 +24,8 @@ fi
 printf "Verifying signature…\n"
 gpg --verify forgejo-$VERSION-$PLATFORM.asc
 
-printf "Final steps: \n\t 1. Place the binary. \n\t \
-2. sudo ln -s forgejo-$VERSION-$PLATFORM gitea \n\t \
-3. sudo systemctl restart gitea \n\t 4. If the\
-binary was renamed, run hook update from Forĝejo settings."
+printf "Final steps: \n\t 1. Place the binary where the systemd service expects it.\n\t \
+2. sudo chmod a+rx forgejo-$VERSION-$PLATFORM\n\t \
+3. sudo ln -sf forgejo-$VERSION-$PLATFORM gitea \n\t \
+4. sudo systemctl restart gitea"
+echo
