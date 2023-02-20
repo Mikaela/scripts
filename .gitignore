@@ -4,3 +4,5 @@
 node_modules/
 # gdb logs aren't needed eihter
 gdb.txt
+# Kate does .kate-swp
+*.*swp
