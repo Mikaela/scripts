@@ -9,3 +9,12 @@ charset = utf-8
 indent_style = tab
 indent_size = tab
 #tab_width =
+
+[*.{cff,yaml,yml}]
+indent_style = space
+indent_size = 2
+
+[*.{txt,markdown,md}]
+trim_trailing_whitespace = false
+indent_style = space
+indent_size = 2
