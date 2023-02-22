@@ -11,12 +11,12 @@ through curl/wget.
 
 ### Directories
 
-* *bash* has just normal bash scripts
-* *nodejs* **MIGHT** get some nodejs scripts
-* *WeeChat* is a placeholder and unlikely to get anything.
-* *ZNC* is another placeholder which is unlikely to get anything.
-    * note that they are *modules* with ZNC, but I don't see why I
-      couldn't put them here.
+- _bash_ has just normal bash scripts
+- _nodejs_ **MIGHT** get some nodejs scripts
+- _WeeChat_ is a placeholder and unlikely to get anything.
+- _ZNC_ is another placeholder which is unlikely to get anything.
+  - note that they are _modules_ with ZNC, but I don't see why I
+    couldn't put them here.
 
-*I doubt I am going to write many WeeChat scripts or ZNC modules, so I
- won't be making subdirectories for different languages.*
+_I doubt I am going to write many WeeChat scripts or ZNC modules, so I
+won't be making subdirectories for different languages._
