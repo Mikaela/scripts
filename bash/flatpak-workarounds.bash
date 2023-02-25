@@ -19,6 +19,10 @@ flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/shar
 # to be able to write to the log.
 flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt
 
+# Allow read-only access to ~/.curlrc in case a flatpak is utilising curl
+# or libcurl starts reading it
+flatpak override --filesystem=~/.curlrc:ro
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx
