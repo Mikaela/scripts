@@ -27,12 +27,12 @@ Size: <input type="text" name="size">
 
 <?php
 
-$email = trim( $_REQUEST["email"] ); 
+$email = trim( $_REQUEST["email"] );
 $size = $_REQUEST["size"];
 
 echo "<p>Email<br> $email<br></p>";
 
-$email = strtolower( $email ); 
+$email = strtolower( $email );
 
 $md5email = md5( $email );
 
