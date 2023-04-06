@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VERSION=1.18.3-2
+VERSION=1.19.0-3
 PLATFORM=linux-amd64
 
 # If the signature is already downloaded, don't redownload it
