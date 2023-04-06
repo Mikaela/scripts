@@ -1,5 +1,4 @@
-# Line ending normalisatsion, force linguist to consider everything
-* text=auto linguist-detectable
+* text=auto eol=lf linguist-detectable
 
 # bash scripts are most likely ran on Linux so they have lf endings
 *.bash text eol=lf
