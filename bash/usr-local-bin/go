@@ -7,11 +7,11 @@ set -x
 # Check if go is installed through snap
 if [ -f /snap/bin/go ]
 then
-    snap run go $@
+	snap run go $@
 
 # Fallback to system installation
 else
-    /usr/bin/go $@
+	/usr/bin/go $@
 fi
 
 set +x

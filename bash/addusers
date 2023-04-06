@@ -6,24 +6,24 @@
 # Loop with the users
 for user in mikaela matti tommi tiina nenne anneli
 do
-    # To see that it works
-    echo "Current user: $user"
-    # Create the user & homedir if it doesn't exist
-    useradd -m $user
-    # Add the user to normal Debian groups
-    usermod -a -G lp,cdrom,floppy,audio,dip,plugdev,netdev,bluetooth,lpadmin "$user"
-    # Set user & group as the owner (in case fresh install with old /home)
-    chown -R $user:$user /home/$user
-    # Remove password & force new to be given during first login
-    passwd -de $user
-    # Does this still work?
-    echo "User ready: $user"
+	# To see that it works
+	echo "Current user: $user"
+	# Create the user & homedir if it doesn't exist
+	useradd -m $user
+	# Add the user to normal Debian groups
+	usermod -a -G lp,cdrom,floppy,audio,dip,plugdev,netdev,bluetooth,lpadmin "$user"
+	# Set user & group as the owner (in case fresh install with old /home)
+	chown -R $user:$user /home/$user
+	# Remove password & force new to be given during first login
+	passwd -de $user
+	# Does this still work?
+	echo "User ready: $user"
 done
 
 # And next sudoers
 for sudoer in mikaela matti tommi tiina
 do
-    # Add the user to sudo group (as they are administrator)
-    echo "Current sudoer: $sudoer"
-    usermod -a -G wheel $sudoer
+	# Add the user to sudo group (as they are administrator)
+	echo "Current sudoer: $sudoer"
+	usermod -a -G wheel $sudoer
 done

@@ -8,37 +8,37 @@ set -x
 
 # XMPP
 if hash dino 2>/dev/null; then
-  (dino&)
+	(dino&)
 fi
 if hash gajim 2>/dev/null; then
-  (gajim&)
+	(gajim&)
 else
-  (flatpak run org.gajim.Gajim --quiet&)
+	(flatpak run org.gajim.Gajim --quiet&)
 fi
 
 # Jami, mostly P2P app
 if hash jami-gnome 2>/dev/null; then
-  (jami-gnome -r&)
+	(jami-gnome -r&)
 fi
 
 # Telegram.org
 if [ -f ~/.local/Telegram/Updater ]
 then
-  (~/.local/Telegram/Updater -many -startintray&)
+	(~/.local/Telegram/Updater -many -startintray&)
 else
-  if hash telegram-desktop 2>/dev/null; then
-    (telegram-desktop -many -startintray&)
-  fi
+if hash telegram-desktop 2>/dev/null; then
+	(telegram-desktop -many -startintray&)
+	fi
 fi
 
 # Keybase
 if hash run_keybase 2>/dev/null; then
-  (run_keybase&)
+	(run_keybase&)
 fi
 
 # Steam
 if hash steam 2>/dev/null; then
-  (STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
+	(STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
 fi
 
 # Signal

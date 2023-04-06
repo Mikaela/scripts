@@ -25,14 +25,14 @@ echo "To connect:
 # Device Provisioning Protocol https://iwd.wiki.kernel.org/device_provisioning
 # requires qrencode, so let's check it exists
 if hash qrencode needrestart 2>/dev/null; then
-    # Remind of command to share
-    echo "To share credentials:
+	# Remind of command to share
+	echo "To share credentials:
 % iwctl dpp $WIFIDEVICE start-configurator
 "
-    # It needs to be stopped too
-    echo "To stop sharing credentials:
+	# It needs to be stopped too
+	echo "To stop sharing credentials:
 % iwctl dpp $WIFIDEVICE stop"
 # Remind me that this part exists if qrencode is not found.
 else
-    echo "WARNING! qrencode not found."
+	echo "WARNING! qrencode not found."
 fi

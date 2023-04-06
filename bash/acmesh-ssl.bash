@@ -9,8 +9,8 @@
 
 # Echo a warning and exit if NOT running as root
 if [ "$(id -u)" != "0" ]; then
-   echo "acme.sh prefers root, this script demands it." 1>&2
-   exit 1
+	echo "acme.sh prefers root, this script demands it." 1>&2
+	exit 1
 fi
 
 # The domain the certs are mainly issued for

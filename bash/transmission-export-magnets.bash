@@ -7,10 +7,10 @@ CURRENT=1
 
 # until $CURRENT equals $TORRENTS ?
 until [ $CURRENT -gt $TORRENTS ]
-    do
-    # get the information for $CURRENT? Grep the magnet line and cut out the
-    # frist field ("Magnet: ") using awk?
-    transmission-remote -l -t $CURRENT -i | grep -i magnet | awk -F': ' '{print $2}'
-    # increase $CURRENT
-    ((CURRENT++))
+	do
+	# get the information for $CURRENT? Grep the magnet line and cut out the
+	# frist field ("Magnet: ") using awk?
+	transmission-remote -l -t $CURRENT -i | grep -i magnet | awk -F': ' '{print $2}'
+	# increase $CURRENT
+	((CURRENT++))
 done

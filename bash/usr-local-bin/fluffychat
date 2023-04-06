@@ -7,11 +7,11 @@
 set -x
 if [ -f /snap/bin/fluffychat ]
 then
-    snap run fluffychat $@
+	snap run fluffychat $@
 elif [ -f /var/lib/flatpak/exports/bin/im.fluffychat.Fluffychat ]
 then
-    flatpak run im.fluffychat.Fluffychat $@
+	flatpak run im.fluffychat.Fluffychat $@
 else
-    /usr/bin/fluffychat
+	/usr/bin/fluffychat
 fi
 set +x

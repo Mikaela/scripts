@@ -24,23 +24,23 @@ HOSTNAME=""
 
 # Get IPv6 address
 if hash dig 2>/dev/null; then
-    WAN_IP6=$(dig +short myip.opendns.com. AAAA @2620:0:ccd::2)
+	WAN_IP6=$(dig +short myip.opendns.com. AAAA @2620:0:ccd::2)
 else
-    WAN_IP6=$(curl -sL6 https://icanhazip.com/)
+	WAN_IP6=$(curl -sL6 https://icanhazip.com/)
 fi
 if [ -f $HOME/.ydns6.txt ]; then
-    OLD_WAN_IP6=$(cat $HOME/.ydns6.txt)
+	OLD_WAN_IP6=$(cat $HOME/.ydns6.txt)
 else
-    echo "No file, need IP6"
-    OLD_WAN_IP6=""
+	echo "No file, need IP6"
+	OLD_WAN_IP6=""
 fi
 
 # Update IPv6
 if [ "$WAN_IP6" = "$OLD_WAN_IP6" ]; then
-    echo "IP6 Unchanged"
+	echo "IP6 Unchanged"
 else
-    echo $WAN_IP6 > $HOME/.ydns6.txt
-    echo "Updating DNS to $WAN_IP6"
-    curl -6 --basic -u "$USEREMAIL:$PASSWORD" --silent \
-        https://ydns.io/api/v1/update/?host=$HOSTNAME\&ip=$WAN_IP6
+	echo $WAN_IP6 > $HOME/.ydns6.txt
+	echo "Updating DNS to $WAN_IP6"
+	curl -6 --basic -u "$USEREMAIL:$PASSWORD" --silent \
+		https://ydns.io/api/v1/update/?host=$HOSTNAME\&ip=$WAN_IP6
 fi

@@ -12,10 +12,10 @@ echo "Creating to $TARGETDIR"
 
 # Function to generate QRs based on our URL scheme
 function generateQr () {
-    # $2 is first for the output as there are more regions than associations,
-    #  avoids overwriting
-    # -H = 30 % damage allowing highest error correction
-    qrencode -l H -o $2.png "https://piraattipuolue.fi/yhdistykset/$1/aluevaaliehdokkaat-2022-$2"
+	# $2 is first for the output as there are more regions than associations,
+	#  avoids overwriting
+	# -H = 30 % damage allowing highest error correction
+	qrencode -l H -o $2.png "https://piraattipuolue.fi/yhdistykset/$1/aluevaaliehdokkaat-2022-$2"
 }
 
 # Calling the function with associations and regions, they should be

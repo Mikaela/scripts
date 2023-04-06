@@ -11,8 +11,8 @@ set -x
 # There is no reason to run if dnf hasn't moved the proper config aside.
 if [ -f /boot/efi/EFI/fedora/grub.cfg.rpmsave ]
 then
-    rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
-    grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+	rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
+	grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 fi
 
 set +x
