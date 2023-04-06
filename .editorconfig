@@ -1,14 +1,14 @@
 root = true
 
 [*]
-# Future: https://github.com/editorconfig/editorconfig/issues/89
 trim_trailing_whitespace = true
 insert_final_newline = true
 charset = utf-8
 # Accessibility reasons. Vim: :%retab! (note also :set ts=4)
 indent_style = tab
 indent_size = tab
-#tab_width =
+max_line_length = 78
+end_of_line = lf
 
 [*.{cff,yaml,yml}]
 indent_style = space
