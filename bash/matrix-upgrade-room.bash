@@ -7,6 +7,7 @@
 # Otherwise the target room version may be outdated or the last one I have
 # ran this script for.
 ROOMVERSION=10
+# Help and about in Element Web settings
 ACCESSTOKEN=
 NEWROOMNAME="CHANGEME (v$ROOMVERSION)"
 # https://develop.element.io (or other Element release), run /devtools and
