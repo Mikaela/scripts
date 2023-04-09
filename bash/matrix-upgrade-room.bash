@@ -9,10 +9,16 @@
 ROOMVERSION=10
 ACCESSTOKEN=
 NEWROOMNAME="CHANGEME (v$ROOMVERSION)"
+# https://develop.element.io (or other Element release), run /devtools and
+# enable developer mode. Reads on top of /devtools and Room settings ->
+# Advanced
 OLDROOMID=
-# Note: $ is not a character that worlks without quotes due to signifying a
+# When developer mode is enabled from /devtools in Element Web, visible in
+# the hover menu when pointing a message and selecting "view event source".
+# Note: $ is not a character that works without quotes due to signifying a
 # variable
 LASTEVENTINOLDROOM=''
+# https://matrix.org/.well-known/matrix/client
 HOMESERVER=matrix-client.matrix.org
 
 set -x
