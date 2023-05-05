@@ -1,0 +1,3 @@
+[submodule "submodules/gist"]
+	path = submodules/gist
+	url = https://gitea.blesmrt.net/mikaela/gist.git
