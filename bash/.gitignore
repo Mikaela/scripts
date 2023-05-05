@@ -2,4 +2,9 @@
 *.png
 *.jpg
 *.jpeg
+# download-forgejo.bash results to these
 forgejo-*
+# submodule symlinks
+backup-ops2l-vmc.bash
+generate-vcard-qr.bash
+install-cht.bash
