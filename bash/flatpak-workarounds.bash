@@ -43,6 +43,7 @@ flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:
 
 # PCSX2 files
 flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create
+flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create
 
 # A directory I can share between native and flatpak Steam so both have the
 # same games without having to navigate weird paths.
