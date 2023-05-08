@@ -6,5 +6,6 @@
 # OpenVPN: --proxy-server=socks5://10.8.0.1
 
 set -x
-/usr/bin/brave-browser-stable --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer,VaapiVideoDecoder,VaapiIgnoreDriverChecks,BraveVerticalTabs,EncryptedClientHello,UseDnsHttpsSvcbAlpn,WebContentsForceDark --ozone-platform-hint=auto --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --disable-gpu-driver-bug-workarounds --enable-native-gpu-memory-buffers $@
+/usr/bin/brave-browser-stable --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturerBraveVerticalTabs,EncryptedClientHello,UseDnsHttpsSvcbAlpn --ozone-platform-hint=auto  $@
+# --enable-features=,VaapiVideoDecoder,VaapiIgnoreDriverChecks,WebContentsForceDark --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --disable-gpu-driver-bug-workarounds --enable-native-gpu-memory-buffers
 set +x
