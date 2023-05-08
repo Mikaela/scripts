@@ -33,7 +33,7 @@ var myip6 = function () {
     // Check where myip.opendns.com resolves to and I think this is a function
     // that takes arguments err and addresses.
     dns.resolve6('myip.opendns.com', function (err, addresses) {
-    
+
     // if err contains a truthy value, an error has occurred
     if (err) throw err;
 
