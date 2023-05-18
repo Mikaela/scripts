@@ -3,6 +3,7 @@ ci:
   # the frequency of unnecessary PRs.
   # https://github.com/pre-commit-ci/issues/issues/83
   autoupdate_schedule: quarterly
+  skip: [pylint]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
