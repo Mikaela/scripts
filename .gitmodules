@@ -1,3 +1,6 @@
 [submodule "submodules/gist"]
 	path = submodules/gist
 	url = https://gitea.blesmrt.net/mikaela/gist.git
+[submodule "submodules/PPFI-Pikaviestimet"]
+	path = submodules/PPFI-Pikaviestimet
+	url = https://git.piraattipuolue.fi/Pikaviestimet/Pikaviestimet.git
