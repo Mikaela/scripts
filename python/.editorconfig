@@ -4,3 +4,6 @@ root = false
 # https://peps.python.org/pep-0008/#indentation
 indent_style = space
 indent_size = 4
+#max_line_length = 79
+# https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html#line-length
+max_line_length = 88
