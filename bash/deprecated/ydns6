@@ -16,7 +16,6 @@
 ## Copy-paste the following to your crontab without the #
 # */5 * * * * PATH_TO_HOME_DIRECTORY_HERE/.local/bin/ydns6 >/dev/null 2>&1
 
-
 # yDNS details
 USEREMAIL=""
 PASSWORD=""
@@ -39,7 +38,7 @@ fi
 if [ "$WAN_IP6" = "$OLD_WAN_IP6" ]; then
 	echo "IP6 Unchanged"
 else
-	echo $WAN_IP6 > $HOME/.ydns6.txt
+	echo $WAN_IP6 >$HOME/.ydns6.txt
 	echo "Updating DNS to $WAN_IP6"
 	curl -6 --basic -u "$USEREMAIL:$PASSWORD" --silent \
 		https://ydns.io/api/v1/update/?host=$HOSTNAME\&ip=$WAN_IP6

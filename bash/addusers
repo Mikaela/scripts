@@ -4,8 +4,7 @@
 # installations. I am too lazy to always do this by hand!
 
 # Loop with the users
-for user in mikaela matti tommi tiina nenne anneli
-do
+for user in mikaela matti tommi tiina nenne anneli; do
 	# To see that it works
 	echo "Current user: $user"
 	# Create the user & homedir if it doesn't exist
@@ -21,8 +20,7 @@ do
 done
 
 # And next sudoers
-for sudoer in mikaela matti tommi tiina
-do
+for sudoer in mikaela matti tommi tiina; do
 	# Add the user to sudo group (as they are administrator)
 	echo "Current sudoer: $sudoer"
 	usermod -a -G wheel $sudoer

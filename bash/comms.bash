@@ -8,47 +8,46 @@ set -x
 
 # XMPP
 if hash dino 2>/dev/null; then
-	(dino&)
+	(dino &)
 fi
 if hash gajim 2>/dev/null; then
-	(gajim&)
+	(gajim &)
 else
-	(flatpak run org.gajim.Gajim --quiet&)
+	(flatpak run org.gajim.Gajim --quiet &)
 fi
 
 # Jami, mostly P2P app
 if hash jami-gnome 2>/dev/null; then
-	(jami-gnome -r&)
+	(jami-gnome -r &)
 fi
 
 # Telegram.org
-if [ -f ~/.local/Telegram/Updater ]
-then
-	(~/.local/Telegram/Updater -many -startintray&)
+if [ -f ~/.local/Telegram/Updater ]; then
+	(~/.local/Telegram/Updater -many -startintray &)
 else
-if hash telegram-desktop 2>/dev/null; then
-	(telegram-desktop -many -startintray&)
+	if hash telegram-desktop 2>/dev/null; then
+		(telegram-desktop -many -startintray &)
 	fi
 fi
 
 # Keybase
 if hash run_keybase 2>/dev/null; then
-	(run_keybase&)
+	(run_keybase &)
 fi
 
 # Steam
 if hash steam 2>/dev/null; then
-	(STEAM_FRAME_FORCE_CLOSE=1 steam -silent&)
+	(STEAM_FRAME_FORCE_CLOSE=1 steam -silent &)
 fi
 
 # Signal
-(flatpak run org.signal.Signal --start-in-tray&)
+(flatpak run org.signal.Signal --start-in-tray &)
 
 # Microsoft Teams
-(flatpak run com.microsoft.Teams&)
+(flatpak run com.microsoft.Teams &)
 
 # IRC/HexChat
-(flatpak run io.github.Hexchat&)
+(flatpak run io.github.Hexchat &)
 
 # Matrix
 # Elements (previously Riot) perform poorly with this script, use container

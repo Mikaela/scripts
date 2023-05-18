@@ -10,16 +10,13 @@ export MOZ_ENABLE_WAYLAND=1
 FlagsForThunderbird="--ProfileManager $@"
 
 # Thunderbird (stable, beta) and signatures: https://releases.mozilla.org/pub/thunderbird/releases/
-if [ -f ~/.local/thunderbird/thunderbird ]
-then
+if [ -f ~/.local/thunderbird/thunderbird ]; then
 	~/.local/thunderbird/thunderbird $FlagsForThunderbird
 # Fallback to global installation
-elif [ -f /usr/bin/thunderbird-wayland ]
-then
+elif [ -f /usr/bin/thunderbird-wayland ]; then
 	/usr/bin/thunderbird-wayland $FlagsForThunderbird
 # Fallback to global installation
-elif [ -f /usr/bin/thunderbird ]
-then
+elif [ -f /usr/bin/thunderbird ]; then
 	/usr/bin/thunderbird $FlagsForThunderbird
 # Fallback to flatpak, don't care if it doesn't exist
 else

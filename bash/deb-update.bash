@@ -105,8 +105,7 @@ if hash needrestart 2>/dev/null; then
 fi
 
 # Sedric workaround, located in this repo. I trust /root/
-if [ -f /root/fixgrub.bash ]
-then
+if [ -f /root/fixgrub.bash ]; then
 	/root/fixgrub.bash
 fi
 

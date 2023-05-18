@@ -11,7 +11,7 @@ cd $TARGETDIR
 echo "Creating to $TARGETDIR"
 
 # Function to generate QRs based on our URL scheme
-function generateQr () {
+function generateQr() {
 	# $2 is first for the output as there are more regions than associations,
 	#  avoids overwriting
 	# -H = 30 % damage allowing highest error correction

@@ -7,7 +7,7 @@
 set -x
 
 # -r mirrors cursor, eDP-1 is the internal display name on lumina to be mirrored
-wayvnc ::1 -r -o eDP-1&
+wayvnc ::1 -r -o eDP-1 &
 
 # So I won't forget it and think something broke
 notify-send "Remember to Mod-Shift-NUM to exit black screen"

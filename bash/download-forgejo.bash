@@ -3,8 +3,7 @@ VERSION=1.19.1-0
 PLATFORM=linux-amd64
 
 # If the signature is already downloaded, don't redownload it
-if [ -f "forgejo-$VERSION-$PLATFORM.asc" ]
-then
+if [ -f "forgejo-$VERSION-$PLATFORM.asc" ]; then
 	printf "Forĝejo signature already downloaded.\n"
 else
 	printf "Downloading Forĝejo $VERSION-$PLATFORM signature…\n"
@@ -12,8 +11,7 @@ else
 fi
 
 # If the binary is already downloaded, don't redownload it
-if [ -f "forgejo-$VERSION-$PLATFORM" ]
-then
+if [ -f "forgejo-$VERSION-$PLATFORM" ]; then
 	printf "Forĝejo already downloaded.\n"
 else
 	printf "Downloading Forĝejo $VERSION on $PLATFORM…\n"

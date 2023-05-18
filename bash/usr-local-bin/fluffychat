@@ -5,11 +5,9 @@
 # bad.
 
 set -x
-if [ -f /snap/bin/fluffychat ]
-then
+if [ -f /snap/bin/fluffychat ]; then
 	snap run fluffychat $@
-elif [ -f /var/lib/flatpak/exports/bin/im.fluffychat.Fluffychat ]
-then
+elif [ -f /var/lib/flatpak/exports/bin/im.fluffychat.Fluffychat ]; then
 	flatpak run im.fluffychat.Fluffychat $@
 else
 	/usr/bin/fluffychat

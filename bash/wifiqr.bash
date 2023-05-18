@@ -13,7 +13,6 @@ qrencode -l H -s $PIXELSIZE -o $1.png "WIFI:T:WPA;S:$1;P:$2;;"
 # Might as well jpg this too
 convert "$1".png "$1".jpg
 
-
 # Prints details
 echo "SSID: $1"
 echo "Passphrase: $2"
