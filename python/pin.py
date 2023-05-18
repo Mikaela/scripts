@@ -9,7 +9,7 @@ except IndexError as noarg:
 
 try:
     for i in range(int(wantedCount)):
-        print(secrets.randbelow(10),end="")
+        print(secrets.randbelow(10), end="")
 except NameError as noWantedCount:
     print()
 print()
