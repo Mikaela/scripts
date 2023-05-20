@@ -5,10 +5,10 @@ export MANGOHUD_CONFIG=position=bottom-left,font_size=18
 # So my Steam downloads don't go through the VPN and it won't prompt for
 # password that often
 #/usr/bin/mullvad-exclude
-#/usr/bin/steam $@
+mangohud gamemoderun /usr/bin/steam $@
 # Having "flatpak run" will make mullvad-exclude lose effect!
 # Additionally I wasn't able to get this to access the usual game library
 # or keep using compatibility tool (Proton) checked.
 #/usr/bin/mullvad-exclude
-mangohud gamemoderun /var/lib/flatpak/exports/bin/com.valvesoftware.Steam $@
+#mangohud gamemoderun /var/lib/flatpak/exports/bin/com.valvesoftware.Steam $@
 set +x
