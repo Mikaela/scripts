@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-
 # USAGE: "nheko default" for the default profile or whatever profile is
 # desired as I never run it without the profile flag
 
+# TODO: Handle --help & --version flags
+
 set -x
-#flatpak run --env=QT_QPA_PLATFORM=xcb io.github.NhekoReborn.Nheko//master --profile $@
-flatpak run io.github.NhekoReborn.Nheko//master --profile $@
+flatpak run im.nheko.Nheko//master --profile $@
 set +x
