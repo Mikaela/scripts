@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Nheko flatpak with xwayland as Nheko's wayland support is currently poor
-# icons not working, context menus being inaccessible, some
-# profiles not spawning windows
 # USAGE: "nheko default" for the default profile or whatever profile is
 # desired as I never run it without the profile flag
 
