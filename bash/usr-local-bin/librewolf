@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# LibreWolf wrapper for using wayland and starting with ProfileManager
+
+set -x
+export MOZ_ENABLE_WAYLAND=1
+FlagsForLibrewolf="--ProfileManager $@"
+
+# TODO: Local installation in the future? See the firefox wrapper
+if [ -f /usr/bin/librewolf ]; then
+	/usr/bin/librewolf $FlagsForLibrewolf
+# Fallback to flatpak, don't care if it doesn't exist
+else
+	flatpak run io.gitlab.librewolf-community $FlagsForLibrewolf
+fi
+
+set +x
