@@ -14,6 +14,10 @@ export XDG_CURRENT_DESKTOP=sway
 # mentions this
 export XDG_SESSION_DESKTOP=sway
 
+# Java applications under non-parenting window managers (incl. sway)
+#  via https://github.com/simplex-chat/simplex-chat/issues/2889#issuecomment-1677272784
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # Using fcitx
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE="fcitx"
