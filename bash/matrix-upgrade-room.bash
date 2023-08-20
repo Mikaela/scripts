@@ -6,7 +6,7 @@
 # and room versions supported by your homeserver BEFORE adjusting/running this.
 # Otherwise the target room version may be outdated or the last one I have
 # ran this script for.
-ROOMVERSION=10
+ROOMVERSION=11
 # Help and about in Element Web settings
 ACCESSTOKEN=
 NEWROOMNAME="CHANGEME (v$ROOMVERSION)"
