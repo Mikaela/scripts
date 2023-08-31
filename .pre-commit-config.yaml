@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2023 Aminda Suomalainen <suomalainen+git@mikaela.info>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# See https://pre-commit.com for more information
+# See https://pre-commit.ci for more information
 ci:
   # Forĝejo/Gitea mirrors will autoclose pull requests. This should decrease
   # the frequency of unnecessary PRs.
@@ -31,14 +37,16 @@ repos:
     hooks:
       - id: mypy
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: "v3.0.2"
+    rev: "v3.0.3"
     hooks:
       - id: prettier
         exclude_types: [python, pyi, jupyter]
-        #additional_dependencies: [
-        #"prettier@3.0.0",
-        #"@prettier/plugin-ruby@3.2.2",
-        #]
+        additional_dependencies: [
+            # https://www.npmjs.com/package/prettier
+            "prettier@3.0.3",
+            # https://www.npmjs.com/package/@prettier/plugin-ruby
+            "@prettier/plugin-ruby@4.0.2",
+          ]
   - repo: https://github.com/psf/black
     rev: 23.7.0
     hooks:
