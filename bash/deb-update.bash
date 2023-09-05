@@ -68,9 +68,10 @@ if hash flatpak 2>/dev/null; then
 	# KEEP --noninteractive IN PLACE! While it removes progress bar, it also
 	# doesn't blink making it worth it in case of migraine attack.
 	flatpak update --noninteractive --assumeyes
+	flatpak update --noninteractive --assumeyes --no-static-deltas
 	# Note to self
 	echo '!!! In case of weird errors e.g. while trying to checkout, try running: flatpak repair'
-	echo '	  404 is not a weird error, try flatpak <subcommand> --no-static-deltas'
+	#echo '	  404 is not a weird error, try flatpak <subcommand> --no-static-deltas'
 	# Flatpak's version of `apt autoremove`
 	flatpak uninstall --unused --assumeyes --noninteractive
 fi
