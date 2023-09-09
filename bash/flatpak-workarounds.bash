@@ -10,61 +10,61 @@ set -x
 #flatpak install --assumeyes flathub org.briarproject.Briar im.riot.Riot com.nextcloud.desktopclient.nextcloud
 
 # Allowing system themes in flatpaks
-flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro
-flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro
-flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro
+flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro $@
+flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro $@
+flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro $@
 
 # In case debugging flatpaks is subject to the other restrictions and running
 # gdb there is made easier by access to the file. By same logic, they need
 # to be able to write to the log.
-flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt
+flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt $@
 
 # Allow read-only access to ~/.curlrc in case a flatpak is utilising curl
 # or libcurl starts reading it
-flatpak override --filesystem=~/.curlrc:ro
+flatpak override --filesystem=~/.curlrc:ro $@
 
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
-flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx
+flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
-flatpak override org.briarproject.Briar --filesystem=~/.briar:create
-flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create
+flatpak override org.briarproject.Briar --filesystem=~/.briar:create $@
+flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
 
 # This is an ugly hack so I don't have to maintain the config.json separately
 # in every profile and can just symlink it
-flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro
+flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro $@
 
 # email signature
 #flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
 
 # Directory I have normal Nextcloud in
-flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create
+flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
 
 # PCSX2 files
-flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create
-flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create
+flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create $@
+flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 
 # A directory I can share between native and flatpak Steam so both have the
 # same games without having to navigate weird paths.
-flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create
-flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create
+flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
+flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 
 # For use with system syncthing, note its flags
-flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create
+flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
-flatpak override --show
+flatpak override --show $@
 # …and /var/lib/flatpak/overrides/org.briarproject.Briar
-flatpak override --show org.briarproject.Briar
+flatpak override --show org.briarproject.Briar $@
 # do I need to list those?
-flatpak override --show im.riot.Riot
+flatpak override --show im.riot.Riot $@
 #flatpak override --show org.claws_mail.Claws-Mail
-flatpak override --show com.nextcloud.desktopclient.nextcloud
-flatpak override --show net.pcsx2.PCSX2
-flatpak override --show com.valvesoftware.Steam
-flatpak override --show net.lutris.Lutris
-flatpak override --show me.kozec.syncthingtk
+flatpak override --show com.nextcloud.desktopclient.nextcloud $@
+flatpak override --show net.pcsx2.PCSX2 $@
+flatpak override --show com.valvesoftware.Steam $@
+flatpak override --show net.lutris.Lutris $@
+flatpak override --show me.kozec.syncthingtk $@
 
 # Hide commands being executed again
 set +x
