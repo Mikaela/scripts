@@ -19,6 +19,11 @@ flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedorapro
 # the previous command does nothing on Fedora as it already exists, but it still
 # needs to be enabled
 flatpak remote-modify --enable fedora-testing $@
+# In case of similar issues on other distributions
+flatpak remote-modify --enable flathub $@
+flatpak remote-modify --enable flathub-beta $@
+flatpak remote-modify --enable kdeapps $@
+# The other repositories are very unlikely to ship by default with anything
 
 # Hide commands being executed again
 set +x
