@@ -53,13 +53,14 @@ flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
-# Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global …
+# Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global
+# and /var/lib/flatpak/overrides/<flatpak.id>.
+# The user-configurations are ~/.local/share/flatpak/overrides
+
 flatpak override --show $@
-# …and /var/lib/flatpak/overrides/org.briarproject.Briar
 flatpak override --show org.briarproject.Briar $@
-# do I need to list those?
 flatpak override --show im.riot.Riot $@
-#flatpak override --show org.claws_mail.Claws-Mail
+#flatpak override --show org.claws_mail.Claws-Mail $@
 flatpak override --show com.nextcloud.desktopclient.nextcloud $@
 flatpak override --show net.pcsx2.PCSX2 $@
 flatpak override --show com.valvesoftware.Steam $@
