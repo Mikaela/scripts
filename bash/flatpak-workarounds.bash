@@ -5,14 +5,8 @@ set -x
 
 # Workarounds for common flatpak app issues
 
-# Let's begin by checking remotes and installing what this touches…
-#flatpak update --appstream
-#flatpak install --assumeyes flathub org.briarproject.Briar im.riot.Riot com.nextcloud.desktopclient.nextcloud
-
-# Allowing system themes in flatpaks
-flatpak override --filesystem=/usr/local/share/themes:ro --filesystem=/usr/share/themes:ro --filesystem=~/.themes:ro $@
-flatpak override --filesystem=/usr/local/share/icons:ro --filesystem=/usr/share/icons:ro --filesystem=~/.icons:ro $@
-flatpak override --filesystem=/usr/local/share/cursors:ro --filesystem=/usr/share/cursors:ro --filesystem=~/.cursors:ro $@
+# Reserved directories that cannot be shared
+# to flatpaks include at least: /usr
 
 # In case debugging flatpaks is subject to the other restrictions and running
 # gdb there is made easier by access to the file. By same logic, they need
@@ -36,7 +30,7 @@ flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/bria
 flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro $@
 
 # email signature
-#flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create
+#flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create $@
 
 # Directory I have normal Nextcloud in
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
@@ -55,7 +49,7 @@ flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global
 # and /var/lib/flatpak/overrides/<flatpak.id>.
-# The user-configurations are ~/.local/share/flatpak/overrides
+# The user-configurations are ~/.local/share/flatpak/overrides/
 
 flatpak override --show $@
 flatpak override --show org.briarproject.Briar $@
