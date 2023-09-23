@@ -10,12 +10,13 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak remote-add --if-not-exists kdeapps https://distribute.kde.org/kdeapps.flatpakrepo $@
 flatpak remote-add --if-not-exists nheko-nightly https://nheko.im/nheko-reborn/nheko/-/raw/master/nheko-nightly.flatpakrepo $@
 
-# As I cannot find a .flatpakrepo
-#flatpak install https://ftp.gajim.org/flatpak/appstream/org.gajim.Gajim.Devel.flatpakref $@ &
-
 # Fedora?
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org $@
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing $@
+
+# Unable to find .flatpakrepos, keep below actual repos.
+#flatpak install https://ftp.gajim.org/flatpak/appstream/org.gajim.Gajim.Devel.flatpakref $@ &
+
 # the previous command does nothing on Fedora as it already exists, but it still
 # needs to be enabled
 flatpak remote-modify --enable fedora-testing $@
