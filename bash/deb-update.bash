@@ -74,6 +74,10 @@ if hash flatpak 2>/dev/null; then
 	#echo '	  404 is not a weird error, try flatpak <subcommand> --no-static-deltas'
 	# Flatpak's version of `apt autoremove`
 	flatpak uninstall --unused --assumeyes --noninteractive
+	# And as an user although probably inapplicable for sudo/root
+	flatpak update --user --noninteractive --assumeyes
+	flatpak update --user --noninteractive --assumeyes --no-static-deltas
+	flatpak uninstall --user --unused --assumeyes --noninteractive
 fi
 
 if hash snap 2>/dev/null; then
