@@ -4,9 +4,14 @@ set -x
 
 cd ~
 mkdir -p ~/.local/bin/
+
 # My pre-commit configuration expects to find a pypy
-ln -sf /usr/bin/python ~/.local/bin/pypy
-ln -sf /usr/bin/python3 ~/.local/bin/pypy3
+if ! hash pypy 2>/dev/null; then
+	ln -sf /usr/bin/python ~/.local/bin/pypy
+fi
+if ! hash pypy3 2>/dev/null; then
+	ln -sf /usr/bin/python3 ~/.local/bin/pypy3
+fi
 
 mkdir -p ~/venv
 python3 -m venv ~/venv
