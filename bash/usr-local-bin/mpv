@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# In case we are on SteamOS?
+#set -x
+# The usual system-wide installation
+if [ -f /usr/bin/mpv ]; then
+	/usr/bin/mpv $@
+# System-wide flatpak
+elif [ -f /var/lib/flatpak/exports/bin/io.mpv.Mpv ]; then
+	flatpak run io.mpv.Mpv $@
+# User-specific flatpak
+elif [ -f ~/.local/share/flatpak/exports/bin/io.mpv.Mpv ]; then
+	flatpak run --user io.mpv.Mpv $@
+# If not found.
+else
+	printf "mpv doesn't seem to be installed :("
+fi
+#set +x
