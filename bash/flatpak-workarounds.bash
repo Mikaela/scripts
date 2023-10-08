@@ -63,7 +63,7 @@ flatpak override --show net.pcsx2.PCSX2 $@
 flatpak override --show com.valvesoftware.Steam $@
 flatpak override --show net.lutris.Lutris $@
 flatpak override --show me.kozec.syncthingtk $@
-flatpak override --show com.microsoft.Edge $@$
+flatpak override --show com.microsoft.Edge $@
 
 # Hide commands being executed again
 set +x
