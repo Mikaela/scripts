@@ -47,6 +47,9 @@ flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
+# https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
+flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
+
 # Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global
 # and /var/lib/flatpak/overrides/<flatpak.id>.
 # The user-configurations are ~/.local/share/flatpak/overrides/
@@ -60,6 +63,7 @@ flatpak override --show net.pcsx2.PCSX2 $@
 flatpak override --show com.valvesoftware.Steam $@
 flatpak override --show net.lutris.Lutris $@
 flatpak override --show me.kozec.syncthingtk $@
+flatpak override --show com.microsoft.Edge $@$
 
 # Hide commands being executed again
 set +x
