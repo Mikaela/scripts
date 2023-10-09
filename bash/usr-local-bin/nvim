@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# In case we are on SteamOS?
+#set -x
+# The usual system-wide installation
+if [ -f /usr/bin/nvim ]; then
+	/usr/bin/nvim $@
+# System-wide flatpak
+elif [ -f /var/lib/flatpak/exports/bin/io.neovim.nvim ]; then
+	flatpak run io.neovim.nvim $@
+# User-specific flatpak
+elif [ -f ~/.local/share/flatpak/exports/bin/io.neovim.nvim ]; then
+	flatpak run --user io.neovim.nvim $@
+# If not found.
+else
+	printf "nvim doesn't seem to be installed :("
+fi
+#set +x
