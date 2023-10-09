@@ -54,19 +54,14 @@ flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 # https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
 flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
 
-# Just for verbosity. The results can be seen in /var/lib/flatpak/overrides/global
-# and /var/lib/flatpak/overrides/<flatpak.id>.
-# The user-configurations are ~/.local/share/flatpak/overrides/
+# Display the overrides
+if [ -d /var/lib/flatpak/overrides/ ]; then
+	tail -n +1 /var/lib/flatpak/overrides/*
+fi
 
-flatpak override --show $@
-flatpak override --show org.briarproject.Briar $@
-#flatpak override --show org.claws_mail.Claws-Mail $@
-flatpak override --show com.nextcloud.desktopclient.nextcloud $@
-flatpak override --show net.pcsx2.PCSX2 $@
-flatpak override --show com.valvesoftware.Steam $@
-flatpak override --show net.lutris.Lutris $@
-flatpak override --show me.kozec.syncthingtk $@
-flatpak override --show com.microsoft.Edge $@
+if [ -d $HOME/.local/share/flatpak/overrides/ ]; then
+	tail -n +1 $HOME/.local/share/flatpak/overrides/*
+fi
 
 # Hide commands being executed again
 set +x
