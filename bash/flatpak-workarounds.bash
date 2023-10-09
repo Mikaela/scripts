@@ -13,15 +13,18 @@ set -x
 # - curl configuration following
 # - text editor configuration
 # - user-specific fonts
-flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt --filesystem=~/.curlrc:ro --filesystem=~/.editorconfig:ro --filesystem=~/.local/share/fonts:ro $@
+flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt:create --filesystem=~/.curlrc:ro --filesystem=~/.editorconfig:ro --filesystem=~/.local/share/fonts:ro $@
 
 # Public git repositories I access or symlink much.
-# TODO: scripts & text-editors (otherwise nvim and code and codium cannot edit them!)
-flatpak override --filesystem=~/.shell-things:ro --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:ro --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:ro --filesystem=~/src/github.com/Mikaela/mikaela.github.io:ro $@
+# Must be rw for access by text editors, otherwise they are ro or I will repeat myself
+flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:rw --filesystem=~/src/github.com/Mikaela/mikaela.github.io:rw $@
 
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
+
+# I don't have other nvim on SteamOS
+flatpak override io.neovim.nvim --filesystem=host --filesystem=host-os --filesystem=host-etc $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
 flatpak override org.briarproject.Briar --filesystem=~/.briar:create --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
