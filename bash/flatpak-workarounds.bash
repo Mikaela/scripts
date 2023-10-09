@@ -17,6 +17,9 @@ flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt $@
 # or libcurl starts reading it
 flatpak override --filesystem=~/.curlrc:ro $@
 
+# Allow ro-access to user-specific fonts
+flatpak override --filesystem=~/.local/share/fonts:ro $@
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
