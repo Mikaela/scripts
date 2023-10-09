@@ -25,8 +25,7 @@ flatpak override --filesystem=~/.local/share/fonts:ro $@
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
-flatpak override org.briarproject.Briar --filesystem=~/.briar:create $@
-flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
+flatpak override org.briarproject.Briar --filesystem=~/.briar:create --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
 
 # This is an ugly hack so I don't have to maintain the config.json separately
 # in every profile and can just symlink it
@@ -39,8 +38,7 @@ flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
 
 # PCSX2 files
-flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create $@
-flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
+flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create --filesystem=~/PS2:create $@
 
 # A directory I can share between native and flatpak Steam so both have the
 # same games without having to navigate weird paths.
