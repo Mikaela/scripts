@@ -20,16 +20,19 @@ flatpak override --filesystem=~/.curlrc:ro $@
 # Allow ro-access to user-specific fonts
 flatpak override --filesystem=~/.local/share/fonts:ro $@
 
+# Text-editors appreciate this
+flatpak override --filesystem=~/.editorconfig:ro $@
+
+# Public git repositories I access or symlink much.
+# TODO: scripts & text-editors (otherwise nvim and code and codium cannot edit them!)
+flatpak override --filesystem=~/.shell-things:ro --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:ro --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:ro --filesystem=~/src/github.com/Mikaela/mikaela.github.io:ro $@
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
 flatpak override org.briarproject.Briar --filesystem=~/.briar:create --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
-
-# This is an ugly hack so I don't have to maintain the config.json separately
-# in every profile and can just symlink it
-flatpak override im.riot.Riot --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist/matrix/Element:ro $@
 
 # email signature
 #flatpak override org.claws_mail.Claws-Mail --filesystem=~/.signature:create $@
@@ -57,7 +60,6 @@ flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
 
 flatpak override --show $@
 flatpak override --show org.briarproject.Briar $@
-flatpak override --show im.riot.Riot $@
 #flatpak override --show org.claws_mail.Claws-Mail $@
 flatpak override --show com.nextcloud.desktopclient.nextcloud $@
 flatpak override --show net.pcsx2.PCSX2 $@
