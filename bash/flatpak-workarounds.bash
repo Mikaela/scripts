@@ -13,7 +13,7 @@ set -x
 # - curl configuration following
 # - text editor configuration
 # - user-specific fonts
-flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt:create --filesystem=~/.curlrc:ro --filesystem=~/.editorconfig:ro --filesystem=~/.local/share/fonts:ro $@
+flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt:rw --filesystem=~/.curlrc:ro --filesystem=~/.editorconfig:ro --filesystem=~/.local/share/fonts:ro $@
 
 # Public git repositories I access or symlink much.
 # Must be rw for access by text editors, otherwise they are ro or I will repeat myself
