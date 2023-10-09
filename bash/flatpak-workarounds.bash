@@ -23,6 +23,9 @@ flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/gitea.blesmr
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
 
+# Additional SDKs (`flatpak search org.freedesktop.Sdk.Extension`)
+flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
+
 # I don't have other nvim on SteamOS
 flatpak override io.neovim.nvim --filesystem=host --filesystem=host-os --filesystem=host-etc $@
 
