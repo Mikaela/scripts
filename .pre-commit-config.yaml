@@ -43,6 +43,10 @@ repos:
         args: [--fix=no]
         #- id: pretty-format-json
         #- id: requirements-txt-fixer
+  - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
+    rev: v1.6.1
+    hooks:
+      - id: check-pre-commit-ci-config
   - repo: https://github.com/thlorenz/doctoc
     rev: v2.2.0
     hooks:
