@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-
 """
 This script asks for a SSID name, counts it and tells whether it's of valid
 length
 """
-
 # Request input or assume "test" on empty.
 givenssid = str(
     input(
-        "Please enter the SSID you are thinking of (preferably 26 chars to fit _nomap): "
+        "Please enter the SSID you are thinking of (preferably 26 chars to fit _nomap): ",
     )
-    or "test"
+    or "test",
 )
 
 # Ensure it's UTF-8 and store the size. E.g. åäö are longer than oao

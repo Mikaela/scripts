@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import sys
 import secrets
+import sys
 
 try:
     wantedCount = int(sys.argv[1])
