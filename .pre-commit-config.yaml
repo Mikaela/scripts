@@ -54,7 +54,7 @@ repos:
         # https://github.com/Mikaela/gist/blob/master/doctoc.txt
         args: [--update-only]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.5.1"
+    rev: "v1.6.0"
     hooks:
       - id: mypy
   - repo: https://github.com/asottile/pyupgrade
@@ -91,7 +91,7 @@ repos:
       - id: shfmt
         #- id: shfmt-docker
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: "2.7.2"
+    rev: "2.7.3"
     hooks:
       - id: editorconfig-checker
         alias: ec
