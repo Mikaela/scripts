@@ -49,6 +49,9 @@ flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 # https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
 flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
 
+# Mosh starts by opening an SSH connection and thus it needs to at least read my SSH config. Seeing new keys probably needs rw to known_hosts and as I use sockets, they may need rw. Then there is my config.d being in a private git repo...
+flatpak override --filesystem=~/.ssh/config:ro --filesystem=~/.ssh/config.d:ro --filesystem=~/.ssh/known_hosts:rw --filesystem=~/.ssh/sockets:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d:ro org.mosh.mosh $@
+
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
 	tail -n +1 /var/lib/flatpak/overrides/*
