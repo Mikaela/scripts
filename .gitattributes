@@ -1,4 +1,12 @@
 * text=auto eol=lf linguist-detectable
 
-# bash scripts are most likely ran on Linux so they have lf endings
-*.bash text eol=lf
+# Built-in diff patterns (disabled by default).
+*.{md,markdown} diff=markdown eol=lf
+*.{sh,bash,zsh} diff=bash eol=lf
+*.bibtex diff=bibtex
+*.java diff=java
+*.pl diff=perl
+*.php diff=php
+*.py diff=python
+*.rb diff=ruby
+*.{scm,ss} diff=scheme
