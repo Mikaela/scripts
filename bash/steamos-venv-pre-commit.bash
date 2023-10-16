@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# This is a noteish on how to pre-commit on SteamOS
+# This is a noteish on how to pre-commit on SteamOS. Or it was, but then I
+# decided that pipx is a thing that I could put into the venv more reasonably
+# and feel less bad about abusing it O:)
 set -x
 
 cd ~
@@ -20,6 +22,12 @@ python3 -m pip install pip --upgrade
 python3 -m pip install pipx --upgrade
 python3 -m pipx install pre-commit
 python3 -m pipx upgrade-all
+
+# As this script claims to be pre-commit on SteamOS, let's do it properly all
+# the way!
+mkdir -p ~/.git-template
+git config --global init.templatedir ~/.git-template
+pre-commit init-templatedir ~/.git-template
 
 # Removes duplicates from $PATH. Copied from https://unix.stackexchange.com/a/14896
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
