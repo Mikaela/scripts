@@ -17,7 +17,10 @@ mkdir -p ~/venv
 python3 -m venv ~/venv
 . ~/venv/bin/activate
 python3 -m pip install pip --upgrade
-python3 -m pip install pre-commit --upgrade
+python3 -m pip install pipx --upgrade
+python3 -m pipx install pre-commit
+python3 -m pipx upgrade-all
+
 # Removes duplicates from $PATH. Copied from https://unix.stackexchange.com/a/14896
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
 printf "Remember to apply the following somewhere appropiate:\nPATH=$PATH"
