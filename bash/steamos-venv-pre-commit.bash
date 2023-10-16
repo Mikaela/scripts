@@ -4,10 +4,16 @@
 # and feel less bad about abusing it O:)
 set -x
 
+# In case there is some valid reason to use different Python
+PYTHON=python3
+
 cd ~
 mkdir -p ~/.local/bin/
 
-# My pre-commit configuration expects to find a pypy
+# My pre-commit configuration expects to find a pypy which SteamOS doesn't
+# come with and it was the original motivation for this script, so it's
+# difficult to start changing anything here. If you don't want it, just
+# install pypy or symlink it in path yourself!
 if ! hash pypy 2>/dev/null; then
 	ln -sf /usr/bin/python ~/.local/bin/pypy
 fi
@@ -16,12 +22,12 @@ if ! hash pypy3 2>/dev/null; then
 fi
 
 mkdir -p ~/venv
-python3 -m venv ~/venv
+$PYTHON -m venv ~/venv
 . ~/venv/bin/activate
-python3 -m pip install pip --upgrade
-python3 -m pip install pipx --upgrade
-python3 -m pipx install pre-commit
-python3 -m pipx upgrade-all
+$PYTHON -m pip install pip --upgrade
+$PYTHON -m pip install pipx --upgrade
+$PYTHON -m pipx install pre-commit
+$PYTHON -m pipx upgrade-all
 
 # As this script claims to be pre-commit on SteamOS, let's do it properly all
 # the way!
