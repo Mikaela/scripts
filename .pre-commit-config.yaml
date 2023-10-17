@@ -86,6 +86,7 @@ repos:
     rev: 23.9.1
     hooks:
       - id: black
+        args: ["--line-length", "79", "--target-version", "py311"]
       #- id: black-jupyter
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.7.0-1
