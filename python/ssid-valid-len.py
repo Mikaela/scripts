@@ -22,7 +22,12 @@ def checkssidlen(givenssidlen):
     if givenssidlen <= 32:
         print(givenssid, "is", givenssidlen, "long and thus valid length")
     else:
-        print(givenssid, "is", givenssidlen, "to long, please select a different SSID")
+        print(
+            givenssid,
+            "is",
+            givenssidlen,
+            "to long, please select a different SSID",
+        )
 
 
 # Checking the SSID without _nomap
