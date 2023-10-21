@@ -1,0 +1,22 @@
+# When changing this file, read also .pre-commit-config.yaml
+
+[tool.black]
+line-length = 79
+target-version = ['py310']
+
+[tool.mypy]
+#python-executable = 'pypy3'
+python-version = 3.10
+
+# https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
+
+# No need to have it uncommented since 79 is the standard.
+#[tool.pylint.format]
+#max-line-length = 79
+
+# Not actually used here, see .pre-commit-config.yaml for reorder-python-imports
+# that does the same thing.
+#[tool.isort]
+#profile = "black"
+
+# copy-pasted comments end.
