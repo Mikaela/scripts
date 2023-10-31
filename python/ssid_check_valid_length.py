@@ -4,7 +4,7 @@ This script asks for a SSID name, counts it and tells whether it's of valid
 length
 """
 # Request input or assume "test" on empty.
-givenssid = str(
+GIVENSSID = str(
     input(
         "Please enter the SSID you are thinking of (preferably 26 chars to fit _nomap): ",
     )
@@ -13,28 +13,32 @@ givenssid = str(
 
 # Ensure it's UTF-8 and store the size. E.g. åäö are longer than oao
 # TODO: make this a function too
-givenssidlen = len(givenssid.encode("utf8"))
+GIVENSSIDLEN = len(GIVENSSID.encode("utf8"))
 
 
 # Checking the SSID length is done twice, so thus a function
-def checkssidlen(givenssidlen):
+def checkssidlen(GIVENSSIDLEN):
+    """
+    This function checks that the given string is below 32 characters long and
+    can thus be used as an SSID.
+    """
     # 32 bytes should be the maximum SSID length
-    if givenssidlen <= 32:
-        print(givenssid, "is", givenssidlen, "long and thus valid length")
+    if GIVENSSIDLEN <= 32:
+        print(GIVENSSID, "is", GIVENSSIDLEN, "long and thus valid length")
     else:
         print(
-            givenssid,
+            GIVENSSID,
             "is",
-            givenssidlen,
+            GIVENSSIDLEN,
             "to long, please select a different SSID",
         )
 
 
 # Checking the SSID without _nomap
-checkssidlen(givenssidlen)
+checkssidlen(GIVENSSIDLEN)
 # TODO: make this a function too
-givenssidlen = len(givenssid.encode("utf8"))
+GIVENSSIDLEN = len(GIVENSSID.encode("utf8"))
 
 # Continuing with _nomap to ensure it also fits
-givenssid = givenssid + "_nomap"
-checkssidlen(givenssidlen)
+GIVENSSID = GIVENSSID + "_nomap"
+checkssidlen(GIVENSSIDLEN)
