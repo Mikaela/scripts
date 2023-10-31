@@ -6,14 +6,26 @@ length.
 import secrets
 import sys
 
-try:
-    wantedCount = int(sys.argv[1])
-except IndexError as noarg:
-    print("Enter a digit as an argument!")
 
-try:
-    for i in range(int(wantedCount)):
-        print(secrets.randbelow(10), end="")
-except NameError as noWantedCount:
+def main():
+    """
+    This is where the magic happens.
+    """
+    try:
+        desired_length = int(sys.argv[1])
+    except IndexError:
+        print("Enter a digit as an argument!")
+
+    try:
+        for i in range(int(desired_length)):
+            print(secrets.randbelow(10), end="")
+            # We satisfy pylint by having the variable here.
+            # TODO:make this a while loop?
+            i += 1
+    except NameError:
+        print()
     print()
-print()
+
+
+if __name__ == "__main__":
+    main()
