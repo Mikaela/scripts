@@ -14,22 +14,26 @@ set -x
 echo "In case of trouble check Android System Settings, Connected devices, USB mode. It should be data transfer for adb USB debugging to take effect."
 
 # DetoxDroid, https://github.com/flxapps/DetoxDroid/wiki/Manual-Installation
-adb -d shell pm grant com.flx_apps.digitaldetox android.permission.WRITE_SECURE_SETTINGS
-adb -d shell dpm set-device-owner com.flx_apps.digitaldetox/.DetoxDroidDeviceAdminReceiver
-echo "Remember to force-stop & restart DetoxDroid!"
+adb "$@" shell pm grant com.flx_apps.digitaldetox android.permission.WRITE_SECURE_SETTINGS
+adb "$@" shell dpm set-device-owner com.flx_apps.digitaldetox/.DetoxDroidDeviceAdminReceiver
+#echo "Remember to force-stop & restart DetoxDroid!"
 
 # Greenify, https://web.archive.org/web/20190209023358/https://greenify.uservoice.com/knowledgebase/articles/749142-how-to-grant-permissions-required-by-some-features
 # TODO: Alive source
-adb -d shell pm grant com.oasisfeng.greenify android.permission.WRITE_SECURE_SETTINGS
-adb -d shell pm grant com.oasisfeng.greenify android.permission.DUMP
-adb -d shell pm grant com.oasisfeng.greenify android.permission.READ_LOGS
-adb -d shell pm grant com.oasisfeng.greenify android.permission.GET_APP_OPS_STATS
-echo "Remember to force-stop & restart Greenify!"
+adb "$@" shell pm grant com.oasisfeng.greenify android.permission.WRITE_SECURE_SETTINGS
+adb "$@" shell pm grant com.oasisfeng.greenify android.permission.DUMP
+adb "$@" shell pm grant com.oasisfeng.greenify android.permission.READ_LOGS
+adb "$@" shell pm grant com.oasisfeng.greenify android.permission.GET_APP_OPS_STATS
+#echo "Remember to force-stop & restart Greenify!"
 
 # Nevolution, https://nevo.app/setup.html
-adb -d shell setprop persist.log.tag.NotificationService DEBUG
-adb -d shell pm grant com.oasisfeng.nevo android.permission.READ_LOGS
-adb -d shell pm grant com.oasisfeng.nevo android.permission.INTERACT_ACROSS_USERS
-echo "Remember to force-stop & restart Nevolution!"
+adb "$@" shell setprop persist.log.tag.NotificationService DEBUG
+adb "$@" shell pm grant com.oasisfeng.nevo android.permission.READ_LOGS
+adb "$@" shell pm grant com.oasisfeng.nevo android.permission.INTERACT_ACROSS_USERS
+#echo "Remember to force-stop & restart Nevolution!"
+
+# Wait a bit and then reboot the device
+sleep 5
+adb "$@" reboot
 
 set +x
