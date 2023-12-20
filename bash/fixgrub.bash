@@ -1,18 +1,33 @@
 #!/usr/bin/env bash
 
-# On Sedric Fedora keeps overwriting my grub modifications so I keep
-# meeting a strange system including graphical boot screen and not telling
-# me what is going on. This is an ugly workaround.
-
-#set -x
-
-# This script is Fedora specific for now. AND COMPLETELY WRONG!
+# Theoretically this should never run
 # READ https://fedoraproject.org/wiki/GRUB_2 !!!!!
 
-# There is no reason to run if dnf hasn't moved the proper config aside.
+set -x
+
+# Fedora < 34
 #if [ -f /boot/efi/EFI/fedora/grub.cfg.rpmsave ]; then
 #	rm -f /boot/efi/EFI/fedora/grub.cfg.rpmsave
 #	grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 #fi
 
-#set +x
+# There is no reason to run if dnf hasn't moved the proper config aside.
+if [ -f /etc/grub2.cfg.rpmsave ]; then
+	rm -f /etc/grub2.cfg.rpmsave
+	grub2-mkconfig -o /etc/grub2.cfg
+fi
+
+# There is no reason to run if dnf hasn't moved the proper config aside.
+if [ -f /etc/grub2-efi.cfg.rpmsave ]; then
+	rm -f /etc/grub2-efi.cfg.rpmsave
+	grub2-mkconfig -o /etc/grub2-efi.cfg
+fi
+
+# There is no reason to run if dnf hasn't moved the proper config aside.
+# Legacy boot method for grub update.
+# if [ -f /boot/grub2/grub.cfg.rpmsave ]; then
+# 	rm -f /boot/grub2/grub.cfg.rpmsave
+# 	grub2-mkconfig -o /boot/grub2/grub.cfg
+# fi
+
+set +x
