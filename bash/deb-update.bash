@@ -46,16 +46,16 @@ if hash dnf 2>/dev/null; then
 	# I don't know if -y does anything here either and I think this may be
 	# useless, but I am used to it coming from apt and I think it will just
 	# say nothing to do or do nothing if mirrors haven't updated.
-	dnf check-update -y
+	dnf -v check-update -y
 
 	# potentially unsafe first time, I am not sure if this is concern outside of Debian/Ubuntu though
-	dnf "$@" autoremove
+	dnf -v "$@" autoremove
 
 	# If arguments like -y are passed to the script, they become "$@"
-	dnf "$@" upgrade
+	dnf -v "$@" upgrade
 
 	# potentially unsafe, see a few lines above and the apt-get section
-	dnf "$@" autoremove
+	dnf -v "$@" autoremove
 fi
 
 if hash rpmconf 2>/dev/null; then
