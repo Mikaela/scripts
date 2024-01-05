@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -x
+sudo systemctl start nordvpnd.service
+sleep 5
+systemctl status nordvpnd.service --no-pager
+nordvpn connect p2p
+nordvpn status
+flatpak run org.qbittorrent.qBittorrent "$@"
+set +x
