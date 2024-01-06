@@ -10,6 +10,7 @@ PYTHON=python3
 mkdir -p ~/venv
 $PYTHON -m venv ~/venv
 . ~/venv/bin/activate
+$PYTHON -m pip install pip --upgrade
 $PYTHON -m pip install git+https://github.com/ProgVal/Limnoria.git@testing --upgrade
 $PYTHON -m pip install -r https://github.com/progval/Limnoria/raw/testing/requirements.txt --upgrade
 $PYTHON -m pip install -r https://github.com/progval/Supybot-plugins/raw/master/requirements.txt --upgrade
