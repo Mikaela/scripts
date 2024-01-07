@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 
-# Using the snap version of go if available
+# Using the snap version of go if available. Or wherever Debian hides newer
+# Go
 
 set -x
 
+# TODO: this should be automatic
+export GOVERSION=1.21
+
 # Check if go is installed through snap
 if [ -f /snap/bin/go ]; then
-	snap run go $@
+	snap run go "$@"
 
-# Fallback to system installation
+# Or if Debian hides it somewhere nice.
+elif [ -f /usr/lib/go-$GOVERSION/bin/go ]; then
+	/usr/lib/go-$GOVERSION/bin/go "$@"
+
+# Fallback to system default version
 else
-	/usr/bin/go $@
+	/usr/bin/go "$@"
 fi
 
 set +x
