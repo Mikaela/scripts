@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -x
-flatpak run org.briarproject.Briar//stable $@
-set +x

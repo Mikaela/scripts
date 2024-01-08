@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Starting the torbrowser-launcher flatpak. Not to override the one from package manager.
-
-set -x
-flatpak run com.github.micahflee.torbrowser-launcher $@
-set +x
