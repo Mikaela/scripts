@@ -15,4 +15,5 @@ ln -sf /var/lib/flatpak/exports/bin/org.signal.Signal ~/.local/bin/signal-deskto
 ln -sf /var/lib/flatpak/exports/bin/org.telegram.desktop ~/.local/bin/telegram-desktop
 ln -sf /var/lib/flatpak/exports/bin/com.github.micahflee.torbrowser-launcher ~/.local/bin/torbrowser-launcher-flatpak
 ln -sf /var/lib/flatpak/exports/bin/org.videolan.VLC ~/.local/bin/vlc-flatpak
+ln -sf /var/lib/flatpak/exports/bin/net.davidotek.pupgui2 ~/.local/bin/protonup
 set +x
