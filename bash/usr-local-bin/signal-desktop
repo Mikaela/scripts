@@ -3,7 +3,6 @@
 # Signal desktop with Wayland, notification fix & tray
 
 set -x
-# --disable-gpu - https://github.com/signalapp/Signal-Desktop/issues/2567#issuecomment-457282578
 # --start-in-tray - would be nice, but then I cannot open it from there, thus --use-tray-icon
 flatpak run org.signal.Signal --use-tray-icon --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
 set +x
