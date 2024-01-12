@@ -56,6 +56,9 @@ flatpak override --filesystem=~/.ssh/config:ro --filesystem=~/.ssh/config.d:ro -
 # https://github.com/flathub/im.riot.Riot/issues/303#issuecomment-1816055123
 flatpak override im.riot.Riot --talk-name=org.freedesktop.secrets $@
 
+# DeltaChat wayland support (may break X11?)
+flatpak override chat.delta.desktop --socket=wayland --socket=fallback-x11 $@
+
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
 	tail -n +1 /var/lib/flatpak/overrides/*
