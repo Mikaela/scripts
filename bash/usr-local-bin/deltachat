@@ -1,16 +1,4 @@
 #!/usr/bin/env bash
-
-# DeltaChat flatpak with easier command (and outside of Mullvad VPN if configured as).
-# Gandi.net mail servers don't like Mullvad IPs resulting inability to send
-# anything.
-
-# The usual Electron flags: --disable-gpu --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland
-
-# https://github.com/deltachat/deltachat-desktop/issues/2800
-# Wayland would be enabled by: --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland
-
 set -x
-# Having "flatpak run" will make mullvad-exclude lose effect!
-#/usr/bin/mullvad-exclude
-/var/lib/flatpak/exports/bin/chat.delta.desktop --disable-gpu $@
+flatpak run chat.delta.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
 set +x

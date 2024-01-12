@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-# Flatpak is preferred for Element not having official Fedora repositories
-# and at the time of writing being unmaintained in upstream suggested repo.
-flatpak run chat.schildi.desktop --disable-gpu --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland "$@"
+flatpak run chat.schildi.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
 set +x

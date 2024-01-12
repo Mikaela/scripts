@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-flatpak run com.visualstudio.code --no-sandbox --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto $@
+flatpak run com.visualstudio.code --no-sandbox --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
 set +x
