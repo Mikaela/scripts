@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x
+/usr/bin/vivaldi --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturers,EncryptedClientHello,UseDnsHttpsSvcbAlpn --ozone-platform-hint=auto $@
+set +x

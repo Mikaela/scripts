@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Torifying Element with Wayland
+
+set -x
+# proxy authentication is not supported
+# https://github.com/vector-im/element-web/issues/3320
+#/usr/bin/element --proxy-server=socks5://127.0.0.1:9050 $@
+# Flatpak is preferred for Element not having official Fedora repositories
+# and at the time of writing being unmaintained in upstream suggested repo.
+flatpak run im.riot.Riot --disable-gpu --enable-features=UseOzonePlatform,WaylandWindowDecorations,WebRTCPipeWireCapturer --ozone-platform=wayland --proxy-server=socks5://127.0.0.1:9050 $@
+set +x
