@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-flatpak run chat.schildi.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
+flatpak run chat.schildi.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --system-theme-dark-override $@
 set +x
