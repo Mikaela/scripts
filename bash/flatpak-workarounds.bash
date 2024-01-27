@@ -37,7 +37,7 @@ flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
 flatpak override io.neovim.nvim --filesystem=host --filesystem=host-os --filesystem=host-etc $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
-flatpak override org.briarproject.Briar --filesystem=~/.briar:create --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
+flatpak override org.briarproject.Briar --filesystem=~/.briar:create --filesystem=~/.java/.userPrefs/org/briarproject/briar:create --nosocket=fallback-x11 --socket=x11 $@
 
 # Directory I have normal Nextcloud in
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
