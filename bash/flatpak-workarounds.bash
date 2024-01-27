@@ -19,6 +19,13 @@ flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt:rw --filesyst
 # Must be rw for access by text editors, otherwise they are ro or I will repeat myself
 flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:rw --filesystem=~/src/github.com/Mikaela/mikaela.github.io:rw $@
 
+# EXPERIMENT! All apps may use wayland (sandboxed) and downgrade to
+# X11/xwayland only if current desktop doesn't support wayland.
+# SECURITY! May let untrusted apps spy on everything on X11 desktops, but
+# I either don't have those around or Fedora 40 removes them with the new KDE
+# Plasma. NOTE: fallback-x11 should override x11 socket permission.
+flatpak override --socket=wayland --socket=fallback-x11 --nosocket=x11 $@
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
@@ -43,6 +50,10 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create --filesyste
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 
+# https://github.com/ValveSoftware/steam-for-linux/issues/4924
+# ref: the experiment near top
+flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11
+
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
@@ -57,7 +68,7 @@ flatpak override --filesystem=~/.ssh/config:ro --filesystem=~/.ssh/config.d:ro -
 flatpak override im.riot.Riot --talk-name=org.freedesktop.secrets $@
 
 # DeltaChat wayland support (may break X11?)
-flatpak override chat.delta.desktop --socket=wayland --socket=fallback-x11 $@
+#flatpak override chat.delta.desktop --socket=wayland --socket=fallback-x11 $@
 
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
