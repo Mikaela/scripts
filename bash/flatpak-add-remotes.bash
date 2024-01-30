@@ -26,5 +26,9 @@ flatpak remote-modify --enable flathub-beta $@
 flatpak remote-modify --enable kdeapps $@
 # The other repositories are very unlikely to ship by default with anything
 
+# Hints?
+printf 'Only want verified flatpaks? No problem!\n\tflatpak remote-modify --subset=verified flathub\n'
+# Revert? ~/.local/share/flatpak/repo/config or /var/lib/flatpak/repo/config
+
 # Hide commands being executed again
 set +x
