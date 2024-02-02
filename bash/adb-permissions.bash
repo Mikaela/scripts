@@ -32,6 +32,9 @@ adb "$@" shell pm grant com.oasisfeng.nevo android.permission.READ_LOGS
 adb "$@" shell pm grant com.oasisfeng.nevo android.permission.INTERACT_ACROSS_USERS
 #echo "Remember to force-stop & restart Nevolution!"
 
+# Logfox adb reader from F-Droid
+adb "$@" shell pm grant com.f0x1d.logfox android.permission.READ_LOGS
+
 # Wait a bit and then reboot the device
 sleep 5
 adb "$@" reboot
