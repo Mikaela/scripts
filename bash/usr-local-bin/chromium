@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x
+/usr/bin/chromium-browser --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
+set +x
