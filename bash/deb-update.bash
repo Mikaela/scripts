@@ -5,12 +5,9 @@
 # Show commands being executed
 set -x
 
-# English (US) is generally installed everywhere, flatpak and packagekit use
-# weird glyphs unavailable in C and C.utf8 is a RedHattism, which Debian
-# side of the family doesn't recognise.
-#export LANG=en_US.utf8
+#export LANG=C.utf8
 # This is said to be a poor practice that should only be used for debugging
-export LC_ALL=en_US.utf8
+export LC_ALL=C.utf8
 
 # if hash checks that the command exists
 if hash apt-get 2>/dev/null; then
