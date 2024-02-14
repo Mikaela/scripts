@@ -33,6 +33,8 @@ export GTK_THEME=Adwaita:dark
 export QT_QPA_PLATFORM=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
+# Electron
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 # Mozilla Products
 export MOZ_ENABLE_WAYLAND=1
 
