@@ -24,7 +24,7 @@ flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/gitea.blesmr
 # SECURITY! May let untrusted apps spy on everything on X11 desktops, but
 # I either don't have those around or Fedora 40 removes them with the new KDE
 # Plasma. NOTE: fallback-x11 should override x11 socket permission.
-flatpak override --socket=wayland --socket=fallback-x11 --nosocket=x11 $@
+flatpak override --socket=wayland --socket=fallback-x11 --nosocket=x11 --env=ELECTRON_OZONE_PLATFORM_HINT=auto $@
 
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
