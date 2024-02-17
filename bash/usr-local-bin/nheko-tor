@@ -6,5 +6,5 @@
 # TODO: Handle --help & --version flags
 
 set -x
-flatpak run --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --profile $@
+flatpak run --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --profile $@
 set +x
