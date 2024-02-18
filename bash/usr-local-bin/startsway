@@ -28,6 +28,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # https://librewolf.net/docs/faq/#cant-open-links-with-librewolf-when-using-wayland
 export GDK_BACKEND=wayland
 # Dark theme for GTK apps. Fedora: "adwaita-qt*"
+# https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 export GTK_THEME=Adwaita:dark
 
 # Ensuring Wayland gets used as per Arch Wiki
