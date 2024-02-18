@@ -12,6 +12,8 @@ export QT_IM_MODULE="fcitx"
 
 # qt5ct allows theme choosing
 export QT_QPA_PLATFORMTHEME="qt5ct"
+# https://librewolf.net/docs/faq/#cant-open-links-with-librewolf-when-using-wayland
+export GDK_BACKEND=wayland
 
 # Ensuring Wayland gets used as per Arch Wiki
 # 2021-02-28 https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
