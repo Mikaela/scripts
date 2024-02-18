@@ -25,7 +25,7 @@ export QT_IM_MODULE="fcitx"
 
 # qt5ct allows theme choosing
 export QT_QPA_PLATFORMTHEME="qt5ct"
-# Dark theme for GTK apps
+# Dark theme for GTK apps. Fedora: "adwaita-qt*"
 export GTK_THEME=Adwaita:dark
 
 # Ensuring Wayland gets used as per Arch Wiki
