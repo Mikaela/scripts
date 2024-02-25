@@ -26,11 +26,13 @@ flatpak remote-modify --enable flathub-beta $@
 #flatpak remote-modify --enable kdeapps $@
 # The other repositories are very unlikely to ship by default with anything
 
-# These remotes seem to no longer exist
+# These remotes no longer exist
 flatpak remote-delete kdeapps $@
 
 # Hints?
 printf 'Only want verified flatpaks? No problem!\n\tflatpak remote-modify --subset=verified flathub\n'
+printf 'kdeapps? https://userbase.kde.org/Tutorials/Flatpak#Nightly_KDE_apps\n'
+
 # Revert? ~/.local/share/flatpak/repo/config or /var/lib/flatpak/repo/config
 
 # Hide commands being executed again
