@@ -6,6 +6,8 @@
 
 set -x
 if [ -f /snap/bin/fluffychat ]; then
+	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
+	unset DBUS_SESSION_BUS_ADDRESS
 	snap run fluffychat $@
 elif [ -f /var/lib/flatpak/exports/bin/im.fluffychat.Fluffychat ]; then
 	flatpak run im.fluffychat.Fluffychat $@
