@@ -7,7 +7,7 @@ set -x
 # set of remotes and are missing something existing on another
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo $@
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo $@
-flatpak remote-add --if-not-exists kdeapps https://distribute.kde.org/kdeapps.flatpakrepo $@
+#flatpak remote-add --if-not-exists kdeapps https://distribute.kde.org/kdeapps.flatpakrepo $@
 flatpak remote-add --if-not-exists nheko-nightly https://nheko.im/nheko-reborn/nheko/-/raw/master/nheko-nightly.flatpakrepo $@
 
 # Fedora?
@@ -23,8 +23,11 @@ flatpak remote-modify --enable fedora-testing $@
 # In case of similar issues on other distributions
 flatpak remote-modify --enable flathub $@
 flatpak remote-modify --enable flathub-beta $@
-flatpak remote-modify --enable kdeapps $@
+#flatpak remote-modify --enable kdeapps $@
 # The other repositories are very unlikely to ship by default with anything
+
+# These remotes seem to no longer exist
+flatpak remote-delete kdeapps $@
 
 # Hints?
 printf 'Only want verified flatpaks? No problem!\n\tflatpak remote-modify --subset=verified flathub\n'
