@@ -2,9 +2,11 @@
 # This script partially reverts https://gitea.blesmrt.net/mikaela/scripts/commit/e76a4a6a0d0472428d519205543171b1b1cdc258
 
 export FLATPAKEXPORTS=/var/lib/flatpak/exports/bin
-export TARGETDIR=~/.local/bin
+#export TARGETDIR=~/.local/bin
+export TARGETDIR=/usr/local/bin
 
 set -x
+mkdir -p $TARGETDIR
 ln -sfv $FLATPAKEXPORTS/com.rafaelmardojai.Blanket $TARGETDIR/blanket
 # `flatpak make-current org.briarproject.Briar stable`?
 ln -sfv $FLATPAKEXPORTS/org.briarproject.Briar $TARGETDIR/briar
