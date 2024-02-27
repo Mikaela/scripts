@@ -35,6 +35,9 @@ echo "In case of trouble check Android System Settings, Connected devices, USB m
 # Logfox adb reader from F-Droid
 adb "$@" shell pm grant com.f0x1d.logfox android.permission.READ_LOGS
 
+# https://github.com/c-lis/morelocale
+adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CONFIGURATION
+
 # Wait a bit and then reboot the device
 sleep 5
 #adb "$@" reboot
