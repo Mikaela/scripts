@@ -5,5 +5,5 @@
 # TODO: Handle --help & --version flags
 
 set -x
-flatpak run im.nheko.Nheko//master --profile $@
+flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --profile $@
 set +x
