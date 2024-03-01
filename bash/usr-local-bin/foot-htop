@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/bin/env foot --title=htop\ \|\ foot /usr/bin/env htop
