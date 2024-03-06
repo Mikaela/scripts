@@ -38,6 +38,10 @@ adb "$@" shell pm grant com.f0x1d.logfox android.permission.READ_LOGS
 # https://github.com/c-lis/morelocale
 adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CONFIGURATION
 
+# Shizuku
+#(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
+(adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
+
 # Wait a bit and then reboot the device
 sleep 5
 #adb "$@" reboot
