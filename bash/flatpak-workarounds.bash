@@ -49,10 +49,12 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create --filesyste
 # same games without having to navigate weird paths.
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
+flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
 
 # https://github.com/ValveSoftware/steam-for-linux/issues/4924
 # ref: the experiment near top
-flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11
+flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
+flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
 
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
