@@ -4,6 +4,8 @@
 
 # TODO: Handle --help & --version flags
 
+# In case of unexplained crashing add the --compact flag!
+
 set -x
 flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --profile $@
 set +x
