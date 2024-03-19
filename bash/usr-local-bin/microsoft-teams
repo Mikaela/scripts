@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -x
+flatpak run com.github.IsmaelMartinez.teams_for_linux --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
+set +x
