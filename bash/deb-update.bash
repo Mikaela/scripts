@@ -78,6 +78,9 @@ if hash flatpak 2>/dev/null; then
 fi
 
 if hash snap 2>/dev/null; then
+	# I don't want my systems full of old snaps
+	# > retain must be a number between 2 and 20, not "1"
+	snap set system refresh.retain=2
 	# Snap packages auto-update anyway though, but I like checking them while
 	# doing everything else too
 	snap refresh
