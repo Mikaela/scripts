@@ -5,13 +5,13 @@
 #set -x
 # The usual system-wide installation
 if [ -f /var/lib/flatpak/exports/bin/org.libreoffice.LibreOffice ]; then
-	flatpak run org.libreoffice.LibreOffice $@
+	flatpak run org.libreoffice.LibreOffice "$@"
 # User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.libreoffice.LibreOffice ]; then
-	flatpak run --user org.libreoffice.LibreOffice $@
+	flatpak run --user org.libreoffice.LibreOffice "$@"
 # The usual installation
 elif [ -f /usr/bin/libreoffice ]; then
-	/usr/bin/libreoffice $@
+	/usr/bin/libreoffice "$@"
 else
 	printf "LibreOffice doesn't seem to be installed :("
 fi

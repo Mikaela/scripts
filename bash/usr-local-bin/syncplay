@@ -13,5 +13,5 @@ set -x
 # ^ for requirements_gui.txt if desired
 # this script should now work
 . ~/src/github.com/syncplay/syncplay/venv/bin/activate
-/home/aminda/src/github.com/syncplay/syncplay/syncplayClient.py $@
+/home/aminda/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
 set +x

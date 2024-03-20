@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
-flatpak run chat.delta.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
+flatpak run chat.delta.desktop --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
 set +x

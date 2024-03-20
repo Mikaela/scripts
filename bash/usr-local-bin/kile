@@ -3,13 +3,13 @@
 #set -x
 # The usual system-wide installation
 if [ -f /usr/bin/kile ]; then
-	/usr/bin/kile $@
+	/usr/bin/kile "$@"
 # System-wide flatpak
 elif [ -f /var/lib/flatpak/exports/bin/org.kde.kile ]; then
-	flatpak run org.kde.kile $@
+	flatpak run org.kde.kile "$@"
 # User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kile ]; then
-	flatpak run --user org.kde.kile $@
+	flatpak run --user org.kde.kile "$@"
 # If not found.
 else
 	printf "kile doesn't seem to be installed :("

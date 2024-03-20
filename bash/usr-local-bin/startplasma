@@ -25,5 +25,5 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 # Mozilla Products
 export MOZ_ENABLE_WAYLAND=1
 
-dbus-launch --exit-with-session startplasma-wayland $@
+dbus-launch --exit-with-session startplasma-wayland "$@"
 set +x

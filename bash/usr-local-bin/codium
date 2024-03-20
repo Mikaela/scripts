@@ -2,5 +2,5 @@
 
 set -x
 # https://github.com/flathub/com.vscodium.codium/issues/55
-flatpak run com.vscodium.codium --no-sandbox --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations $@
+flatpak run com.vscodium.codium --no-sandbox --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
 set +x

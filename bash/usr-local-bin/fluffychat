@@ -9,7 +9,7 @@ if [ -f /snap/bin/fluffychat ]; then
 	# I am supposed to be a Finnish localizer so my eo over fi as protest
 	# doesn't work here!
 	export LANGUAGE=fi:eo:en
-	snap run fluffychat $@
+	snap run fluffychat "$@"
 else
 	/usr/bin/fluffychat
 fi

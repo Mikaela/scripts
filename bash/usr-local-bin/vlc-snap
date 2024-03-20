@@ -3,7 +3,7 @@ set -x
 if [ -f /snap/bin/vlc ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
 	export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run vlc $@
+	snap run vlc "$@"
 else
 	/usr/bin/vlc
 fi

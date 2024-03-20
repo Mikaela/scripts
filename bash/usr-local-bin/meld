@@ -3,13 +3,13 @@
 #set -x
 # The usual system-wide installation
 if [ -f /usr/bin/meld ]; then
-	/usr/bin/meld $@
+	/usr/bin/meld "$@"
 # System-wide flatpak
 elif [ -f /var/lib/flatpak/exports/bin/org.gnome.meld ]; then
-	flatpak run org.gnome.meld $@
+	flatpak run org.gnome.meld "$@"
 # User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.gnome.meld ]; then
-	flatpak run --user org.gnome.meld $@
+	flatpak run --user org.gnome.meld "$@"
 # If not found.
 else
 	printf "meld doesn't seem to be installed :("
