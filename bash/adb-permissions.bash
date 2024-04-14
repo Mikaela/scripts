@@ -40,7 +40,10 @@ adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CON
 
 # Shizuku
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
-(adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
+(adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
+
+# If 1, DoH3 is supported
+(adb "$@" shell cmd device_config get netd_native doh &)
 
 # Wait a bit and then reboot the device
 sleep 5
