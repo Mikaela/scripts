@@ -83,7 +83,7 @@ repos:
             "@prettier/plugin-ruby@4.0.4",
           ]
   - repo: https://github.com/psf/black
-    rev: 24.3.0
+    rev: 24.4.0
     hooks:
       - id: black
         #Refer to pyproject.toml
