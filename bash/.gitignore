@@ -4,6 +4,8 @@
 *.jpeg
 # download-forgejo.bash results to these
 forgejo-*
+# employees.bash
+employees.csv
 # submodule symlinks
 backup-ops2l-vmc.bash
 generate-vcard-qr.bash
