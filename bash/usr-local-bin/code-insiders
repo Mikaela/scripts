@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -x
+if [ -f /usr/bin/code-insiders ]; then
+	/usr/bin/code-insiders --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform-hint=auto "$@"
+
+elif [ -f /snap/bin/code-insiders ]; then
+	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
+	#unset DBUS_SESSION_BUS_ADDRESS
+	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
+	#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
+	snap run code-insiders --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform-hint=auto "$@"
+
+elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code.insiders ]; then
+	flatpak run --user com.visualstudio.code.insiders --verbose --no-sandbox --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+
+elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code.insiders ]; then
+	flatpak run com.visualstudio.code.insiders --verbose --no-sandbox --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+
+else
+	echo "code not found :("
+fi
+set +x
