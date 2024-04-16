@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -x
+sudo systemctl start nordvpnd.socket
+sleep 5
 sudo systemctl start nordvpnd.service
 sleep 5
 systemctl status nordvpnd.service --no-pager
