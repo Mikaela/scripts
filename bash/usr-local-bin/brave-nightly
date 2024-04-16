@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -x
+/usr/bin/brave-browser-nightly --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+set +x
