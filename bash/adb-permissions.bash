@@ -14,9 +14,8 @@ set -x
 echo "In case of trouble check Android System Settings, Connected devices, USB mode. It should be data transfer for adb USB debugging to take effect."
 
 # DetoxDroid, https://github.com/flxapps/DetoxDroid/wiki/Manual-Installation
-#adb "$@" shell pm grant com.flx_apps.digitaldetox android.permission.WRITE_SECURE_SETTINGS
-#adb "$@" shell dpm set-device-owner com.flx_apps.digitaldetox/.DetoxDroidDeviceAdminReceiver
-#echo "Remember to force-stop & restart DetoxDroid!"
+adb "$@" shell pm grant com.flx_apps.digitaldetox android.permission.WRITE_SECURE_SETTINGS
+adb "$@" shell dpm set-device-owner com.flx_apps.digitaldetox/.DetoxDroidDeviceAdminReceiver
 
 # Logfox adb reader from F-Droid
 adb "$@" shell pm grant com.f0x1d.logfox android.permission.READ_LOGS
