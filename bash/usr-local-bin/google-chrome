@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/google-chrome-stable --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+/usr/bin/google-chrome-stable --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations "$@"
 set +x
