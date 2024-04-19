@@ -4,5 +4,5 @@
 
 set -x
 # --start-in-tray - would be nice, but then I cannot open it from there, thus --use-tray-icon
-flatpak run org.signal.Signal --use-tray-icon --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+flatpak run org.signal.Signal --use-tray-icon --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
 set +x

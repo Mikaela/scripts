@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/vivaldi --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations "$@"
+/usr/bin/vivaldi --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
 set +x

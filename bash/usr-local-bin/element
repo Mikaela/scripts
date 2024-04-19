@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-flatpak run im.riot.Riot --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations "$@"
+flatpak run im.riot.Riot --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
 set +x

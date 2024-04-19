@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-/usr/bin/brave-browser-nightly --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations "$@"
+/usr/bin/brave-browser-nightly --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
 set +x
