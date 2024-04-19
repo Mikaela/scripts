@@ -2,7 +2,7 @@
 
 # workarounding dependency issues
 
-#set -x
+set -x
 # The usual system-wide installation
 if [ -f /var/lib/flatpak/exports/bin/org.libreoffice.LibreOffice ]; then
 	flatpak run org.libreoffice.LibreOffice "$@"
@@ -15,4 +15,4 @@ elif [ -f /usr/bin/libreoffice ]; then
 else
 	printf "LibreOffice doesn't seem to be installed :("
 fi
-#set +x
+set +x
