@@ -3,15 +3,35 @@
 # Quick syncplay wrapper
 
 set -x
-# Install python3-venv
-# mkdir -p ~/src/github.com/syncplay
-# cd ~/src/github.com/syncplay
-# git clone https://github.com/syncplay/syncplay.git
-# mkdir venv venv
-# source bin/activate
-# pip3 install -r requirements.txt --user --upgrade
-# ^ for requirements_gui.txt if desired
-# this script should now work
+
+# If syncplay doesn't exist, get it
+if [ ! -d "$HOME/src/github.com/syncplay" ]; then
+	mkdir -p ~/src/github.com/syncplay/syncplay
+	git clone https://github.com/syncplay/syncplay.git ~/src/github.com/syncplay/syncplay || exit
+	mkdir -p ~/src/github.com/syncplay/syncplay/venv
+else
+	# In this case Syncplay does exist, let's upgrade it
+	cd ~/src/github.com/syncplay/syncplay || exit
+	gitt pull || exit
+	mkdir -p venv
+fi
+
+# Let's ensure we have venv setup. Spellcheck complains if I won't || exit
+# every cd, which I understand to mean in failure case terminate the script.
+cd ~/src/github.com/syncplay/syncplay || exit
+python3 -m venv venv || exit
+# Switch to the venv
 . ~/src/github.com/syncplay/syncplay/venv/bin/activate
-/home/aminda/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
+
+# pip will complain if it has updates available, so it must be updated
+# and the syncplay requirements should be up-to-date too.
+pip3 install pip --upgrade
+pip3 install -r requirements.txt --upgrade
+pip3 install -r requirements_gui.txt --upgrade
+
+# finally launch the syncplay server with any flags specified
+~/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
+# my syncplay launcher says this is a terminal app, so in case something goes
+# wrong, let it stay open for a moment for me to see what.
+sleep 5
 set +x
