@@ -12,7 +12,7 @@ if [ ! -d "$HOME/src/github.com/syncplay" ]; then
 else
 	# In this case Syncplay does exist, let's upgrade it
 	cd ~/src/github.com/syncplay/syncplay || exit
-	gitt pull || exit
+	git pull || exit
 	mkdir -p venv
 fi
 
