@@ -6,6 +6,8 @@
 # $@ takes all parameters so another DNS server can be specified
 # e.g. ./dns-ecs-debug.bash @9.9.9.11
 
+echo 'Remember the usage being ./dns-ecs-debug.bash @<server>'
+
 # Let's get our own IPs first
 echo "Actual IP addresses"
 curl -L4s --doh-url https://dns.quad9.net/dns-query https://icanhazip.com/
