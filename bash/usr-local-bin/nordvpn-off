@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -x
+nordvpn set killswitch off
+nordvpn disconnect
+sudo systemctl stop nordvpnd.socket
+sudo systemctl stop nordvpnd.service
+sudo systemctl restart yggdrasil.service
+sudo systemctl restart iwd.service
+sudo systemctl restart systemd-networkd.service
+set +x
