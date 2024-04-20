@@ -12,3 +12,6 @@ generate-vcard-qr.bash
 install-cht.bash
 gist-irc-piraatit
 PPFI-IM-IRC
+init-browser-policies.bash
+tlp-masker.bash
+update-font-cache.bash
