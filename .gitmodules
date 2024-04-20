@@ -4,3 +4,6 @@
 [submodule "submodules/PPFI-Pikaviestimet"]
 	path = submodules/PPFI-Pikaviestimet
 	url = https://git.piraattipuolue.fi/Pikaviestimet/Pikaviestimet.git
+[submodule "submodules/shell-things"]
+	path = submodules/shell-things
+	url = https://gitea.blesmrt.net/Mikaela/shell-things.git
