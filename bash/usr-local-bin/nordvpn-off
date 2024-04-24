@@ -10,5 +10,8 @@ sudo systemctl restart yggdrasil.service
 sudo systemctl restart iwd.service
 sudo systemctl restart systemd-networkd.service
 sleep 5
+sudo systemctl restart unbound.service
+sudo systemctl restart systemd-resolved.service
+sleep 5
 sudo chronyc online
 set +x
