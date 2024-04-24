@@ -23,7 +23,7 @@ printf "Verifying signature…\n"
 gpg --verify forgejo-$VERSION-$PLATFORM.asc
 
 printf "Final steps: \n\t 1. Place the binary where the systemd service expects it.\n\t \
-2. sudo chmod a+rx forgejo-%b-%b\n\t \
-3. sudo ln -sf forgejo-%b-%b gitea \n\t \
-4. sudo systemctl restart gitea" "$VERSION" "$PLATFORM" "$VERSION" "$PLATFORM"
+2. sudo chmod -v a+rx forgejo-%b-%b\n\t \
+3. sudo ln -sfv forgejo-%b-%b gitea \n\t \
+4. sudo systemctl restart gitea.service" "$VERSION" "$PLATFORM" "$VERSION" "$PLATFORM"
 echo

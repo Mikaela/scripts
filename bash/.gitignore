@@ -4,6 +4,7 @@
 *.jpeg
 # download-forgejo.bash results to these
 forgejo-*
+gitea
 # employees.bash
 employees.csv
 # submodule symlinks
