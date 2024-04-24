@@ -41,5 +41,8 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 # Mozilla Products
 export MOZ_ENABLE_WAYLAND=1
 
-dbus-launch --exit-with-session sway --unsupported-gpu "$@"
+# Ensures dbus is available. Fedora 40 seems to no longer require
+# --unsupported-gpu on nvidia either.
+#dbus-launch --exit-with-session sway --unsupported-gpu "$@"
+dbus-launch --exit-with-session sway "$@"
 set +x
