@@ -2,4 +2,4 @@
 mkdir -p ~/etro.mikaela.info/
 cd ~/etro.mikaela.info/
 
-rsync -Paz etro.mikaela.info:~/backups/ .
+rsync -Paz y.etro.mikaela.info:~/backups/ .
