@@ -2,6 +2,7 @@
 
 set -x
 nordvpn set killswitch off
+nordvpn set autoconnect off
 nordvpn disconnect
 sudo systemctl stop nordvpnd.socket
 sudo systemctl stop nordvpnd.service

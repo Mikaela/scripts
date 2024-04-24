@@ -8,6 +8,7 @@ sleep 5
 systemctl status nordvpnd.service --no-pager
 nordvpn connect p2p
 nordvpn set killswitch on
+nordvpn set autoconnect on
 nordvpn status
 sudo systemctl restart yggdrasil.service
 flatpak run org.qbittorrent.qBittorrent "$@"
