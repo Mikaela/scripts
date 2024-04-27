@@ -14,4 +14,5 @@ sudo systemctl restart unbound.service
 sudo systemctl restart systemd-resolved.service
 sleep 5
 sudo chronyc online
+sudo systemctl restart tor.service
 set +x
