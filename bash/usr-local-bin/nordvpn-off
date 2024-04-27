@@ -6,13 +6,13 @@ nordvpn set autoconnect off
 nordvpn disconnect
 sudo systemctl stop nordvpnd.socket
 sudo systemctl stop nordvpnd.service
-sudo systemctl restart yggdrasil.service
 sudo systemctl restart iwd.service
 sudo systemctl restart systemd-networkd.service
 sleep 5
 sudo systemctl restart unbound.service
 sudo systemctl restart systemd-resolved.service
 sleep 5
+sudo systemctl restart yggdrasil.service
 sudo chronyc online
 sudo systemctl restart tor.service
 set +x
