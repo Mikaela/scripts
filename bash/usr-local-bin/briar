@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x
+cpulimit -l 1 flatpak run org.briarproject.Briar//stable "$@"
+set +x

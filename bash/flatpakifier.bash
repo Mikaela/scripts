@@ -9,7 +9,7 @@ set -x
 mkdir -p $TARGETDIR
 ln -sfv $FLATPAKEXPORTS/com.rafaelmardojai.Blanket $TARGETDIR/blanket
 # `flatpak make-current org.briarproject.Briar stable`?
-ln -sfv $FLATPAKEXPORTS/org.briarproject.Briar $TARGETDIR/briar
+#ln -sfv $FLATPAKEXPORTS/org.briarproject.Briar $TARGETDIR/briar
 ln -sfv $FLATPAKEXPORTS/org.claws_mail.Claws-Mail $TARGETDIR/claws-mail
 ln -sfv $FLATPAKEXPORTS/com.github.tchx84.Flatseal $TARGETDIR/flatseal
 
