@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# I was unable to get the Flatpak to start and the Snap needed the usual, so
+# here we are. Then I learned that it just needs --ozone-platform=wayland
+# instead of the old --ozone-platform-hint=auto, but whatever works or is
+# installed is fine...
+
+set -x
+if [ -f /snap/bin/joplin-desktop ]; then
+	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
+	unset DBUS_SESSION_BUS_ADDRESS
+	snap run joplin-desktop --ozone-platform=wayland "$@"
+elif [ -f /var/lib/flatpak/exports/bin/net.cozic.joplin_desktop ]; then
+	flatpak run net.cozic.joplin_desktop --ozone-platform=wayland "$@"
+elif [ -f ~/.local/share/flatpak/exports/bin/net.cozic.joplin_desktop ]; then
+	flatpak run --user net.cozic.joplin_desktop --ozone-platform=wayland "$@"
+else
+	/usr/bin/joplin-notes --ozone-platform=wayland
+fi
+set +x
