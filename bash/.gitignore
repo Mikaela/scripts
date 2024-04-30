@@ -17,3 +17,5 @@ init-browser-policies.bash
 tlp-masker.bash
 update-font-cache.bash
 resolv.conf-generate.bash
+systemd-resolv.conf-generate.bash
+systemd-resolv.conf-restore.bash
