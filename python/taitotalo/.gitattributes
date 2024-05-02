@@ -1,0 +1,4 @@
+*.py text eol=crlf
+.editorconfig text eol=crlf
+.gitattributes text eol=crlf
+*.md text eol=lf
