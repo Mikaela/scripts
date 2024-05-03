@@ -6,7 +6,8 @@
 # $@ takes all parameters so another DNS server can be specified
 # e.g. ./dns-ecs-debug.bash @9.9.9.11
 
-echo 'Remember the usage being ./dns-ecs-debug.bash @<server>'
+printf 'Remember the usage being ./dns-ecs-debug.bash @<server>\n'
+printf '\tWARNING! Unbound on localhost seems to eat the ECS!\n\n'
 
 # Let's get our own IPs first
 echo "Actual IP addresses"
