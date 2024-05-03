@@ -27,7 +27,7 @@ if [ -f /etc/machine-id ]; then
 
 		else
 			printf "\nWARNING! Kernels mismatch! Suggested actions:\n"
-			printf "\tsudo mkdir /boot/%b\"/%b\n" "$EXPECTEDKERNEL" "$EXPECTEDKERNEL"
+			printf "\tsudo mkdir /boot/%b/%b\n" "$MACHINEID" "$EXPECTEDKERNEL"
 			printf "\tsudo kernel-install add %b /lib/modules/%b/vmlinuz\n" "$EXPECTEDKERNEL" "$EXPECTEDKERNEL"
 		fi
 	fi
