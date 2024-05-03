@@ -1,0 +1,2 @@
+# main8.py requires this
+tabulate

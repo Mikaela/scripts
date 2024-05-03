@@ -1,4 +1,8 @@
+# This is for doctoc should I decide to use it in the future
+*.md text eol=lf
+# These files have been mostly modified from Windows in this directory and
+# OneDrive kept them as crlf
 *.py text eol=crlf
 .editorconfig text eol=crlf
 .gitattributes text eol=crlf
-*.md text eol=lf
+requirements.txt text eol=crlf
