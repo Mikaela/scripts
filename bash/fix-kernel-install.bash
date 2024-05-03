@@ -30,6 +30,7 @@ if [ -f /etc/machine-id ]; then
 			printf "\tsudo mkdir /boot/%b/%b\n" "$MACHINEID" "$EXPECTEDKERNEL"
 			printf "\tsudo kernel-install add %b /lib/modules/%b/vmlinuz\n" "$EXPECTEDKERNEL" "$EXPECTEDKERNEL"
 			#printf "\tsudo dnf reinstall kernel-core-%b -y\n" "$EXPECTEDKERNEL"
+			printf "Please note that Lumina and Sedric have moved to UKI."
 		fi
 	fi
 fi
