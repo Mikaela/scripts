@@ -111,6 +111,9 @@ if hash needrestart 2>/dev/null; then
 	# needrestart batch mode, should be visible on bottom of scrollback
 	# see https://github.com/liske/needrestart/blob/master/README.batch.md
 	needrestart -b
+	# Give me a moment to see what needrestart says even if I pipe or enter
+	# multiple commands at once!
+	sleep 5
 fi
 
 # Sedric workaround, located in this repo. I trust /root/
