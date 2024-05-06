@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/bin/env foot --title=btop\ \|\ foot /usr/bin/env btop
