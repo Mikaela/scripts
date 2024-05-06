@@ -30,3 +30,15 @@ echo ""
 echo "Akamai IPv4 $@"
 dig +short TXT whoami.ipv4.akahelp.net. "$@"
 echo ""
+
+echo "PowerDNS dualstack $@"
+dig +short TXT whoami-ecs.lua.powerdns.org. "$@"
+echo ""
+
+echo "PowerDNS IPv6 $@"
+dig +short TXT whoami-ecs.v6.powerdns.org. "$@"
+echo ""
+
+echo "PowerDNS IPv4 $@"
+dig +short TXT whoami-ecs.v4.powerdns.org. "$@"
+echo ""
