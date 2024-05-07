@@ -27,8 +27,12 @@ adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CON
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
 (adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
 
-# If 1, DoH3 is supported
+# Should tell whether the DoH3 module exists
+(adb "$@" shell pm list package | grep com.android.resolv &)
+
+# If 1, DoH3 is supported. How about trying to make it 1?
 (adb "$@" shell cmd device_config get netd_native doh &)
+(adb "$@" shell cmd device_config put netd_native doh 1 &)
 
 # Wait a bit and then reboot the device
 sleep 5
