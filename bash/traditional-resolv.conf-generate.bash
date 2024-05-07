@@ -1,0 +1,1 @@
+../submodules/shell-things/etc/traditional-resolv.conf-generate.bash

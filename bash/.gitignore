@@ -19,3 +19,4 @@ update-font-cache.bash
 resolv.conf-generate.bash
 systemd-resolv.conf-generate.bash
 systemd-resolv.conf-restore.bash
+traditional-resolv.conf-generate.bash
