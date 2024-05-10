@@ -1,22 +1,45 @@
 #!/usr/bin/env bash
 
 set -x
+# In my experience killswitch causes issues for NordVPN to restore connection
+# and anyway it's enabled by scripts that I actually want to be connected to
+# VPN.
 nordvpn set killswitch off
+# The aforementioned script will restore it.
 nordvpn set autoconnect off
+# Disconnects VPN
 nordvpn disconnect
-# Explicitly restore IPv6
+
+# Explicitly restores IPv6 since NordVPN disables it by setting this to 1.
 sudo sysctl net.ipv6.conf.all.disable_ipv6=0
+
+# My scripts autostart them, I don't want NordVPN to haunt logs.
 sudo systemctl stop nordvpnd.socket
 sudo systemctl stop nordvpnd.service
+
+# Restarting networking ensures IPv6 connectivity will return.
 sudo systemctl restart iwd.service
 sudo systemctl restart systemd-networkd.service
+
+# A bit of sleeping before flushing DNS caches, so we are surely connected
+# for the new attempts. They are flushed in case of having private ECS aimed
+# at the VPN.
 sleep 5
 #sudo systemctl restart unbound.service
 sudo unbound-control reload
 #sudo systemctl restart systemd-resolved.service
 sudo resolvectl flush-caches
 #sleep 5
+
+# Yggdrasil needs IPv6
 sudo systemctl restart yggdrasil.service
+
+# The NTP server will now have access to IPv6 sources, possibly local NTP
+# servers as well.
 sudo chronyc online
+
+# Tor will complain of IP address change and failing guards during
+# disconnection.
 sudo systemctl restart tor.service
+
 set +x
