@@ -15,7 +15,7 @@ sleep 5
 sudo unbound-control reload
 #sudo systemctl restart systemd-resolved.service
 sudo resolvectl flush-caches
-sleep 5
+#sleep 5
 sudo systemctl restart yggdrasil.service
 sudo chronyc online
 sudo systemctl restart tor.service
