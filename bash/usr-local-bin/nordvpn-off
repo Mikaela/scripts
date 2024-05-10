@@ -4,6 +4,8 @@ set -x
 nordvpn set killswitch off
 nordvpn set autoconnect off
 nordvpn disconnect
+# Explicitly restore IPv6
+sudo sysctl net.ipv6.conf.all.disable_ipv6=0
 sudo systemctl stop nordvpnd.socket
 sudo systemctl stop nordvpnd.service
 sudo systemctl restart iwd.service
