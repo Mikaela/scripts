@@ -13,12 +13,12 @@ FlagsForFirefox="--ProfileManager $@"
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
 if [ -f ~/.local/firefox/firefox ]; then
 	~/.local/firefox/firefox $FlagsForFirefox
-# Fallback to global wayland installation
-elif [ -f /usr/bin/firefox-wayland ]; then
-	/usr/bin/firefox-wayland $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox ]; then
 	/usr/bin/firefox $FlagsForFirefox
+# Fallback to global installation
+elif [ -f /usr/bin/firefox-esr ]; then
+	/usr/bin/firefox-esr $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else
 	flatpak run org.mozilla.firefox $FlagsForFirefox
