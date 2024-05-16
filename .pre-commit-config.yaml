@@ -37,8 +37,6 @@ repos:
       #- id: check-toml
       #- id: check-xml
       - id: debug-statements
-      - id: fix-encoding-pragma
-        args: [--remove]
       - id: mixed-line-ending
         # .gitattributes is trusted to handle this
         args: [--fix=no]
