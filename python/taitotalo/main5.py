@@ -1,8 +1,8 @@
 # Tuodaan turtle -kirjasto
-import random
 import turtle
 
 # Satunnaislukuja
+import random
 
 # ikkkuna = turtle.Screen()
 
