@@ -10,3 +10,6 @@
 *.py diff=python
 *.rb diff=ruby
 *.{scm,ss} diff=scheme
+
+*.json text
+*.yaml text linguist-vendored
