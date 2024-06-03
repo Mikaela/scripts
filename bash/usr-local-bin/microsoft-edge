@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/microsoft-edge --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+/usr/bin/microsoft-edge --ozone-platform=wayland --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations "$@"
 set +x
