@@ -38,4 +38,5 @@ adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CON
 sleep 5
 #adb "$@" reboot
 
+print "Performance issues? adb shell top -b | head"
 set +x
