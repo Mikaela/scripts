@@ -9,10 +9,10 @@ importers:
     devDependencies:
       "@prettier/plugin-ruby":
         specifier: 4.0.4
-        version: 4.0.4(prettier@3.2.5)
+        version: 4.0.4(prettier@3.3.0)
       prettier:
-        specifier: 3.2.5
-        version: 3.2.5
+        specifier: 3.3.0
+        version: 3.3.0
 
 packages:
   "@prettier/plugin-ruby@4.0.4":
@@ -23,17 +23,17 @@ packages:
     peerDependencies:
       prettier: ^3.0.0
 
-  prettier@3.2.5:
+  prettier@3.3.0:
     resolution:
       {
-        integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==,
+        integrity: sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==,
       }
     engines: { node: ">=14" }
     hasBin: true
 
 snapshots:
-  "@prettier/plugin-ruby@4.0.4(prettier@3.2.5)":
+  "@prettier/plugin-ruby@4.0.4(prettier@3.3.0)":
     dependencies:
-      prettier: 3.2.5
+      prettier: 3.3.0
 
-  prettier@3.2.5: {}
+  prettier@3.3.0: {}
