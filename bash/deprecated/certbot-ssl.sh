@@ -16,4 +16,4 @@ chown -R mumble-server:mumble-server /var/lib/mumble-server/ssl/
 pkill $(cat /var/run/mumble-server/mumble-server.pid) -USR1
 
 # ZNC via https://wiki.znc.in/Signed_SSL_certificate#Certbot
-cat /etc/letsencrypt/live/relpda.mikaela.info/{privkey,fullchain}.pem >/home/znc/.znc/znc.pem
+cat /etc/letsencrypt/live/relpda.mikaela.info/{privkey,fullchain}.pem > /home/znc/.znc/znc.pem

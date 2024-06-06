@@ -15,32 +15,32 @@ operand2=$3
 
 # The main case/switch which was required in the exercise
 case $operator in
-'+')
-	result=$((operand1 + operand2))
-	operatorWord="plus"
-	;;
-'-')
-	result=$((operand1 - operand2))
-	operatorWord="minus"
-	;;
-'*')
-	result=$((operand1 * operand2))
-	operatorWord="multiplied by"
-	;;
-'/')
-	if [ "$operand2" -eq 0 ]; then
-		echo "The laws of mathematics don't allow division by zero."
+	'+')
+		result=$((operand1 + operand2))
+		operatorWord="plus"
+		;;
+	'-')
+		result=$((operand1 - operand2))
+		operatorWord="minus"
+		;;
+	'*')
+		result=$((operand1 * operand2))
+		operatorWord="multiplied by"
+		;;
+	'/')
+		if [ "$operand2" -eq 0 ]; then
+			echo "The laws of mathematics don't allow division by zero."
+			exit 1
+		else
+			result=$((operand1 / operand2))
+			operatorWord="divided by"
+		fi
+		;;
+	# Let's not forget default case either
+	*)
+		echo "Please use operator +, -. * or /"
 		exit 1
-	else
-		result=$((operand1 / operand2))
-		operatorWord="divided by"
-	fi
-	;;
-# Let's not forget default case either
-*)
-	echo "Please use operator +, -. * or /"
-	exit 1
-	;;
+		;;
 esac
 
 # and finally the output in format wanted by the task

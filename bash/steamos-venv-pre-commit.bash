@@ -14,10 +14,10 @@ mkdir -p ~/.local/bin/
 # come with and it was the original motivation for this script, so it's
 # difficult to start changing anything here. If you don't want it, just
 # install pypy or symlink it in path yourself!
-if ! hash pypy 2>/dev/null; then
+if ! hash pypy 2> /dev/null; then
 	ln -sf /usr/bin/python ~/.local/bin/pypy
 fi
-if ! hash pypy3 2>/dev/null; then
+if ! hash pypy3 2> /dev/null; then
 	ln -sf /usr/bin/python3 ~/.local/bin/pypy3
 fi
 

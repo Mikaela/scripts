@@ -64,7 +64,7 @@ chown -R oragono:oragono $ORAGONODIR
 
 # WeeChat relay, remember to /relay sslcertkey
 $ACMESH -d $DOMAINNAME --fullchain-file $WEECHATDIR/fullchain.pem --key-file $WEECHATDIR/privkey.pem
-cat $WEECHATDIR/{fullchain,privkey}.pem >$WEECHATDIR/relay.pem
+cat $WEECHATDIR/{fullchain,privkey}.pem > $WEECHATDIR/relay.pem
 chmod -R 700 $WEECHATDIR
 chown -R mikaela:mikaela $WEECHATDIR
 

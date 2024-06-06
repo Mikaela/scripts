@@ -10,7 +10,7 @@ set -x
 export LC_ALL=C.utf8
 
 # if hash checks that the command exists
-if hash apt-get 2>/dev/null; then
+if hash apt-get 2> /dev/null; then
 	# I am not sure if -y here even does anything, at least it won't work for
 	# accepting suite changes for Debian when testing becomes stable.
 	# Checking for updates or new packages.
@@ -26,20 +26,20 @@ if hash apt-get 2>/dev/null; then
 	apt-get "$@" autoremove
 fi
 
-if hash dpkg 2>/dev/null; then
+if hash dpkg 2> /dev/null; then
 	# In case dpkg was interrupted previously, configure packages.
 	dpkg --configure -a
 fi
 
 # Enables Fedora third party repositories if not enabled, otherwise quiet.
 # My systems most likely have them already
-if hash fedora-third-party 2>/dev/null; then
+if hash fedora-third-party 2> /dev/null; then
 	fedora-third-party enable
 	# Are they enabled?
 	fedora-third-party query
 fi
 
-if hash dnf 2>/dev/null; then
+if hash dnf 2> /dev/null; then
 	# I don't know if -y does anything here either and I think this may be
 	# useless, but I am used to it coming from apt and I think it will just
 	# say nothing to do or do nothing if mirrors haven't updated.
@@ -59,12 +59,12 @@ if hash dnf 2>/dev/null; then
 	dnf -v "$@" autoremove
 fi
 
-if hash rpmconf 2>/dev/null; then
+if hash rpmconf 2> /dev/null; then
 	# Tests if there are rpmsave/rpmnew files, hopefully is non-interactive
 	rpmconf -a -t
 fi
 
-if hash flatpak 2>/dev/null; then
+if hash flatpak 2> /dev/null; then
 	# Flatpak apps are sandboxed and should be safe to update automatically
 	# KEEP --noninteractive IN PLACE! While it removes progress bar, it also
 	# doesn't blink making it worth it in case of migraine attack.
@@ -81,7 +81,7 @@ if hash flatpak 2>/dev/null; then
 	flatpak uninstall --user --unused --assumeyes --noninteractive
 fi
 
-if hash snap 2>/dev/null; then
+if hash snap 2> /dev/null; then
 	# I don't want my systems full of old snaps
 	# > retain must be a number between 2 and 20, not "1"
 	snap set system refresh.retain=2
@@ -95,19 +95,19 @@ fi
 # I don't have flatpak or snap going to background, because I often do
 # ./deb-update.bash && poweroff
 
-if hash pkcon 2>/dev/null; then
+if hash pkcon 2> /dev/null; then
 	# So PackageKit using KDE Plasma and possibly GNOME stop alerting about
 	# already installed updates. It has backends for all other package managers,
 	# so it needs to be after them.
 	pkcon refresh force
 fi
 
-if hash apt-file 2>/dev/null; then
+if hash apt-file 2> /dev/null; then
 	# So the local apt-file database is up-to-date.
 	apt-file update
 fi
 
-if hash needrestart 2>/dev/null; then
+if hash needrestart 2> /dev/null; then
 	# needrestart batch mode, should be visible on bottom of scrollback
 	# see https://github.com/liske/needrestart/blob/master/README.batch.md
 	needrestart -b
