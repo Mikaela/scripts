@@ -9,7 +9,7 @@ ci:
   # the frequency of unnecessary PRs.
   # https://github.com/pre-commit-ci/issues/issues/83
   autoupdate_schedule: quarterly
-  skip: [pylint]
+  skip: [pylint, pnpm-prettier]
 
 # use pypy3 for python
 default_language_version:
@@ -71,17 +71,24 @@ repos:
     rev: v3.1.0
     hooks:
       - id: add-trailing-comma
-  - repo: https://github.com/rbubley/mirrors-prettier
-    rev: "v3.3.0"
+  - repo: local
     hooks:
-      - id: prettier
-        exclude_types: [python, pyi, jupyter]
-        additional_dependencies: [
-            # https://www.npmjs.com/package/prettier
-            "prettier@3.2.5",
-            # https://www.npmjs.com/package/@prettier/plugin-ruby
-            "@prettier/plugin-ruby@4.0.4",
-          ]
+      - id: pnpm-prettier
+        name: prettier
+        entry: pnpm exec prettier --cache --ignore-unknown --write
+        language: system
+        exclude_types: [json]
+      # - repo: https://github.com/rbubley/mirrors-prettier
+  #   rev: "v3.3.0"
+  #   hooks:
+  #     - id: prettier
+  #       exclude_types: [python, pyi, jupyter]
+  #       additional_dependencies: [
+  #           # https://www.npmjs.com/package/prettier
+  #           "prettier@3.2.5",
+  #           # https://www.npmjs.com/package/@prettier/plugin-ruby
+  #           "@prettier/plugin-ruby@4.0.4",
+  #         ]
   - repo: https://github.com/psf/black
     rev: 24.4.2
     hooks:
@@ -89,11 +96,11 @@ repos:
         #Refer to pyproject.toml
         #args: ["--line-length", "79", "--target-version", "py310"]
       #- id: black-jupyter
-  - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.8.0-1
-    hooks:
-      - id: shfmt
-        #- id: shfmt-docker
+      #  - repo: https://github.com/scop/pre-commit-shfmt
+      #    rev: v3.8.0-1
+      #    hooks:
+      #      - id: shfmt
+      #- id: shfmt-docker
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: "2.7.3"
     hooks:
