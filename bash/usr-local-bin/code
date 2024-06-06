@@ -5,7 +5,7 @@
 
 set -x
 if [ -f /usr/bin/code ]; then
-	/usr/bin/code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform-hint=x11 "$@"
+	/usr/bin/code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform-hint=wayland "$@"
 
 elif [ -f /snap/bin/code ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
