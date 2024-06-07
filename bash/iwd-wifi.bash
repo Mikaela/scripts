@@ -24,7 +24,7 @@ echo "To connect:
 
 # Device Provisioning Protocol https://iwd.wiki.kernel.org/device_provisioning
 # requires qrencode, so let's check it exists
-if hash qrencode needrestart 2> /dev/null; then
+if hash qrencode 2> /dev/null; then
 	# Remind of command to share
 	echo "To share credentials:
 % iwctl dpp $WIFIDEVICE start-configurator
