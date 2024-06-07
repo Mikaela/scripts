@@ -13,5 +13,6 @@ elif [ -f ~/.local/share/flatpak/exports/bin/io.neovim.nvim ]; then
 # If not found.
 else
 	printf "nvim doesn't seem to be installed :("
+	exit
 fi
 #set +x
