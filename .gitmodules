@@ -1,9 +1,12 @@
 [submodule "submodules/gist"]
 	path = submodules/gist
 	url = https://gitea.blesmrt.net/mikaela/gist.git
+	branch = master
 [submodule "submodules/PPFI-Pikaviestimet"]
 	path = submodules/PPFI-Pikaviestimet
 	url = https://git.piraattipuolue.fi/Pikaviestimet/Pikaviestimet.git
+	branch = master
 [submodule "submodules/shell-things"]
 	path = submodules/shell-things
 	url = https://gitea.blesmrt.net/Mikaela/shell-things.git
+	branch = master
