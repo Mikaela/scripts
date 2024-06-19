@@ -1,5 +1,7 @@
-Simple bash scripts I have in `/usr/local/bin` that may be trivial to recreate,
-but why reinvent the wheel.
+<!-- @format -->
+
+Simple bash scripts I have in `/usr/local/bin` that may be trivial to
+recreate, but why reinvent the wheel.
 
 ## Does this make sense for Flatpaks?
 
@@ -9,5 +11,5 @@ tail -n +1 /var/lib/flatpak/exports/bin/*
 
 ## Snap?
 
-`/usr/local/bin` is more likely to be in `$PATH` than the usual Snap
-vriants. If they are in $PATH, note `sudo snap alias ORIGINAL NEW`
+`/usr/local/bin` is more likely to be in `$PATH` than the usual Snap vriants.
+If they are in $PATH, note `sudo snap alias ORIGINAL NEW`

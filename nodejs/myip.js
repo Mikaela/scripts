@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/** @format */
 
 // Require the dns module
 var dns = require("dns");
