@@ -11,7 +11,7 @@ ci:
   # the frequency of unnecessary PRs.
   # https://github.com/pre-commit-ci/issues/issues/83
   autoupdate_schedule: quarterly
-  skip: [pylint, prettier]
+  skip: [pnpm-install-dev, prettier, pylint]
 
 # use pypy3 for python
 default_language_version:
@@ -74,12 +74,7 @@ repos:
     rev: v3.1.0
     hooks:
       - id: add-trailing-comma
-  - repo: local
-    hooks:
-      - id: prettier
-        name: prettier
-        entry: pnpm exec prettier --cache --ignore-unknown --write
-        language: system
+
   - repo: https://github.com/psf/black
     rev: 24.4.2
     hooks:
@@ -92,12 +87,7 @@ repos:
       #    hooks:
       #      - id: shfmt
       #- id: shfmt-docker
-  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: "2.7.3"
-    hooks:
-      - id: editorconfig-checker
-        alias: ec
-        args: [-disable-max-line-length]
+
   - repo: local
     hooks:
       - id: pylint
@@ -106,3 +96,24 @@ repos:
         entry: pylint -j 0 -d W0511
         language: system
         types_or: [python, pyi]
+      - id: pnpm-install-dev
+        name: Install pnpm dev dependencies
+        entry: corepack pnpm install -D
+        language: system
+        always_run: true
+        #verbose: true
+        pass_filenames: false
+      - id: prettier
+        name: prettier
+        entry: corepack pnpm exec prettier --cache --ignore-unknown --write
+        language: system
+        # Better handled by pretty-format-json from pre-commit-hooks.
+        # Remember to have *.json in .prettierignore!
+        exclude_types: [json]
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: "2.7.3"
+    hooks:
+      - id: editorconfig-checker
+        alias: ec
+        args: [-disable-max-line-length]
