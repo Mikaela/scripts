@@ -41,5 +41,5 @@ adb "$@" shell pm grant ru.karasevm.privatednstoggle android.permission.WRITE_SE
 sleep 5
 #adb "$@" reboot
 
-print "Performance issues? adb shell top -b | head"
+printf "Performance issues? adb shell top -b | head\n"
 set +x
