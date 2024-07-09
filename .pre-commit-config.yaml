@@ -34,7 +34,7 @@ repos:
         args: ["--markdown-linebreak-ext", "md,markdown"]
         exclude_types: [svg, tsv]
       - id: check-docstring-first
-      #- id: check-json
+      - id: check-json
       - id: check-merge-conflict
       #- id: check-toml
       #- id: check-xml
@@ -42,7 +42,8 @@ repos:
       - id: mixed-line-ending
         # .gitattributes is trusted to handle this
         args: [--fix=no]
-        #- id: pretty-format-json
+      - id: pretty-format-json
+        args: [--autofix, --no-ensure-ascii]
         #- id: requirements-txt-fixer
   - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
     rev: v1.6.1
@@ -107,9 +108,6 @@ repos:
         name: prettier
         entry: corepack pnpm exec prettier --cache --ignore-unknown --write
         language: system
-        # Better handled by pretty-format-json from pre-commit-hooks.
-        # Remember to have *.json in .prettierignore!
-        exclude_types: [json]
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: "2.7.3"
