@@ -26,6 +26,10 @@ adb "$@" shell pm grant jp.co.c_lis.ccl.morelocale android.permission.CHANGE_CON
 # https://github.com/karasevm/PrivateDNSAndroid
 adb "$@" shell pm grant ru.karasevm.privatednstoggle android.permission.WRITE_SECURE_SETTINGS
 
+# https://userbase.kde.org/KDEConnect#Log_Reading
+adb "$@" shell pm grant org.kde.kdeconnect_tp android.permission.READ_LOGS
+adb "$@" shell appops set org.kde.kdeconnect_tp SYSTEM_ALERT_WINDOW allow
+
 # Shizuku
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
 (adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
