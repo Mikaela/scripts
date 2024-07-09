@@ -12,13 +12,14 @@ WIFIDEVICE=wlan0
 # Scan and list results
 iwctl station $WIFIDEVICE scan
 iwctl station $WIFIDEVICE get-networks
+iwctl station $WIFIDEVICE get-hidden-access-points
 
 # Print the command to connect. Replace $KEY and $SSID with the actual ones
 # The manpage says: iwctl --passphrase=PASSPHRASE station DEVICE connect SSID
 # but considering it says -P is shorthand for passphrase, I think this should
 # work too while being more logical in my opinion.
 echo "To connect:
-% iwctl station $WIFIDEVICE connect \$SSID -P \$KEY
+% iwctl station $WIFIDEVICE connect-[hidden] \$SSID -P \$KEY
 "
 # For permanent connections https://gitea.blesmrt.net/mikaela/shell-things/src/branch/master/var/lib/iwd
 
