@@ -1,2 +1,2 @@
-# main8.py requires this
+# muodosta-parityo-parit.py requires this
 tabulate
