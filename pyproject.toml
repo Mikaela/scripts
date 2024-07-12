@@ -28,5 +28,6 @@ disable = ["W0511"]
 
 # https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
 
+# isort
 [tool.isort]
 profile = "black"

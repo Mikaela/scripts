@@ -2,11 +2,11 @@
 Sovellus tekee listasta pareja
 """
 
-# Tuodaan paketti tabulate.
-import tabulate
-
 # Tarvitaan parien muodostamiseen
 import random
+
+# Tuodaan paketti tabulate.
+import tabulate
 
 
 # Määritetään pääfunktio
