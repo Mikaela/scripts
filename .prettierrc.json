@@ -1,7 +1,6 @@
 {
   "bracketSameLine": true,
   "endOfLine": "auto",
-  "insertPragma": true,
   "plugins": [
     "@prettier/plugin-ruby",
     "prettier-plugin-sh"
