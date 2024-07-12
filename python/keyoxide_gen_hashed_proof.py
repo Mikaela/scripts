@@ -6,7 +6,9 @@ This script generated Keyoxide hashed proofs in argon2id and bcrypt
 PROOF = str(input("Enter the proof: "))
 
 print(
-    "$argon2id$v=19$m=64,t=512,p=2$mDejbh8SmFFJPjbjf+u9kQ$yQpomARjYKfgEDAZ1jdgnA",
+    """
+$argon2id$v=19$m=64,t=512,p=2$mDejbh8SmFFJPjbjf+u9kQ$yQpomARjYKfgEDAZ1jdgnA",
+""",
 )
 
 

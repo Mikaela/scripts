@@ -25,7 +25,8 @@ def check_ssid_length(given_ssid_length):
 # Request input or assume "test" on empty.
 GIVENSSID = str(
     input(
-        "Please enter the SSID you are thinking of (preferably 26 chars to fit _nomap): ",
+        "Please enter the SSID you are thinking of (preferably 26 chars to \
+fit _nomap): ",
     )
     or "test",
 )
