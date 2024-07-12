@@ -1,5 +1,6 @@
 """
 Sovellus pyytää käyttäjältä nimen, sekä viestin ja tulostaa viestin kolmesti.
+
 """
 
 # Pyydetään käyttäjältä nimi ja viesti, tallennetaan samannimisiin muuttujiin

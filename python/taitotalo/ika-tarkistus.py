@@ -1,5 +1,6 @@
 """
 Sovellus kysyy käyttäjän ikää, kertoo alle 18 heidän olevan alaikäinen, 18-65 aikuinen ja yli 65 seniori.
+
 """
 
 # Tuo sys -kirjasto, jotta voimme poistua virhekoodiin.

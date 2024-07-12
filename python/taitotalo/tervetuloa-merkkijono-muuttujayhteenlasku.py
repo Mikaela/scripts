@@ -1,5 +1,6 @@
 """
 Tämä on ensimmäinen Taitotalossa kirjoitettu Python koodi koulutuspäivänä yksi. Se vain tulostaa asioita.
+
 """
 
 # Ensimmäinen kommentti

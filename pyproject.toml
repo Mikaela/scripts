@@ -3,6 +3,7 @@
 [tool.black]
 line-length = 79
 target-version = ['py310']
+preview = true
 
 [tool.mypy]
 #python-executable = 'pypy3'
@@ -10,9 +11,8 @@ python_version = '3.10'
 
 # https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
 
-# No need to have it uncommented since 79 is the standard.
-#[tool.pylint.format]
-#max-line-length = 79
+[tool.pylint.format]
+max-line-length = 79
 
 # Not actually used here, see .pre-commit-config.yaml for reorder-python-imports
 # that does the same thing.
