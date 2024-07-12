@@ -1,21 +1,14 @@
 # @format
 
-# SPDX-FileCopyrightText: 2023 Aminda Suomalainen <suomalainen+git@mikaela.info>
+# SPDX-FileCopyrightText: 2024 Aminda Suomalainen <suomalainen+git@mikaela.info>
 #
 # SPDX-License-Identifier: CC0-1.0
 
 # See https://pre-commit.com for more information
 # See https://pre-commit.ci for more information
 ci:
-  # Forĝejo/Gitea mirrors will autoclose pull requests. This should decrease
-  # the frequency of unnecessary PRs.
-  # https://github.com/pre-commit-ci/issues/issues/83
   autoupdate_schedule: quarterly
   skip: [pnpm-install-dev, prettier, pylint]
-
-# use pypy3 for python
-#default_language_version:
-#  python: pypy3
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -44,26 +37,31 @@ repos:
         args: [--fix=no]
       - id: pretty-format-json
         args: [--autofix, --no-ensure-ascii]
+
   - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
     rev: v1.6.1
     hooks:
       - id: check-pre-commit-ci-config
+
   - repo: https://github.com/thlorenz/doctoc
     rev: v2.2.0
     hooks:
       - id: doctoc
         # https://github.com/Mikaela/gist/blob/master/doctoc.txt
         args: [--update-only]
+
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: "v1.10.1"
     hooks:
       - id: mypy
         additional_dependencies: [types-tabulate]
+
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.16.0
     hooks:
       - id: pyupgrade
         args: [--py310-plus]
+
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v3.1.0
     hooks:
@@ -79,11 +77,6 @@ repos:
     rev: 24.4.2
     hooks:
       - id: black
-      #- id: black-jupyter
-      #  - repo: https://github.com/scop/pre-commit-shfmt
-      #    rev: v3.8.0-1
-      #    hooks:
-      #      - id: shfmt
 
   - repo: local
     hooks:
@@ -97,7 +90,6 @@ repos:
         entry: corepack pnpm install -D
         language: system
         always_run: true
-        #verbose: true
         pass_filenames: false
       - id: prettier
         name: prettier
