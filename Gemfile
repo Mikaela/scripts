@@ -1,5 +1,6 @@
-# @format
-
 source "https://rubygems.org"
 ruby file: ".ruby-version"
+gem "prettier_print"
 gem "syntax_tree"
+gem "syntax_tree-haml"
+gem "syntax_tree-rbs"
