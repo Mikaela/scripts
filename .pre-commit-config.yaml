@@ -59,7 +59,7 @@ repos:
     rev: "v1.10.1"
     hooks:
       - id: mypy
-        args: [--install-types, --non-interactive]
+        args: [--ignore-missing-imports, --non-interactive]
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.16.0
     hooks:
