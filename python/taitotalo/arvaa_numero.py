@@ -33,7 +33,8 @@ def arvaa_numero():
 
         laskuri += 1
 
-        # Pyydetään käyttäjältä luku varautuen virheelliseen syötteeseen. Se on tärkeää muuttaa int:iksi tai muuten se on string!
+        # Pyydetään käyttäjältä luku varautuen virheelliseen syötteeseen. Se
+        # on tärkeää muuttaa int:iksi tai muuten se on string!
         try:
             arvaus = int(input("Arvaa numero? "))
         # Virhesyötteen tapahtuessa
@@ -54,13 +55,16 @@ def arvaa_numero():
             )
             break
 
-        # Muuten avustetaan käyttäjää antamalla vihje. Printistä myös poistetaan erottavat välilyönnit, jotka tehdään itse, jotta arvauksen ja pisteen väliin ei tule välilyöntejä
-        elif arvaus < oikeavastaus:
+        # Muuten avustetaan käyttäjää antamalla vihje. Printistä myös
+        # poistetaan erottavat välilyönnit, jotka tehdään itse, jotta
+        # arvauksen ja pisteen väliin ei tule välilyöntejä
+        if arvaus < oikeavastaus:
             print("Oikea luku on suurempi kuin ", arvaus, ".", sep="")
         else:
             print("Oikea luku on pienempi kuin ", arvaus, ".", sep="")
 
 
-# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan pääfunktio.
+# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan
+# pääfunktio.
 if __name__ == "__main__":
     main()

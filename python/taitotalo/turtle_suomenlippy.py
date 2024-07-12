@@ -1,6 +1,11 @@
+"""
+Tämän skriptin olisi tarkoitus piirtää Suomen lippu turtle-kirjastolla,
+mutta en koskaan tehnyt siitä valmista.
+"""
+
 # Tuodaan turtle -kirjasto
 # Satunnaislukuja
-import random
+# import random
 import turtle
 
 # ikkkuna = turtle.Screen()
@@ -48,37 +53,37 @@ turtle.showturtle()
 
 
 # Piirretään suorakulmio
-vaaka = 300
-pysty = 200
+VAAKA = 300
+PYSTY = 200
 #
-turtle.forward(vaaka)
+turtle.forward(VAAKA)
 turtle.left(90)
-turtle.forward(pysty)
-#
-turtle.left(90)
-turtle.forward(vaaka)
+turtle.forward(PYSTY)
 #
 turtle.left(90)
-turtle.forward(pysty)
+turtle.forward(VAAKA)
+#
+turtle.left(90)
+turtle.forward(PYSTY)
 turtle.left(90)
 
 # Piirretään risti
-turtle.forward(vaaka / 2)
+turtle.forward(VAAKA / 2)
 turtle.left(90)
-turtle.forward(pysty / 3)
+turtle.forward(PYSTY / 3)
 
 turtle.right(90)
-turtle.forward(vaaka / 3)
+turtle.forward(VAAKA / 3)
 turtle.left(90)
 
-turtle.forward(vaaka / 5)
+turtle.forward(VAAKA / 5)
 turtle.left(90)
-turtle.forward(vaaka / 3)
+turtle.forward(VAAKA / 3)
 
 turtle.right(90)
-turtle.forward(vaaka / 3)
+turtle.forward(VAAKA / 3)
 
-# turtle.forward(pysty / 3)
+# turtle.forward(PYSTY / 3)
 
 # Pidetään ikkuna auki
 turtle.mainloop()

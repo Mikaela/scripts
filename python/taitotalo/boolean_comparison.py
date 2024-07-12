@@ -6,8 +6,8 @@ import datetime
 
 tanaan = datetime.date.today()
 vuosi = int(tanaan.year)
-nimi = "Jussi"
+NIMI = "Jussi"
 
 print(vuosi)
 print(vuosi == 2014)
-print(vuosi is vuosi)
+# print(vuosi is vuosi)

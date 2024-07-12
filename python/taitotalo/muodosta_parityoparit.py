@@ -23,7 +23,8 @@ def main():
     random_names1 = random.sample(nimet, 3)
     random_names2 = random.sample(nimet2, 3)
 
-    # Luo tuplen, jossa zip yhdistää random_names{1,2} vastaavan kohdan kanssa, jotka sitten laitetaan listaan.
+    # Luo tuplen, jossa zip yhdistää random_names{1,2} vastaavan kohdan
+    # kanssa, jotka sitten laitetaan listaan.
     name_pairs = list(zip(random_names1, random_names2))
 
     print(name_pairs)
@@ -38,6 +39,7 @@ def main():
     print(table)
 
 
-# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan pääfunktio.
+# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan,
+# suoritetaan pääfunktio.
 if __name__ == "__main__":
     main()

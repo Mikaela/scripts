@@ -24,11 +24,13 @@ def main():
 
     print("Olen", ikani, "-vuotias", nimeni)
     nimi = input("Mikä sinun nimesi on?: ")
-    # Odotetaan käyttäjän mahdollisesti pyrkivän syöttämään muutakin kuin numeroita ja varaudutaan asiaan
+    # Odotetaan käyttäjän mahdollisesti pyrkivän syöttämään muutakin kuin
+    # numeroita ja varaudutaan asiaan
     try:
         # Tallennetaan kokonaislukuna käyttäjältä pyydetty ikä
         ika = int(input("Entä kuinka vanha olet? "))
-    # Annetaan käyttäjäystävällinen virheilmoitus ja poistutaan virhekoodilla, jos käyttäjä ei syöttänyt numeroita
+    # Annetaan käyttäjäystävällinen virheilmoitus ja poistutaan
+    # virhekoodilla, jos käyttäjä ei syöttänyt numeroita
     except ValueError:
         print("Syötä ikäsi numeroina!")
         sys.exit(1)
@@ -40,7 +42,8 @@ def main():
     # Aloitetaan kokeilemalla onko käyttäjä alle 18.
     if ika < 18:
         print("Olet alaikäinen")
-    # Jos käyttäjä ei ollut alaikäinen, varmistetaan onko hän 18 ja onko hän alle 65.
+    # Jos käyttäjä ei ollut alaikäinen, varmistetaan onko hän 18 ja onko hän
+    # alle 65.
     elif (ika >= 18) and (ika < 65):
         print("Olet täysi-ikäinen")
     # Mikäli ikä on 65 tai yli, käyttäjä on seniori.
@@ -51,6 +54,7 @@ def main():
         print("Jokin meni pieleen. Yritä uudelleen.")
 
 
-# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan pääfunktio.
+# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan
+# pääfunktio.
 if __name__ == "__main__":
     main()

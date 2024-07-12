@@ -2,12 +2,12 @@
 Sovellus tekee yksinkertaisen salasanatarkistuksen if:illä
 """
 
-koodisana = "python"
+KOODISANA = "python"
 
 print("Tervetuloa")
 syote = input("Anna salasana: ")
 
-if syote == koodisana:
+if syote == KOODISANA:
     print("Matka voi alkaa")
 else:
     print("Yritä uudelleen")

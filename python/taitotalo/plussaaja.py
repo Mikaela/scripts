@@ -39,6 +39,7 @@ def main():
             print("Syötä luku!")
 
 
-# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan pääfunktio.
+# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan,
+# suoritetaan pääfunktio.
 if __name__ == "__main__":
     main()

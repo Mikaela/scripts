@@ -34,13 +34,16 @@ def main():
     elif tkvalinta == "paperi" and valinta == "sakset":
         print("Voitit, sakset voittavat paperin")
     else:
-        # Tästä tuli vahingossa catch-all virheellisille syötteille, enkä ole varma toteutinko kaikki skenaariot
+        # Tästä tuli vahingossa catch-all virheellisille syötteille, enkä ole
+        # varma toteutinko kaikki skenaariot
         print(
-            "Joko tilannetta ei ole vielä toteutettu tai annoit virheellisen syötteen. Ilmoittaisitko ongelman kehittäjälle?",
+            "Joko tilannetta ei ole vielä toteutettu tai annoit \
+virheellisen syötteen. Ilmoittaisitko ongelman kehittäjälle?"
         )
         print("Tietokone valitsi:", tkvalinta, "syötteesi oli", valinta)
 
 
-# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan pääfunktio.
+# Jos suoritamme koodia suoraan skriptistä importtauksen sijaan, suoritetaan
+# pääfunktio.
 if __name__ == "__main__":
     main()
