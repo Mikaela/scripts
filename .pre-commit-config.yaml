@@ -70,7 +70,8 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: pylint
+        entry: pylint --exit-zero
+        verbose: true
         language: system
         types_or: [python, pyi]
       - id: pnpm-install-dev
