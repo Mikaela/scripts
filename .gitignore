@@ -1,8 +1,4 @@
-# I don't like coredumps in my git repos.
 *core
-# I don't this I need all the modules
 node_modules/
-# gdb logs aren't needed eihter
 gdb.txt
-# Kate does .kate-swp
 *.*swp
