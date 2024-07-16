@@ -10,8 +10,7 @@ export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 
-# qt6ct allows theme choosing
-export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_QPA_PLATFORMTHEME="kde"
 # https://librewolf.net/docs/faq/#cant-open-links-with-librewolf-when-using-wayland
 export GDK_BACKEND=wayland
 
