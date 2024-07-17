@@ -1,1 +1,2 @@
-../dark-mode.d/zz-kde-plasma-theme-fedora.sh
+#!/usr/bin/env bash
+lookandfeeltool --apply "org.fedoraproject.fedora.desktop"
