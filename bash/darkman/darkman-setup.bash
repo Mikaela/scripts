@@ -1,0 +1,1 @@
+../darkman-setup.bash

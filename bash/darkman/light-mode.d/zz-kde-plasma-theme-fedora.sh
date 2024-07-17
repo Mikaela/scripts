@@ -1,0 +1,1 @@
+../dark-mode.d/zz-kde-plasma-theme-fedora.sh
