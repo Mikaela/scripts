@@ -5,10 +5,10 @@
 
 set -x
 
-# Using fcitx
-export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
+# Using maliit
+export XMODIFIERS=@im=maliit
+export GTK_IM_MODULE="maliit"
+export QT_IM_MODULE="maliit"
 
 export QT_QPA_PLATFORMTHEME="kde"
 # https://librewolf.net/docs/faq/#cant-open-links-with-librewolf-when-using-wayland
