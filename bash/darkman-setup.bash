@@ -13,6 +13,8 @@ elif [ -d /usr/local/share/doc/darkman/examples ]; then
 	ln -nsfv /usr/local/share/doc/darkman/examples/{dark,light}-mode.d ~/.local/share/
 elif [ -d ~/.local/share/doc/darkman/examples ]; then
 	ln -nsfv ~/.local/share/doc/darkman/examples/{dark,light}-mode.d ~/.local/share/
+elif [ -d ~/src/gitlab.com/WhyNotHugo/darkman ]; then
+	ln -nsfv ~/src/gitlab.com/WhyNotHugo/darkman/examples/{dark,light}-mode.d ~/.local/share/
 else
 	echo "Darkman examples not found in expected locations."
 	exit 1
