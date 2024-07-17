@@ -18,4 +18,6 @@ else
 	exit 1
 fi
 
-systemctl --user enable --now darkman.service
+systemctl --user disable --now darkman.service
+systemctl --user mask darkman.service
+echo "Creating an autostart seems to work better than the systemd service."
