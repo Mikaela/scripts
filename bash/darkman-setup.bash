@@ -11,6 +11,9 @@ if [ ! -d ~/.local/share/dark-mode.d ]; then
 	echo "Ensure ~/.local/share/ has directories {dark,light}-mode.d/"
 fi
 
+echo "Ctrl-C unless you want the examples... Sleeping for 3."
+sleep 3
+
 if [ -d /usr/share/doc/darkman/examples ]; then
 	export EXAMPLESDIR="/usr/share/doc/darkman/examples"
 elif [ -d /usr/local/share/doc/darkman/examples ]; then
