@@ -98,7 +98,10 @@ fi
 
 if hash pkcon 2> /dev/null; then
 	# KDE Plasma uses PackageKit for the update indicator
+	pkcon backend-details --noninteractive --plain --verbose
 	pkcon refresh --noninteractive --plain --verbose
+	(pkcon get-updates --noninteractive --plain --verbose &)
+	(pkcon get-distro-upgrades --noninteractive --plain --verbose &)
 	pkcon update --noninteractive --plain --verbose
 fi
 
