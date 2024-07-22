@@ -2,7 +2,7 @@
 
 #set -x
 
-export LC_ALL=C.utf8
+export LC_ALL=en_DK.UTF-8
 
 # Check for existence of /etc/machine-id/
 if [ -f /etc/machine-id ]; then
@@ -35,7 +35,7 @@ if [ -f /etc/machine-id ]; then
 	fi
 fi
 
-echo "New kernel? Just in case, try sudo kernel-install add # $(uname -r)"
+echo "New kernel? Just in case, try sudo kernel-install add $(uname -r) # although using the actual new kernel version"
 echo "Alternatively sudo kernel-install add-all"
 
 #set +x
