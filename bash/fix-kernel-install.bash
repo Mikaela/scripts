@@ -35,4 +35,7 @@ if [ -f /etc/machine-id ]; then
 	fi
 fi
 
+echo "New kernel? Just in case, try sudo kernel-install add # $(uname -r)"
+echo "Alternatively sudo kernel-install add-all"
+
 #set +x
