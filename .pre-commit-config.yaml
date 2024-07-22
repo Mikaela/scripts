@@ -12,6 +12,7 @@ ci:
 
 default_language_version:
   node: lts
+  python: pypy3.10
   ruby: .ruby-version
 
 repos:
