@@ -10,6 +10,10 @@ ci:
   autoupdate_schedule: quarterly
   skip: [prettier, pylint]
 
+default_language_version:
+  node: lts
+  ruby: .ruby-version
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
