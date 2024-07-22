@@ -97,10 +97,9 @@ fi
 # ./deb-update.bash && poweroff
 
 if hash pkcon 2> /dev/null; then
-	# So PackageKit using KDE Plasma and possibly GNOME stop alerting about
-	# already installed updates. It has backends for all other package managers,
-	# so it needs to be after them.
-	pkcon refresh force
+	# KDE Plasma uses PackageKit for the update indicator
+	pkcon refresh --noninteractive --plain --verbose
+	pkcon update --noninteractive --plain --verbose
 fi
 
 if hash apt-file 2> /dev/null; then
