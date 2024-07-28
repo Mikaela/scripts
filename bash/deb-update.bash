@@ -60,6 +60,16 @@ if hash dnf 2> /dev/null; then
 	dnf -v "$@" autoremove
 fi
 
+# https://github.com/Homebrew/brew
+if [[ -d /home/linuxbrew/.linuxbrew/bin && $(id -u) != 0 ]]; then
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+	/home/linuxbrew/.linuxbrew/bin/brew doctor
+	/home/linuxbrew/.linuxbrew/bin/brew update --quiet
+	/home/linuxbrew/.linuxbrew/bin/brew upgrade --quiet
+else
+	printf "Either linuxbrew is not installed or running as root, skipping linuxbrew...\n"
+fi
+
 if hash rpmconf 2> /dev/null; then
 	# Tests if there are rpmsave/rpmnew files, hopefully is non-interactive
 	rpmconf -a -t
