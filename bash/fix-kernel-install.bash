@@ -28,14 +28,14 @@ if [ -f /etc/machine-id ]; then
 		else
 			printf "\nWARNING! Kernels mismatch! Suggested actions:\n"
 			printf "\tsudo mkdir /boot/%b/%b\n" "$MACHINEID" "$EXPECTEDKERNEL"
-			printf "\tsudo kernel-install add %b /lib/modules/%b/vmlinuz\n" "$EXPECTEDKERNEL" "$EXPECTEDKERNEL"
+			printf "\tsudo kernel-install -v add %b /lib/modules/%b/vmlinuz\n" "$EXPECTEDKERNEL" "$EXPECTEDKERNEL"
 			#printf "\tsudo dnf reinstall kernel-core-%b -y\n" "$EXPECTEDKERNEL"
 			printf "Please note that Lumina and Sedric have moved to UKI.\n"
 		fi
 	fi
 fi
 
-echo "New kernel? Just in case, try sudo kernel-install add $(uname -r) # although using the actual new kernel version"
-echo "Alternatively sudo kernel-install add-all"
+echo "New kernel? Just in case, try sudo kernel-install -v add $(uname -r) # although using the actual new kernel version"
+echo "Alternatively sudo kernel-install -v add-all"
 
 #set +x
