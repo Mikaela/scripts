@@ -13,9 +13,10 @@ nordvpn disconnect
 # Explicitly restores IPv6 since NordVPN disables it by setting this to 1.
 sudo sysctl net.ipv6.conf.all.disable_ipv6=0
 
-# My scripts autostart them, I don't want NordVPN to haunt logs.
-sudo systemctl stop nordvpnd.socket
-sudo systemctl stop nordvpnd.service
+# My scripts autostart them, I don't want NordVPN to haunt logs. However
+# I have to change my mind since meshnet requires them.
+#sudo systemctl stop nordvpnd.socket
+#sudo systemctl stop nordvpnd.service
 
 # Restarting networking ensures IPv6 connectivity will return.
 sudo systemctl restart iwd.service
