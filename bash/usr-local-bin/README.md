@@ -13,3 +13,10 @@ tail -n +1 /var/lib/flatpak/exports/bin/*
 
 `/usr/local/bin` is more likely to be in `$PATH` than the usual Snap vriants.
 If they are in $PATH, note `sudo snap alias ORIGINAL NEW`
+
+## File Access Control List
+
+```
+sudo setfacl --recursive --modify=u:root:rwx,o:rx /usr/local/bin/
+getfacl /usr/local/bin
+```
