@@ -10,6 +10,10 @@ nordvpn set autoconnect off
 # Disconnects VPN
 nordvpn disconnect
 
+nordvpn set ipv6 on
+nordvpn set notify on
+nordvpn set lan-discovery on
+
 # Explicitly restores IPv6 since NordVPN disables it by setting this to 1.
 sudo sysctl net.ipv6.conf.all.disable_ipv6=0
 
