@@ -69,6 +69,10 @@ flatpak override --filesystem=~/.ssh/config:ro --filesystem=~/.ssh/config.d:ro -
 # https://github.com/flathub/im.riot.Riot/issues/303#issuecomment-1816055123
 flatpak override im.riot.Riot --talk-name=org.freedesktop.secrets $@
 
+# Regardless of whether I use the IRC client through Flatpak or Snap,
+# it having access to the same config is preferable.
+flatpak override org.squidowl.halloy --filesystem=~/snap/halloy:create $@
+
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
 	tail -n +1 /var/lib/flatpak/overrides/*
