@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -x
-cpulimit --lazy --include-children --limit=30 flatpak run org.briarproject.Briar//stable "$@"
+# Fedora-only, Debian uses a different CPU limit implementation!
+#cpulimit --lazy --include-children --limit=30 flatpak run org.briarproject.Briar//stable "$@"
+systemd-run --scope -p CPUQuota="30%" --user flatpak run org.briarproject.Briar//stable "$@"
 set +x
