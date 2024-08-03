@@ -10,7 +10,7 @@ elif [ -f ~/.local/share/flatpak/exports/bin/io.github.tdesktop_x64.TDesktop ]; 
 elif [ -f /usr/bin/telegram-desktop ]; then
 	/usr/bin/telegram-desktop "$@"
 elif [ -f /var/lib/flatpak/exports/bin/org.telegram.desktop ]; then
-	flatpak run io.github.tdesktop_x64.TDesktop "$@"
+	flatpak run org.telegram.desktop "$@"
 elif [ -f ~/.local/share/flatpak/exports/bin/org.telegram.desktop ]; then
 	flatpak run --user org.telegram.desktop "$@"
 else
