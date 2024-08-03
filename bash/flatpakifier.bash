@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# This script partially reverts https://gitea.blesmrt.net/mikaela/scripts/commit/e76a4a6a0d0472428d519205543171b1b1cdc258
+# This script partially reverts
+# https://gitea.blesmrt.net/mikaela/scripts/commit/e76a4a6a0d0472428d519205543171b1b1cdc258
 
 export FLATPAKEXPORTS=/var/lib/flatpak/exports/bin
 #export TARGETDIR=~/.local/bin
@@ -26,5 +27,13 @@ ln -sfv $FLATPAKEXPORTS/im.dino.Dino $TARGETDIR/dino
 #ln -sfv $FLATPAKEXPORTS/im.riot.Riot $TARGETDIR/element
 #ln -sfv $FLATPAKEXPORTS/chat.schildi.desktop $TARGETDIR/schildichat
 #ln -sfv $FLATPAKEXPORTS/org.signal.Signal $TARGETDIR/signal-desktop
+
+# If symlinks is installed, run it against the target directory so dangling
+# symlinks get removed and the path isn't polluted by non-existent items.
+if hash symlinks 2> /dev/null; then
+	symlinks -d $TARGETDIR
+else
+	echo "WARNING! Executable named symlinks not found in PATH."
+fi
 
 set +x
