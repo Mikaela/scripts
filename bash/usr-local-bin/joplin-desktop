@@ -2,7 +2,7 @@
 
 # I was unable to get the Flatpak to start and the Snap needed the usual, so
 # here we are. Then I learned that it just needs --ozone-platform=wayland
-# instead of the old --ozone-platform-hint=auto, but whatever works or is
+# instead of the old --ozone-platform=wayland, but whatever works or is
 # installed is fine...
 
 set -x

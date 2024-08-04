@@ -5,20 +5,20 @@
 
 set -x
 if [ -f /usr/bin/code ]; then
-	/usr/bin/code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform-hint=wayland "$@"
+	/usr/bin/code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=wayland "$@"
 
 elif [ -f /snap/bin/code ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	#unset DBUS_SESSION_BUS_ADDRESS
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
 	#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform-hint=x11 "$@"
+	snap run code --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=x11 "$@"
 
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code ]; then
-	flatpak run --user com.visualstudio.code --verbose --no-sandbox --ozone-platform-hint=x11 --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	flatpak run --user com.visualstudio.code --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code ]; then
-	flatpak run com.visualstudio.code --verbose --no-sandbox --ozone-platform-hint=x11 --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	flatpak run com.visualstudio.code --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 else
 	echo "code not found :("

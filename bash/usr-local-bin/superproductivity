@@ -3,8 +3,8 @@ set -x
 if [ -f /snap/bin/superproductivity ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
 	export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run superproductivity --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	snap run superproductivity --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 else
-	/usr/bin/superproductivity --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	/usr/bin/superproductivity --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 fi
 set +x

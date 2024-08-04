@@ -4,6 +4,6 @@ set -x
 if [ -f /snap/bin/bitwarden ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run bitwarden --ozone-platform=x11 --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations "$@"
+	snap run bitwarden --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 fi
 set +x

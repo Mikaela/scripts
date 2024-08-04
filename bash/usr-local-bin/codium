@@ -5,20 +5,20 @@
 
 set -x
 if [ -f /usr/bin/codium ]; then
-	/usr/bin/codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform=wayland "$@"
+	/usr/bin/codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=wayland "$@"
 
 elif [ -f /snap/bin/codium ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	#unset DBUS_SESSION_BUS_ADDRESS
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
 	#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform,WebContentsForceDark --ozone-platform=x11 "$@"
+	snap run codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=x11 "$@"
 
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.vscodium.codium ]; then
-	flatpak run --user com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	flatpak run --user com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.vscodium.codium ]; then
-	flatpak run com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations,WebContentsForceDark "$@"
+	flatpak run com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 else
 	echo "codium not found :("
