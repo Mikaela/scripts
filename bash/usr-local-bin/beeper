@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -x
+
+# This assumes the usage of GearLever with the default directory.
+if [ -f ~/AppImages/beeper.appimage ]; then
+	~/AppImages/beeper.appimage --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
+else
+	print "Beeper not found :("
+	notify-send "Beeper not found :("
+fi
+set +x
