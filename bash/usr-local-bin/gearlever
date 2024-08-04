@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -x
+if [ -f /usr/bin/gearlever ]; then
+	/usr/bin/gearlever "$@"
+elif [ -f /var/lib/flatpak/exports/bin/it.mijorus.gearlever ]; then
+	flatpak run it.mijorus.gearlever "$@"
+elif [ -f ~/.local/share/flatpak/exports/bin/it.mijorus.gearlever ]; then
+	flatpak run --user it.mijorus.gearlever "$@"
+else
+	print "Gearlever not found :("
+	notify-send "Gearlever not found :("
+fi
+set +x
