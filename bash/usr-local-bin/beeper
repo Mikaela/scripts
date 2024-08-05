@@ -5,7 +5,10 @@ set -x
 if [ -f ~/AppImages/beeper.appimage ]; then
 	~/AppImages/beeper.appimage --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 else
-	print "Beeper not found :("
-	notify-send "Beeper not found :("
+	print "~/AppImages/beeper.appimage not found. Please install it through gearlever (default locaiton) or symlink it there."
+	notify-send "~/AppImages/beeper.appimage not found. Please install it through gearlever (default locaiton) or symlink it there."
+	if hash gearlever 2> /dev/null; then
+		gearlever
+	fi
 fi
 set +x
