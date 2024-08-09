@@ -17,6 +17,6 @@ If they are in $PATH, note `sudo snap alias ORIGINAL NEW`
 ## File Access Control List
 
 ```
-sudo setfacl --recursive --modify=u:root:rwx,o:rx /usr/local/bin/
+sudo setfacl --recursive --modify=u:root:rwX,o:rX /usr/local/bin/
 getfacl /usr/local/bin
 ```
