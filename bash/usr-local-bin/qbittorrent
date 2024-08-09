@@ -6,7 +6,7 @@ sleep 5
 sudo systemctl start nordvpnd.service
 sleep 5
 systemctl status nordvpnd.service --no-pager
-nordvpn connect p2p
+nordvpn connect p2p || exit 1
 nordvpn set killswitch on
 nordvpn set autoconnect on
 nordvpn status
