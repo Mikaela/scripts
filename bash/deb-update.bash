@@ -60,6 +60,16 @@ if hash dnf 2> /dev/null; then
 	dnf -v "$@" autoremove
 fi
 
+# Arch Linux package management
+if hash pacman 2> /dev/null; then
+	pacman -Syu
+
+	# weekly cache cleanup service
+	if hash paccache 2> /dev/null; then
+		systemctl enable paccache.timer
+	fi
+fi
+
 # https://github.com/Homebrew/brew
 if [[ -d /home/linuxbrew/.linuxbrew/bin && $(id -u) != 0 ]]; then
 	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -126,6 +136,12 @@ if hash needrestart 2> /dev/null; then
 	needrestart -b
 	# Give me a moment to see what needrestart says even if I pipe or enter
 	# multiple commands at once!
+	sleep 5
+fi
+
+# archlinux-contrib
+if hash checkservices 2> /dev/null; then
+	checkservices
 	sleep 5
 fi
 
