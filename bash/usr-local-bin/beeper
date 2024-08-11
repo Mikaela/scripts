@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -x
 
+if [ "$(lsb_release -si)" == "Arch" ]; then
+	echo "Remember! sudo pacman -S fuse2"
+fi
+
 # This assumes the usage of GearLever with the default directory.
 if [ -f ~/AppImages/beeper.appimage ]; then
 	~/AppImages/beeper.appimage --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
