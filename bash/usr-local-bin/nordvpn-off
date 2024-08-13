@@ -25,6 +25,7 @@ sudo sysctl net.ipv6.conf.all.disable_ipv6=0
 # Restarting networking ensures IPv6 connectivity will return.
 sudo systemctl restart iwd.service
 sudo systemctl restart systemd-networkd.service
+sudo systemctl restart NetworkManager.service
 
 # A bit of sleeping before flushing DNS caches, so we are surely connected
 # for the new attempts. They are flushed in case of having private ECS aimed
