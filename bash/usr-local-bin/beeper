@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 set -x
 
-if [ "$(lsb_release -si)" == "Arch" ]; then
-	echo "Remember! sudo pacman -S fuse2"
+if [ -f /etc/os-release ]; then
+	. /etc/os-release
+	if [ "$ID" == "arch" ]; then
+		echo "Remember! sudo pacman -S fuse2"
+	fi
 fi
 
 # This assumes the usage of GearLever with the default directory.
