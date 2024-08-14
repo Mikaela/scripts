@@ -19,8 +19,8 @@ elif [ -f "$HOME/Persistent/AppImages/beeper.appimage" ]; then
 	export TZ=UTC
 	$HOME/Persistent/AppImages/beeper.appimage --ozone-platform=wayland --enable-features=WaylandWindowDecorations --proxy-server=socks5://127.0.0.1:9050 "$@"
 else
-	print "~/AppImages/beeper.appimage not found. Please install it through gearlever (default locaiton) or symlink it there."
-	notify-send "~/AppImages/beeper.appimage not found. Please install it through gearlever (default locaiton) or symlink it there."
+	print "~/AppImages/beeper.appimage not found. Please install it through gearlever (default location) or symlink it there."
+	notify-send "~/AppImages/beeper.appimage not found. Please install it through gearlever (default location) or symlink it there."
 	if hash gearlever 2> /dev/null; then
 		gearlever
 	fi
