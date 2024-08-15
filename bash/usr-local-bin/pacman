@@ -6,16 +6,16 @@ export LC_ALL=en_DK.UTF-8
 # if yay is installed and we aren't root, run it instead
 if [[ -f /usr/bin/yay && $(id -u) != 0 ]]; then
 	if [[ "$1" == "-S" ]]; then
-		/usr/bin/yay --needed "$*"
+		/usr/bin/yay --needed $*
 	else
-		/usr/bin/yay "$*"
+		/usr/bin/yay $*
 	fi
 # otherwise attempt to run pacman, but keep the --needed for installs
 elif [[ -f /usr/bin/pacman ]]; then
 	if [[ "$1" == "-S" ]]; then
-		/usr/bin/pacman --needed "$*"
+		/usr/bin/pacman --needed $*
 	else
-		/usr/bin/pacman "$*"
+		/usr/bin/pacman $*
 	fi
 # otherwise fail gracefully
 else
