@@ -74,7 +74,7 @@ flatpak override im.riot.Riot --talk-name=org.freedesktop.secrets $@
 flatpak override org.squidowl.halloy --filesystem=~/snap/halloy:create $@
 
 # Hardening GearLever, https://github.com/mijorus/gearlever/issues/143
-#flatpak override it.mijorus.gearlever --no-filesystem=home --filesystem=~/.local/share/applications:create --filesystem=~/AppImages:create
+flatpak override it.mijorus.gearlever --nofilesystem=host:reset --filesystem=~/.local/share/applications:create --filesystem=~/AppImages:create
 
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
