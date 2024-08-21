@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # USAGE: "nheko default" for the default profile or whatever profile is
-# desired as I never run it without the profile flag
-
-# TODO: Handle --help & --version flags
-
-# In case of unexplained crashing add the --compact flag!
+# desired.
 
 set -x
-flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --compact --profile "$@"
+if [[ "$1" == -* ]]; then
+	flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master "$@"
+else
+	flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --compact --profile "$@"
+fi
 set +x

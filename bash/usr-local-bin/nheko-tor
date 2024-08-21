@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Nheko flatpak with Tor
 # USAGE: "nheko default" for the default profile or whatever profile is
-# desired as I never run it without the profile flag
-
-# TODO: Handle --help & --version flags
-
+# desired
 set -x
-flatpak run --env=LC_ALL=en_US.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --compact --profile "$@"
+if [[ "$1" == -* ]]; then
+	flatpak run --env=LC_ALL=en_US.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master "$@"
+else
+	flatpak run --env=LC_ALL=en_US.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --compact --profile "$@"
+fi
 set +x
