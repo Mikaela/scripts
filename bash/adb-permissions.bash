@@ -30,6 +30,10 @@ adb "$@" shell pm grant ru.karasevm.privatednstoggle android.permission.WRITE_SE
 adb "$@" shell pm grant org.kde.kdeconnect_tp android.permission.READ_LOGS
 adb "$@" shell appops set org.kde.kdeconnect_tp SYSTEM_ALERT_WINDOW allow
 
+# https://github.com/cvzi/darkmodewallpaper hopefully fixing Android 14 wallpapers
+adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.MANAGE_EXTERNAL_STORAGE
+adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.READ_MEDIA_IMAGES
+
 # Shizuku
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
 (adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
