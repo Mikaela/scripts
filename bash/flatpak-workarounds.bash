@@ -29,6 +29,8 @@ flatpak override --socket=wayland --socket=fallback-x11 --nosocket=x11 --env=ELE
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx --talk-name=org.freedesktop.portal.Fcitx $@
+# Darkman automatic theme switching
+flatpak override --talk-name=org.freedesktop.impl.portal.desktop.darkman $@
 
 # Additional SDKs (`flatpak search org.freedesktop.Sdk.Extension`)
 flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
