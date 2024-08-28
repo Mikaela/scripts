@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-/usr/bin/brave-browser-beta --ozone-platform=wayland --disk-cache-dir=nul --enable-features=WaylandWindowDecorations "$@"
+/usr/bin/brave-browser-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 set +x
