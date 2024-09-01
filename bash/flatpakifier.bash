@@ -17,6 +17,7 @@ ln -sfv $FLATPAKEXPORTS/com.github.tchx84.Flatseal $TARGETDIR/flatseal
 #ln -sfv $FLATPAKEXPORTS/org.telegram.desktop $TARGETDIR/telegram-desktop
 ln -sfv $FLATPAKEXPORTS/org.torproject.torbrowser-launcher $TARGETDIR/torbrowser-launcher-flatpak
 ln -sfv $FLATPAKEXPORTS/org.videolan.VLC $TARGETDIR/vlc-flatpak
+ln -sfv $FLATPAKEXPORTS/io.mpv.Mpv $TARGETDIR/mpv-flatpak
 ln -sfv $FLATPAKEXPORTS/net.davidotek.pupgui2 $TARGETDIR/protonup
 ln -sfv $FLATPAKEXPORTS/im.dino.Dino $TARGETDIR/dino
 
