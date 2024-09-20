@@ -11,7 +11,7 @@ ci:
 default_language_version:
   node: "lts"
   # Remember .python-version and pyproject.toml !
-  python: "3.12"
+  python: "3.13"
   ruby: ".ruby-version"
 
 repos:
