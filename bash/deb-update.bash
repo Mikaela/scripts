@@ -44,20 +44,20 @@ if hash dnf 2> /dev/null; then
 	# I don't know if -y does anything here either and I think this may be
 	# useless, but I am used to it coming from apt and I think it will just
 	# say nothing to do or do nothing if mirrors haven't updated.
-	dnf -v check-update -y
+	dnf check-update -y
 
 	# potentially unsafe first time, I am not sure if this is concern outside of Debian/Ubuntu though
-	dnf -v "$@" autoremove
+	dnf "$@" autoremove
 
 	# If arguments like -y are passed to the script, they become "$@"
-	#dnf -v "$@" upgrade
+	#dnf "$@" upgrade
 
 	# Doing check-update and upgrade together seems to be necessary for
 	# Chromium based browsers and their repositories :shrug:
-	dnf -v "$@" upgrade --refresh
+	dnf "$@" upgrade --refresh
 
 	# potentially unsafe, see a few lines above and the apt-get section
-	dnf -v "$@" autoremove
+	dnf "$@" autoremove
 fi
 
 # Arch Linux package management
