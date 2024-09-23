@@ -32,9 +32,13 @@ sudo systemctl restart NetworkManager.service
 # at the VPN.
 sleep 5
 #sudo systemctl restart unbound.service
-sudo unbound-control reload
+if hash unbound-control 2> /dev/null; then
+	sudo unbound-control reload
+fi
 #sudo systemctl restart systemd-resolved.service
-sudo resolvectl flush-caches
+if hash resolvectl 2> /dev/null; then
+	sudo resolvectl flush-caches
+fi
 #sleep 5
 
 # Yggdrasil needs IPv6
@@ -42,8 +46,9 @@ sudo systemctl restart yggdrasil.service
 
 # The NTP server will now have access to IPv6 sources, possibly local NTP
 # servers as well.
-sudo chronyc online
-
+if hash chronyc 2> /dev/null; then
+	sudo chronyc online
+fi
 # Tor will complain of IP address change and failing guards during
 # disconnection.
 sudo systemctl restart tor.service
