@@ -152,8 +152,13 @@ fi
 
 # Lumina & Sedric have been having kernel update issues, let's see if this
 # script could detect and suggest action for that.
-if [ -f /root/fix-kernel-install.bash ]; then
-	. /root/fix-kernel-install.bash
+# if [ -f /root/fix-kernel-install.bash ]; then
+# 	. /root/fix-kernel-install.bash
+# fi
+if hash kernel-install 2> /dev/null; then
+	sleep 3
+	kernel-install add-all -v
+	sleep 5
 fi
 
 # Hide commands being executed again
