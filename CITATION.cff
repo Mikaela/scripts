@@ -1,0 +1,18 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: "Aminda's Scripts"
+message: >-
+  If you use these scripts, please consider citing them using the metadata
+  from this file.
+type: misc
+authors:
+  - given-names: Aminda
+    family-names: Suomalainen
+    orcid: "https://orcid.org/0009-0003-8657-4653"
+    email: suomalainen@aminda.eu
+repository-code: "https://gitea.blesmrt.net/Mikaela/scripts"
+abstract: >-
+  Random scripts in various languages.
+license: CC0-1.0
