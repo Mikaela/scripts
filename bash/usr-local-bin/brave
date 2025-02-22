@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
 set -x
-/usr/bin/brave-browser-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+if [[ -d "$HOME/.config/BraveSoftware/Brave-Browser-Nightly" && -d "$HOME/.cache/BraveSoftware/Brave-Browser-Nightly" ]]; then
+	/usr/bin/brave-browser-nightly --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+else
+	/usr/bin/brave-browser-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+fi
 set +x
