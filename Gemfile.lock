@@ -5,9 +5,9 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    logger (1.6.1)
+    logger (1.6.6)
     prettier_print (1.2.1)
-    rbs (3.5.3)
+    rbs (3.8.1)
       logger
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
@@ -21,7 +21,7 @@ GEM
       syntax_tree (>= 2.0.1)
     temple (0.10.3)
     thor (1.3.2)
-    tilt (2.4.0)
+    tilt (2.6.0)
 
 PLATFORMS
   ruby
@@ -34,7 +34,7 @@ DEPENDENCIES
   syntax_tree-rbs
 
 RUBY VERSION
-   ruby 3.3.5p100
+   ruby 3.4.2p28
 
 BUNDLED WITH
-   2.5.16
+   2.6.2
