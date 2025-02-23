@@ -10,6 +10,24 @@ importers:
       "@aminda/global-prettier-config":
         specifier: 2025.8.0
         version: 2025.8.0
+      "@prettier/plugin-ruby":
+        specifier: 4.0.4
+        version: 4.0.4(prettier@3.5.2)
+      "@prettier/plugin-xml":
+        specifier: 3.4.1
+        version: 3.4.1(prettier@3.5.2)
+      prettier:
+        specifier: 3.5.2
+        version: 3.5.2
+      prettier-plugin-nginx:
+        specifier: 1.0.3
+        version: 1.0.3
+      prettier-plugin-sh:
+        specifier: 0.15.0
+        version: 0.15.0(prettier@3.5.2)
+      prettier-plugin-toml:
+        specifier: 2.0.2
+        version: 2.0.2(prettier@3.5.2)
 
 packages:
   "@aminda/global-prettier-config@2025.8.0":
