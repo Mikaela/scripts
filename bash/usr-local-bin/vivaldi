@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/vivaldi --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
+if [[ -d "$HOME/.config/vivaldi-snapshot" && -d "$HOME/.cache/vivaldi-snapshot" ]]; then
+	/usr/bin/vivaldi-snapshot --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+else
+	/usr/bin/vivaldi --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+fi
 set +x
