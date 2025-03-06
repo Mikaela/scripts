@@ -38,6 +38,10 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
 (adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
 
+# Uninstall or disable Android Safety Core (suspected chatcontrol backdoor)
+(adb "$@" shell pm uninstall com.google.android.safetycore &)
+#(adb "$@" shell pm disable com.google.android.safetycore &)
+
 # Should tell whether the DoH3 module exists
 (adb "$@" shell pm list package | grep com.android.resolv &)
 
