@@ -3,7 +3,8 @@
 # I always want to see the profile manager, whether it's my first run or
 # not and I probably have to micromanage wayland enabling everywhere.
 
-# I cannot use the Flatpak as it doesn't support smartcards.
+# I cannot use the Flatpak as it doesn't support smartcards or /etc/policies
+# https://github.com/flatpak/flatpak/issues/4723 https://github.com/flatpak/flatpak/issues/4525
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
@@ -19,6 +20,9 @@ elif [ -f /usr/bin/firefox ]; then
 # Fallback to global installation
 elif [ -f /usr/bin/firefox-esr ]; then
 	/usr/bin/firefox-esr $FlagsForFirefox
+# Fallback to Snap which apparently follows /etc/policies.json
+elif [ -f /snap/bin/firefox ]; then
+	snap run firefox $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else
 	flatpak run org.mozilla.firefox $FlagsForFirefox
