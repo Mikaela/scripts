@@ -8,7 +8,7 @@
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
-FlagsForFirefox="--ProfileManager $@"
+FlagsForFirefox="--allow-downgrade --ProfileManager $@"
 
 # Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/

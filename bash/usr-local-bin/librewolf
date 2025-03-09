@@ -4,7 +4,7 @@
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
-FlagsForLibrewolf="--ProfileManager $@"
+FlagsForLibrewolf="--allow-downgrade --ProfileManager $@"
 
 # TODO: Local installation in the future? See the firefox wrapper
 if [ -f /usr/bin/librewolf ]; then
