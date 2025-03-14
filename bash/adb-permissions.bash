@@ -8,7 +8,10 @@
 
 set -x
 
-# TODO: if adb is not installed or in $PATH, exit?
+if ! hash adb 2> /dev/null; then
+	echo "Error: adb not found in $PATH" 1>&2
+	exit 1
+fi
 
 # Remember,
 echo "In case of trouble check Android System Settings, Connected devices, USB mode. It should be data transfer for adb USB debugging to take effect."
