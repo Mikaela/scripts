@@ -150,17 +150,5 @@ if [ -f /root/fixgrub.bash ]; then
 	. /root/fixgrub.bash
 fi
 
-# Lumina & Sedric have been having kernel update issues, let's see if this
-# script could detect and suggest action for that.
-# if [ -f /root/fix-kernel-install.bash ]; then
-# 	. /root/fix-kernel-install.bash
-# fi
-# TODO: This seems to have been entirely on wrong track. Remove it?
-#if hash kernel-install 2> /dev/null; then
-#	sleep 3
-#	kernel-install add-all -v
-#	sleep 5
-#fi
-
 # Hide commands being executed again
 set +x
