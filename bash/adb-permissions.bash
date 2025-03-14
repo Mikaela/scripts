@@ -42,6 +42,9 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 (adb "$@" shell pm uninstall com.google.android.safetycore &)
 #(adb "$@" shell pm disable com.google.android.safetycore &)
 
+# Enable DNS-over-TLS or DoH3 as below
+(adb "$@" shell settings put global private_dns_mode hostname &)
+(adb "$@" shell settings put global private_dns_specifier dns.google &)
 # Should tell whether the DoH3 module exists
 (adb "$@" shell pm list package | grep com.android.resolv &)
 
@@ -53,5 +56,6 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 sleep 5
 #adb "$@" reboot
 
-printf "Performance issues? adb shell top -b | head\n"
+printf "Consider: adb $@ shell settings put global private_dns_specifier dns.adguard-dns.com\n"
+printf "Performance issues? adb $@ shell top -b | head\n"
 set +x
