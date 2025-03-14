@@ -42,15 +42,13 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 (adb "$@" shell pm uninstall com.google.android.safetycore &)
 #(adb "$@" shell pm disable com.google.android.safetycore &)
 
-# Enable DNS-over-TLS or DoH3 as below
+# Enable DNS-over-TLS
 (adb "$@" shell settings put global private_dns_mode hostname &)
-(adb "$@" shell settings put global private_dns_specifier dns.google &)
-# Should tell whether the DoH3 module exists
-(adb "$@" shell pm list package | grep com.android.resolv &)
-
-# If 1, DoH3 is supported. How about trying to make it 1?
-(adb "$@" shell cmd device_config get netd_native doh &)
-(adb "$@" shell cmd device_config put netd_native doh 1 &)
+# If dns.google or cloudflare-dns.com, it will be updated to DoH3
+#(adb "$@" shell settings put global private_dns_specifier dns.google &)
+# TODO: Revisit this after DNS4EU launch. Regardless of potential issues,
+# I am tempted by non-commercial ad filtering DNS.
+(adb "$@" shell settings put global private_dns_specifier dns.adguard-dns.com &)
 
 # Wait a bit and then reboot the device
 sleep 5
