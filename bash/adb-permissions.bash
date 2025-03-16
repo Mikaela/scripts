@@ -52,6 +52,9 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 # TODO: Revisit this after DNS4EU launch. Regardless of potential issues,
 # I am tempted by non-commercial ad filtering DNS.
 (adb "$@" shell settings put global private_dns_specifier dns.adguard-dns.com &)
+# I thought maybe setting the above to DoH3 and this would together allow
+# arbitary DoH3 server, but no
+(adb "$@" shell cmd device_config put netd_native doh 1 &)
 
 # Wait a bit and then reboot the device
 sleep 5
