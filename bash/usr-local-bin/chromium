@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/chromium-browser --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+if [ -f /usr/bin/chromium-browser ]; then
+	/usr/bin/chromium-browser --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+else
+	snap run chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
+fi
 set +x
