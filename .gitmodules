@@ -8,5 +8,5 @@
 	branch = master
 [submodule "submodules/shell-things"]
 	path = submodules/shell-things
-	url = https://gitea.blesmrt.net/Mikaela/shell-things.git
-	branch = master
+	url = https://codeberg.org/Aminda/shell-things.git
+	branch = cxefa
