@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+set -x
 # I am not a fan of Snap in general due to issues such as one allowed
 # repository allowed at a time, closed source server, issues when running
 # without a desktop environment, but with web browsers it beats flatpak for
@@ -73,3 +73,5 @@ if [[ ! -f "/usr/bin/vivaldi" ]] && [[ ! -f "/usr/bin/vivaldi-snapshot" ]]; then
 		snap install vivaldi
 	fi
 fi
+
+set +x
