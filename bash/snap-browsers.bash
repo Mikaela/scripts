@@ -74,4 +74,16 @@ if [[ ! -f "/usr/bin/vivaldi" ]] && [[ ! -f "/usr/bin/vivaldi-snapshot" ]]; then
 	fi
 fi
 
+# TODO: Revisit when they change CEO.
+# - 2008: https://en.wikipedia.org/wiki/Brendan_Eich#Appointment_to_CEO_and_resignation
+# - 2025: https://news.ycombinator.com/item?id=43251203
+#
+#if [[ ! -f "/usr/bin/brave-browser-stable" ]] && [[ ! -f "/usr/bin/brave-browser-beta" ]] && [[ ! -f "/usr/bin/brave-browser-nightly" ]]; then
+#	if [ -f "/snap/bin/brave" ]; then
+#		snap refresh brave
+#	else
+#		snap install brave
+#	fi
+#fi
+
 set +x
