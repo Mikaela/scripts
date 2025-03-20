@@ -6,7 +6,10 @@
 # respecting browser policies, thus this script which is kind of
 # snap-workarounds.bash
 
-# WARNING: No KDE Desktop Integration for snap users
+# WARNING: No KDE Desktop Integration for snap users. And obviously this
+# script isn't going to install snap duplicates of browsers that are already
+# installed, Ubuntu users are trusted to know firefox/chromium are wrappers
+# for snaps.
 
 # If snap isn't installed, exit
 if ! hash snap 2> /dev/null; then
@@ -39,24 +42,34 @@ fi
 # If Firefox is already installed, switch to the ESR channel for distrust
 # towards Mozilla and search engine policy support. Otherwise install Firefox
 # This is officially supported/published by Mozilla.
-if [ -f "/snap/bin/firefox" ]; then
-	snap refresh firefox --channel=esr/stable
+if [[ ! -f "/usr/bin/firefox" ]] && [[ ! -f "/usr/bin/firefox-esr" ]]; then
+	if [ -f "/snap/bin/firefox" ]; then
+		snap refresh firefox --channel=esr/stable
+	else
+		snap install firefox --channel=esr/stable
+	fi
 else
-	snap install firefox --channel=esr/stable
+	echo "If on Ubuntu: sudo snap refresh firefox --channel=esr/stable"
 fi
 
 # Difficult to test Chromium policies without Chromium. And for testing edge is fine.
 # Published/supported by Canonical.
-if [ -f "/snap/bin/chromium" ]; then
-	snap refresh chromium --channel=edge
+if [[ ! -f "/usr/bin/chromium" ]] && [[ ! -f "/usr/bin/chromium-browser" ]]; then
+	if [ -f "/snap/bin/chromium" ]; then
+		snap refresh chromium --channel=edge
+	else
+		snap install chromium --edge
+	fi
 else
-	snap install chromium --edge
+	echo "If on Ubuntu: sudo snap refresh chromium --channel=edge"
 fi
 
 # European/Norwegian freeware browser that I prefer to keep installed as an option.
 # Official snap.
-if [ -f "/snap/bin/vivaldi.vivaldi-stable" ]; then
-	snap refresh vivaldi
-else
-	snap install vivaldi
+if [[ ! -f "/usr/bin/vivaldi" ]] && [[ ! -f "/usr/bin/vivaldi-snapshot" ]]; then
+	if [ -f "/snap/bin/vivaldi.vivaldi-stable" ]; then
+		snap refresh vivaldi
+	else
+		snap install vivaldi
+	fi
 fi
