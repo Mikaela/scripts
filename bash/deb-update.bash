@@ -80,6 +80,12 @@ else
 	printf "Either linuxbrew is not installed or running as root, skipping linuxbrew...\n"
 fi
 
+if hash pipx 2> /dev/null; then
+	if [[ $(id -u) != 0 ]]; then
+		pipx upgrade-all
+	fi
+fi
+
 if hash rpmconf 2> /dev/null; then
 	# Tests if there are rpmsave/rpmnew files, hopefully is non-interactive
 	rpmconf -a -t
