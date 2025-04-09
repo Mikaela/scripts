@@ -2,11 +2,17 @@
 	path = submodules/gist
 	url = https://gitea.blesmrt.net/mikaela/gist.git
 	branch = master
+	ignore = dirty
+	shallow = true
 [submodule "submodules/PPFI-Pikaviestimet"]
 	path = submodules/PPFI-Pikaviestimet
 	url = https://git.piraattipuolue.fi/Pikaviestimet/Pikaviestimet.git
 	branch = master
+	ignore = dirty
+	shallow = true
 [submodule "submodules/shell-things"]
 	path = submodules/shell-things
 	url = https://codeberg.org/Aminda/shell-things.git
 	branch = cxefa
+	ignore = dirty
+	shallow = true
