@@ -17,7 +17,7 @@ flatpak override --filesystem=~/.gdbinit:ro --filesystem=~/gdb.txt:rw --filesyst
 
 # Public git repositories I access or symlink much.
 # Must be rw for access by text editors, otherwise they are ro or I will repeat myself
-flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:rw --filesystem=~/src/github.com/Mikaela/mikaela.github.io:rw $@
+flatpak override --filesystem=~/.shell-things:rw --filesystem=~/src/codeberg.org/Aminda/shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:rw --filesystem=~/src/github.com/Mikaela/mikaela.github.io:rw $@
 
 # EXPERIMENT! All apps may use wayland (sandboxed) and downgrade to
 # X11/xwayland only if current desktop doesn't support wayland.
