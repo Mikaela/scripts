@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+if [[ -d "$HOME/.config/google-chrome-canary" && -d "$HOME/.cache/google-chrome-canary" ]]; then
+	/usr/bin/google-chrome-canary --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+elif [[ -d "$HOME/.config/google-chrome-unstable" && -d "$HOME/.cache/google-chrome-unstable" ]]; then
+	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+elif [[ -d "$HOME/.config/google-chrome-beta" && -d "$HOME/.cache/google-chrome-beta" ]]; then
+	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+else
+	/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+fi
 set +x
