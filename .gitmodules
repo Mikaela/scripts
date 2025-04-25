@@ -6,7 +6,7 @@
 	shallow = true
 [submodule "submodules/PPFI-Pikaviestimet"]
 	path = submodules/PPFI-Pikaviestimet
-	url = https://git.piraattipuolue.fi/Pikaviestimet/Pikaviestimet.git
+	url = https://github.com/piraattipuolue/Pikaviestimet.git
 	branch = master
 	ignore = dirty
 	shallow = true
