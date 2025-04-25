@@ -25,7 +25,8 @@ flatpak override --filesystem=~/.local/share/fonts:ro $@
 
 # Public git repositories I access or symlink much.
 # Must be rw for access by text editors, otherwise they are ro, or I will repeat myself
-#flatpak override --filesystem=~/.shell-things:rw $@
+flatpak override --filesystem=~/.shell-things:rw $@
+flatpak override --filesystem=/root/.shell-things:rw $@
 flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things:rw $@
 flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw $@
 flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw $@
