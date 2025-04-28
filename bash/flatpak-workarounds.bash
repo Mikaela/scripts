@@ -83,6 +83,8 @@ flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create 
 flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
 flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
 
+flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
+
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
