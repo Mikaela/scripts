@@ -18,7 +18,7 @@ elif [ -f "$HOME/Persistent/AppImages/element.appimage" ]; then
 	mkdir -vp "$HOME/Persistent/AppImages/element.appimage.home"
 	# We are using Tor, so we are American English, UTC is enforced anyway,
 	# but probably won't hurt.
-	export LC_ALL=en_US.utf8
+	export LC_ALL=C.utf8
 	export TZ=UTC
 	$HOME/Persistent/AppImages/beeper.appimage --ozone-platform=wayland --enable-features=WaylandWindowDecorations --proxy-server=socks5://127.0.0.1:9050 "$@"
 elif [ -f /var/lib/flatpak/exports/bin/im.riot.Riot ]; then

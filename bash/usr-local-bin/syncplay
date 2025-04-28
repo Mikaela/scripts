@@ -3,6 +3,7 @@
 # Quick syncplay wrapper
 
 set -x
+export LC_ALL=C.utf8
 
 if [ -f "/tmp/syncplay.$(id -u).$(date -I)" ]; then
 	echo "Syncplay has been touched today"

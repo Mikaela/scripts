@@ -4,8 +4,8 @@
 # desired
 set -x
 if [[ "$1" == -* ]]; then
-	flatpak run --env=LC_ALL=en_US.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master "$@"
+	flatpak run --env=LC_ALL=C.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master "$@"
 else
-	flatpak run --env=LC_ALL=en_US.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --compact --profile "$@"
+	flatpak run --env=LC_ALL=C.utf8 --env=TZ=UTC --env=all_proxy=socks5://127.0.0.1:9050/ im.nheko.Nheko//master --compact --profile "$@"
 fi
 set +x

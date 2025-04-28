@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x
 
-export LC_ALL=en_DK.UTF-8
+export LC_ALL=C.utf8
 
 # if yay is installed and we aren't root, run it instead
 if [[ -f /usr/bin/yay && $(id -u) != 0 ]]; then

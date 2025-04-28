@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -x
+export LC_ALL=C.utf8
 sudo systemctl start nordvpnd.socket
 sleep 5
 sudo systemctl start nordvpnd.service

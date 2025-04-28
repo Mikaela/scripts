@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+export LC_ALL=C.utf8
 # A simple script to list networks iwd detects and give instruction for
 # connecting to it. Heavily inspired by `man iwctl`
 

@@ -6,9 +6,7 @@
 set -x
 
 # This is said to be a poor practice that should only be used for debugging
-#export LC_ALL=C.utf8
-# More universally supported even on older systems
-export LC_ALL="en_DK.UTF-8"
+export LC_ALL=C.utf8
 
 # if hash checks that the command exists
 if hash apt-get 2> /dev/null; then

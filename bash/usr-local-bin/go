@@ -5,6 +5,7 @@
 
 set -x
 
+export LC_ALL=C.utf8
 # TODO: this should be automatic
 export GOVERSION=1.21
 
