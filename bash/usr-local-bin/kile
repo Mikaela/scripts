@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# In case we are on SteamOS?
-#set -x
+set -x
 # The usual system-wide installation
 if [ -f /usr/bin/kile ]; then
 	/usr/bin/kile "$@"
@@ -14,4 +13,4 @@ elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kile ]; then
 else
 	printf "kile doesn't seem to be installed :("
 fi
-#set +x
+set +x

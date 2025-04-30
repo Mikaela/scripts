@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# In case we are on SteamOS?
-#set -x
+set -x
 # The usual system-wide installation
 if [ -f /usr/bin/meld ]; then
 	/usr/bin/meld "$@"
@@ -14,4 +13,4 @@ elif [ -f ~/.local/share/flatpak/exports/bin/org.gnome.meld ]; then
 else
 	printf "meld doesn't seem to be installed :("
 fi
-#set +x
+set +x
