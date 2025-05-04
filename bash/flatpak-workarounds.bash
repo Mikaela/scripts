@@ -114,6 +114,14 @@ flatpak override it.mijorus.gearlever --nofilesystem=host:reset $@
 flatpak override it.mijorus.gearlever --filesystem=~/.local/share/applications:create $@
 flatpak override it.mijorus.gearlever --filesystem=~/AppImages:create $@
 
+# KDE Connect for web browsers
+flatpak override org.mozilla.firefox --talk-name=org.kde.plasma.browser.integration $@
+flatpak override org.chromium.Chromium --talk-name=org.kde.plasma.browser.integration $@
+flatpak override com.brave.Browser --talk-name=org.kde.plasma.browser.integration $@
+flatpak override com.vivaldi.Vivaldi --talk-name=org.kde.plasma.browser.integration $@
+flatpak override com.google.Chrome --talk-name=org.kde.plasma.browser.integration $@
+flatpak override com.google.ChromeDev --talk-name=org.kde.plasma.browser.integration $@
+
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
 	tail -n +1 /var/lib/flatpak/overrides/*
