@@ -24,14 +24,13 @@ flatpak override --filesystem=~/.editorconfig:ro $@
 flatpak override --filesystem=~/.local/share/fonts:ro $@
 
 # Public git repositories I access or symlink much.
-# Must be rw for access by text editors, otherwise they are ro, or I will repeat myself
-flatpak override --filesystem=~/.shell-things:rw $@
-flatpak override --filesystem=/root/.shell-things:rw $@
-flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things:rw $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:rw $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:rw $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:rw $@
-flatpak override --filesystem=~/src/github.com/Mikaela/mikaela.github.io:rw $@
+flatpak override --filesystem=~/.shell-things:ro $@
+flatpak override --filesystem=/root/.shell-things:ro $@
+flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things:ro $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:ro $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:ro $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:ro $@
+flatpak override --filesystem=~/src/github.com/Mikaela/mikaela.github.io:ro $@
 
 # EXPERIMENT! All apps may use wayland (sandboxed) and downgrade to
 # X11/xwayland only if current desktop doesn't support wayland.
@@ -55,9 +54,9 @@ flatpak override --talk-name=org.freedesktop.impl.portal.desktop.darkman $@
 flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
 
 # I don't have other nvim on SteamOS
-flatpak override io.neovim.nvim --filesystem=host $@
-flatpak override io.neovim.nvim --filesystem=host-os $@
-flatpak override io.neovim.nvim --filesystem=host-etc $@
+#flatpak override io.neovim.nvim --filesystem=host $@
+#flatpak override io.neovim.nvim --filesystem=host-os $@
+#flatpak override io.neovim.nvim --filesystem=host-etc $@
 
 # https://github.com/flathub/org.briarproject.Briar/issues/5
 flatpak override org.briarproject.Briar --filesystem=~/.briar:create $@
