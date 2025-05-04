@@ -83,7 +83,11 @@ flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create 
 flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
 flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
 
+# Enable mangohud for all Steam games
 flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
+
+# Permit Steam to access NetworkManager to also fix Big Picture Mode network
+flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.NetworkManager $@
 
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
