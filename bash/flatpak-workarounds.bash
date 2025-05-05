@@ -83,7 +83,15 @@ flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
 
-# TODO: if for sdcard here to enable laziness
+# My Steam Deck laziness. My systemd units check for /var/ and Steam checks
+# free space based on top level directory so it has to be a subdirectory
+# and while the mount point may be /var/sdcard I don't want to give it
+# access to root directory in case it denied that for security
+if [ -d /var/sdcard/Steam/Library ]; then
+	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Steam/Library:create $@
+	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Steam/Library:create $@
+	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Steam/Library:create $@
+fi
 
 # https://github.com/ValveSoftware/steam-for-linux/issues/4924
 # ref: the experiment near top
