@@ -87,10 +87,13 @@ flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create 
 # free space based on top level directory so it has to be a subdirectory
 # and while the mount point may be /var/sdcard I don't want to give it
 # access to root directory in case it denied that for security
-if [ -d /var/sdcard/Steam/Library ]; then
-	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Steam/Library:create $@
-	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Steam/Library:create $@
-	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Steam/Library:create $@
+if [ -d /var/sdcard/Steam ]; then
+	mkdir -vp /var/sdcard/Steam/Library
+	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Steam:rw $@
+	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Steam:rw $@
+	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Steam:rw $@
+	mkdir -vp /var/sdcard/Heroic/Library
+	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Heroic:rw $@
 fi
 
 # https://github.com/ValveSoftware/steam-for-linux/issues/4924
