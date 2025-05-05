@@ -79,6 +79,8 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 
 # A directory I can share between native and flatpak Steam so both have the
 # same games without having to navigate weird paths.
+# Heroic and its flatpak also create this
+flatpak override com.valvesoftware.Steam --filesystem=~/Games/Heroic:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
@@ -93,6 +95,8 @@ if [ -d /var/sdcard/Steam ]; then
 	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Steam:rw $@
 	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Steam:rw $@
 	mkdir -vp /var/sdcard/Heroic/Library
+	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Heroic:rw $@
+	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Heroic:rw $@
 	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Heroic:rw $@
 fi
 
