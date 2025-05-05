@@ -23,6 +23,12 @@ flatpak override --filesystem=~/.curlrc:ro $@
 flatpak override --filesystem=~/.editorconfig:ro $@
 flatpak override --filesystem=~/.local/share/fonts:ro $@
 
+# Controller access for everything and SECURITY likely all input access
+flatpak override --filesystem=/dev/uinput:ro $@
+flatpak override --filesystem=/run/udev:ro $@
+# MangoHUD configs
+flatpak override --filesystem=xdg-config/MangoHud:ro $@
+
 # Public git repositories I access or symlink much.
 flatpak override --filesystem=~/.shell-things:ro $@
 flatpak override --filesystem=/root/.shell-things:ro $@
@@ -77,22 +83,30 @@ flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
 
+# TODO: if for sdcard here to enable laziness
+
 # https://github.com/ValveSoftware/steam-for-linux/issues/4924
 # ref: the experiment near top
 flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
 flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
+
+# Steam flatpak workarounds a lot by non-UTF-8 C
+flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8
 
 # Enable mangohud for all Steam games
 flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
 
 # Permit Steam to access NetworkManager to also fix Big Picture Mode network
 flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.NetworkManager $@
+# Also power management and console(?) to poweroff from BPM
+flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.UPower $@
+flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.ConsoleKit $@
 
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
 # https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
-flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
+#flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
 
 # Mosh starts by opening an SSH connection and thus it needs to at least read my SSH config. Seeing new keys probably needs rw to known_hosts and as I use sockets, they may need rw. Then there is my config.d being in a private git repo...
 flatpak override org.mosh.mosh --filesystem=~/.ssh/config:ro $@
