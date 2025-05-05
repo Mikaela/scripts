@@ -26,7 +26,8 @@ flatpak override --filesystem=~/.local/share/fonts:ro $@
 # Controller access for everything and SECURITY likely all input access
 flatpak override --filesystem=/dev/uinput:ro $@
 flatpak override --filesystem=/run/udev:ro $@
-# MangoHUD configs
+# MangoHUD for everything that has it
+flatpak override --env=MANGOHUD=1 $@
 flatpak override --filesystem=xdg-config/MangoHud:ro $@
 
 # Public git repositories I access or symlink much.
@@ -109,7 +110,7 @@ flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x1
 flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8
 
 # Enable mangohud for all Steam games
-flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
+#flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
 
 # Permit Steam to access NetworkManager to also fix Big Picture Mode network
 flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.NetworkManager $@
