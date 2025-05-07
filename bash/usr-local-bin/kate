@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -x
+# The usual system-wide installation
+if [ -f /usr/bin/kate ]; then
+	/usr/bin/kate "$@"
+# System-wide flatpak
+elif [ -f /var/lib/flatpak/exports/bin/org.kde.kate ]; then
+	flatpak run org.kde.kate "$@"
+# User-specific flatpak
+elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kate ]; then
+	flatpak run --user org.kde.kate "$@"
+# If not found.
+else
+	printf "kate doesn't seem to be installed :("
+fi
+set +x
