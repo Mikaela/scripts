@@ -38,8 +38,9 @@ if hash fedora-third-party 2> /dev/null; then
 	fedora-third-party query
 fi
 
-# TODO: Better way of identifying Fedora Atomic! There is the overlayfs thing?
-if [[ -f /usr/bin/dnf && ! -d /var/roothome ]]; then
+# If we have a /sysroot/ostree chances are we are on Fedora Atomic and
+# should use rpm-ostree instead of dnf
+if [[ -f /usr/bin/dnf && ! -d /sysroot/ostree ]]; then
 	# I don't know if -y does anything here either and I think this may be
 	# useless, but I am used to it coming from apt and I think it will just
 	# say nothing to do or do nothing if mirrors haven't updated.
@@ -57,8 +58,7 @@ if [[ -f /usr/bin/dnf && ! -d /var/roothome ]]; then
 
 	# potentially unsafe, see a few lines above and the apt-get section
 	dnf "$@" autoremove
-	# TODO: Better way of identifying Fedora Atomic! There is the overlayfs thing?
-elif [[ -f /usr/bin/rpm-ostree && -d /var/roothome ]]; then
+elif [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree upgrade
 fi
 
