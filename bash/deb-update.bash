@@ -60,6 +60,8 @@ if [[ -f /usr/bin/dnf && ! -d /sysroot/ostree ]]; then
 	dnf "$@" autoremove
 elif [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree upgrade
+	# This may flash far too fast otherwise
+	sleep 5
 fi
 
 # Arch Linux package management
