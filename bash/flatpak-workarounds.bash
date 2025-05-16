@@ -24,7 +24,8 @@ flatpak override --filesystem=~/.editorconfig:ro $@
 flatpak override --filesystem=~/.local/share/fonts:ro $@
 
 # Controller access for everything and SECURITY likely all input access
-flatpak override --filesystem=/dev/uinput:ro $@
+# F: Not sharing "/dev/uinput" with sandbox: File "/dev/uinput" has unsupported type 0o20000
+#flatpak override --filesystem=/dev/uinput:ro $@
 flatpak override --filesystem=/run/udev:ro $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
