@@ -59,8 +59,9 @@ if [[ -f /usr/bin/dnf && ! -d /sysroot/ostree ]]; then
 	# potentially unsafe, see a few lines above and the apt-get section
 	dnf "$@" autoremove
 elif [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
+	rpm-ostree upgrade --check
+	sleep 5
 	rpm-ostree upgrade
-	# This may flash far too fast otherwise
 	sleep 5
 fi
 
