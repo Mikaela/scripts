@@ -6,7 +6,9 @@ elif [[ -d "$HOME/.config/google-chrome-unstable" && -d "$HOME/.cache/google-chr
 	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 elif [[ -d "$HOME/.config/google-chrome-beta" && -d "$HOME/.cache/google-chrome-beta" ]]; then
 	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
-else
+elif hash google-chrome-stable 2> /dev/null; then
 	/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+else
+	chromiuma "$@"
 fi
 set +x
