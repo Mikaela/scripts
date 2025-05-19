@@ -5,8 +5,8 @@ if [ -f /usr/bin/chromium-browser ]; then
 elif [ -f /usr/bin/chromium ]; then
 	/usr/bin/chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 elif [ -f /snap/bin/chromium ]; then
-	snap run chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
+	snap run chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 else
-	flatpak run org.chromium.Chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
+	flatpak run org.chromium.Chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 fi
 set +x
