@@ -31,6 +31,9 @@ flatpak override --filesystem=/run/udev:ro $@
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --filesystem=xdg-config/MangoHud:ro $@
 
+# LaTeX templates allowed before they become an issue.
+flatpak override --filesystem=~/texmf/tex/latex/local:ro $@
+
 # Public git repositories I access or symlink much.
 flatpak override --filesystem=~/.shell-things:ro $@
 flatpak override --filesystem=/root/.shell-things:ro $@
