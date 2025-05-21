@@ -126,8 +126,6 @@ flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.Cons
 flatpak override com.valvesoftware.Steam --filesystem=xdg-desktop:rw $@
 flatpak override com.valvesoftware.Steam --filesystem=xdg-data/applications:rw $@
 flatpak override com.valvesoftware.Steam --filesystem=xdg-data/icons:rw $@
-# what if I just let Steam manage autostart?
-flatpak override com.valvesoftware.Steam --filesystem=xdg-config/autostart:rw $@
 
 # Place the wrapper script the desktop entries above expect
 # TODO: Be less lazy and don't nest if
