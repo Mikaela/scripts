@@ -122,6 +122,30 @@ flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.Netw
 flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.UPower $@
 flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.ConsoleKit $@
 
+# Desktop shortcuts of Steam laziness. Inspired by https://github.com/flathub/com.valvesoftware.Steam/issues/85
+flatpak override com.valvesoftware.Steam --filesystem=xdg-desktop:rw $@
+flatpak override com.valvesoftware.Steam --filesystem=xdg-data/applications:rw $@
+flatpak override com.valvesoftware.Steam --filesystem=xdg-data/icons:rw $@
+
+# Place the wrapper script the desktop entries above expect
+# TODO: Be less lazy and don't nest if
+if [ "$(id -u)" = "0" ]; then
+	mkdir -vp /usr/local/bin/
+	if [ -f /var/lib/flatpak/exports/bin/com.valvesoftware.Steam ]; then
+		ln -s /var/lib/flatpak/exports/bin/com.valvesoftware.Steam /usr/local/bin/steam
+	fi
+	if hash symlinks 2> /dev/null; then
+		symlinks -d /usr/local/bin/
+	fi
+fi
+if [ -f $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ]; then
+	mkdir -vp $HOME/.local/bin/
+	ln -s $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ~/.local/bin/steam
+	if hash symlinks 2> /dev/null; then
+		symlinks -d $HOME/.local/bin/
+	fi
+fi
+
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
