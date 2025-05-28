@@ -144,6 +144,11 @@ if [ -f $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ]; then
 	if hash symlinks 2> /dev/null; then
 		symlinks -d $HOME/.local/bin/
 	fi
+	# TODO: This particular workaround doesn't even belong here!
+	if [ -d /var/home/aminda/.var/app/com.valvesoftware.Steam/ ]; then
+		ln -nsfv /var/home/aminda/.var/app/com.valvesoftware.Steam/.local/share/Steam /home/aminda/.local/share/Steam
+		ln -nsfv /var/home/aminda/.var/app/com.valvesoftware.Steam/.steam /home/aminda/.steam
+	fi
 fi
 
 # For use with system syncthing, note its flags
