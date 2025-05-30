@@ -132,7 +132,7 @@ flatpak override com.valvesoftware.Steam --filesystem=xdg-data/icons:rw $@
 if [ "$(id -u)" = "0" ]; then
 	mkdir -vp /usr/local/bin/
 	if [ -f /var/lib/flatpak/exports/bin/com.valvesoftware.Steam ]; then
-		ln -s /var/lib/flatpak/exports/bin/com.valvesoftware.Steam /usr/local/bin/steam
+		ln -sfv /var/lib/flatpak/exports/bin/com.valvesoftware.Steam /usr/local/bin/steam
 	fi
 	if hash symlinks 2> /dev/null; then
 		symlinks -d /usr/local/bin/
@@ -140,7 +140,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 if [ -f $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ]; then
 	mkdir -vp $HOME/.local/bin/
-	ln -s $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ~/.local/bin/steam
+	ln -sfv $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ~/.local/bin/steam
 	if hash symlinks 2> /dev/null; then
 		symlinks -d $HOME/.local/bin/
 	fi
