@@ -113,6 +113,9 @@ flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x1
 # Steam flatpak workarounds a lot by non-UTF-8 C
 flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8
 
+# Yes, we are SteamDeck, of course
+flatpak override com.valvesoftware.Steam --env=SteamDeck=1
+
 # Enable mangohud for all Steam games
 #flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
 
