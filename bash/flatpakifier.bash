@@ -20,6 +20,8 @@ ln -sfv $FLATPAKEXPORTS/org.videolan.VLC $TARGETDIR/vlc-flatpak
 ln -sfv $FLATPAKEXPORTS/io.mpv.Mpv $TARGETDIR/mpv-flatpak
 ln -sfv $FLATPAKEXPORTS/net.davidotek.pupgui2 $TARGETDIR/protonup
 ln -sfv $FLATPAKEXPORTS/im.dino.Dino $TARGETDIR/dino
+ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eog
+ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eom
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
