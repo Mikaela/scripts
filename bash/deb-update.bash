@@ -63,6 +63,8 @@ elif [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	sleep 5
 	rpm-ostree upgrade
 	sleep 5
+	rpm-ostree status -v
+	sleep 5
 fi
 
 # Arch Linux package management
