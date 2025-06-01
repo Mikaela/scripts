@@ -30,6 +30,8 @@ flatpak override --filesystem=/run/udev:ro $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --filesystem=xdg-config/MangoHud:ro $@
+# and of course we are Steam Deck everywhere, no question about it!
+flatpak override --env=SteamDeck=1 $@
 
 # LaTeX templates allowed before they become an issue.
 flatpak override --filesystem=~/texmf/tex/latex/local:ro $@
@@ -114,7 +116,7 @@ flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x1
 flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8
 
 # Yes, we are SteamDeck, of course
-flatpak override com.valvesoftware.Steam --env=SteamDeck=1
+#flatpak override com.valvesoftware.Steam --env=SteamDeck=1 $@
 
 # Enable mangohud for all Steam games
 #flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
