@@ -17,33 +17,33 @@ set -x
 # - curl configuration following
 # - text editor configuration
 # - user-specific fonts
-flatpak override --filesystem=~/.gdbinit:ro $@
+flatpak override --filesystem=~/.gdbinit $@
 flatpak override --filesystem=~/gdb.txt:rw $@
-flatpak override --filesystem=~/.curlrc:ro $@
-flatpak override --filesystem=~/.editorconfig:ro $@
-flatpak override --filesystem=~/.local/share/fonts:ro $@
+flatpak override --filesystem=~/.curlrc $@
+flatpak override --filesystem=~/.editorconfig $@
+flatpak override --filesystem=~/.local/share/fonts $@
 
 # Controller access for everything and SECURITY likely all input access
 # F: Not sharing "/dev/uinput" with sandbox: File "/dev/uinput" has unsupported type 0o20000
-#flatpak override --filesystem=/dev/uinput:ro $@
-flatpak override --filesystem=/run/udev:ro $@
+#flatpak override --filesystem=/dev/uinput $@
+flatpak override --filesystem=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
-flatpak override --filesystem=xdg-config/MangoHud:ro $@
+flatpak override --filesystem=xdg-config/MangoHud $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
 
 # LaTeX templates allowed before they become an issue.
-flatpak override --filesystem=~/texmf/tex/latex/local:ro $@
+flatpak override --filesystem=~/texmf/tex/latex/local $@
 
 # Public git repositories I access or symlink much.
-flatpak override --filesystem=~/.shell-things:ro $@
-flatpak override --filesystem=/root/.shell-things:ro $@
-flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things:ro $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things:ro $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist:ro $@
-flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts:ro $@
-flatpak override --filesystem=~/src/github.com/Mikaela/mikaela.github.io:ro $@
+flatpak override --filesystem=~/.shell-things $@
+flatpak override --filesystem=/root/.shell-things $@
+flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist $@
+flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/scripts $@
+flatpak override --filesystem=~/src/github.com/Mikaela/mikaela.github.io $@
 
 # EXPERIMENT! All apps may use wayland (sandboxed) and downgrade to
 # X11/xwayland only if current desktop doesn't support wayland.
@@ -160,14 +160,14 @@ fi
 flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
 # https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
-#flatpak override --filesystem=/run/udev:ro com.microsoft.Edge $@
+#flatpak override --filesystem=/run/udev com.microsoft.Edge $@
 
 # Mosh starts by opening an SSH connection and thus it needs to at least read my SSH config. Seeing new keys probably needs rw to known_hosts and as I use sockets, they may need rw. Then there is my config.d being in a private git repo...
-flatpak override org.mosh.mosh --filesystem=~/.ssh/config:ro $@
-flatpak override org.mosh.mosh --filesystem=~/.ssh/config.d:ro $@
+flatpak override org.mosh.mosh --filesystem=~/.ssh/config $@
+flatpak override org.mosh.mosh --filesystem=~/.ssh/config.d $@
 flatpak override org.mosh.mosh --filesystem=~/.ssh/known_hosts:rw $@
 flatpak override org.mosh.mosh --filesystem=~/.ssh/sockets:rw $@
-flatpak override org.mosh.mosh --filesystem=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d:ro $@
+flatpak override org.mosh.mosh --filesystem=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d $@
 
 # Apparently Element needs this talk for encrypted search
 # https://github.com/flathub/im.riot.Riot/issues/303#issuecomment-1816055123
