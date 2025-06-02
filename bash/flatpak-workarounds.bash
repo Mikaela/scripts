@@ -39,6 +39,8 @@ flatpak override --filesystem=~/texmf/tex/latex/local $@
 # Public git repositories I access or symlink much.
 flatpak override --filesystem=~/.shell-things $@
 flatpak override --filesystem=/root/.shell-things $@
+flatpak override --filesystem=~/src:create $@
+flatpak override --filesystem=~/2src:create $@
 flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things $@
 flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/shell-things $@
 flatpak override --filesystem=~/src/gitea.blesmrt.net/Mikaela/gist $@
