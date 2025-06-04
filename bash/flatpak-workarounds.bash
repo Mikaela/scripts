@@ -29,7 +29,7 @@ flatpak override --filesystem=~/.local/share/fonts $@
 flatpak override --filesystem=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
-flatpak override --env=MANGOHUD_CONFIG=read_cfg,background_alpha=0,battery_time,battery,cpu_temp,display_server,gpu_temp,device_battery=gamepad+mouse,fan,gamemode,media_player,hud_compact,ram,vram,swap,time,time_no_label,time_format=%F\ %R,wine,network $@
+flatpak override --env=MANGOHUD_CONFIG=read_cfg,background_alpha=0,battery_time,battery,cpu_temp,display_server,gpu_temp,device_battery='gamepad,mouse',fan,gamemode,media_player,hud_compact,ram,vram,swap,time,time_no_label,time_format=%F\ %R,wine,network $@
 flatpak override --filesystem=xdg-config/MangoHud $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
