@@ -49,9 +49,7 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 (adb "$@" shell settings put global private_dns_mode hostname &)
 # If dns.google or cloudflare-dns.com, it will be updated to DoH3
 #(adb "$@" shell settings put global private_dns_specifier dns.google &)
-# TODO: Revisit this after DNS4EU launch. Regardless of potential issues,
-# I am tempted by non-commercial ad filtering DNS.
-(adb "$@" shell settings put global private_dns_specifier dns.adguard-dns.com &)
+(adb "$@" shell settings put global private_dns_specifier noads.joindns4.eu &)
 # I thought maybe setting the above to DoH3 and this would together allow
 # arbitary DoH3 server, but no
 (adb "$@" shell cmd device_config put netd_native doh 1 &)
