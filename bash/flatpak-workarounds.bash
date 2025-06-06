@@ -99,7 +99,11 @@ flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create 
 # Steam's Proton-GE (flatpak). Not supported. Via https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/issues/309#issuecomment-2746256940
 # Add /var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable/active/files/proton
 # as a custom proton
-flatpak override com.heroicgameslauncher.hgl --filesystem=/var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable $@
+# TODO NOT: don't do this, use the integrated Proton-GE-Latest from WINE
+# manager and just don't enable mangohud in GUI (enabled by this script
+# already) and keep gamescope/upscaling off and there will not be hooking
+# failure message.
+#flatpak override com.heroicgameslauncher.hgl --filesystem=/var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable $@
 
 # My Steam Deck laziness. My systemd units check for /var/ and Steam checks
 # free space based on top level directory so it has to be a subdirectory
