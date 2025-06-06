@@ -151,11 +151,6 @@ if hash checkservices 2> /dev/null; then
 	sleep 5
 fi
 
-# Sedric workaround, located in this repo. I trust /root/
-if [ -f /root/fixgrub.bash ]; then
-	. /root/fixgrub.bash
-fi
-
 if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree upgrade --check
 	sleep 5
