@@ -96,6 +96,11 @@ flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
 
+# Steam's Proton-GE (flatpak). Not supported. Via https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/issues/309#issuecomment-2746256940
+# Add /var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable/active/files/proton
+# as a custom proton
+flatpak override com.heroicgameslauncher.hgl --filesystem=/var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable $@
+
 # My Steam Deck laziness. My systemd units check for /var/ and Steam checks
 # free space based on top level directory so it has to be a subdirectory
 # and while the mount point may be /var/sdcard I don't want to give it
