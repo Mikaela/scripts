@@ -60,6 +60,14 @@ flatpak override --socket=fallback-x11 $@
 flatpak override --nosocket=x11 $@
 flatpak override --env=ELECTRON_OZONE_PLATFORM_HINT=auto $@
 
+# SECURITY! However without these permissions there is crashing outside
+# of tmux when attempting to ssh (using gpg authentication subkey) or
+# edit files belonging to flatpaks.
+flatpak override page.codeberg.dnkl.foot --socket=ssh-auth $@
+flatpak override page.codeberg.dnkl.foot --socket=gpg-agent $@
+flatpak override page.codeberg.dnkl.foot --filesystem=host $@
+flatpak override page.codeberg.dnkl.foot --filesystem=~/.var/app/page.codeberg.dnkl.foot/config/foot:create $@
+
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx $@
