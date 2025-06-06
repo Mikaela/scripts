@@ -22,6 +22,7 @@ ln -sfv $FLATPAKEXPORTS/net.davidotek.pupgui2 $TARGETDIR/protonup
 ln -sfv $FLATPAKEXPORTS/im.dino.Dino $TARGETDIR/dino
 ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eog
 ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eom
+ln -sfv $FLATPAKEXPORTS/page.codeberg.dnkl.foot $TARGETDIR/foot
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
