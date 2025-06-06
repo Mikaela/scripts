@@ -58,13 +58,6 @@ if [[ -f /usr/bin/dnf && ! -d /sysroot/ostree ]]; then
 
 	# potentially unsafe, see a few lines above and the apt-get section
 	dnf "$@" autoremove
-elif [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
-	rpm-ostree upgrade --check
-	sleep 5
-	rpm-ostree upgrade
-	sleep 5
-	rpm-ostree status -v
-	sleep 5
 fi
 
 # Arch Linux package management
@@ -161,6 +154,15 @@ fi
 # Sedric workaround, located in this repo. I trust /root/
 if [ -f /root/fixgrub.bash ]; then
 	. /root/fixgrub.bash
+fi
+
+if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
+	rpm-ostree upgrade --check
+	sleep 5
+	rpm-ostree upgrade
+	sleep 5
+	rpm-ostree status -v
+	sleep 5
 fi
 
 # Hide commands being executed again
