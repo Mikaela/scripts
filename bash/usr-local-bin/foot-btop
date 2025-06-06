@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-/usr/bin/env foot --title=btop\ \|\ foot /usr/bin/env btop
+/usr/bin/env footclient --title=btop\ \|\ foot /usr/bin/env btop
