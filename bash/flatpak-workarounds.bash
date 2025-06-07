@@ -228,6 +228,9 @@ flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
 # Simplicity and so it won't attempt to create a directory in different locale
 flatpak override com.calibre_ebook.calibre --env=LC_ALL=C.utf8 $@
 
+# yt-dlp config file
+flatpak override io.mpv.Mpv --filesystem=~/.config/yt-dlp/config:ro $@
+
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
 	tail -n +1 /var/lib/flatpak/overrides/*
