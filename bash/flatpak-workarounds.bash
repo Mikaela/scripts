@@ -134,7 +134,7 @@ flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
 flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
 
 # Steam flatpak workarounds a lot by non-UTF-8 C
-flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8
+flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8 $@
 
 # Yes, we are SteamDeck, of course
 #flatpak override com.valvesoftware.Steam --env=SteamDeck=1 $@
@@ -210,6 +210,23 @@ flatpak override com.brave.Browser --talk-name=org.kde.plasma.browser.integratio
 flatpak override com.vivaldi.Vivaldi --talk-name=org.kde.plasma.browser.integration $@
 flatpak override com.google.Chrome --talk-name=org.kde.plasma.browser.integration $@
 flatpak override com.google.ChromeDev --talk-name=org.kde.plasma.browser.integration $@
+
+# qBittorrent
+flatpak override org.qbittorrent.qBittorrent --filesystem=~/bt:create $@
+ln -nsfv ~/bt ~/.bt
+flatpak override org.qbittorrent.qBittorrent --filesystem=xdg-download $@
+
+# Explicitly allow what Calibre needs
+flatpak override com.calibre_ebook.calibre --nofilesystem=host $@
+flatpak override com.calibre_ebook.calibre --nodevice=all $@
+flatpak override com.calibre_ebook.calibre --device=dri $@
+# FanFicFare Browser Cache. TODO: Firefox flatpak and other browsers
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/mozilla/firefox/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/Calibre\ Library:create $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/bt $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
+# Simplicity and so it won't attempt to create a directory in different locale
+flatpak override com.calibre_ebook.calibre --env=LC_ALL=C.utf8 $@
 
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
