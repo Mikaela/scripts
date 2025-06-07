@@ -12,6 +12,11 @@ elif [ -f /var/lib/flatpak/exports/bin/org.kde.kate ]; then
 # User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kate ]; then
 	flatpak run --user org.kde.kate "$@"
+elif [ -f /var/lib/flatpak/exports/bin/org.kde.kwrite ]; then
+	flatpak run org.kde.kwrite "$@"
+# User-specific flatpak
+elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kwrite ]; then
+	flatpak run --user org.kde.kwrite "$@"
 # If not found.
 else
 	printf "kate doesn't seem to be installed :("
