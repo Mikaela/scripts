@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO! Enable wayland support by swapping x11 with wayland! Currently broken.
-# https://github.com/microsoft/vscode/issues/202072
-
 set -x
 if [ -f /usr/bin/codium ]; then
 	/usr/bin/codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=wayland "$@"
@@ -12,13 +9,13 @@ elif [ -f /snap/bin/codium ]; then
 	#unset DBUS_SESSION_BUS_ADDRESS
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105
 	#export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus
-	snap run codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=x11 "$@"
+	snap run codium --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=wayland "$@"
 
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.vscodium.codium ]; then
-	flatpak run --user com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
+	flatpak run --user com.vscodium.codium --verbose --no-sandbox --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 
 elif [ -f /var/lib/flatpak/exports/bin/com.vscodium.codium ]; then
-	flatpak run com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
+	flatpak run com.vscodium.codium --verbose --no-sandbox --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 
 else
 	echo "codium not found :("

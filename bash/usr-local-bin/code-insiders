@@ -14,10 +14,10 @@ elif [ -f /snap/bin/code-insiders ]; then
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code.insiders ]; then
 	flatpak run --user com.visualstudio.code.insiders --verbose --no-sandbox --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 
-elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code.insiders ]; then
+elif [ -f /var/lib/flatpak/exports/bin/com.visualstudio.code.insiders ]; then
 	flatpak run com.visualstudio.code.insiders --verbose --no-sandbox --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
 
 else
-	echo "code not found :("
+	echo "code-insiders not found :("
 fi
 set +x
