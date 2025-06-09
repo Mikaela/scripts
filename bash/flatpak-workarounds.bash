@@ -220,6 +220,7 @@ flatpak override org.qbittorrent.qBittorrent --filesystem=xdg-download $@
 flatpak override com.calibre_ebook.calibre --nofilesystem=host $@
 flatpak override com.calibre_ebook.calibre --nodevice=all $@
 flatpak override com.calibre_ebook.calibre --device=dri $@
+flatpak override com.calibre_ebook.calibre --filesystem=/run/media $@
 # FanFicFare Browser Cache. TODO: Firefox flatpak and other browsers
 flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/mozilla/firefox/ $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/Calibre\ Library:create $@
