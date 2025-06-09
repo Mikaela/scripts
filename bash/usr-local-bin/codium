@@ -17,7 +17,7 @@ elif [ -f /snap/bin/codium ]; then
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.vscodium.codium ]; then
 	flatpak run --user com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
-elif [ -f ~/.local/share/flatpak/exports/bin/run/com.vscodium.codium ]; then
+elif [ -f /var/lib/flatpak/exports/bin/com.vscodium.codium ]; then
 	flatpak run com.vscodium.codium --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 else

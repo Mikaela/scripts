@@ -17,7 +17,7 @@ elif [ -f /snap/bin/code ]; then
 elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code ]; then
 	flatpak run --user com.visualstudio.code --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
-elif [ -f ~/.local/share/flatpak/exports/bin/run/com.visualstudio.code ]; then
+elif [ -f /var/lib/flatpak/exports/bin/com.visualstudio.code ]; then
 	flatpak run com.visualstudio.code --verbose --no-sandbox --ozone-platform=x11 --enable-features=WaylandWindowDecorations "$@"
 
 else
