@@ -101,6 +101,7 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 # Heroic and its flatpak also create this
 flatpak override com.valvesoftware.Steam --filesystem=~/Games/Heroic:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
+flatpak override com.valvesoftware.Steam --filesystem=xdg-music $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
 
