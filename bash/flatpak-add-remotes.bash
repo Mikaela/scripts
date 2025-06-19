@@ -13,6 +13,9 @@ flatpak remote-add --if-not-exists nheko-nightly https://nheko.im/nheko-reborn/n
 flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org $@
 flatpak remote-add --if-not-exists fedora-testing oci+https://registry.fedoraproject.org#testing $@
 
+# GNOME Nightly
+flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo $@
+
 # the previous command does nothing on Fedora as it already exists, but it still
 # needs to be enabled
 flatpak remote-modify --enable fedora-testing $@
