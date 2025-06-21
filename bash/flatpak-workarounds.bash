@@ -60,7 +60,7 @@ flatpak override --socket=fallback-x11 $@
 flatpak override --nosocket=x11 $@
 flatpak override --env=ELECTRON_OZONE_PLATFORM_HINT=auto $@
 flatpak override --env=PROTON_ENABLE_WAYLAND=1 $@
-flatpak override --env=PROTON_ENABLE_HDR=1 $@
+#flatpak override --env=PROTON_ENABLE_HDR=1 $@
 
 # SECURITY! However without these permissions there is crashing outside
 # of tmux when attempting to ssh (using gpg authentication subkey) or
