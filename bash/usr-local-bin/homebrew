@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Homebrew workaround particularly for Fedora Atomic.
+# Based on the syncplay script in this folder and the patching idea is from
+# https://github.com/orgs/Homebrew/discussions/1282#discussioncomment-1281288
+
+set -x
+export LC_ALL=C.utf8
+
+if [ -f "/tmp/brew.$(id -u).$(date -I)" ]; then
+	echo "Homebrew has been patched today. If this is wrong, rm /tmp/brew.$(id -u).$(date -I)"
+else
+	if [ ! -d "/home/linuxbrew/.linuxbrew" ]; then
+		echo "Homebrew not found."
+		exit 1
+	fi
+
+	cd /home/linuxbrew/.linuxbrew/bin/
+	cp brew brew2
+	sed -i 's/pwd\ \-P/pwd/g' brew2
+	touch "/tmp/brew.$(id -u).$(date -I)"
+fi
+
+env brew2 $@
+set +x
