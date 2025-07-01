@@ -8,6 +8,8 @@ elif [[ -d "$HOME/.config/google-chrome-beta" && -d "$HOME/.cache/google-chrome-
 	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 elif hash google-chrome-stable 2> /dev/null; then
 	/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+elif hash com.google.Chrome 2> /dev/null; then
+	com.google.Chrome --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 else
 	chromiuma "$@"
 fi
