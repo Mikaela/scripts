@@ -7,7 +7,7 @@ GEM
       tilt
     logger (1.7.0)
     prettier_print (1.2.1)
-    rbs (3.9.2)
+    rbs (3.9.4)
       logger
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
@@ -34,7 +34,7 @@ DEPENDENCIES
   syntax_tree-rbs
 
 RUBY VERSION
-   ruby 3.4.2p28
+   ruby 3.4.4p34
 
 BUNDLED WITH
-   2.6.2
+   2.6.9
