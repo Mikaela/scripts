@@ -12,6 +12,11 @@ set -x
 # multiple times), but for the sake of legibility and un/commenting this
 # isn't done within this script.
 
+# I am lazy
+if [ -f flatpakifier.bash ]; then
+	(./flatpakifier.bash &)
+fi
+
 # Overrides for all apps improving Quality of Life
 # - debugging with gdb
 # - curl configuration following
