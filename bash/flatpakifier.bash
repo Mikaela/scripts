@@ -24,6 +24,7 @@ ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eog
 ln -sfv $FLATPAKEXPORTS/org.gnome.eog $TARGETDIR/eom
 #ln -sfv $FLATPAKEXPORTS/page.codeberg.dnkl.foot $TARGETDIR/foot
 ln -sfv $FLATPAKEXPORTS/com.calibre_ebook.calibre $TARGETDIR/calibre
+ln -sfv $FLATPAKEXPORTS/org.pulseaudio.pavucontrol $TARGETDIR/pavucontrol
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
