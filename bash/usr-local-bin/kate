@@ -3,22 +3,22 @@ set -x
 # The usual system-wide installation
 if [ -f /usr/bin/kate ]; then
 	/usr/bin/kate "$@"
-# I might not even need Kate, but am too used to typing it to remember kwrite
-elif [ -f /usr/bin/kwrite ]; then
-	/usr/bin/kwrite "$@"
 # System-wide flatpak
 elif [ -f /var/lib/flatpak/exports/bin/org.kde.kate ]; then
 	flatpak run org.kde.kate "$@"
 # User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kate ]; then
 	flatpak run --user org.kde.kate "$@"
+# I might not even need Kate, but am too used to typing it to remember kwrite
+elif [ -f /usr/bin/kwrite ]; then
+	/usr/bin/kwrite "$@"
 elif [ -f /var/lib/flatpak/exports/bin/org.kde.kwrite ]; then
 	flatpak run org.kde.kwrite "$@"
-# User-specific flatpak
 elif [ -f ~/.local/share/flatpak/exports/bin/org.kde.kwrite ]; then
 	flatpak run --user org.kde.kwrite "$@"
 # If not found.
 else
 	printf "kate doesn't seem to be installed :("
+	notify-send "kate doesn't seem to be installed :("
 fi
 set +x
