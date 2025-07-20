@@ -41,13 +41,6 @@ adb "$@" shell pm grant com.github.cvzi.darkmodewallpaper android.permission.REA
 #(adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh &)
 (adb "$@" shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh &)
 
-# Uninstall or disable Android Safety Core (suspected chatcontrol backdoor)
-(adb "$@" shell pm uninstall com.google.android.safetycore &)
-#(adb "$@" shell pm disable com.google.android.safetycore &)
-# Uninstall or disable Gemini so it won't access other apps
-(adb "$@" shell pm uninstall com.google.android.apps.bard &)
-#(adb "$@" shell pm disable com.google.android.apps.bard &)
-
 # Enable DNS-over-TLS
 (adb "$@" shell settings put global private_dns_mode hostname &)
 # If dns.google or cloudflare-dns.com, it will be updated to DoH3
