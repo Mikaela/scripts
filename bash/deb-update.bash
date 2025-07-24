@@ -162,6 +162,7 @@ fi
 
 if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree upgrade --check
+	rpm-ostree status -v
 	sleep 5
 	rpm-ostree upgrade
 	sleep 5
