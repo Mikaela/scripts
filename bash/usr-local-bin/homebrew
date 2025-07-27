@@ -17,13 +17,13 @@ if [ -d /var/roothome ]; then
 		fi
 
 		cd /home/linuxbrew/.linuxbrew/bin/
-		cp brew brew2
-		sed -i 's/pwd\ \-P/pwd/g' brew2
+		cp /home/linuxbrew/.linuxbrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew2
+		sed -i 's/pwd\ \-P/pwd/g' /home/linuxbrew/.linuxbrew/bin/brew2
 		touch "/tmp/brew.$(id -u).$(date -I)"
 	fi
 
-	env brew2 $@
+	/home/linuxbrew/.linuxbrew/bin/brew2 $@
 	set +x
 else
-	env brew $@
+	/home/linuxbrew/.linuxbrew/bin/brew $@
 fi
