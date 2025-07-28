@@ -120,6 +120,13 @@ if hash flatpak 2> /dev/null; then
 	flatpak update --user --noninteractive --assumeyes
 	flatpak update --user --noninteractive --assumeyes --no-static-deltas
 	flatpak uninstall --user --unused --assumeyes --noninteractive
+
+	# Actually enable my flatpak timer too, just like homebrew above
+	if [[ -f "/etc/systemd/system/flatpak-update.timer" && $(id -u) == 0 ]]; then
+		if hash systemctl 2> /dev/null; then
+			systemctl enable --now flatpak-update.timer
+		fi
+	fi
 fi
 
 if hash snap 2> /dev/null; then
