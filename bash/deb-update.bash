@@ -71,7 +71,12 @@ if hash pacman 2> /dev/null; then
 fi
 
 # https://github.com/Homebrew/brew
-if [[ -d /home/linuxbrew/.linuxbrew/bin && $(id -u) != 0 ]]; then
+if [[ -f /etc/systemd/system/linuxbrew-update.timer && $(id -u) == 0 ]]; then
+	if hash systemctl 2> /dev/null; then
+		systemctl enable linuxbrew-update.timer
+		systemctl start linuxbrew-update.service
+	fi
+elif [[ -d /home/linuxbrew/.linuxbrew/bin && $(id -u) != 0 ]]; then
 	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 	export HOMEBREW_CELLAR=/home/linuxbrew/.linuxbrew/Cellar
 	export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
