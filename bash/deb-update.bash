@@ -180,6 +180,9 @@ if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	sleep 5
 	rpm-ostree status -v
 	sleep 5
+	if hash systemctl 2> /dev/null; then
+		systemctl enable rpm-ostreed-automatic.timer
+	fi
 fi
 
 # Hide commands being executed again
