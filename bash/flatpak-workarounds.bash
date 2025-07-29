@@ -125,6 +125,7 @@ flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create 
 # free space based on top level directory so it has to be a subdirectory
 # and while the mount point may be /var/sdcard I don't want to give it
 # access to root directory in case it denied that for security
+flatpak override com.valvesoftware.Steam --filesystem=~/.xlcore:create $@
 if [ -d /var/sdcard/Steam ]; then
 	mkdir -vp /var/sdcard/Steam/Library
 	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Steam:rw $@
