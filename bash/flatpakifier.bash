@@ -28,6 +28,7 @@ ln -sfv $FLATPAKEXPORTS/org.pulseaudio.pavucontrol $TARGETDIR/pavucontrol
 ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweak
 ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweaks
 ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweak-tool
+ln -sfv $FLATPAKEXPORTS/org.gajim.Gajim $TARGETDIR/gajim
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
