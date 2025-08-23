@@ -144,6 +144,14 @@ flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x1
 
 # Steam flatpak workarounds a lot by non-UTF-8 C
 flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8 $@
+flatpak override com.valvesoftware.SteamLink --env=LC_ALL=C.utf8 $@
+flatpak override com.heroicgameslauncher.hgl --env=LC_ALL=C.utf8 $@
+
+# pipewire/pulseaudio buffer increase to fix audio issues in proton
+# in case of issues outside of proton, set per-game variable empty
+flatpak override com.valvesoftware.Steam --env=PULSE_LATENCY_MSEC=60 $@
+flatpak override com.valvesoftware.SteamLink --env=PULSE_LATENCY_MSEC=60 $@
+flatpak override com.heroicgameslauncher.hgl --env=PULSE_LATENCY_MSEC=60 $@
 
 # Yes, we are SteamDeck, of course
 #flatpak override com.valvesoftware.Steam --env=SteamDeck=1 $@
