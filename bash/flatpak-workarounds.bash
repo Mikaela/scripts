@@ -35,7 +35,6 @@ flatpak override --filesystem=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --env=MANGOHUD_CONFIG='read_cfg,background_alpha=0,battery_time,battery,cpu_temp,display_server,font_size=26,gpu_temp,device_battery_icon,device_battery=gamepad+mouse,fan,horizontal,ram,vram,swap,time,time_no_label,time_format=%T,wine,mangoapp_steam,position=bottom-left' $@
-
 flatpak override --filesystem=xdg-config/MangoHud $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
@@ -84,6 +83,15 @@ flatpak override --talk-name=org.freedesktop.impl.portal.desktop.darkman $@
 
 # Additional SDKs (`flatpak search org.freedesktop.Sdk.Extension`)
 flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
+
+# If timedatectl (systemd) is used, set TZ for flatpaks needing it
+if hash timedatectl 2> /dev/null; then
+	# DRY - Don't Repeat Yourself
+	export TZ=$(timedatectl show --property=Timezone --value)
+	# https://github.com/flathub/com.valvesoftware.Steam/wiki#steam-shows-times-with-incorrect-timezone
+	flatpak override com.valvesoftware.Steam --env=TZ=$TZ $@
+	flatpak override com.valvesoftware.SteamLink --env=TZ=$TZ $@
+fi
 
 # I don't have other nvim on SteamOS
 #flatpak override io.neovim.nvim --filesystem=host $@
