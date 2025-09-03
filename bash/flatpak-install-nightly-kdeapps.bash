@@ -2,6 +2,7 @@
 set -x
 
 # This is yet another script to enable my laziness.
+# App list: https://origin.cdn.kde.org/flatpak/
 flatpak install --or-update https://cdn.kde.org/flatpak/kde-runtime-nightly/org.kde.Platform.flatpakref $@
 #flatpak install --or-update https://cdn.kde.org/flatpak/kate-nightly/org.kde.kate.flatpakref $@
 flatpak install --or-update https://cdn.kde.org/flatpak/haruna-nightly/org.kde.haruna.flatpakref $@
