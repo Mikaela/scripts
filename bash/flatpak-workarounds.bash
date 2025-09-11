@@ -151,9 +151,12 @@ flatpak override com.valvesoftware.Steam --nosocket=fallback-x11 --socket=x11 $@
 flatpak override com.heroicgameslauncher.hgl --nosocket=fallback-x11 --socket=x11 $@
 
 # Steam flatpak workarounds a lot by non-UTF-8 C
-flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8 $@
-flatpak override com.valvesoftware.SteamLink --env=LC_ALL=C.utf8 $@
-flatpak override com.heroicgameslauncher.hgl --env=LC_ALL=C.utf8 $@
+#flatpak override com.valvesoftware.Steam --env=LC_ALL=C.utf8 $@
+#flatpak override com.valvesoftware.SteamLink --env=LC_ALL=C.utf8 $@
+#flatpak override com.heroicgameslauncher.hgl --env=LC_ALL=C.utf8 $@
+flatpak override com.valvesoftware.Steam --env=LC_ALL=en_DK.utf8 $@
+flatpak override com.valvesoftware.SteamLink --env=LC_ALL=en_DK.utf8 $@
+flatpak override com.heroicgameslauncher.hgl --env=LC_ALL=en_DK.utf8 $@
 
 # pipewire/pulseaudio buffer increase to fix audio issues in proton
 # in case of issues outside of proton, set per-game variable empty
@@ -252,7 +255,8 @@ flatpak override com.calibre_ebook.calibre --filesystem=~/Calibre\ Library:creat
 flatpak override com.calibre_ebook.calibre --filesystem=~/bt $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
 # Simplicity and so it won't attempt to create a directory in different locale
-flatpak override com.calibre_ebook.calibre --env=LC_ALL=C.utf8 $@
+#flatpak override com.calibre_ebook.calibre --env=LC_ALL=C.utf8 $@
+flatpak override com.calibre_ebook.calibre --env=LC_ALL=en_DK.utf8 $@
 
 # yt-dlp config file
 flatpak override io.mpv.Mpv --filesystem=~/.config/yt-dlp/config:ro $@
