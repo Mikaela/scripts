@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
-# I always want to see the profile manager, whether it's my first run or
-# not and I probably have to micromanage wayland enabling everywhere.
-
-# I cannot use the Flatpak as it doesn't support smartcards or /etc/policies
-# https://github.com/flatpak/flatpak/issues/4723 https://github.com/flatpak/flatpak/issues/4525
+# Wrapper for Firefox finding it with my flags no matter where it's installed
+# to, mainly for use with a desktop entry.
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
-FlagsForFirefox="--allow-downgrade --ProfileManager $@"
+FlagsForFirefox="--allow-downgrade $@"
 
 # Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
