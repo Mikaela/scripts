@@ -18,7 +18,7 @@ elif [ -f /usr/bin/firefox ]; then
 elif [ -f /usr/bin/firefox-esr ]; then
 	/usr/bin/firefox-esr $FlagsForFirefox
 # Fallback to Snap which apparently follows /etc/policies.json
-elif [ -f /snap/bin/firefox ]; then
+elif [ -f /var/lib/snapd/snap/bin/firefox ]; then
 	snap run firefox $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else

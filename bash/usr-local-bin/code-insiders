@@ -4,7 +4,7 @@ set -x
 if [ -f /usr/bin/code-insiders ]; then
 	/usr/bin/code-insiders --verbose --enable-features=WaylandWindowDecorations,UseOzonePlatform --ozone-platform=wayland "$@"
 
-elif [ -f /snap/bin/code-insiders ]; then
+elif [ -f /var/lib/snapd/snap/bin/code-insiders ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	#unset DBUS_SESSION_BUS_ADDRESS
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/105

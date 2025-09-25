@@ -10,7 +10,7 @@ if [ -f /usr/bin/nvim ]; then
 	#elif [ -f ~/.local/share/flatpak/exports/bin/io.neovim.nvim ]; then
 	#	flatpak run --user io.neovim.nvim "$@"
 	# Snap
-#elif [ -f /snap/bin/nvim ]; then
+#elif [ -f /var/lib/snapd/snap/bin/nvim ]; then
 #	snap run nvim "$@"
 # Fallback to vim, because this script breaks my alias/function
 elif [ -f /usr/bin/vim ]; then

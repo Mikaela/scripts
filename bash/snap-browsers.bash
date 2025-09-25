@@ -43,7 +43,7 @@ fi
 # towards Mozilla and search engine policy support. Otherwise install Firefox
 # This is officially supported/published by Mozilla.
 if [[ ! -f "/usr/bin/firefox" ]] && [[ ! -f "/usr/bin/firefox-esr" ]]; then
-	if [ -f "/snap/bin/firefox" ]; then
+	if [ -f "/var/lib/snapd/snap/bin/firefox" ]; then
 		snap refresh firefox --channel=esr/stable
 	else
 		snap install firefox --channel=esr/stable
@@ -55,7 +55,7 @@ fi
 # Difficult to test Chromium policies without Chromium. And for testing edge is fine.
 # Published/supported by Canonical.
 if [[ ! -f "/usr/bin/chromium" ]] && [[ ! -f "/usr/bin/chromium-browser" ]]; then
-	if [ -f "/snap/bin/chromium" ]; then
+	if [ -f "/var/lib/snapd/snap/bin/chromium" ]; then
 		snap refresh chromium --channel=edge
 	else
 		snap install chromium --edge
@@ -67,7 +67,7 @@ fi
 # European/Norwegian freeware browser that I prefer to keep installed as an option.
 # Official snap.
 if [[ ! -f "/usr/bin/vivaldi" ]] && [[ ! -f "/usr/bin/vivaldi-snapshot" ]]; then
-	if [ -f "/snap/bin/vivaldi.vivaldi-stable" ]; then
+	if [ -f "/var/lib/snapd/snap/bin/vivaldi.vivaldi-stable" ]; then
 		snap refresh vivaldi
 	else
 		snap install vivaldi
@@ -79,7 +79,7 @@ fi
 # - 2025: https://news.ycombinator.com/item?id=43251203
 #
 #if [[ ! -f "/usr/bin/brave-browser-stable" ]] && [[ ! -f "/usr/bin/brave-browser-beta" ]] && [[ ! -f "/usr/bin/brave-browser-nightly" ]]; then
-#	if [ -f "/snap/bin/brave" ]; then
+#	if [ -f "/var/lib/snapd/snap/bin/brave" ]; then
 #		snap refresh brave
 #	else
 #		snap install brave

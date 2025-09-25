@@ -3,7 +3,7 @@
 # Flutter doesn't support flatpak, so Snap is the least bad Fluffy experience.
 
 set -x
-if [ -f /snap/bin/fluffychat ]; then
+if [ -f /var/lib/snapd/snap/bin/fluffychat ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	unset DBUS_SESSION_BUS_ADDRESS
 	# I am supposed to be a Finnish localizer so my eo over fi as protest

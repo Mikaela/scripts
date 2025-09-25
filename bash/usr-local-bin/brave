@@ -5,7 +5,7 @@ if [[ -d "$HOME/.config/BraveSoftware/Brave-Browser-Nightly" && -d "$HOME/.cache
 	/usr/bin/brave-browser-nightly --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 elif [ -f /usr/bin/brave-browser-stable ]; then
 	/usr/bin/brave-browser-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
-elif [ -f /snap/bin/brave ]; then
+elif [ -f /var/lib/snapd/snap/bin/brave ]; then
 	snap run brave --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
 fi
 

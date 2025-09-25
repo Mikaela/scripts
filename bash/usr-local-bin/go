@@ -13,7 +13,7 @@ export GOVERSION=1.21
 if [ -f /home/linuxbrew/.linuxbrew/bin/go ]; then
 	/home/linuxbrew/.linuxbrew/bin/go "$@"
 
-elif [ -f /snap/bin/go ]; then
+elif [ -f /var/lib/snapd/snap/bin/go ]; then
 	snap run go "$@"
 
 # Or if Debian hides it somewhere nice.

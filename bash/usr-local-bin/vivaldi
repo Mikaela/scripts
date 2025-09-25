@@ -4,7 +4,7 @@ if [[ -d "$HOME/.config/vivaldi-snapshot" && -d "$HOME/.cache/vivaldi-snapshot" 
 	/usr/bin/vivaldi-snapshot --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
 elif [ -f /usr/bin/vivaldi ]; then
 	/usr/bin/vivaldi --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
-elif [ -f /snap/bin/vivaldi.vivaldi-stable ]; then
+elif [ -f /var/lib/snapd/snap/bin/vivaldi.vivaldi-stable ]; then
 	snap run vivaldi.vivaldi-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
 fi
 set +x

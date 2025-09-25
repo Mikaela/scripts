@@ -6,7 +6,7 @@
 # installed is fine...
 
 set -x
-if [ -f /snap/bin/joplin-desktop ]; then
+if [ -f /var/lib/snapd/snap/bin/joplin-desktop ]; then
 	# https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1951491/comments/104
 	unset DBUS_SESSION_BUS_ADDRESS
 	snap run joplin-desktop --ozone-platform=wayland "$@"
