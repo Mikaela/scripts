@@ -231,13 +231,14 @@ flatpak override it.mijorus.gearlever --nofilesystem=host:reset $@
 flatpak override it.mijorus.gearlever --filesystem=~/.local/share/applications:create $@
 flatpak override it.mijorus.gearlever --filesystem=~/AppImages:create $@
 
-# KDE Connect for web browsers
-flatpak override org.mozilla.firefox --talk-name=org.kde.plasma.browser.integration $@
-flatpak override org.chromium.Chromium --talk-name=org.kde.plasma.browser.integration $@
-flatpak override com.brave.Browser --talk-name=org.kde.plasma.browser.integration $@
-flatpak override com.vivaldi.Vivaldi --talk-name=org.kde.plasma.browser.integration $@
-flatpak override com.google.Chrome --talk-name=org.kde.plasma.browser.integration $@
-flatpak override com.google.ChromeDev --talk-name=org.kde.plasma.browser.integration $@
+# # KDE Connect for web browsers. Just allow it for everything, SECURITY WARNING!
+flatpak override --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override org.mozilla.firefox --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override org.chromium.Chromium --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override com.brave.Browser --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override com.vivaldi.Vivaldi --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override com.google.Chrome --talk-name=org.kde.plasma.browser.integration $@
+#flatpak override com.google.ChromeDev --talk-name=org.kde.plasma.browser.integration $@
 
 # qBittorrent
 flatpak override org.qbittorrent.qBittorrent --filesystem=~/bt:create $@
@@ -251,6 +252,8 @@ flatpak override com.calibre_ebook.calibre --device=dri $@
 flatpak override com.calibre_ebook.calibre --filesystem=/run/media $@
 # FanFicFare Browser Cache. TODO: Firefox flatpak and other browsers
 flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/mozilla/firefox/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/vivaldi/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/vivaldi-snapshot/ $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/Calibre\ Library:create $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/bt $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
