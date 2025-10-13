@@ -177,6 +177,10 @@ if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree status -v
 	sleep 5
 	rpm-ostree upgrade
+	# Reduntant, but KDE Discover uses this undocumented (in man page?)
+	# alias(?) for updating and thus it's required for attaching to existing
+	# process?
+	rpm-ostree update
 	sleep 5
 	rpm-ostree status -v
 	sleep 5
