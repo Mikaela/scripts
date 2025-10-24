@@ -27,6 +27,7 @@ flatpak override --filesystem=~/gdb.txt:rw $@
 flatpak override --filesystem=~/.curlrc $@
 flatpak override --filesystem=~/.editorconfig $@
 flatpak override --filesystem=~/.local/share/fonts $@
+flatpak override --filesystem=xdg-config/fontconfig:ro $@
 
 # Controller access for everything and SECURITY likely all input access
 # F: Not sharing "/dev/uinput" with sandbox: File "/dev/uinput" has unsupported type 0o20000
@@ -35,7 +36,7 @@ flatpak override --filesystem=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --env=MANGOHUD_CONFIG='read_cfg,background_alpha=0,horizontal,time,time_no_label,time_format=%X,position=bottom-left' $@
-flatpak override --filesystem=xdg-config/MangoHud $@
+flatpak override --filesystem=xdg-config/MangoHud:ro $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
 
