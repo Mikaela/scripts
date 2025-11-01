@@ -33,6 +33,7 @@ fi
 # Enables Fedora third party repositories if not enabled, otherwise quiet.
 # My systems most likely have them already
 if hash fedora-third-party 2> /dev/null; then
+	systemctl enable fedora-third-party-refresh.service
 	fedora-third-party enable
 	# Are they enabled?
 	fedora-third-party query
