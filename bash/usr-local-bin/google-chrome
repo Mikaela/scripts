@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 set -x
 if [[ -d "$HOME/.config/google-chrome-canary" && -d "$HOME/.cache/google-chrome-canary" ]]; then
-	/usr/bin/google-chrome-canary --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-canary --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif [[ -d "$HOME/.config/google-chrome-unstable" && -d "$HOME/.cache/google-chrome-unstable" ]]; then
-	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif [[ -d "$HOME/.config/google-chrome-beta" && -d "$HOME/.cache/google-chrome-beta" ]]; then
-	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif hash google-chrome-stable 2> /dev/null; then
-	/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif hash google-chrome-beta 2> /dev/null; then
-	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif hash google-chrome-unstable 2> /dev/null; then
-	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-unstable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif hash google-chrome-canary 2> /dev/null; then
-	/usr/bin/google-chrome-canary --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/google-chrome-canary --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif hash com.google.Chrome 2> /dev/null; then
-	com.google.Chrome --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	com.google.Chrome --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 else
 	chromiuma "$@"
 fi

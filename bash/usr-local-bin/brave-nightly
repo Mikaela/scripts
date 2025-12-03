@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 set -x
-/usr/bin/brave-browser-nightly --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+/usr/bin/brave-browser-nightly --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 set +x

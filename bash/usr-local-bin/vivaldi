@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -x
 if [[ -d "$HOME/.config/vivaldi-snapshot" && -d "$HOME/.cache/vivaldi-snapshot" ]]; then
-	/usr/bin/vivaldi-snapshot --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/vivaldi-snapshot --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif [ -f /usr/bin/vivaldi ]; then
-	/usr/bin/vivaldi --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations "$@"
+	/usr/bin/vivaldi --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 elif [ -f /var/lib/snapd/snap/bin/vivaldi.vivaldi-stable ]; then
-	snap run vivaldi.vivaldi-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable "$@"
+	snap run vivaldi.vivaldi-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
 fi
 set +x

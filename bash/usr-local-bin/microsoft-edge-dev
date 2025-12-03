@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -x
-/usr/bin/microsoft-edge-dev --ozone-platform=wayland --enable-features=WaylandWindowDecorations --disk-cache-dir='/dev/null' "$@"
+/usr/bin/microsoft-edge-dev --ozone-platform=wayland --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled --disk-cache-dir='/dev/null' "$@"
 set +x
