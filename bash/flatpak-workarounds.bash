@@ -41,7 +41,7 @@ flatpak override --filesystem=xdg-config/MangoHud:ro $@
 flatpak override --env=SteamDeck=1 $@
 
 # SECURITY WARNING! Discord socket
-flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/app/snap.discord:rw $@
+flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
 
 # LaTeX templates allowed before they become an issue.
 flatpak override --filesystem=~/texmf/tex/latex/local $@
