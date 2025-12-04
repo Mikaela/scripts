@@ -40,6 +40,9 @@ flatpak override --filesystem=xdg-config/MangoHud:ro $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
 
+# SECURITY WARNING! Discord socket
+flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/app/snap.discord:rw $@
+
 # LaTeX templates allowed before they become an issue.
 flatpak override --filesystem=~/texmf/tex/latex/local $@
 
