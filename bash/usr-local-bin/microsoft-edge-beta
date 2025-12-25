@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -x
-/usr/bin/microsoft-edge-beta --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
-set +x

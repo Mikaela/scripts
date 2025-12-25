@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -x
-brave-nightly --guest "$@"
-set +x

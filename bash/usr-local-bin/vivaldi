@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 set -x
+
+FlagsForChromium="--ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
+
 if [[ -d "$HOME/.config/vivaldi-snapshot" && -d "$HOME/.cache/vivaldi-snapshot" ]]; then
-	/usr/bin/vivaldi-snapshot --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	/usr/bin/vivaldi-snapshot $FlagsForChromium
 elif [ -f /usr/bin/vivaldi ]; then
-	/usr/bin/vivaldi --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	/usr/bin/vivaldi $FlagsForChromium
 elif [ -f /var/lib/snapd/snap/bin/vivaldi.vivaldi-stable ]; then
-	snap run vivaldi.vivaldi-stable --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	snap run vivaldi.vivaldi-stable $FlagsForChromium
 fi
 set +x

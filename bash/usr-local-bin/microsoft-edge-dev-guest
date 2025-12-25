@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -x
-microsoft-edge-dev --guest "$@"
-set +x

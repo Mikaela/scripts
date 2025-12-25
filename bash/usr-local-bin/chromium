@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 set -x
+
+FlagsForChromium="--ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
+
 if [ -f /usr/bin/chromium-browser ]; then
-	/usr/bin/chromium-browser --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	/usr/bin/chromium-browser $FlagsForChromium
 elif [ -f /usr/bin/chromium ]; then
-	/usr/bin/chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	/usr/bin/chromium $FlagsForChromium
 elif [ -f /var/lib/snapd/snap/bin/chromium ]; then
-	snap run chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	snap run chromium $FlagsForChromium
 else
-	flatpak run org.chromium.Chromium --ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled "$@"
+	flatpak run org.chromium.Chromium $FlagsForChromium
 fi
 set +x
