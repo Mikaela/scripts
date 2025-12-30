@@ -76,6 +76,12 @@ if [[ -f /etc/systemd/system/linuxbrew-update.timer && $(id -u) == 0 ]]; then
 	if hash systemctl 2> /dev/null; then
 		systemctl enable linuxbrew-update.timer
 		systemctl start linuxbrew-update.service
+		# Technically this should be first, but it's probably rarer than my
+		# above unit and I am yet to experience issues anyway.
+		if [[ -f /etc/systemd/system/linuxbrew-permissions.timer ]]; then
+			systemctl enable linuxbrew-permissions.timer
+			systemctl start linuxbrew-permissions.service
+		fi
 	fi
 elif [[ -d /home/linuxbrew/.linuxbrew/bin && $(id -u) != 0 ]]; then
 	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
