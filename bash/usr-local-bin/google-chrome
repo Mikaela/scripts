@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x
 
-FlagsForChromium="--ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
+FlagsForChromium="--ozone-platform=wayland --disk-cache-dir=/dev/null --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
 
 if [[ -d "$HOME/.config/google-chrome-canary" && -d "$HOME/.cache/google-chrome-canary" ]]; then
 	/usr/bin/google-chrome-canary $FlagsForChromium

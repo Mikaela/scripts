@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x
 
-FlagsForChromium="--ozone-platform=wayland --disk-cache-dir='/dev/null' --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
+FlagsForChromium="--ozone-platform=wayland --disk-cache-dir=/dev/null --enable-features=WaylandWindowDecorations --disable-features=ExtensionManifestV2Unsupported,ExtensionManifestV2Disabled $@"
 
 if [ -f /usr/bin/chromium-browser ]; then
 	/usr/bin/chromium-browser $FlagsForChromium
