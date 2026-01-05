@@ -4,6 +4,7 @@ A family member wanted to know what dates are on weeks 26 and 31 and instead of
 the answer received this script. I thought I would try to improve it for fun,
 since it doesn't pass pylint or anything.
 """
+
 import datetime
 
 # Current year

@@ -3,6 +3,7 @@
 Takes desired PIN length as an argument and generates a PIN code of that
 length.
 """
+
 import secrets
 import sys
 
