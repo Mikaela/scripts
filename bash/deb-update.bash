@@ -180,13 +180,13 @@ if hash checkservices 2> /dev/null; then
 fi
 
 if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
-	rpm-ostree upgrade --check
+	# The verb update is used instead of documented upgrade for KDE Plasma
+	# Discover compatibility and avoiding redundancy.
+	#rpm-ostree upgrade --check
+	rpm-ostree update --check
 	rpm-ostree status -v
 	sleep 5
-	rpm-ostree upgrade
-	# Reduntant, but KDE Discover uses this undocumented (in man page?)
-	# alias(?) for updating and thus it's required for attaching to existing
-	# process?
+	#rpm-ostree upgrade
 	rpm-ostree update
 	sleep 5
 	rpm-ostree status -v
