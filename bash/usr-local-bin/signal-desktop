@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
 # Signal desktop with Wayland, notification fix & tray
+# Two phone numbers so two Signals, with priority given for flatpak which probably exists
 
 set -x
 # --start-in-tray - would be nice, but then I cannot open it from there, thus --use-tray-icon
-flatpak run org.signal.Signal --use-tray-icon --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@" &
 if [ -f /var/lib/snapd/snap/bin/signal-desktop ]; then
 	#snap set signal-desktop tray-icon=true
 	snap run signal-desktop --use-tray-icon --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@" &
 fi
+
+flatpak run org.signal.Signal --use-tray-icon --ozone-platform=wayland --enable-features=WaylandWindowDecorations "$@"
+
 set +x
