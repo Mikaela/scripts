@@ -20,6 +20,10 @@ else
 		mkdir -p venv
 	fi
 
+	# Install icon
+	mkdir -vp ~/.local/share/icons/hicolor/128x128/apps/
+	ln -nsfv ~/src/github.com/syncplay/syncplay/syncplay/resources/hicolor/128x128/apps/syncplay.png ~/.local/share/icons/hicolor/128x128/apps/
+
 	# Let's ensure we have venv setup. Spellcheck complains if I won't || exit
 	# every cd, which I understand to mean in failure case terminate the script.
 	cd ~/src/github.com/syncplay/syncplay || exit
