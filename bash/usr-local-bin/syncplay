@@ -5,7 +5,12 @@
 set -x
 export LC_ALL=C.utf8
 
-if [ -f "/tmp/syncplay.$(id -u).$(date -I)" ]; then
+if ! hash xdg-user-dir 2> /dev/null; then
+	echo "xdg-user-dir is required for my laziness"
+	exit 1
+fi
+
+if [ -f "$(xdg-user-dir RUNTIME)/syncplay.$(date -I)" ]; then
 	echo "Syncplay has been touched today"
 else
 	# If syncplay doesn't exist, get it
@@ -36,7 +41,7 @@ else
 	pip3 install pip --upgrade
 	pip3 install -r requirements.txt --upgrade
 	pip3 install -r requirements_gui.txt --upgrade
-	touch /tmp/syncplay.$(id -u).$(date -I)
+	touch $(xdg-user-dir RUNTIME)/syncplay.$(date -I)
 fi
 
 # finally launch the syncplay with any flags specified
@@ -44,5 +49,6 @@ fi
 ~/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
 # my syncplay launcher says this is a terminal app, so in case something goes
 # wrong, let it stay open for a moment for me to see what.
+echo ""
 sleep 5
 set +x
