@@ -29,6 +29,9 @@ ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweak
 ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweaks
 ln -sfv $FLATPAKEXPORTS/org.gnome.tweaks $TARGETDIR/gnome-tweak-tool
 ln -sfv $FLATPAKEXPORTS/org.gajim.Gajim $TARGETDIR/gajim
+if [ ! -f /usr/bin/okular ]; then
+	ln -sfv $FLATPAKEXPORTS/org.kde.okular $TARGETDIR/okular
+fi
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
