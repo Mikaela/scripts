@@ -36,10 +36,8 @@ def main():
     else:
         # Tästä tuli vahingossa catch-all virheellisille syötteille, enkä ole
         # varma toteutinko kaikki skenaariot
-        print(
-            "Joko tilannetta ei ole vielä toteutettu tai annoit \
-virheellisen syötteen. Ilmoittaisitko ongelman kehittäjälle?"
-        )
+        print("Joko tilannetta ei ole vielä toteutettu tai annoit \
+virheellisen syötteen. Ilmoittaisitko ongelman kehittäjälle?")
         print("Tietokone valitsi:", tkvalinta, "syötteesi oli", valinta)
 
 
