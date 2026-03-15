@@ -10,19 +10,19 @@ FlagsForFirefox="--allow-downgrade $@"
 # Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
 if [ -f ~/.local/firefox/firefox ]; then
-	~/.local/firefox/firefox $FlagsForFirefox
+	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." ~/.local/firefox/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox ]; then
-	/usr/bin/firefox $FlagsForFirefox
+	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." /usr/bin/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox-esr ]; then
-	/usr/bin/firefox-esr $FlagsForFirefox
+	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." /usr/bin/firefox-esr $FlagsForFirefox
 # Fallback to Snap which apparently follows /etc/policies.json
 elif [ -f /var/lib/snapd/snap/bin/firefox ]; then
-	snap run firefox $FlagsForFirefox
+	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." snap run firefox $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else
-	flatpak run org.mozilla.firefox $FlagsForFirefox
+	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." flatpak run org.mozilla.firefox $FlagsForFirefox
 fi
 
 set +x
