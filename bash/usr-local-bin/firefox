@@ -7,22 +7,30 @@ set -x
 export MOZ_ENABLE_WAYLAND=1
 FlagsForFirefox="--allow-downgrade $@"
 
+inhibitcmd() {
+	if hash systemd-inhibit 2> /dev/null; then
+		systemd-inhibit --who "firefox ($(whoami))" --why "Web browser is running, let's not autoreboot or anything" $@
+	else
+		$@
+	fi
+}
+
 # Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
 if [ -f ~/.local/firefox/firefox ]; then
-	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." ~/.local/firefox/firefox $FlagsForFirefox
+	inhibitcmd ~/.local/firefox/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox ]; then
-	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." /usr/bin/firefox $FlagsForFirefox
+	inhibitcmd /usr/bin/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox-esr ]; then
-	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." /usr/bin/firefox-esr $FlagsForFirefox
+	inhibitcmd /usr/bin/firefox-esr $FlagsForFirefox
 # Fallback to Snap which apparently follows /etc/policies.json
 elif [ -f /var/lib/snapd/snap/bin/firefox ]; then
-	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." snap run firefox $FlagsForFirefox
+	inhibitcmd snap run firefox $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else
-	systemd-inhibit --why "Käyttäjän $(whoami) Firefox on käynnissä." flatpak run org.mozilla.firefox $FlagsForFirefox
+	inhibitcmd flatpak run org.mozilla.firefox $FlagsForFirefox
 fi
 
 set +x
