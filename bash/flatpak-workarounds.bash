@@ -39,6 +39,9 @@ flatpak override --env=MANGOHUD_CONFIG='read_cfg,background_alpha=0,horizontal,t
 flatpak override --filesystem=xdg-config/MangoHud:ro $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
+# Enable WINE/Proton NT sync if the kernel ntsync module is loaded
+# (/dev/ntsync)
+flatpak override --env=WINENTSYNC=1 $@
 
 # SECURITY WARNING! Discord socket
 flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
