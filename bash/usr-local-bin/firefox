@@ -9,7 +9,7 @@ FlagsForFirefox="--allow-downgrade $@"
 
 inhibitcmd() {
 	if hash systemd-inhibit 2> /dev/null; then
-		systemd-inhibit --who "Firefox ($(whoami))" --why "Web browser is running, let's not autoreboot or anything" $@
+		systemd-inhibit --who "firefox-bin" --why "Firefox is running, let's not autoreboot or anything" $@
 	else
 		$@
 	fi
