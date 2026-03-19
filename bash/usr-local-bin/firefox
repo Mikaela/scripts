@@ -4,33 +4,36 @@
 # to, mainly for use with a desktop entry.
 
 set -x
-export MOZ_ENABLE_WAYLAND=1
-FlagsForFirefox="--allow-downgrade $@"
 
-inhibitcmd() {
-	if hash systemd-inhibit 2> /dev/null; then
-		systemd-inhibit --who "firefox-bin" --why "Firefox is running, let's not autoreboot or anything" $@
-	else
-		$@
-	fi
-}
+if [ -f "$HOME/.local/bin/_a-usrlocalbin-functions.bash" ]; then
+	. $HOME/.local/bin/_a-usrlocalbin-functions.bash
+elif [ -f /usr/local/bin/_a-usrlocalbin-functions.bash ]; then
+	. /usr/local/bin/_a-usrlocalbin-functions.bash
+else
+	echo "Library _a-usrlocalbin-functions.bash not found."
+	exit 1
+fi
+
+export MOZ_ENABLE_WAYLAND=1
+INHIBITWHO="firefox-bin"
+FlagsForFirefox="--allow-downgrade $@"
 
 # Firefox (stable, beta) and signatures: https://releases.mozilla.org/pub/firefox/releases/
 # Developer edition (and signatures): https://releases.mozilla.org/pub/devedition/releases/
 if [ -f ~/.local/firefox/firefox ]; then
-	inhibitcmd ~/.local/firefox/firefox $FlagsForFirefox
+	_inhibitshutdowncmd ~/.local/firefox/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox ]; then
-	inhibitcmd /usr/bin/firefox $FlagsForFirefox
+	_inhibitshutdowncmd /usr/bin/firefox $FlagsForFirefox
 # Fallback to global installation
 elif [ -f /usr/bin/firefox-esr ]; then
-	inhibitcmd /usr/bin/firefox-esr $FlagsForFirefox
+	_inhibitshutdowncmd /usr/bin/firefox-esr $FlagsForFirefox
 # Fallback to Snap which apparently follows /etc/policies.json
 elif [ -f /var/lib/snapd/snap/bin/firefox ]; then
-	inhibitcmd snap run firefox $FlagsForFirefox
+	_inhibitshutdowncmd snap run firefox $FlagsForFirefox
 # Fallback to flatpak, don't care if it doesn't exist
 else
-	inhibitcmd flatpak run org.mozilla.firefox $FlagsForFirefox
+	_inhibitshutdowncmd flatpak run org.mozilla.firefox $FlagsForFirefox
 fi
 
 set +x
