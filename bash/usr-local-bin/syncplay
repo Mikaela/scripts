@@ -4,6 +4,16 @@
 
 set -x
 export LC_ALL=C.utf8
+INHIBITWHO=Syncplay
+
+if [ -f "$HOME/.local/bin/_a-usrlocalbin-functions.bash" ]; then
+	. $HOME/.local/bin/_a-usrlocalbin-functions.bash
+elif [ -f /usr/local/bin/_a-usrlocalbin-functions.bash ]; then
+	. /usr/local/bin/_a-usrlocalbin-functions.bash
+else
+	echo "Library _a-usrlocalbin-functions.bash not found."
+	exit 1
+fi
 
 if ! hash xdg-user-dir 2> /dev/null; then
 	echo "xdg-user-dir is required for my laziness"
@@ -46,7 +56,7 @@ fi
 
 # finally launch the syncplay with any flags specified
 . ~/src/github.com/syncplay/syncplay/venv/bin/activate
-~/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
+_inhibitshutdowncmd ~/src/github.com/syncplay/syncplay/syncplayClient.py "$@"
 # my syncplay launcher says this is a terminal app, so in case something goes
 # wrong, let it stay open for a moment for me to see what.
 echo ""
