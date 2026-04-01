@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Enable dynamic and periodic reclaim for currently mounted BTRFS filesystems
+# and try to keep them enabled on boot through systemd-tmpfiles.
+# WARNING: will not persist over remount
+
+# Ensure we are root
+if [ "$(id -u)" != "0" ]; then
+	echo "This script obviously requires root"
+	exit 1
+fi
+
+# If the previous file was removed within the for loop, it would erase
+# configuration for other than the last filesystem.
+if [ -f "/etc/tmpfiles.d/btrfs-enable-dynamic-periodic-reclaim.conf" ]; then
+	rm /etc/tmpfiles.d/btrfs-enable-dynamic-periodic-reclaim.conf
+fi
+
+# Loop through filesystems
+for filesystem in /sys/fs/btrfs/*; do
+	# Exclude /sys/fs/btrfs/btrfs/features
+	if [ -d "${filesystem}/allocation/data/" ]; then
+		echo 1 > ${filesystem}/allocation/data/dynamic_reclaim
+		echo 1 > ${filesystem}/allocation/data/periodic_reclaim
+		# Adapted from https://wiki.archlinux.org/title/Gaming#Make_the_changes_permanent
+		# to have these options set on boot instead of having to rerun this script automatically
+		echo "w ${filesystem}/allocation/data/dynamic_reclaim - - - - 1" >> /etc/tmpfiles.d/btrfs-enable-dynamic-periodic-reclaim.conf
+		echo "w ${filesystem}/allocation/data/periodic_reclaim - - - - 1" >> /etc/tmpfiles.d/btrfs-enable-dynamic-periodic-reclaim.conf
+	fi
+done
