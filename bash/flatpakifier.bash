@@ -32,6 +32,7 @@ ln -sfv $FLATPAKEXPORTS/org.gajim.Gajim $TARGETDIR/gajim
 if [ ! -f /usr/bin/okular ]; then
 	ln -sfv $FLATPAKEXPORTS/org.kde.okular $TARGETDIR/okular
 fi
+ln -sfv $FLATPAKEXPORTS/info.mumble.Mumble $TARGETDIR/mumble
 
 # Electron apps that actually need wrappers and flags
 #ln -sfv $FLATPAKEXPORTS/com.visualstudio.code $TARGETDIR/code
