@@ -7,7 +7,7 @@
 
 set -x
 export MOZ_ENABLE_WAYLAND=1
-FlagsForThunderbird="--ProfileManager $@"
+FlagsForThunderbird="--allow-downgrade $@"
 
 # Thunderbird (stable, beta) and signatures: https://releases.mozilla.org/pub/thunderbird/releases/
 if [ -f ~/.local/thunderbird/thunderbird ]; then
