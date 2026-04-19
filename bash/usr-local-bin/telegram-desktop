@@ -7,8 +7,15 @@ if [ -f /var/lib/flatpak/exports/bin/io.github.tdesktop_x64.TDesktop ]; then
 elif [ -f ~/.local/share/flatpak/exports/bin/io.github.tdesktop_x64.TDesktop ]; then
 	flatpak run --user io.github.tdesktop_x64.TDesktop "$@"
 # but if it's not installed, fallback to the official one
+# Debian?
 elif [ -f /usr/bin/telegram-desktop ]; then
 	/usr/bin/telegram-desktop "$@"
+elif [ -f /usr/bin/Telegram ]; then
+	# Fedora
+	/usr/bin/Telegram "$@"
+elif [ -f /usr/bin/telegram ]; then
+	# unknown if this exists anywhere
+	/usr/bin/telegram "$@"
 elif [ -f /var/lib/flatpak/exports/bin/org.telegram.desktop ]; then
 	flatpak run org.telegram.desktop "$@"
 elif [ -f ~/.local/share/flatpak/exports/bin/org.telegram.desktop ]; then
