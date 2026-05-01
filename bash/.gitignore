@@ -21,3 +21,6 @@ systemd-resolv.conf-generate.bash
 systemd-resolv.conf-restore.bash
 traditional-resolv.conf-generate.bash
 NetworkManager-resolv.conf-restore.bash
+# music-to-mp3.bash
+*.flac
+*.mp3
