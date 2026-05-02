@@ -24,6 +24,12 @@ for flac in *.flac; do
 done
 
 # Convert opus files too since yt-dlp has resulted into them
+# However as it's lossy to lossy conversion, allow user to cancel
+echo "WARNING! Lossly to lossy conversion! Press CTRL - C to cancel in 10 seconds."
+sleep 1
+echo "opus to mp3 conversion begins in 10 seconds"
+sleep 10
+
 for opus in *.opus; do
 	if [ -f "$opus.mp3" ]; then
 		echo "$opus.mp3 already exists"
