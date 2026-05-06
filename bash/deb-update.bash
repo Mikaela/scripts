@@ -191,6 +191,13 @@ if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	sleep 5
 	rpm-ostree status -v
 	sleep 5
+
+	# Somewhat questionable
+	rpm-ostree apply-live --allow-replacement
+	chmod --verbose a+x /var/roothome
+	rpm-ostree status -v
+	sleep 5
+
 	if hash systemctl 2> /dev/null; then
 		systemctl enable rpm-ostreed-automatic.timer
 	fi
