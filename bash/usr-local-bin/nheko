@@ -3,9 +3,19 @@
 # desired.
 
 set -x
-if [[ "$1" == -* ]]; then
-	flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master "$@"
+
+if [ -f "$HOME/.local/bin/_a-usrlocalbin-functions.bash" ]; then
+	. $HOME/.local/bin/_a-usrlocalbin-functions.bash
+elif [ -f /usr/local/bin/_a-usrlocalbin-functions.bash ]; then
+	. /usr/local/bin/_a-usrlocalbin-functions.bash
 else
-	flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --compact --profile "$@"
+	echo "Library _a-usrlocalbin-functions.bash not found."
+	exit 1
+fi
+
+if [[ "$1" == -* ]]; then
+	_gigaramhalfcpu flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master "$@"
+else
+	_gigaramhalfcpu flatpak run --env=LANGUAGE=fi:eo:en im.nheko.Nheko//master --compact --profile "$@"
 fi
 set +x
