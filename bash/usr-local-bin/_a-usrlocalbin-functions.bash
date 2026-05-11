@@ -9,3 +9,11 @@ _inhibitshutdowncmd() {
 		$@
 	fi
 }
+
+_gigaramhalfcpu() {
+	if hash systemd-run 2> /dev/null; then
+		systemd-run --scope --user --property=MemoryHigh=1G --property=CPUQuota=50% $@
+	else
+		$@
+	fi
+}

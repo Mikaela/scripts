@@ -6,21 +6,31 @@
 # I cannot use the Flatpak as it doesn't support smartcards.
 
 set -x
+
+if [ -f "$HOME/.local/bin/_a-usrlocalbin-functions.bash" ]; then
+	. $HOME/.local/bin/_a-usrlocalbin-functions.bash
+elif [ -f /usr/local/bin/_a-usrlocalbin-functions.bash ]; then
+	. /usr/local/bin/_a-usrlocalbin-functions.bash
+else
+	echo "Library _a-usrlocalbin-functions.bash not found."
+	exit 1
+fi
+
 export MOZ_ENABLE_WAYLAND=1
 FlagsForThunderbird="--allow-downgrade $@"
 
 # Thunderbird (stable, beta) and signatures: https://releases.mozilla.org/pub/thunderbird/releases/
 if [ -f ~/.local/thunderbird/thunderbird ]; then
-	~/.local/thunderbird/thunderbird $FlagsForThunderbird
+	gigaramhalfcpu ~/.local/thunderbird/thunderbird $FlagsForThunderbird
 # Fallback to global installation
 elif [ -f /usr/bin/thunderbird-wayland ]; then
-	/usr/bin/thunderbird-wayland $FlagsForThunderbird
+	gigaramhalfcpu /usr/bin/thunderbird-wayland $FlagsForThunderbird
 # Fallback to global installation
 elif [ -f /usr/bin/thunderbird ]; then
-	/usr/bin/thunderbird $FlagsForThunderbird
+	gigaramhalfcpu /usr/bin/thunderbird $FlagsForThunderbird
 # Fallback to flatpak, don't care if it doesn't exist
 else
-	flatpak run org.mozilla.Thunderbird $FlagsForThunderbird
+	gigaramhalfcpu flatpak run org.mozilla.Thunderbird $FlagsForThunderbird
 fi
 
 set +x
