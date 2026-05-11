@@ -21,16 +21,16 @@ FlagsForThunderbird="--allow-downgrade $@"
 
 # Thunderbird (stable, beta) and signatures: https://releases.mozilla.org/pub/thunderbird/releases/
 if [ -f ~/.local/thunderbird/thunderbird ]; then
-	gigaramhalfcpu ~/.local/thunderbird/thunderbird $FlagsForThunderbird
+	_gigaramhalfcpu ~/.local/thunderbird/thunderbird $FlagsForThunderbird
 # Fallback to global installation
 elif [ -f /usr/bin/thunderbird-wayland ]; then
-	gigaramhalfcpu /usr/bin/thunderbird-wayland $FlagsForThunderbird
+	_gigaramhalfcpu /usr/bin/thunderbird-wayland $FlagsForThunderbird
 # Fallback to global installation
 elif [ -f /usr/bin/thunderbird ]; then
-	gigaramhalfcpu /usr/bin/thunderbird $FlagsForThunderbird
+	_gigaramhalfcpu /usr/bin/thunderbird $FlagsForThunderbird
 # Fallback to flatpak, don't care if it doesn't exist
 else
-	gigaramhalfcpu flatpak run org.mozilla.Thunderbird $FlagsForThunderbird
+	_gigaramhalfcpu flatpak run org.mozilla.Thunderbird $FlagsForThunderbird
 fi
 
 set +x
