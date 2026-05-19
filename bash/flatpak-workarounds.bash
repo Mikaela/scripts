@@ -170,6 +170,8 @@ flatpak override com.heroicgameslauncher.hgl --env=LC_ALL=en_DK.utf8 $@
 flatpak override com.valvesoftware.Steam --env=PULSE_LATENCY_MSEC=60 $@
 flatpak override com.valvesoftware.SteamLink --env=PULSE_LATENCY_MSEC=60 $@
 flatpak override com.heroicgameslauncher.hgl --env=PULSE_LATENCY_MSEC=60 $@
+# EasyEffects is probably supposed to be immune
+flatpak override com.github.wwmm.easyeffects --env=PULSE_LATENCY_MSEC=0 $@
 
 # Yes, we are SteamDeck, of course
 #flatpak override com.valvesoftware.Steam --env=SteamDeck=1 $@
