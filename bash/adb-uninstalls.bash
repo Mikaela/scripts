@@ -31,6 +31,17 @@ echo "In case of trouble check Android System Settings, Connected devices, USB m
 (adb "$@" shell pm uninstall com.google.android.apps.bard &)
 #(adb "$@" shell pm disable com.google.android.apps.bard &)
 
+# https://dontkillmyapp.com/
+# Huawei
+(adb "$@" shell pm uninstall -k --user 0 com.huawei.powergenie &)
+(adb "$@" shell pm uninstall -k --user 0 com.huawei.android.hwaps &)
+(adb "$@" shell am stopservice hwPfwService &)
+# Motorola
+(adb "$@" shell pm uninstall -k –user 0 com.motorola.batterycare &)
+# Nokia / HTC Global
+(adb "$@" shell pm disable-user com.evenwell.powersaving.g3 &)
+(adb "$@" shell pm disable-user com.evenwell.emm &)
+
 # Keep last! Weird workaround for Finnish language in Android Auto audio input https://www.youtube.com/watch?v=jXEqNDaJJ00
 (adb "$@" shell pm uninstall com.google.android.googlequicksearchbox &)
 #(adb "$@" shell pm disable com.google.android.googlequicksearchbox &)
