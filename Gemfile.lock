@@ -7,8 +7,10 @@ GEM
       tilt
     logger (1.7.0)
     prettier_print (1.2.1)
-    rbs (3.10.3)
+    prism (1.9.0)
+    rbs (4.0.2)
       logger
+      prism (>= 1.6.0)
       tsort
     syntax_tree (6.3.0)
       prettier_print (>= 1.2.0)
@@ -36,7 +38,7 @@ DEPENDENCIES
   syntax_tree-rbs
 
 RUBY VERSION
-  ruby 4.0.1
+  ruby 4.0.5
 
 BUNDLED WITH
-  4.0.3
+  4.0.11
