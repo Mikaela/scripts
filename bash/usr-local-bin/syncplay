@@ -20,7 +20,7 @@ if ! hash xdg-user-dir 2> /dev/null; then
 	exit 1
 fi
 
-if [ -f "$(xdg-user-dir RUNTIME)/syncplay.$(date -I)" ]; then
+if [ -f "$(xdg-user-dir RUNTIME)/.syncplay.$(date -I)" ]; then
 	echo "Syncplay has been touched today"
 else
 	# If syncplay doesn't exist, get it
@@ -51,7 +51,7 @@ else
 	pip3 install pip --upgrade
 	pip3 install -r requirements.txt --upgrade
 	pip3 install -r requirements_gui.txt --upgrade
-	touch $(xdg-user-dir RUNTIME)/syncplay.$(date -I)
+	touch $(xdg-user-dir RUNTIME)/.syncplay.$(date -I)
 fi
 
 # finally launch the syncplay with any flags specified

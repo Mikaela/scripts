@@ -13,8 +13,8 @@ if [ -d /var/roothome ]; then
 		exit 1
 	fi
 
-	if [ -f "$(xdg-user-dir RUNTIME)/brew.$(date -I)" ]; then
-		echo "Homebrew has been patched today. If this is wrong, rm $(xdg-user-dir RUNTIME)/brew.$(date -I)"
+	if [ -f "$(xdg-user-dir RUNTIME)/.brew.$(date -I)" ]; then
+		echo "Homebrew has been patched today. If this is wrong, rm $(xdg-user-dir RUNTIME)/.brew.$(date -I)"
 	else
 		if [ ! -d "/home/linuxbrew/.linuxbrew" ]; then
 			echo "Homebrew not found."
@@ -24,7 +24,7 @@ if [ -d /var/roothome ]; then
 		cd /home/linuxbrew/.linuxbrew/bin/
 		cp /home/linuxbrew/.linuxbrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew2
 		sed -i 's/pwd\ \-P/pwd/g' /home/linuxbrew/.linuxbrew/bin/brew2
-		touch "$(xdg-user-dir RUNTIME)/brew.$(date -I)"
+		touch "$(xdg-user-dir RUNTIME)/.brew.$(date -I)"
 	fi
 
 	/home/linuxbrew/.linuxbrew/bin/brew2 $@
