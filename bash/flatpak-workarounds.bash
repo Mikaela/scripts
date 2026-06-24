@@ -42,6 +42,8 @@ flatpak override --env=SteamDeck=1 $@
 # Enable WINE/Proton NT sync if the kernel ntsync module is loaded
 # (/dev/ntsync)
 flatpak override --env=WINENTSYNC=1 $@
+# Enable Proton Discord RPC support
+flatpak override --env=PROTON_DISCORD_BRIDGE=1 $@
 
 # SECURITY WARNING! Discord socket
 flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
