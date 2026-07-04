@@ -28,6 +28,11 @@ flatpak remote-modify --enable flathub-beta $@
 printf 'Only want verified flatpaks? No problem!\n\tflatpak remote-modify --subset=verified flathub\n'
 printf 'kdeapps? https://userbase.kde.org/Tutorials/Flatpak#Nightly_KDE_apps\n'
 
+if [ -f ./flatpak-install-nightly-kdeapps.bash ]; then
+	sleep 15
+	./flatpak-install-nightly-kdeapps.bash
+fi
+
 # Revert? ~/.local/share/flatpak/repo/config or /var/lib/flatpak/repo/config
 
 # Hide commands being executed again
