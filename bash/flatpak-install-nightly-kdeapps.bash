@@ -11,5 +11,6 @@ flatpak install --or-update https://cdn.kde.org/flatpak/neochat-nightly/org.kde.
 flatpak install --or-update https://cdn.kde.org/flatpak/plasmatube-nightly/org.kde.plasmatube.flatpakref $@
 flatpak install --or-update https://cdn.kde.org/flatpak/kteatime-nightly/org.kde.kteatime.flatpakref $@
 flatpak install --or-update https://cdn.kde.org/flatpak/konversation-nightly/org.kde.konversation.flatpakref $@
+flatpak install --or-update https://cdn.kde.org/flatpak/kpublicalerts-nightly/org.kde.publicalerts.flatpakref $@
 
 set +x
