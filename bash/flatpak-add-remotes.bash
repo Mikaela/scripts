@@ -30,7 +30,7 @@ printf 'kdeapps? https://userbase.kde.org/Tutorials/Flatpak#Nightly_KDE_apps\n'
 
 if [ -f ./flatpak-install-nightly-kdeapps.bash ]; then
 	sleep 15
-	./flatpak-install-nightly-kdeapps.bash
+	./flatpak-install-nightly-kdeapps.bash --assumeyes
 fi
 
 # Revert? ~/.local/share/flatpak/repo/config or /var/lib/flatpak/repo/config
