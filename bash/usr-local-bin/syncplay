@@ -6,14 +6,15 @@ set -x
 export LC_ALL=C.utf8
 INHIBITWHO=Syncplay
 
-if [ -f "$HOME/.local/bin/_a-usrlocalbin-functions.bash" ]; then
-	. $HOME/.local/bin/_a-usrlocalbin-functions.bash
-elif [ -f /usr/local/bin/_a-usrlocalbin-functions.bash ]; then
-	. /usr/local/bin/_a-usrlocalbin-functions.bash
-else
-	echo "Library _a-usrlocalbin-functions.bash not found."
-	exit 1
-fi
+# This function is copy-paste from ./_a-usrlocalbin-functions.bash so this
+# script can pretend to be a bit more portable.
+_inhibitshutdowncmd() {
+	if hash systemd-inhibit 2> /dev/null; then
+		systemd-inhibit --what shutdown --who "$INHIBITWHO" --why "$INHIBITWHO blocks shutdown/reboot" $@
+	else
+		$@
+	fi
+}
 
 if ! hash xdg-user-dir 2> /dev/null; then
 	echo "xdg-user-dir is required for my laziness"
