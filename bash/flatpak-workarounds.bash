@@ -46,7 +46,7 @@ flatpak override --env=WINENTSYNC=1 $@
 flatpak override --env=PROTON_DISCORD_BRIDGE=1 $@
 
 # SECURITY WARNING! Discord socket
-flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
+#flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
 
 # LaTeX templates allowed before they become an issue.
 flatpak override --filesystem=~/texmf/tex/latex/local $@
@@ -126,9 +126,11 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/Games/Heroic:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override com.valvesoftware.Steam --filesystem=xdg-music $@
+flatpak override com.valvesoftware.Steam --filesystem=~/.xlcore $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
-
+# TODO: Is this necessary for me?
+flatpak override com.valvesoftware.Steam --persist=~/.local/share/Steam/steamapps $@
 # Steam's Proton-GE (flatpak). Not supported. Via https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/issues/309#issuecomment-2746256940
 # Add /var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable/active/files/proton
 # as a custom proton
@@ -152,6 +154,9 @@ if [ -d /var/sdcard/Steam ]; then
 	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Heroic:rw $@
 	flatpak override net.lutris.Lutris --filesystem=/var/sdcard/Heroic:rw $@
 	flatpak override com.heroicgameslauncher.hgl --filesystem=/var/sdcard/Heroic:rw $@
+	# Questionable Steaming continues
+	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/dotxlcore $@
+	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/FINAL\ FANTASY\ XIV\ Online $@
 fi
 
 # https://github.com/ValveSoftware/steam-for-linux/issues/4924
