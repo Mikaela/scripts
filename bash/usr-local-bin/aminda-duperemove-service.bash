@@ -19,23 +19,23 @@ _balancer() {
 	btrfs balance start -dusage=50 $1
 }
 
-if [ ! -d /sysroot/ostree ]; then
-	echo "This script currently only targets Fedora Kinoite, because I am lazy"
-	exit 1
-fi
-
 # Hi systemd, we are starting up or running!
-=systemd-notify --ready
+systemd-notify --ready
 
 # Something says to run this in journalctl, so sure
 blkid
+
+if [ ! -d /sysroot/ostree ]; then
+	_duperemover /root/rootfs.hash /
+	# overlayfs is not btrfs filesystem so it can be balanced here
+	_balancer /
+fi
 
 # Home directories
 _balancer /var/home
 _duperemover /root/home.hash /var/home
 
 # root filesystem
-_balancer /
 _duperemover /root/rootfs.hash /
 
 # where non-home is, although home is too
@@ -49,8 +49,10 @@ if [ -d /var/sdcard ]; then
 fi
 
 # TODO: Why do I have these?
-#_duperemover /root/usr-local-bin.hash /usr/local/bin
-#_duperemover /root/flatpak.hash /var/lib/flatpak
-#_duperemover /root/snap.hash /var/lib/snapd
+_duperemover /root/usr-local-bin.hash /usr/local/bin
+_duperemover /root/flatpak.hash /var/lib/flatpak
+if [ -d /var/lib/snapd ]; then
+	_duperemover /root/snap.hash /var/lib/snapd
+fi
 
 set +x
