@@ -55,4 +55,7 @@ if [ -d /var/lib/snapd ]; then
 	_duperemover /root/snap.hash /var/lib/snapd
 fi
 
+# We are exiting successfully for systemd to know that exit code
+exit 0
+
 set +x
