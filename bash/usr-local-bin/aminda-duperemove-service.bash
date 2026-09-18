@@ -4,8 +4,12 @@
 
 set -x
 
-# Can I simply have a function?
+# I can have a simple function to not repeat myself.
+# Something complains about "libblkid could not get uuid for device... Run
+# blkid as root to populate the cache.", so I am simply running it at every
+# point so surely there will be the cache.
 _duperemover() {
+	blkid
 	if hash duperemove 2> /dev/null; then
 		duperemove -rdhq --io-threads=1 --cpu-threads=1 --hashfile=$1 $2
 	else
@@ -15,15 +19,14 @@ _duperemover() {
 }
 
 _balancer() {
+	blkid
 	btrfs balance start -dusage=25 -dlimit=10 -musage=25 -mlimit=10 $1
+	blkid
 	btrfs balance start -dusage=50 $1
 }
 
 # Hi systemd, we are starting up or running!
 systemd-notify --ready
-
-# Something says to run this in journalctl, so sure
-blkid
 
 if [ ! -d /sysroot/ostree ]; then
 	_duperemover /root/rootfs.hash /
