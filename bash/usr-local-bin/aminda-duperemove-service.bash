@@ -25,8 +25,14 @@ _balancer() {
 	btrfs balance start -dusage=50 $1
 }
 
-# Hi systemd, we are starting up or running!
-systemd-notify --ready
+# Ensure we are root
+if [ "$(id -u)" != "0" ]; then
+	echo "This script obviously requires root"
+	exit 1
+else
+	# Hi systemd, we are starting up or running!
+	systemd-notify --ready
+fi
 
 if [ ! -d /sysroot/ostree ]; then
 	_duperemover /root/rootfs.hash /
