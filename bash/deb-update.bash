@@ -37,6 +37,9 @@ if hash fedora-third-party 2> /dev/null; then
 	fedora-third-party enable
 	# Are they enabled?
 	fedora-third-party query
+	# TODO: This is misplaced and lazy
+	systemctl enable fwupd.service
+	systemctl enable fwupd-refresh.timer
 fi
 
 # If we have a /sysroot/ostree chances are we are on Fedora Atomic and
