@@ -52,19 +52,19 @@ repos:
         args: [--update-only]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v2.3.0"
+    rev: "v2.4.0"
     hooks:
       - id: mypy
         additional_dependencies: [types-tabulate]
 
   - repo: https://github.com/pycqa/isort
-    rev: 9.0.0b1
+    rev: 9.0.2
     hooks:
       - id: isort
         name: isort (python)
 
   - repo: https://github.com/psf/black
-    rev: 26.5.1
+    rev: 26.10.0
     hooks:
       - id: black
 
@@ -87,7 +87,7 @@ repos:
         language: system
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: "3.6.1"
+    rev: "3.11.1"
     hooks:
       - id: editorconfig-checker
         alias: ec
