@@ -8,6 +8,12 @@ set -x
 # This is said to be a poor practice that should only be used for debugging
 export LC_ALL=C.utf8
 
+# Small reminder of what we are running on
+if hash lsb_release 2> /dev/null; then
+	lsb_release -sd
+	sleep 1
+fi
+
 # if hash checks that the command exists
 if hash apt-get 2> /dev/null; then
 	# I am not sure if -y here even does anything, at least it won't work for
