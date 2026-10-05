@@ -24,5 +24,11 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 # Mozilla Products
 export MOZ_ENABLE_WAYLAND=1
 
-dbus-launch --exit-with-session startplasma-wayland "$@"
+# If kmscon is installed, use its wrapper. Additionally ensure dbus is around.
+if hash kmscon-launch-gui 2> /dev/null; then
+	kmscon-launch-gui dbus-launch --exit-with-session startplasma-wayland "$@"
+else
+	dbus-launch --exit-with-session startplasma-wayland "$@"
+fi
+
 set +x
