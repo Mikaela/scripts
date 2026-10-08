@@ -14,7 +14,7 @@ fi
 
 # Functions enable me to be even more lazy
 _flatpak-install() {
-	flatpak install --or-update --assumeyes $@
+	flatpak install --or-update --assumeyes --noninteractive $@
 }
 
 # Remember! These are installed from KDE Nightly apps already!
@@ -23,6 +23,12 @@ _flatpak-install() {
 # Lazy conditional. If outside of flatpak, not necessary, otherwise necessary
 if [[ ! -f /usr/share/applications/org.torproject.torbrowser-launcher.desktop ]]; then
 	_flatpak-install flathub org.torproject.torbrowser-launcher
+fi
+
+# In case I have override removed the system Firefox, ensure there is at least one global
+if [[ ! -f /usr/bin/firefox ]]; then
+	#_flatpak-install flathub org.mozilla.firefox
+	_flatpak-install flathub-beta org.mozilla.firefox//beta
 fi
 
 # Alarms
@@ -53,7 +59,8 @@ _flatpak-install flathub org.kde.skanpage org.libreoffice.LibreOffice org.libreo
 echo "YouTube: likely through Firefox & uBlock Origin or already installed through nightlies"
 sleep 3
 
-# Meow!
+# Final cleanup and reminders
+flatpak uninstall --unused --assumeyes --noninteractive
 echo "Remember https://aminda.eu/n/essentialsoftware and that these should be in sync for actually necessary applications!"
 sleep 3
 
