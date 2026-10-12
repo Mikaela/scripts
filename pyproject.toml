@@ -1,12 +1,12 @@
 # Black
 [tool.black]
 line-length = 79
-target-version = ['py312']
+target-version = ["py312"]
 preview = true
 
 # Mypy
 [tool.mypy]
-python_version = '3.12'
+python_version = "3.12"
 
 # Pylint
 [tool.pylint.main]
@@ -23,8 +23,8 @@ max-line-length = 79
 # Disables warnings about TODO
 disable = ["W0511"]
 
-#[tool.pylint.variables]
-#ignored-argument-names = "_.*|^ignored_|^unused_"
+# [tool.pylint.variables]
+# ignored-argument-names = "_.*|^ignored_|^unused_"
 
 # https://black.readthedocs.io/en/stable/guides/using_black_with_other_tools.html
 
