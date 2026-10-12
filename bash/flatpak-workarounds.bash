@@ -12,7 +12,8 @@ set -x
 # multiple times), but for the sake of legibility and un/commenting this
 # isn't done within this script.
 # Another NOTE: --persist is for dotfiles and similar that don't matter
-# to the user, --filesystem for files user is supposed to see
+# to the user, --filesystem for files user is supposed to see. However
+# the :ro and xdg don't work with that.
 
 # I am lazy
 if [ -f flatpakifier.bash ]; then
@@ -29,7 +30,7 @@ flatpak override --filesystem=~/gdb.txt:rw $@
 flatpak override --persist=~/.curlrc $@
 flatpak override --persist=~/.editorconfig $@
 flatpak override --persist=~/.local/share/fonts $@
-flatpak override --persist=xdg-config/fontconfig:ro $@
+flatpak override --filesystem=xdg-config/fontconfig:ro $@
 
 # Controller access for everything and SECURITY likely all input access
 # TODO: I am not sure if this can be persist? Check back later
@@ -37,7 +38,8 @@ flatpak override --persist=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --env=MANGOHUD_CONFIG='read_cfg,background_alpha=0,horizontal,time,time_no_label,time_format=%X,position=bottom-left,winesync' $@
-flatpak override --persist=xdg-config/MangoHud:ro $@
+flatpak override --filesystem=xdg-config/MangoHud:ro $@
+flatpak override --persist=~/.config/MangoHud $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
 # Enable WINE/Proton NT sync if the kernel ntsync module is loaded
@@ -173,8 +175,8 @@ flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.Cons
 
 # Desktop shortcuts of Steam laziness. Inspired by https://github.com/flathub/com.valvesoftware.Steam/issues/85
 flatpak override com.valvesoftware.Steam --filesystem=xdg-desktop:rw $@
-flatpak override com.valvesoftware.Steam --persist=xdg-data/applications:rw $@
-flatpak override com.valvesoftware.Steam --persist=xdg-data/icons:rw $@
+flatpak override com.valvesoftware.Steam --filesystem=xdg-data/applications:rw $@
+flatpak override com.valvesoftware.Steam --filesystem=xdg-data/icons:rw $@
 
 # Place the wrapper script the desktop entries above expect
 # TODO: Be less lazy and don't nest if
