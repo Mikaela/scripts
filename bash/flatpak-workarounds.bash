@@ -11,9 +11,6 @@ set -x
 # NOTE! Multiple overrides can be set in one command (just pass the --flag
 # multiple times), but for the sake of legibility and un/commenting this
 # isn't done within this script.
-# Another NOTE: --persist is for dotfiles and similar that don't matter
-# to the user, --filesystem for files user is supposed to see. However
-# the :ro and xdg don't work with that.
 
 # I am lazy
 if [ -f flatpakifier.bash ]; then
@@ -25,21 +22,27 @@ fi
 # - curl configuration following
 # - text editor configuration
 # - user-specific fonts
-flatpak override --persist=~/.gdbinit $@
+flatpak override --filesystem=~/.gdbinit $@
 flatpak override --filesystem=~/gdb.txt:rw $@
-flatpak override --persist=~/.curlrc $@
-flatpak override --persist=~/.editorconfig $@
-flatpak override --persist=~/.local/share/fonts $@
+flatpak override --filesystem=~/.curlrc $@
+flatpak override --filesystem=~/.editorconfig $@
+flatpak override --filesystem=~/.local/share/fonts $@
 flatpak override --filesystem=xdg-config/fontconfig:ro $@
 
 # Controller access for everything and SECURITY likely all input access
-# TODO: I am not sure if this can be persist? Check back later
-flatpak override --persist=/run/udev $@
+# TODO: I am not sure if this can be filesystem? Check back later
+flatpak override --filesystem=/run/udev $@
+flatpak override --filesystem=~/.curlrc $@
+flatpak override --filesystem=~/.editorconfig $@
+flatpak override --filesystem=~/.local/share/fonts $@
+flatpak override --filesystem=xdg-config/fontconfig:ro $@
+
+# Controller access for everything and SECURITY likely all input access
+flatpak override --filesystem=/run/udev $@
 # MangoHUD for everything that has it
 flatpak override --env=MANGOHUD=1 $@
 flatpak override --env=MANGOHUD_CONFIG='read_cfg,background_alpha=0,horizontal,time,time_no_label,time_format=%X,position=bottom-left,winesync' $@
-flatpak override --filesystem=xdg-config/MangoHud:ro $@
-flatpak override --persist=~/.config/MangoHud $@
+flatpak override --filesystem=~/.config/MangoHud $@
 # and of course we are Steam Deck everywhere, no question about it!
 flatpak override --env=SteamDeck=1 $@
 # Enable WINE/Proton NT sync if the kernel ntsync module is loaded
@@ -52,8 +55,8 @@ flatpak override --env=PROTON_DISCORD_BRIDGE=1 $@
 flatpak override --filesystem=~/texmf/tex/latex/local $@
 
 # Public git repositories I access or symlink much.
-flatpak override --persist=~/.shell-things $@
-flatpak override --persist=/root/.shell-things $@
+flatpak override --filesystem=~/.shell-things $@
+flatpak override --filesystem=/root/.shell-things $@
 flatpak override --filesystem=~/src:create $@
 flatpak override --filesystem=~/2src:create $@
 flatpak override --filesystem=~/src/codeberg.org/Aminda/shell-things $@
@@ -96,8 +99,8 @@ flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
 
 # TODO: This section lives in hope that Briar will return to live from maintenance mode!
 # https://github.com/flathub/org.briarproject.Briar/issues/5
-#flatpak override org.briarproject.Briar --persist=~/.briar:create $@
-#flatpak override org.briarproject.Briar --persist=~/.java/.userPrefs/org/briarproject/briar:create $@
+#flatpak override org.briarproject.Briar --filesystem=~/.briar:create $@
+#flatpak override org.briarproject.Briar --filesystem=~/.java/.userPrefs/org/briarproject/briar:create $@
 #flatpak override org.briarproject.Briar --nosocket=fallback-x11 $@
 #flatpak override org.briarproject.Briar --socket=x11 $@
 
@@ -105,7 +108,7 @@ flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
 
 # PCSX2 files
-flatpak override net.pcsx2.PCSX2 --persist=~/.config/PCSX2:create $@
+flatpak override net.pcsx2.PCSX2 --filesystem=~/.config/PCSX2:create $@
 flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 
 # A directory I can share between native and flatpak Steam so both have the
@@ -114,24 +117,17 @@ flatpak override net.pcsx2.PCSX2 --filesystem=~/PS2:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/Games/Heroic:create $@
 flatpak override com.valvesoftware.Steam --filesystem=~/SteamLibrary:create $@
 flatpak override com.valvesoftware.Steam --filesystem=xdg-music $@
-flatpak override com.valvesoftware.Steam --persist=~/.xlcore $@
+flatpak override com.valvesoftware.Steam --filesystem=~/.xlcore $@
 flatpak override net.lutris.Lutris --filesystem=~/SteamLibrary:create $@
 flatpak override com.heroicgameslauncher.hgl --filesystem=~/SteamLibrary:create $@
-flatpak override com.valvesoftware.Steam --persist=~/.local/share/Steam/steamapps $@
-# Steam's Proton-GE (flatpak). Not supported. Via https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/issues/309#issuecomment-2746256940
-# Add /var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable/active/files/proton
-# as a custom proton
-# TODO NOT: don't do this, use the integrated Proton-GE-Latest from WINE
-# manager and just don't enable mangohud in GUI (enabled by this script
-# already) and keep gamescope/upscaling off and there will not be hooking
-# failure message.
-#flatpak override com.heroicgameslauncher.hgl --filesystem=/var/lib/flatpak/runtime/com.valvesoftware.Steam.CompatibilityTool.Proton-GE/$(uname -m)/stable $@
+# TODO: Is this necessary for me?
+flatpak override com.valvesoftware.Steam --filesystem=~/.local/share/Steam/steamapps $@
 
 # My Steam Deck laziness. My systemd units check for /var/ and Steam checks
 # free space based on top level directory so it has to be a subdirectory
 # and while the mount point may be /var/sdcard I don't want to give it
 # access to root directory in case it denied that for security
-flatpak override com.valvesoftware.Steam --persist=~/.xlcore:create $@
+flatpak override com.valvesoftware.Steam --filesystem=~/.xlcore:create $@
 if [ -d /var/sdcard/Steam ]; then
 	mkdir -vp /var/sdcard/Steam/Library
 	flatpak override com.valvesoftware.Steam --filesystem=/var/sdcard/Steam:rw $@
@@ -203,14 +199,14 @@ if [ -f $HOME/.local/share/flatpak/exports/bin/com.valvesoftware.Steam ]; then
 fi
 
 # For use with system syncthing, note its flags
-flatpak override me.kozec.syncthingtk --persist=~/.config/syncthing:create $@
+flatpak override me.kozec.syncthingtk --filesystem=~/.config/syncthing:create $@
 
 # Mosh starts by opening an SSH connection and thus it needs to at least read my SSH config. Seeing new keys probably needs rw to known_hosts and as I use sockets, they may need rw. Then there is my config.d being in a private git repo...
-#flatpak override org.mosh.mosh --persist=~/.ssh/config $@
-#flatpak override org.mosh.mosh --persist=~/.ssh/config.d $@
-#flatpak override org.mosh.mosh --persist=~/.ssh/known_hosts:rw $@
-#flatpak override org.mosh.mosh --persist=~/.ssh/sockets:rw $@
-#flatpak override org.mosh.mosh --persist=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d $@
+#flatpak override org.mosh.mosh --filesystem=~/.ssh/config $@
+#flatpak override org.mosh.mosh --filesystem=~/.ssh/config.d $@
+#flatpak override org.mosh.mosh --filesystem=~/.ssh/known_hosts:rw $@
+#flatpak override org.mosh.mosh --filesystem=~/.ssh/sockets:rw $@
+#flatpak override org.mosh.mosh --filesystem=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d $@
 
 # Regardless of whether I use the IRC client through Flatpak or Snap,
 # it having access to the same config is preferable.
@@ -218,7 +214,7 @@ flatpak override org.squidowl.halloy --filesystem=~/snap/halloy:create $@
 
 # Hardening GearLever, https://github.com/mijorus/gearlever/issues/143
 flatpak override it.mijorus.gearlever --nofilesystem=host:reset $@
-flatpak override it.mijorus.gearlever --persist=~/.local/share/applications:create $@
+flatpak override it.mijorus.gearlever --filesystem=~/.local/share/applications:create $@
 flatpak override it.mijorus.gearlever --filesystem=~/AppImages:create $@
 
 # # KDE Connect for web browsers. Just allow it for everything, SECURITY WARNING!
@@ -235,9 +231,9 @@ flatpak override com.calibre_ebook.calibre --nodevice=all $@
 flatpak override com.calibre_ebook.calibre --device=dri $@
 flatpak override com.calibre_ebook.calibre --filesystem=/run/media $@
 # FanFicFare Browser Cache. TODO: Firefox flatpak and other browsers
-flatpak override com.calibre_ebook.calibre --persist=~/.cache/mozilla/firefox/ $@
-flatpak override com.calibre_ebook.calibre --persist=~/.cache/vivaldi/ $@
-flatpak override com.calibre_ebook.calibre --persist=~/.cache/vivaldi-snapshot/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/mozilla/firefox/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/vivaldi/ $@
+flatpak override com.calibre_ebook.calibre --filesystem=~/.cache/vivaldi-snapshot/ $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/Calibre\ Library:create $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/bt $@
 flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
@@ -246,7 +242,7 @@ flatpak override com.calibre_ebook.calibre --filesystem=~/xdg-download $@
 flatpak override com.calibre_ebook.calibre --env=LC_ALL=en_DK.utf8 $@
 
 # yt-dlp config file
-flatpak override io.mpv.Mpv --persist=~/.config/yt-dlp/config:ro $@
+flatpak override io.mpv.Mpv --filesystem=~/.config/yt-dlp/config:ro $@
 
 # Display the overrides
 if [ -d /var/lib/flatpak/overrides/ ]; then
