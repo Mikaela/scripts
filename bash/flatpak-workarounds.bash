@@ -32,8 +32,6 @@ flatpak override --persist=~/.local/share/fonts $@
 flatpak override --persist=xdg-config/fontconfig:ro $@
 
 # Controller access for everything and SECURITY likely all input access
-# F: Not sharing "/dev/uinput" with sandbox: File "/dev/uinput" has unsupported type 0o20000
-#flatpak override --filesystem=/dev/uinput $@
 # TODO: I am not sure if this can be persist? Check back later
 flatpak override --persist=/run/udev $@
 # MangoHUD for everything that has it
@@ -47,9 +45,6 @@ flatpak override --env=SteamDeck=1 $@
 flatpak override --env=WINENTSYNC=1 $@
 # Enable Proton Discord RPC support
 flatpak override --env=PROTON_DISCORD_BRIDGE=1 $@
-
-# SECURITY WARNING! Discord socket
-#flatpak override --filesystem=xdg-run/app/com.discordapp.Discord:create --filesystem=xdg-run/snap.discord:rw --filesystem=xdg-run/discord-ipc-0:rw $@
 
 # LaTeX templates allowed before they become an issue.
 flatpak override --filesystem=~/texmf/tex/latex/local $@
@@ -78,14 +73,6 @@ flatpak override --env=ELECTRON_OZONE_PLATFORM_HINT=auto $@
 #flatpak override --env=PROTON_ENABLE_WAYLAND=1 $@
 #flatpak override --env=PROTON_ENABLE_HDR=1 $@
 
-# SECURITY! However without these permissions there is crashing outside
-# of tmux when attempting to ssh (using gpg authentication subkey) or
-# edit files belonging to flatpaks.
-#flatpak override page.codeberg.dnkl.foot --socket=ssh-auth $@
-#flatpak override page.codeberg.dnkl.foot --socket=gpg-agent $@
-#flatpak override page.codeberg.dnkl.foot --filesystem=host $@
-#flatpak override page.codeberg.dnkl.foot --filesystem=~/.var/app/page.codeberg.dnkl.foot/config/foot:create $@
-
 # Backticks and a lot of common characters in all Flatpaks
 # https://github.com/flatpak/flatpak/issues/2031
 flatpak override --talk-name=org.fcitx.Fcitx $@
@@ -97,24 +84,20 @@ flatpak override --talk-name=org.freedesktop.impl.portal.desktop.darkman $@
 flatpak override --env=FLATPAK_ENABLE_SDK_EXT=texlive,dotnet,golang $@
 
 # If timedatectl (systemd) is used, set TZ for flatpaks needing it
-if hash timedatectl 2> /dev/null; then
-	# DRY - Don't Repeat Yourself
-	export TZ=$(timedatectl show --property=Timezone --value)
-	# https://github.com/flathub/com.valvesoftware.Steam/wiki#steam-shows-times-with-incorrect-timezone
-	flatpak override com.valvesoftware.Steam --env=TZ=$TZ $@
-	flatpak override com.valvesoftware.SteamLink --env=TZ=$TZ $@
-fi
+#if hash timedatectl 2> /dev/null; then
+# DRY - Don't Repeat Yourself
+#export TZ=$(timedatectl show --property=Timezone --value)
+# https://github.com/flathub/com.valvesoftware.Steam/wiki#steam-shows-times-with-incorrect-timezone
+#flatpak override com.valvesoftware.Steam --env=TZ=$TZ $@
+#flatpak override com.valvesoftware.SteamLink --env=TZ=$TZ $@
+#fi
 
-# I don't have other nvim on SteamOS
-#flatpak override io.neovim.nvim --filesystem=host $@
-#flatpak override io.neovim.nvim --filesystem=host-os $@
-#flatpak override io.neovim.nvim --filesystem=host-etc $@
-
+# TODO: This section lives in hope that Briar will return to live from maintenance mode!
 # https://github.com/flathub/org.briarproject.Briar/issues/5
-flatpak override org.briarproject.Briar --persist=~/.briar:create $@
-flatpak override org.briarproject.Briar --persist=~/.java/.userPrefs/org/briarproject/briar:create $@
-flatpak override org.briarproject.Briar --nosocket=fallback-x11 $@
-flatpak override org.briarproject.Briar --socket=x11 $@
+#flatpak override org.briarproject.Briar --persist=~/.briar:create $@
+#flatpak override org.briarproject.Briar --persist=~/.java/.userPrefs/org/briarproject/briar:create $@
+#flatpak override org.briarproject.Briar --nosocket=fallback-x11 $@
+#flatpak override org.briarproject.Briar --socket=x11 $@
 
 # Directory I have normal Nextcloud in
 flatpak override com.nextcloud.desktopclient.nextcloud --filesystem=~/Nextcloud:create $@
@@ -182,12 +165,6 @@ flatpak override com.heroicgameslauncher.hgl --env=PULSE_LATENCY_MSEC=60 $@
 # EasyEffects is probably supposed to be immune
 flatpak override com.github.wwmm.easyeffects --env=PULSE_LATENCY_MSEC=0 $@
 
-# Yes, we are SteamDeck, of course
-#flatpak override com.valvesoftware.Steam --env=SteamDeck=1 $@
-
-# Enable mangohud for all Steam games
-#flatpak override com.valvesoftware.Steam --env=MANGOHUD=1 $@
-
 # Permit Steam to access NetworkManager to also fix Big Picture Mode network
 flatpak override com.valvesoftware.Steam --system-talk-name=org.freedesktop.NetworkManager $@
 # Also power management and console(?) to poweroff from BPM
@@ -226,19 +203,12 @@ fi
 # For use with system syncthing, note its flags
 flatpak override me.kozec.syncthingtk --persist=~/.config/syncthing:create $@
 
-# https://github.com/flathub/com.microsoft.Edge?tab=readme-ov-file#game-controllers-not-working
-#flatpak override --persist=/run/udev com.microsoft.Edge $@
-
 # Mosh starts by opening an SSH connection and thus it needs to at least read my SSH config. Seeing new keys probably needs rw to known_hosts and as I use sockets, they may need rw. Then there is my config.d being in a private git repo...
-flatpak override org.mosh.mosh --persist=~/.ssh/config $@
-flatpak override org.mosh.mosh --persist=~/.ssh/config.d $@
-flatpak override org.mosh.mosh --persist=~/.ssh/known_hosts:rw $@
-flatpak override org.mosh.mosh --persist=~/.ssh/sockets:rw $@
-flatpak override org.mosh.mosh --persist=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d $@
-
-# Apparently Element needs this talk for encrypted search
-# https://github.com/flathub/im.riot.Riot/issues/303#issuecomment-1816055123
-flatpak override im.riot.Riot --talk-name=org.freedesktop.secrets $@
+#flatpak override org.mosh.mosh --persist=~/.ssh/config $@
+#flatpak override org.mosh.mosh --persist=~/.ssh/config.d $@
+#flatpak override org.mosh.mosh --persist=~/.ssh/known_hosts:rw $@
+#flatpak override org.mosh.mosh --persist=~/.ssh/sockets:rw $@
+#flatpak override org.mosh.mosh --persist=~/src/gitea.blesmrt.net/Mikaela/privgist/ssh/config.d $@
 
 # Regardless of whether I use the IRC client through Flatpak or Snap,
 # it having access to the same config is preferable.
@@ -251,12 +221,6 @@ flatpak override it.mijorus.gearlever --filesystem=~/AppImages:create $@
 
 # # KDE Connect for web browsers. Just allow it for everything, SECURITY WARNING!
 flatpak override --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override org.mozilla.firefox --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override org.chromium.Chromium --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override com.brave.Browser --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override com.vivaldi.Vivaldi --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override com.google.Chrome --talk-name=org.kde.plasma.browser.integration $@
-#flatpak override com.google.ChromeDev --talk-name=org.kde.plasma.browser.integration $@
 
 # qBittorrent
 flatpak override org.qbittorrent.qBittorrent --filesystem=~/bt:create $@
