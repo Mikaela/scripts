@@ -125,6 +125,7 @@ if hash flatpak 2> /dev/null; then
 	# Flatpak apps are sandboxed and should be safe to update automatically
 	# KEEP --noninteractive IN PLACE! While it removes progress bar, it also
 	# doesn't blink making it worth it in case of migraine attack.
+	flatpak update --noninteractive --assumeyes --appstream
 	flatpak update --noninteractive --assumeyes
 	flatpak update --noninteractive --assumeyes --no-static-deltas
 	# Note to self
