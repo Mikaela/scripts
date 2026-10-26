@@ -44,7 +44,7 @@ if [[ ! -f /usr/bin/mumble ]]; then
 fi
 
 # Gayming
-echo "Gayming: on gayming systems you know what to install."
+_flatpak-install flathub com.heroicgameslauncher.hgl com.valvesoftware.Steam com.valvesoftware.Steam.CompatibilityTool.Proton-GE
 sleep 3
 
 # General
@@ -58,6 +58,10 @@ _flatpak-install flathub org.kde.skanpage org.libreoffice.LibreOffice org.libreo
 # YouTube
 echo "YouTube: likely through Firefox & uBlock Origin or already installed through nightlies"
 sleep 3
+
+# Gayming part 2
+echo "Gayming part 2: self-service, unsure on branch numbers, copy-paste:"
+echo "sudo flatpak install --assumeyes flathub org.freedesktop.Platform.VulkanLayer.MangoHud org.freedesktop.Platform.VulkanLayer.gamescope"
 
 # Final cleanup and reminders
 flatpak uninstall --unused --assumeyes --noninteractive
