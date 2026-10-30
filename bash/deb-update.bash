@@ -9,13 +9,13 @@ set -x
 export LC_ALL=C.utf8
 
 # Small reminder of what we are running on
-if hash lsb_release 2> /dev/null; then
+if command -v lsb_release > /dev/null 2>&1; then
 	lsb_release -sd
 	sleep 1
 fi
 
-# if hash checks that the command exists
-if hash apt-get 2> /dev/null; then
+# if command -v checks that the command exists
+if command -v apt-get > /dev/null 2>&1; then
 	# I am not sure if -y here even does anything, at least it won't work for
 	# accepting suite changes for Debian when testing becomes stable.
 	# Checking for updates or new packages.
@@ -31,14 +31,14 @@ if hash apt-get 2> /dev/null; then
 	apt-get "$@" autoremove
 fi
 
-if hash dpkg 2> /dev/null; then
+if command -v dpkg > /dev/null 2>&1; then
 	# In case dpkg was interrupted previously, configure packages.
 	dpkg --configure -a
 fi
 
 # Enables Fedora third party repositories if not enabled, otherwise quiet.
 # My systems most likely have them already
-if hash fedora-third-party 2> /dev/null; then
+if command -v fedora-third-party > /dev/null 2>&1; then
 	systemctl enable fedora-third-party-refresh.service
 	fedora-third-party enable
 	# Are they enabled?
@@ -71,18 +71,18 @@ if [[ -f /usr/bin/dnf && ! -d /sysroot/ostree ]]; then
 fi
 
 # Arch Linux package management
-if hash pacman 2> /dev/null; then
+if command -v pacman > /dev/null 2>&1; then
 	pacman -Syu
 
 	# weekly cache cleanup service
-	if hash paccache 2> /dev/null; then
+	if command -v paccache > /dev/null 2>&1; then
 		systemctl enable paccache.timer
 	fi
 fi
 
 # https://github.com/Homebrew/brew
 if [[ -f /etc/systemd/system/linuxbrew-update.timer && $(id -u) == 0 ]]; then
-	if hash systemctl 2> /dev/null; then
+	if command -v systemctl > /dev/null 2>&1; then
 		systemctl enable linuxbrew-update.timer
 		systemctl start linuxbrew-update.service
 		# Technically this should be first, but it's probably rarer than my
@@ -110,18 +110,18 @@ else
 	printf "Either linuxbrew is not installed or running as root, skipping linuxbrew...\n"
 fi
 
-if hash pipx 2> /dev/null; then
+if command -v pipx > /dev/null 2>&1; then
 	if [[ $(id -u) != 0 ]]; then
 		pipx upgrade-all
 	fi
 fi
 
-if hash rpmconf 2> /dev/null; then
+if command -v rpmconf > /dev/null 2>&1; then
 	# Tests if there are rpmsave/rpmnew files, hopefully is non-interactive
 	rpmconf -a -t
 fi
 
-if hash flatpak 2> /dev/null; then
+if command -v flatpak > /dev/null 2>&1; then
 	# Flatpak apps are sandboxed and should be safe to update automatically
 	# KEEP --noninteractive IN PLACE! While it removes progress bar, it also
 	# doesn't blink making it worth it in case of migraine attack.
@@ -140,13 +140,13 @@ if hash flatpak 2> /dev/null; then
 
 	# Actually enable my flatpak timer too, just like homebrew above
 	if [[ -f "/etc/systemd/system/flatpak-update.timer" && $(id -u) == 0 ]]; then
-		if hash systemctl 2> /dev/null; then
+		if command -v systemctl > /dev/null 2>&1; then
 			systemctl enable --now flatpak-update.timer
 		fi
 	fi
 fi
 
-if hash snap 2> /dev/null; then
+if command -v snap > /dev/null 2>&1; then
 	# I don't want my systems full of old snaps
 	# > retain must be a number between 2 and 20, not "1"
 	snap set system refresh.retain=2
@@ -160,7 +160,7 @@ fi
 # I don't have flatpak or snap going to background, because I often do
 # ./deb-update.bash && poweroff
 
-if hash pkcon 2> /dev/null; then
+if command -v pkcon > /dev/null 2>&1; then
 	# KDE Plasma uses PackageKit for the update indicator
 	pkcon backend-details --noninteractive --plain --verbose
 	pkcon refresh --noninteractive --plain --verbose
@@ -169,12 +169,12 @@ if hash pkcon 2> /dev/null; then
 	pkcon update --noninteractive --plain --verbose
 fi
 
-if hash apt-file 2> /dev/null; then
+if command -v apt-file > /dev/null 2>&1; then
 	# So the local apt-file database is up-to-date.
 	apt-file update
 fi
 
-if hash needrestart 2> /dev/null; then
+if command -v needrestart > /dev/null 2>&1; then
 	# needrestart batch mode, should be visible on bottom of scrollback
 	# see https://github.com/liske/needrestart/blob/master/README.batch.md
 	needrestart -b
@@ -184,7 +184,7 @@ if hash needrestart 2> /dev/null; then
 fi
 
 # archlinux-contrib
-if hash checkservices 2> /dev/null; then
+if command -v checkservices > /dev/null 2>&1; then
 	checkservices
 	sleep 5
 fi
@@ -208,7 +208,7 @@ if [[ -f /usr/bin/rpm-ostree && -d /sysroot/ostree ]]; then
 	rpm-ostree status -v
 	sleep 5
 
-	if hash systemctl 2> /dev/null; then
+	if command -v systemctl > /dev/null 2>&1; then
 		systemctl enable rpm-ostreed-automatic.timer
 	fi
 fi
