@@ -53,13 +53,13 @@ repos:
         args: [--update-only]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v2.4.0"
+    rev: "v2.4.1"
     hooks:
       - id: mypy
         additional_dependencies: [types-tabulate]
 
   - repo: https://github.com/pycqa/isort
-    rev: 9.0.2
+    rev: 10.0.0b1
     hooks:
       - id: isort
         name: isort (python)
