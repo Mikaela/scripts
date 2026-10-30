@@ -48,9 +48,7 @@ _flatpak-install flathub com.heroicgameslauncher.hgl com.valvesoftware.Steam com
 sleep 3
 
 # General
-echo "Remember com.nextcloud.desktopclient.nextcloud on 'work' systems"
-sleep 3
-_flatpak-install flathub com.calibre_ebook.calibre com.github.wwmm.easyeffects com.rafaelmardojai.Blanket de.haeckerfelix.Shortwave me.kozec.syncthingtk org.fedoraproject.MediaWriter org.gnome.eog org.kde.elisa org.kde.kate org.kde.kcalc org.kde.kolourpaint org.kde.krdc org.pulseaudio.pavucontrol org.kde.okular org.qbittorrent.qBittorrent
+_flatpak-install flathub com.calibre_ebook.calibre com.github.wwmm.easyeffects com.nextcloud.desktopclient.nextcloud com.rafaelmardojai.Blanket de.haeckerfelix.Shortwave me.kozec.syncthingtk org.fedoraproject.MediaWriter org.gnome.eog org.kde.elisa org.kde.kate org.kde.kcalc org.kde.kolourpaint org.kde.krdc org.pulseaudio.pavucontrol org.kde.okular org.qbittorrent.qBittorrent
 
 # Office
 _flatpak-install flathub org.kde.skanpage org.libreoffice.LibreOffice org.libreoffice.LibreOffice.BundledExtension.Voikko org.gnome.glabels-3
