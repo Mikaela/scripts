@@ -8,7 +8,7 @@
 
 set -x
 
-if ! hash adb 2> /dev/null; then
+if ! command -v adb > /dev/null 2>&1; then
 	echo "Error: adb not found in $PATH" 1>&2
 	exit 1
 fi

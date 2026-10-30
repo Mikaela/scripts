@@ -7,17 +7,17 @@
 set -x
 
 # XMPP
-if hash dino 2> /dev/null; then
+if command -v dino > /dev/null 2>&1; then
 	(dino &)
 fi
-if hash gajim 2> /dev/null; then
+if command -v gajim > /dev/null 2>&1; then
 	(gajim &)
 else
 	(flatpak run org.gajim.Gajim --quiet &)
 fi
 
 # Jami, mostly P2P app
-if hash jami-gnome 2> /dev/null; then
+if command -v jami-gnome > /dev/null 2>&1; then
 	(jami-gnome -r &)
 fi
 
@@ -25,18 +25,18 @@ fi
 if [ -f ~/.local/Telegram/Updater ]; then
 	(~/.local/Telegram/Updater -many -startintray &)
 else
-	if hash telegram-desktop 2> /dev/null; then
+	if command -v telegram-desktop > /dev/null 2>&1; then
 		(telegram-desktop -many -startintray &)
 	fi
 fi
 
 # Keybase
-if hash run_keybase 2> /dev/null; then
+if command -v run_keybase > /dev/null 2>&1; then
 	(run_keybase &)
 fi
 
 # Steam
-if hash steam 2> /dev/null; then
+if command -v steam > /dev/null 2>&1; then
 	(STEAM_FRAME_FORCE_CLOSE=1 steam -silent &)
 fi
 
