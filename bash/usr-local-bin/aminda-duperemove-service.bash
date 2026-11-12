@@ -11,7 +11,8 @@ set -x
 _duperemover() {
 	blkid
 	if hash duperemove 2> /dev/null; then
-		duperemove -rdhq --io-threads=1 --cpu-threads=1 --hashfile=$1 $2
+		#duperemove -rdhq --io-threads=1 --cpu-threads=1 --hashfile=$1 $2
+		duperemove -rdhq --hashfile=$1 $2
 	else
 		echo "duperemove not found"
 		exit 1
