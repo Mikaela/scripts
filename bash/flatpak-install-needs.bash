@@ -31,6 +31,11 @@ if [[ ! -f /usr/bin/firefox ]]; then
 	_flatpak-install flathub-beta org.mozilla.firefox//beta
 fi
 
+# Let's also ensure a Chromium variant exists
+if [[ ! -f /usr/bin/chromium && ! -f /usr/bin/chromium-browser ]]; then
+	_flatpak-install flathub org.chromium.Chromium
+fi
+
 # Alarms
 echo "Alarms: KClock, PublicAlerts and KTeaTime are already installed through nightly apps."
 sleep 3
